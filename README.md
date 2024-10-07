@@ -69,7 +69,8 @@ Este é um projeto para aprendizado de **microcontroladores**.
 ## Como Usar
 
 ```bash
-git clone https://github.com/GuiXavier/Microcontroladores.git ```
+git clone https://github.com/GuiXavier/Microcontroladores.git 
+```
 
 Blocos de Código: Para mostrar blocos de código, use três crases (```) no início e no final:
 # Projeto Microcontrolador - Exemplo Blink LED
@@ -108,4 +109,5 @@ void main(void) {
         RB0 = 0;  
         __delay_ms(500);  // Aguarda 500 ms
     }
-} ```
+} 
+```
