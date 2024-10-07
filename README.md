@@ -44,7 +44,7 @@ Blocos de Código: Para mostrar blocos de código, use três crases (```) no in�
 
 ```python
 def exemplo():
-    print("Hello, world!") ```
+    print("Hello, world!")
 
 # Tabelas: Você pode criar tabelas usando | para separar colunas e - para criar a linha do cabeçalho.
 
