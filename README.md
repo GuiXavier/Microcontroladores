@@ -42,7 +42,7 @@
 
 Blocos de Código: Para mostrar blocos de código, use três crases (```) no início e no final:
 
-```python
+python
 def exemplo():
     print("Hello, world!")
 
