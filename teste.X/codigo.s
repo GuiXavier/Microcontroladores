@@ -59,14 +59,14 @@ PSECT udata
 
 ; ------------------- Vetor de reset -----------------
 
-PSECT code, delta=2, abs
+PSECT code, abs
 ORG	0x00		;Define o endereço inicial de processamento
 goto INICIO	 
 
 ; ------------------- Vetor de interrupções -----------------
-;PSECT intvector, global, class=CODE, delta=2
-;ORG	0x04		;Define o endereço inicial do tratamento de interrupções
-;retfie	
+PSECT code, abs
+ORG	0x04		;Define o endereço inicial do tratamento de interrupções
+retfie
 
 
 ; ------------------- Subrotinas -----------------

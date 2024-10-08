@@ -13,7 +13,7 @@
 %PSECTS
 $build/default/production/codigo.o
 udata RAM 1 20 20 2 1 1
-code CODE 0 0 0 22 2 1
+code CODE 0 0 0 26 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -29,17 +29,17 @@ BANK0 22-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 22-1FFF 2
-ENTRY 22-1FFF 2
+CONST 26-1FFF 2
+ENTRY 26-1FFF 2
 IDLOC 2000-2003 2
-CODE 22-1FFF 2
+CODE 26-1FFF 2
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 22-1FFF 2
-STRING 22-1FFF 2
+STRCODE 26-1FFF 2
+STRING 26-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -55,39 +55,40 @@ STRING 22-1FFF 2
 %LINETAB
 $build/default/production/codigo.o
 0 code CODE >64:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-1 code CODE >75:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-2 code CODE >76:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-3 code CODE >77:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-4 code CODE >78:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-5 code CODE >79:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-6 code CODE >80:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-7 code CODE >81:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-8 code CODE >82:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-9 code CODE >83:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-A code CODE >89:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-B code CODE >90:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-C code CODE >91:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-D code CODE >92:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-E code CODE >93:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-F code CODE >96:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-10 code CODE >96:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-11 code CODE >97:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-12 code CODE >98:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-13 code CODE >99:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-14 code CODE >100:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-15 code CODE >101:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-16 code CODE >102:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-17 code CODE >103:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-18 code CODE >104:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-19 code CODE >105:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-1A code CODE >106:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-1B code CODE >109:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-1C code CODE >109:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-1D code CODE >114:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-1E code CODE >115:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-1F code CODE >116:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-20 code CODE >117:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
-21 code CODE >118:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+4 code CODE >69:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+5 code CODE >75:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+6 code CODE >76:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+7 code CODE >77:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+8 code CODE >78:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+9 code CODE >79:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+A code CODE >80:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+B code CODE >81:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+C code CODE >82:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+D code CODE >83:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+E code CODE >89:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+F code CODE >90:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+10 code CODE >91:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+11 code CODE >92:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+12 code CODE >93:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+13 code CODE >96:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+14 code CODE >96:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+15 code CODE >97:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+16 code CODE >98:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+17 code CODE >99:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+18 code CODE >100:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+19 code CODE >101:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+1A code CODE >102:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+1B code CODE >103:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+1C code CODE >104:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+1D code CODE >105:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+1E code CODE >106:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+1F code CODE >109:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+20 code CODE >109:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+21 code CODE >114:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+22 code CODE >115:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+23 code CODE >116:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+24 code CODE >117:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
+25 code CODE >118:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\teste.X\codigo.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -100,7 +101,7 @@ F code CODE >96:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\te
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 22 0 ABS 0 - -
+__Hspace_0 26 0 ABS 0 - -
 __Hspace_1 22 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
