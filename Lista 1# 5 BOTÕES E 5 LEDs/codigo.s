@@ -51,6 +51,8 @@ PSECT udata
 ; ------------------- Definição de entradas ---------------
 #define BOTAO	PORTD, 0
 
+
+
 ; ------------------- Definição de saídas -----------------
 #define LED		PORTD, 7
 #define LED_ON		bsf PORTD, 7
@@ -64,10 +66,12 @@ ORG	0x00		;Define o endereço inicial de processamento
 goto INICIO	 
 
 ; ------------------- Vetor de interrupções -----------------
+;PSECT intvector, global, class=CODE, delta=2
+;ORG	0x04		;Define o endereço inicial do tratamento de interrupções
+;retfie	
 PSECT code, abs
-ORG	0x04		;Define o endereço inicial do tratamento de interrupções
-retfie
-
+ORG	0x04		;Define o endereço inicial de processamento
+retfie	
 
 ; ------------------- Subrotinas -----------------
 
@@ -110,11 +114,17 @@ bank0				;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
-    Loop:
-
-    BTFSC BOTAO
+loop:
+    btfss BOTAO
+    goto acende
     LED_OFF
-    BTFSS BOTAO
+    goto loop
+acende:
     LED_ON
-    goto Loop
+    goto loop
 end
+    
+    
+    
+
+

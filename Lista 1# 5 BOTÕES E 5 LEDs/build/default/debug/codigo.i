@@ -1537,7 +1537,8 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.inc" 2 3
-# 8 "codigo.s" 2
+# 7 "codigo.s" 2
+
 
     ;Configuração do 'hardware' do microcontrolador
 ; CONFIG
@@ -1584,6 +1585,8 @@ PSECT udata
 ; ------------------- Definição de entradas ---------------
 
 
+
+
 ; ------------------- Definição de saídas -----------------
 
 
@@ -1597,10 +1600,12 @@ ORG 0x00 ;Define o endereço inicial de processamento
 goto INICIO
 
 ; ------------------- Vetor de interrupções -----------------
+;PSECT intvector, global, class=CODE, delta=2
+;ORG 0x04 ;Define o endereço inicial do tratamento de interrupções
+;retfie
 PSECT code, abs
-ORG 0x04 ;Define o endereço inicial do tratamento de interrupções
+ORG 0x04 ;Define o endereço inicial de processamento
 retfie
-
 
 ; ------------------- Subrotinas -----------------
 
@@ -1643,11 +1648,12 @@ bank0 ;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
-    Loop:
-
-    BTFSC PORTD, 0
+loop:
+    btfss PORTD, 0
+    goto acende
     bcf PORTD, 7
-    BTFSS PORTD, 0
+    goto loop
+acende:
     bsf PORTD, 7
-    goto Loop
+    goto loop
 end
