@@ -110,11 +110,11 @@ bank0				;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
-Loop:
-LED_ON	;liga o led
-call DELAY;chama o atraso
-LED_OFF ;deliga o led
-call DELAY;chama o atraso
-goto Loop
-end
+    Loop:
 
+    BTFSC BOTAO
+    LED_OFF
+    BTFSS BOTAO
+    LED_ON
+    goto Loop
+end
