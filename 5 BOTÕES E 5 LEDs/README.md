@@ -5,7 +5,7 @@ escreva um programa em Assembly para o PIC 16F877, para operar com 5 chaves e 5
 botões. Cada chave deve acionar um led distinto ao ser acionada e apaga-lo quando for
 desativada.
 
-```
+``` assembly
 ; Projeto 1 - Exemplo de programa em assembly
 ; Prof. Alessandro
 ; Descrição: Exemplo de projeto em assembly - Para piscar um LED
