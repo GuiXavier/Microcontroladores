@@ -1,6 +1,7 @@
 # 1 "codigo.s"
 # 1 "<built-in>" 1
 # 1 "codigo.s" 2
+
 ; Projeto 1 - Exemplo de programa em assembly
 ; Prof. Alessandro
 ; Descrição: Exemplo de projeto em assembly - Para piscar um LED
@@ -20,9 +21,9 @@ PROCESSOR 16F877
 
 
 # 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\pic_as_chip_select.inc" 1 3
-# 663 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\pic_as_chip_select.inc" 3
-# 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\proc\\pic16f877a.inc" 1 3
-# 47 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\proc\\pic16f877a.inc" 3
+# 653 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\pic_as_chip_select.inc" 3
+# 1 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\proc\\pic16f877.inc" 1 3
+# 47 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\proc\\pic16f877.inc" 3
 INDF equ 0000h
 
 
@@ -311,11 +312,11 @@ INTCON_INTF_POSITION equ 0001h
 INTCON_INTF_SIZE equ 0001h
 INTCON_INTF_LENGTH equ 0001h
 INTCON_INTF_MASK equ 0002h
-INTCON_TMR0IF_POSN equ 0002h
-INTCON_TMR0IF_POSITION equ 0002h
-INTCON_TMR0IF_SIZE equ 0001h
-INTCON_TMR0IF_LENGTH equ 0001h
-INTCON_TMR0IF_MASK equ 0004h
+INTCON_T0IF_POSN equ 0002h
+INTCON_T0IF_POSITION equ 0002h
+INTCON_T0IF_SIZE equ 0001h
+INTCON_T0IF_LENGTH equ 0001h
+INTCON_T0IF_MASK equ 0004h
 INTCON_RBIE_POSN equ 0003h
 INTCON_RBIE_POSITION equ 0003h
 INTCON_RBIE_SIZE equ 0001h
@@ -326,11 +327,11 @@ INTCON_INTE_POSITION equ 0004h
 INTCON_INTE_SIZE equ 0001h
 INTCON_INTE_LENGTH equ 0001h
 INTCON_INTE_MASK equ 0010h
-INTCON_TMR0IE_POSN equ 0005h
-INTCON_TMR0IE_POSITION equ 0005h
-INTCON_TMR0IE_SIZE equ 0001h
-INTCON_TMR0IE_LENGTH equ 0001h
-INTCON_TMR0IE_MASK equ 0020h
+INTCON_T0IE_POSN equ 0005h
+INTCON_T0IE_POSITION equ 0005h
+INTCON_T0IE_SIZE equ 0001h
+INTCON_T0IE_LENGTH equ 0001h
+INTCON_T0IE_MASK equ 0020h
 INTCON_PEIE_POSN equ 0006h
 INTCON_PEIE_POSITION equ 0006h
 INTCON_PEIE_SIZE equ 0001h
@@ -341,16 +342,16 @@ INTCON_GIE_POSITION equ 0007h
 INTCON_GIE_SIZE equ 0001h
 INTCON_GIE_LENGTH equ 0001h
 INTCON_GIE_MASK equ 0080h
-INTCON_T0IF_POSN equ 0002h
-INTCON_T0IF_POSITION equ 0002h
-INTCON_T0IF_SIZE equ 0001h
-INTCON_T0IF_LENGTH equ 0001h
-INTCON_T0IF_MASK equ 0004h
-INTCON_T0IE_POSN equ 0005h
-INTCON_T0IE_POSITION equ 0005h
-INTCON_T0IE_SIZE equ 0001h
-INTCON_T0IE_LENGTH equ 0001h
-INTCON_T0IE_MASK equ 0020h
+INTCON_TMR0IF_POSN equ 0002h
+INTCON_TMR0IF_POSITION equ 0002h
+INTCON_TMR0IF_SIZE equ 0001h
+INTCON_TMR0IF_LENGTH equ 0001h
+INTCON_TMR0IF_MASK equ 0004h
+INTCON_TMR0IE_POSN equ 0005h
+INTCON_TMR0IE_POSITION equ 0005h
+INTCON_TMR0IE_SIZE equ 0001h
+INTCON_TMR0IE_LENGTH equ 0001h
+INTCON_TMR0IE_MASK equ 0020h
 
 
 
@@ -416,11 +417,6 @@ PIR2_EEIF_POSITION equ 0004h
 PIR2_EEIF_SIZE equ 0001h
 PIR2_EEIF_LENGTH equ 0001h
 PIR2_EEIF_MASK equ 0010h
-PIR2_CMIF_POSN equ 0006h
-PIR2_CMIF_POSITION equ 0006h
-PIR2_CMIF_SIZE equ 0001h
-PIR2_CMIF_LENGTH equ 0001h
-PIR2_CMIF_MASK equ 0040h
 
 
 
@@ -459,11 +455,6 @@ T1CON_T1CKPS_POSITION equ 0004h
 T1CON_T1CKPS_SIZE equ 0002h
 T1CON_T1CKPS_LENGTH equ 0002h
 T1CON_T1CKPS_MASK equ 0030h
-T1CON_T1SYNC_POSN equ 0002h
-T1CON_T1SYNC_POSITION equ 0002h
-T1CON_T1SYNC_SIZE equ 0001h
-T1CON_T1SYNC_LENGTH equ 0001h
-T1CON_T1SYNC_MASK equ 0004h
 T1CON_T1CKPS0_POSN equ 0004h
 T1CON_T1CKPS0_POSITION equ 0004h
 T1CON_T1CKPS0_SIZE equ 0001h
@@ -479,6 +470,11 @@ T1CON_T1INSYNC_POSITION equ 0002h
 T1CON_T1INSYNC_SIZE equ 0001h
 T1CON_T1INSYNC_LENGTH equ 0001h
 T1CON_T1INSYNC_MASK equ 0004h
+T1CON_T1SYNC_POSN equ 0002h
+T1CON_T1SYNC_POSITION equ 0002h
+T1CON_T1SYNC_SIZE equ 0001h
+T1CON_T1SYNC_LENGTH equ 0001h
+T1CON_T1SYNC_MASK equ 0004h
 
 
 
@@ -1150,11 +1146,6 @@ PIE2_EEIE_POSITION equ 0004h
 PIE2_EEIE_SIZE equ 0001h
 PIE2_EEIE_LENGTH equ 0001h
 PIE2_EEIE_MASK equ 0010h
-PIE2_CMIE_POSN equ 0006h
-PIE2_CMIE_POSITION equ 0006h
-PIE2_CMIE_SIZE equ 0001h
-PIE2_CMIE_LENGTH equ 0001h
-PIE2_CMIE_MASK equ 0040h
 
 
 
@@ -1405,101 +1396,6 @@ SPBRG equ 0099h
 
 
 
-CMCON equ 009Ch
-
-CMCON_CM_POSN equ 0000h
-CMCON_CM_POSITION equ 0000h
-CMCON_CM_SIZE equ 0003h
-CMCON_CM_LENGTH equ 0003h
-CMCON_CM_MASK equ 0007h
-CMCON_CIS_POSN equ 0003h
-CMCON_CIS_POSITION equ 0003h
-CMCON_CIS_SIZE equ 0001h
-CMCON_CIS_LENGTH equ 0001h
-CMCON_CIS_MASK equ 0008h
-CMCON_C1INV_POSN equ 0004h
-CMCON_C1INV_POSITION equ 0004h
-CMCON_C1INV_SIZE equ 0001h
-CMCON_C1INV_LENGTH equ 0001h
-CMCON_C1INV_MASK equ 0010h
-CMCON_C2INV_POSN equ 0005h
-CMCON_C2INV_POSITION equ 0005h
-CMCON_C2INV_SIZE equ 0001h
-CMCON_C2INV_LENGTH equ 0001h
-CMCON_C2INV_MASK equ 0020h
-CMCON_C1OUT_POSN equ 0006h
-CMCON_C1OUT_POSITION equ 0006h
-CMCON_C1OUT_SIZE equ 0001h
-CMCON_C1OUT_LENGTH equ 0001h
-CMCON_C1OUT_MASK equ 0040h
-CMCON_C2OUT_POSN equ 0007h
-CMCON_C2OUT_POSITION equ 0007h
-CMCON_C2OUT_SIZE equ 0001h
-CMCON_C2OUT_LENGTH equ 0001h
-CMCON_C2OUT_MASK equ 0080h
-CMCON_CM0_POSN equ 0000h
-CMCON_CM0_POSITION equ 0000h
-CMCON_CM0_SIZE equ 0001h
-CMCON_CM0_LENGTH equ 0001h
-CMCON_CM0_MASK equ 0001h
-CMCON_CM1_POSN equ 0001h
-CMCON_CM1_POSITION equ 0001h
-CMCON_CM1_SIZE equ 0001h
-CMCON_CM1_LENGTH equ 0001h
-CMCON_CM1_MASK equ 0002h
-CMCON_CM2_POSN equ 0002h
-CMCON_CM2_POSITION equ 0002h
-CMCON_CM2_SIZE equ 0001h
-CMCON_CM2_LENGTH equ 0001h
-CMCON_CM2_MASK equ 0004h
-
-
-
-CVRCON equ 009Dh
-
-CVRCON_CVR_POSN equ 0000h
-CVRCON_CVR_POSITION equ 0000h
-CVRCON_CVR_SIZE equ 0004h
-CVRCON_CVR_LENGTH equ 0004h
-CVRCON_CVR_MASK equ 000Fh
-CVRCON_CVRR_POSN equ 0005h
-CVRCON_CVRR_POSITION equ 0005h
-CVRCON_CVRR_SIZE equ 0001h
-CVRCON_CVRR_LENGTH equ 0001h
-CVRCON_CVRR_MASK equ 0020h
-CVRCON_CVROE_POSN equ 0006h
-CVRCON_CVROE_POSITION equ 0006h
-CVRCON_CVROE_SIZE equ 0001h
-CVRCON_CVROE_LENGTH equ 0001h
-CVRCON_CVROE_MASK equ 0040h
-CVRCON_CVREN_POSN equ 0007h
-CVRCON_CVREN_POSITION equ 0007h
-CVRCON_CVREN_SIZE equ 0001h
-CVRCON_CVREN_LENGTH equ 0001h
-CVRCON_CVREN_MASK equ 0080h
-CVRCON_CVR0_POSN equ 0000h
-CVRCON_CVR0_POSITION equ 0000h
-CVRCON_CVR0_SIZE equ 0001h
-CVRCON_CVR0_LENGTH equ 0001h
-CVRCON_CVR0_MASK equ 0001h
-CVRCON_CVR1_POSN equ 0001h
-CVRCON_CVR1_POSITION equ 0001h
-CVRCON_CVR1_SIZE equ 0001h
-CVRCON_CVR1_LENGTH equ 0001h
-CVRCON_CVR1_MASK equ 0002h
-CVRCON_CVR2_POSN equ 0002h
-CVRCON_CVR2_POSITION equ 0002h
-CVRCON_CVR2_SIZE equ 0001h
-CVRCON_CVR2_LENGTH equ 0001h
-CVRCON_CVR2_MASK equ 0004h
-CVRCON_CVR3_POSN equ 0003h
-CVRCON_CVR3_POSITION equ 0003h
-CVRCON_CVR3_SIZE equ 0001h
-CVRCON_CVR3_LENGTH equ 0001h
-CVRCON_CVR3_MASK equ 0008h
-
-
-
 ADRESL equ 009Eh
 
 
@@ -1511,11 +1407,6 @@ ADCON1_PCFG_POSITION equ 0000h
 ADCON1_PCFG_SIZE equ 0004h
 ADCON1_PCFG_LENGTH equ 0004h
 ADCON1_PCFG_MASK equ 000Fh
-ADCON1_ADCS2_POSN equ 0006h
-ADCON1_ADCS2_POSITION equ 0006h
-ADCON1_ADCS2_SIZE equ 0001h
-ADCON1_ADCS2_LENGTH equ 0001h
-ADCON1_ADCS2_MASK equ 0040h
 ADCON1_ADFM_POSN equ 0007h
 ADCON1_ADFM_POSITION equ 0007h
 ADCON1_ADFM_SIZE equ 0001h
@@ -1591,7 +1482,7 @@ EECON1_EEPGD_MASK equ 0080h
 
 
 EECON2 equ 018Dh
-# 1879 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\proc\\pic16f877a.inc" 3
+# 1751 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\proc\\pic16f877.inc" 3
 psect udata_shr,class=COMMON,space=1,noexec
 psect udata,class=RAM,space=1,noexec
 psect udata_bank0,class=BANK0,space=1,noexec
@@ -1601,7 +1492,7 @@ psect udata_bank3,class=BANK3,space=1,noexec
 psect code,class=CODE,space=0,delta=2
 psect data,class=STRCODE,space=0,delta=2,noexec
 psect edata,class=EEDATA,space=3,delta=2,noexec
-# 664 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\pic_as_chip_select.inc" 2 3
+# 654 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\pic_as_chip_select.inc" 2 3
 # 5 "C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\\pic\\include\\pic.inc" 2 3
 
 
@@ -1647,7 +1538,7 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.inc" 2 3
-# 7 "codigo.s" 2
+# 8 "codigo.s" 2
 
 
     ;Configuração do 'hardware' do microcontrolador
@@ -1693,15 +1584,7 @@ PSECT udata
  TEMP2:DS 1
 
 ; ------------------- Definição de entradas ---------------
-
-
-; AS ENTRADAS ABAIXOS FORAM ADICIONADAS
-
-
-
-
-
-
+# 61 "codigo.s"
 ; ------------------- Definição de saídas -----------------
 
 
@@ -1752,7 +1635,7 @@ clrf PORTE
 bank1 ;ALTERA PARA O BANCO 1.
 movlw 0xFF ; Coloca todos os pinos como entrada (menos o ((PORTB) and 07Fh), 7) H`FF` -> W -> TRISA
 movwf TRISA ; Assim, os pinos que não iremos utilizar
-movlw 0000001B ; ficam em alta impedância e não correm o risco
+movlw 0000000B ; ficam em alta impedância e não correm o risco
 movwf TRISB ; de queimar por algum motivo
 movlw 0xFF
 movwf TRISC
@@ -1761,56 +1644,65 @@ movwf TRISD
 movlw 0xFF
 movwf TRISE
 ;bcf TRISB, 7
+movlw 7 ; colocar com 7 coloca no acumulador movlw
+movwf ADCON1 ; funcao movwf move o 7 para o ADCON1
+
 
 bank0 ;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
 loop:
-    btfss PORTD, 0
-    goto acende
-    bcf PORTD, 7
-    goto loop
-acende:
+    btfsc PORTD, 0
+    goto apaga
     bsf PORTD, 7
     goto loop
 
-; parte adicionada (talvez errada)
-
 loop1:
-    btfss PORTA, 0
-    goto acende1
-    bcf PORTB, 1
-    goto loop1
-acende1:
-    bsf PORTB, 1
+    btfsc PORTA, 0
+    goto apaga1
+    bsf PORTB, 0
     goto loop1
 
 loop2:
-    btfss PORTA, 1
-    goto acende2
-    bcf PORTB, 2
-    goto loop2
-acende2:
-    bsf PORTB, 2
+    btfsc PORTA, 1
+    goto apaga2
+    bsf PORTB, 1
     goto loop2
 
 loop3:
-    btfss PORTA, 2
-    goto acende3
-    bcf PORTB, 3
-    goto loop3
-acende3:
-    bsf PORTB, 3
+    btfsc PORTA, 2
+    goto apaga3
+    bsf PORTB, 2
     goto loop3
 
 loop4:
-    btfss PORTA, 3
-    goto acende4
-    bcf PORTB, 4
-    goto loop4
-acende4:
-    bsf PORTB, 4
+    btfsc PORTA, 3
+    goto apaga4
+    bsf PORTB, 3
     goto loop4
 
-end
+apaga:
+    bcf PORTD, 7
+    goto loop1
+
+; parte adicionada (talvez errada)
+
+
+apaga1:
+     bcf PORTB, 0 ; bit-clear-file
+     goto loop2
+
+apaga2:
+     bcf PORTB, 1
+     goto loop3
+
+apaga3:
+
+     bcf PORTB, 2
+     goto loop4
+apaga4:
+
+     bcf PORTB, 3
+     goto loop
+ end

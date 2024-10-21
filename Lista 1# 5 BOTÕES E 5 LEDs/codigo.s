@@ -1,3 +1,4 @@
+
 ; Projeto 1 - Exemplo de programa em assembly
 ; Prof. Alessandro
 ; Descrição: Exemplo de projeto em assembly - Para piscar um LED
@@ -51,7 +52,6 @@ PSECT udata
 ; ------------------- Definição de entradas ---------------
 #define BOTAO	PORTD, 0 
     
-; AS ENTRADAS ABAIXOS FORAM ADICIONADAS    
 #define BOTAO1  PORTA, 0
 #define BOTAO2  PORTA, 1
 #define BOTAO3  PORTA, 2
@@ -59,27 +59,27 @@ PSECT udata
 
 
 ; ------------------- Definição de saídas -----------------
-#define LED		PORTD, 7
+#define LED			PORTD, 7
 #define LED_ON		bsf PORTD, 7
 #define LED_OFF 	bcf PORTD, 7
     
 ; TALVEZ OS DE BAIXO TENHA QUE ALTERAR AS VARIAVEIS    ADICIONADO
     
-#define LED1			PORTB, 1  
-#define LED1_ON		bsf	PORTB, 1      
-#define LED1_OFF	bcf	PORTB, 1
+#define LED1			PORTB, 0  
+#define LED1_ON		bsf	PORTB, 0      
+#define LED1_OFF	bcf	PORTB, 0 ; bit-clear-file 
     
-#define LED2			PORTB, 2  
-#define LED2_ON		bsf	PORTB, 2      
-#define LED2_OFF	bcf	PORTB, 2
+#define LED2			PORTB, 1  
+#define LED2_ON		bsf	PORTB, 1      
+#define LED2_OFF	bcf	PORTB, 1
     
-#define LED3			PORTB, 3  
-#define LED3_ON		bsf	PORTB, 3      
-#define LED3_OFF	bcf	PORTB, 3    
+#define LED3			PORTB, 2  
+#define LED3_ON		bsf	PORTB, 2      
+#define LED3_OFF	bcf	PORTB, 2    
 
-#define LED4			PORTB, 4  
-#define LED4_ON		bsf	PORTB, 4      
-#define LED4_OFF	bcf	PORTB, 4    
+#define LED4			PORTB, 3  
+#define LED4_ON		bsf	PORTB, 3      
+#define LED4_OFF	bcf	PORTB, 3    
     
 ; ------------------- Vetor de reset -----------------
 
@@ -124,7 +124,7 @@ clrf	PORTE
 bank1		;ALTERA PARA O BANCO 1.
 movlw	0xFF	; Coloca todos os pinos como entrada (menos o RB7) H`FF` -> W -> TRISA
 movwf	TRISA	; Assim, os pinos que não iremos utilizar
-movlw	0000001B ; ficam em alta impedância e não correm o risco
+movlw	0000000B ; ficam em alta impedância e não correm o risco
 movwf	TRISB	; de queimar por algum motivo
 movlw	0xFF
 movwf	TRISC
@@ -133,63 +133,68 @@ movwf	TRISD
 movlw	0xFF
 movwf	TRISE
 ;bcf 	TRISB, 7
-
+movlw   7		; colocar com 7 coloca no acumulador movlw 
+movwf   ADCON1		; funcao movwf move o 7 para o ADCON1 
+    
+    
 bank0				;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
 loop:
-    btfss BOTAO
-    goto acende
-    LED_OFF
-    goto loop
-acende:
+    btfsc BOTAO
+    goto apaga
     LED_ON
     goto loop
+
+loop1:    
+    btfsc BOTAO1
+    goto apaga1
+    LED1_ON
+    goto loop1
     
+loop2:
+    btfsc BOTAO2
+    goto apaga2
+    LED2_ON
+    goto loop2
+    
+loop3:  
+    btfsc BOTAO3
+    goto apaga3
+    LED3_ON
+    goto loop3
+    
+loop4:   
+    btfsc BOTAO4
+    goto apaga4
+    LED4_ON
+    goto loop4
+    
+apaga:
+    LED_OFF
+    goto loop1
+   
 ; parte adicionada (talvez errada)    
     
-loop1:
-    btfss BOTAO1
-    goto acende1
-    LED1_OFF
-    goto loop1
-acende1:
-    LED1_ON
-    goto loop1    
-
-loop2:
-    btfss BOTAO2
-    goto acende2
-    LED2_OFF
-    goto loop2
-acende2:
-    LED2_ON
-    goto loop2    
-        
-loop3:
-    btfss BOTAO3
-    goto acende3
-    LED3_OFF
-    goto loop3
-acende3:
-    LED3_ON
-    goto loop3      
-
-loop4:
-    btfss BOTAO4
-    goto acende4
-    LED4_OFF
-    goto loop4
-acende4:
-    LED4_ON
-    goto loop4     
     
-end
+apaga1:
+	    LED1_OFF
+	    goto loop2
     
+apaga2:
+	    LED2_OFF
+	    goto loop3
+	    
+apaga3:
     
-    
-    
-    
+	    LED3_OFF
+	    goto loop4
+apaga4:
+	    
+	    LED4_OFF
+	    goto loop
+ end  
+   
 
 
