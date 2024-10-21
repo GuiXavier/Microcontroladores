@@ -49,16 +49,38 @@ PSECT udata
  TEMP2:DS 1
     
 ; ------------------- Definição de entradas ---------------
-#define BOTAO	PORTD, 0
-
+#define BOTAO	PORTD, 0 
+    
+; AS ENTRADAS ABAIXOS FORAM ADICIONADAS    
+#define BOTAO1  PORTA, 0
+#define BOTAO2  PORTA, 1
+#define BOTAO3  PORTA, 2
+#define BOTAO4  PORTA, 3    
 
 
 ; ------------------- Definição de saídas -----------------
 #define LED		PORTD, 7
 #define LED_ON		bsf PORTD, 7
 #define LED_OFF 	bcf PORTD, 7
+    
+; TALVEZ OS DE BAIXO TENHA QUE ALTERAR AS VARIAVEIS    ADICIONADO
+    
+#define LED1			PORTB, 1  
+#define LED1_ON		bsf	PORTB, 1      
+#define LED1_OFF	bcf	PORTB, 1
+    
+#define LED2			PORTB, 2  
+#define LED2_ON		bsf	PORTB, 2      
+#define LED2_OFF	bcf	PORTB, 2
+    
+#define LED3			PORTB, 3  
+#define LED3_ON		bsf	PORTB, 3      
+#define LED3_OFF	bcf	PORTB, 3    
 
-
+#define LED4			PORTB, 4  
+#define LED4_ON		bsf	PORTB, 4      
+#define LED4_OFF	bcf	PORTB, 4    
+    
 ; ------------------- Vetor de reset -----------------
 
 PSECT code, abs
@@ -95,6 +117,8 @@ clrf	PORTB	; que não há informações remanescentes
 clrf	PORTC
 clrf	PORTD
 clrf	PORTE
+    
+    
 
 ; ------------------- Configurações do microcontrolador -------------
 bank1		;ALTERA PARA O BANCO 1.
@@ -122,7 +146,48 @@ loop:
 acende:
     LED_ON
     goto loop
+    
+; parte adicionada (talvez errada)    
+    
+loop1:
+    btfss BOTAO1
+    goto acende1
+    LED1_OFF
+    goto loop1
+acende1:
+    LED1_ON
+    goto loop1    
+
+loop2:
+    btfss BOTAO2
+    goto acende2
+    LED2_OFF
+    goto loop2
+acende2:
+    LED2_ON
+    goto loop2    
+        
+loop3:
+    btfss BOTAO3
+    goto acende3
+    LED3_OFF
+    goto loop3
+acende3:
+    LED3_ON
+    goto loop3      
+
+loop4:
+    btfss BOTAO4
+    goto acende4
+    LED4_OFF
+    goto loop4
+acende4:
+    LED4_ON
+    goto loop4     
+    
 end
+    
+    
     
     
     

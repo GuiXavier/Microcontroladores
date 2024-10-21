@@ -1537,7 +1537,8 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.inc" 2 3
-# 8 "codigo.s" 2
+# 7 "codigo.s" 2
+
 
     ;Configuração do 'hardware' do microcontrolador
 ; CONFIG
@@ -1584,12 +1585,20 @@ PSECT udata
 ; ------------------- Definição de entradas ---------------
 
 
+; AS ENTRADAS ABAIXOS FORAM ADICIONADAS
+
+
+
+
+
+
 ; ------------------- Definição de saídas -----------------
 
 
 
 
-
+; TALVEZ OS DE BAIXO TENHA QUE ALTERAR AS VARIAVEIS ADICIONADO
+# 84 "codigo.s"
 ; ------------------- Vetor de reset -----------------
 
 PSECT code, abs
@@ -1597,10 +1606,12 @@ ORG 0x00 ;Define o endereço inicial de processamento
 goto INICIO
 
 ; ------------------- Vetor de interrupções -----------------
+;PSECT intvector, global, class=CODE, delta=2
+;ORG 0x04 ;Define o endereço inicial do tratamento de interrupções
+;retfie
 PSECT code, abs
-ORG 0x04 ;Define o endereço inicial do tratamento de interrupções
+ORG 0x04 ;Define o endereço inicial de processamento
 retfie
-
 
 ; ------------------- Subrotinas -----------------
 
@@ -1625,6 +1636,8 @@ clrf PORTC
 clrf PORTD
 clrf PORTE
 
+
+
 ; ------------------- Configurações do microcontrolador -------------
 bank1 ;ALTERA PARA O BANCO 1.
 movlw 0xFF ; Coloca todos os pinos como entrada (menos o ((PORTB) and 07Fh), 7) H`FF` -> W -> TRISA
@@ -1643,10 +1656,51 @@ bank0 ;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
-Loop:
-bsf PORTD, 7 ;liga o led
-call DELAY;chama o atraso
-bcf PORTD, 7 ;deliga o led
-call DELAY;chama o atraso
-goto Loop
+loop:
+    btfss PORTD, 0
+    goto acende
+    bcf PORTD, 7
+    goto loop
+acende:
+    bsf PORTD, 7
+    goto loop
+
+; parte adicionada (talvez errada)
+
+loop1:
+    btfss PORTA, 0
+    goto acende1
+    bcf PORTB, 1
+    goto loop1
+acende1:
+    bsf PORTB, 1
+    goto loop1
+
+loop2:
+    btfss PORTA, 1
+    goto acende2
+    bcf PORTB, 2
+    goto loop2
+acende2:
+    bsf PORTB, 2
+    goto loop2
+
+loop3:
+    btfss PORTA, 2
+    goto acende3
+    bcf PORTB, 3
+    goto loop3
+acende3:
+    bsf PORTB, 3
+    goto loop3
+
+loop4:
+    btfss PORTA, 3
+    goto acende4
+    bcf PORTB, 4
+    goto loop4
+acende4:
+    bsf PORTB, 4
+    goto loop4
+
 end
