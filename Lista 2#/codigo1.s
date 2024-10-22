@@ -49,38 +49,44 @@ PSECT udata
  TEMP1:DS 1
  TEMP2:DS 1
     
-; ------------------- Definição de entradas ---------------
-#define BOTAO	PORTD, 0 
-    
-#define BOTAO1  PORTA, 0
-#define BOTAO2  PORTA, 1
-#define BOTAO3  PORTA, 2
-#define BOTAO4  PORTA, 3    
-
-
+; ------------------- Definição de entradas ---------------   
+#define BOTAO  PORTA, 0
+  
 ; ------------------- Definição de saídas -----------------
-#define LED			PORTD, 7
-#define LED_ON		bsf PORTD, 7
-#define LED_OFF 	bcf PORTD, 7
-    
-; TALVEZ OS DE BAIXO TENHA QUE ALTERAR AS VARIAVEIS    ADICIONADO
-    
-#define LED1			PORTB, 0  
-#define LED1_ON		bsf	PORTB, 0      
-#define LED1_OFF	bcf	PORTB, 0 ; bit-clear-file 
-    
-#define LED2			PORTB, 1  
-#define LED2_ON		bsf	PORTB, 1      
-#define LED2_OFF	bcf	PORTB, 1
-    
-#define LED3			PORTB, 2  
-#define LED3_ON		bsf	PORTB, 2      
-#define LED3_OFF	bcf	PORTB, 2    
 
-#define LED4			PORTB, 3  
-#define LED4_ON		bsf	PORTB, 3      
-#define LED4_OFF	bcf	PORTB, 3    
+#define LED			PORTD, 0  
+#define LED_ON		bsf	PORTD, 0      
+#define LED_OFF		bcf	PORTD, 0 ; bit-clear-file 
     
+#define LED1			PORTD, 1  
+#define LED1_ON		bsf	PORTD, 1      
+#define LED1_OFF	bcf	PORTD, 1
+    
+#define LED2			PORTD, 2  
+#define LED2_ON		bsf	PORTD, 2      
+#define LED2_OFF	bcf	PORTD, 2    
+
+#define LED3			PORTD, 3  
+#define LED3_ON		bsf	PORTD, 3      
+#define LED3_OFF	bcf	PORTD, 3    
+    
+#define LED4			PORTD, 4
+#define LED4_ON		bsf	PORTD, 4
+#define LED4_OFF 	bcf	PORTD, 4
+    
+#define LED5			PORTD, 5
+#define LED5_ON		bsf	PORTD, 5
+#define LED5_OFF 	bcf	PORTD, 5
+    
+#define LED6			PORTD, 6
+#define LED6_ON		bsf	PORTD, 6
+#define LED6_OFF 	bcf	PORTD, 6
+    
+#define LED7			PORTD, 7
+#define LED7_ON		bsf	PORTD, 7
+#define LED7_OFF 	bcf	PORTD, 7   
+    
+
 ; ------------------- Vetor de reset -----------------
 
 PSECT code, abs
