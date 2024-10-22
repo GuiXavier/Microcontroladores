@@ -50,42 +50,12 @@ PSECT udata
  TEMP2:DS 1
     
 ; ------------------- Definição de entradas ---------------   
-  
+#define BOTAO			PORTA, 0  
 ; ------------------- Definição de saídas -----------------
 
-#define LED			PORTD, 0  
-#define LED_ON		bsf	PORTD, 0      
-#define LED_OFF		bcf	PORTD, 0 ; bit-clear-file 
-    
-#define LED1			PORTD, 1  
-#define LED1_ON		bsf	PORTD, 1      
-#define LED1_OFF	bcf	PORTD, 1
-    
-#define LED2			PORTD, 2  
-#define LED2_ON		bsf	PORTD, 2      
-#define LED2_OFF	bcf	PORTD, 2    
-
-#define LED3			PORTD, 3  
-#define LED3_ON		bsf	PORTD, 3      
-#define LED3_OFF	bcf	PORTD, 3    
-    
-#define LED4			PORTD, 4
-#define LED4_ON		bsf	PORTD, 4
-#define LED4_OFF 	bcf	PORTD, 4
-    
-#define LED5			PORTD, 5
-#define LED5_ON		bsf	PORTD, 5
-#define LED5_OFF 	bcf	PORTD, 5
-    
-#define LED6			PORTD, 6
-#define LED6_ON		bsf	PORTD, 6
-#define LED6_OFF 	bcf	PORTD, 6
-    
-#define LED7			PORTD, 7
-#define LED7_ON		bsf	PORTD, 7
-#define LED7_OFF 	bcf	PORTD, 7   
     
 
+	
 ; ------------------- Vetor de reset -----------------
 
 PSECT code, abs
@@ -146,68 +116,22 @@ bank0				;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
+movlw 1
+movwf PORTD
+
 loop:
+	btfsc BOTAO 
+	goto direita    
+	rlf  PORTD
+	call DELAY
+	goto loop     
+direita:
+	rrf PORTD
+	call DELAY
+	goto loop
+end
     
-    LED_ON
-    call DELAY 
-    LED_OFF
-    goto loop1
-
-loop1:  
-    
-    LED1_ON
-    call DELAY
-    LED1_OFF
-    goto loop2
-    
-loop2:
-    
-    LED2_ON
-    call DELAY
-    LED2_OFF
-    goto loop3
-    
-loop3:  
-    
-    LED3_ON
-    call DELAY
-    LED3_OFF
-    goto loop4
-    
-loop4:   
-    
-   
-    LED4_ON
-    call DELAY
-    LED4_OFF
-    goto loop5
-    
-loop5: 
-    
-    LED5_ON
-    call DELAY
-    LED5_OFF
-    goto loop6
-    
-loop6:
-    
-    LED6_ON
-    call DELAY
-    LED6_OFF
-    goto loop7
-    
-loop7:
-    
-    LED7_ON
-    call DELAY
-    LED7_OFF
-    goto loop
-   
-; parte adicionada (talvez errada)    
-    
-    
-
- end  
+ 
    
 
 

@@ -1585,7 +1585,10 @@ PSECT udata
 ; ------------------- Definição de entradas ---------------
 
 ; ------------------- Definição de saídas -----------------
-# 89 "codigo1.s"
+
+
+
+
 ; ------------------- Vetor de reset -----------------
 
 PSECT code, abs
@@ -1646,65 +1649,17 @@ bank0 ;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
+movlw 1
+movwf PORTD
+
 loop:
-
-    bsf PORTD, 0
-    call DELAY
-    bcf PORTD, 0 ; bit-clear-file
-    goto loop1
-
-loop1:
-
-    bsf PORTD, 1
-    call DELAY
-    bcf PORTD, 1
-    goto loop2
-
-loop2:
-
-    bsf PORTD, 2
-    call DELAY
-    bcf PORTD, 2
-    goto loop3
-
-loop3:
-
-    bsf PORTD, 3
-    call DELAY
-    bcf PORTD, 3
-    goto loop4
-
-loop4:
-
-
-    bsf PORTD, 4
-    call DELAY
-    bcf PORTD, 4
-    goto loop5
-
-loop5:
-
-    bsf PORTD, 5
-    call DELAY
-    bcf PORTD, 5
-    goto loop6
-
-loop6:
-
-    bsf PORTD, 6
-    call DELAY
-    bcf PORTD, 6
-    goto loop7
-
-loop7:
-
-    bsf PORTD, 7
-    call DELAY
-    bcf PORTD, 7
-    goto loop
-
-; parte adicionada (talvez errada)
-
-
-
- end
+ btfsc PORTA, 0
+ goto direita
+ rlf PORTD
+ call DELAY
+ goto loop
+direita:
+ rrf PORTD
+ call DELAY
+ goto loop
+end

@@ -4,12 +4,12 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
-  -cs -h+dist/default/debug\Lista_2_.debug.sym \
-  --cmf=dist/default/debug\Lista_2_.debug.cmf -z -Q16F877 \
-  -oC:\Users\Yan\AppData\Local\Temp\xcAshe4.\driver_tmp_3.o \
+  -cs -h+dist/default/debug\Lista_2__8_LEDs_com_BOTAO_de_inversao.debug.sym \
+  --cmf=dist/default/debug\Lista_2__8_LEDs_com_BOTAO_de_inversao.debug.cmf \
+  -z -Q16F877 -oC:\Users\Yan\AppData\Local\Temp\xcAs858.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
-  -Mdist/default/debug/Lista_2_.debug.map -E1 --acfsm=1493 \
-  -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
+  -Mdist/default/debug/Lista_2__8_LEDs_com_BOTAO_de_inversao.debug.map -E1 \
+  --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
   -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
   -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
   -ABANK3=0190h-01EFh -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
@@ -28,12 +28,12 @@ Machine type is 16F877
                 Name                               Link     Load   Length Selector   Space Scale
 build/default/debug/codigo1.o
                 config                             2007     2007        1        0       4
-                code                                  0        0       43        0       0
+                code                                  0        0       2D        0       0
                 udata                                20       20        2       20       1
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                code                                  0        0       43         0
+                code                                  0        0       2D         0
 
         CLASS   STRCODE        
 
@@ -87,27 +87,27 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0043-1FFF            800           2
+        CODE             002D-1FFF            800           2
         COMMON           0070-007F             10           1
-        CONST            0043-1FFF            100           2
+        CONST            002D-1FFF            100           2
         EEDATA           2100-21FF            100           2
-        ENTRY            0043-1FFF            100           2
+        ENTRY            002D-1FFF            100           2
         IDLOC            2000-2003              4           2
         RAM              0022-006F             4E           1
                          00A0-00EF             50
                          0110-016F             60
                          0190-01EF             60
-        SFR1             0086-009F             1A           1
+        SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          0043-1FFF           1FBD           2
-        STRING           0043-1FFF            100           2
+        STRCODE          002D-1FFF           1FD3           2
+        STRING           002D-1FFF            100           2
 
                                   Symbol Table
 
 __H__absolute__ __absolute__ 0000  __Hcode         code         0000
 __Hconfig       config       2008  __Hdata         data         0000
-__Hedata        edata        0000  __Hspace_0      (abs)        0043
+__Hedata        edata        0000  __Hspace_0      (abs)        002D
 __Hspace_1      (abs)        0022  __Hspace_3      (abs)        0000
 __Hspace_4      (abs)        400F  __Hudata        udata        0000
 __Hudata_bank0  udata_bank0  0000  __Hudata_bank1  udata_bank1  0000

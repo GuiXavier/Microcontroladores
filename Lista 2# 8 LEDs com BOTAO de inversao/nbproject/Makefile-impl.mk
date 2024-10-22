@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Lista 2#
+PROJECTNAME=Lista 2# 8 LEDs com BOTAO de inversao
 
 # Active Configuration
 DEFAULTCONF=default
