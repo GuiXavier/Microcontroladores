@@ -140,7 +140,7 @@ movlw	0xFF
 movwf	TRISE
 ;bcf 	TRISB, 7
 movlw   7		; colocar com 7 coloca no acumulador movlw 
-movwf   ADCON1		; funcao movwf move o 7 para o ADCON1 
+movwf   ADCON1		; funcao movwf move o 7 para o ADCON1     definindo a PORTA como entrada
     
     
 bank0				;RETORNA PARA O BANCO 0.
