@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=codigo.s
+SOURCEFILES_QUOTED_IF_SPACED=codigo1.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/codigo.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/codigo.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/codigo1.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/codigo1.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/codigo.o
+OBJECTFILES=${OBJECTDIR}/codigo1.o
 
 # Source Files
-SOURCEFILES=codigo.s
+SOURCEFILES=codigo1.s
 
 
 
@@ -89,21 +89,21 @@ FINAL_IMAGE_NAME_MINUS_EXTENSION=${DISTDIR}/Lista_2_.${IMAGE_TYPE}
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: pic-as-assembler
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/codigo.o: codigo.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/codigo1.o: codigo1.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/codigo.o 
+	@${RM} ${OBJECTDIR}/codigo1.o 
 	${MP_AS} -mcpu=PIC16F877 -c \
-	-o ${OBJECTDIR}/codigo.o \
-	codigo.s \
+	-o ${OBJECTDIR}/codigo1.o \
+	codigo1.s \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 else
-${OBJECTDIR}/codigo.o: codigo.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/codigo1.o: codigo1.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/codigo.o 
+	@${RM} ${OBJECTDIR}/codigo1.o 
 	${MP_AS} -mcpu=PIC16F877 -c \
-	-o ${OBJECTDIR}/codigo.o \
-	codigo.s \
+	-o ${OBJECTDIR}/codigo1.o \
+	codigo1.s \
 	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif

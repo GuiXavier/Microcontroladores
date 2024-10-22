@@ -1,4 +1,3 @@
-
 ; Projeto 1 - Exemplo de programa em assembly
 ; Prof. Alessandro
 ; Descrição: Exemplo de projeto em assembly - Para piscar um LED
@@ -50,40 +49,17 @@ PSECT udata
  TEMP2:DS 1
     
 ; ------------------- Definição de entradas ---------------
-#define BOTAO	PORTD, 0 
-    
-#define BOTAO1  PORTA, 0
-#define BOTAO2  PORTA, 1
-#define BOTAO3  PORTA, 2
-#define BOTAO4  PORTA, 3    
-
+#define BOTAO	PORTD, 0
 
 ; ------------------- Definição de saídas -----------------
-#define LED			PORTD, 7
+#define LED		PORTD, 7
 #define LED_ON		bsf PORTD, 7
 #define LED_OFF 	bcf PORTD, 7
-    
-; TALVEZ OS DE BAIXO TENHA QUE ALTERAR AS VARIAVEIS    ADICIONADO
-    
-#define LED1			PORTB, 0  
-#define LED1_ON		bsf	PORTB, 0      
-#define LED1_OFF	bcf	PORTB, 0 ; bit-clear-file 
-    
-#define LED2			PORTB, 1  
-#define LED2_ON		bsf	PORTB, 1      
-#define LED2_OFF	bcf	PORTB, 1
-    
-#define LED3			PORTB, 2  
-#define LED3_ON		bsf	PORTB, 2      
-#define LED3_OFF	bcf	PORTB, 2    
 
-#define LED4			PORTB, 3  
-#define LED4_ON		bsf	PORTB, 3      
-#define LED4_OFF	bcf	PORTB, 3    
-    
+
 ; ------------------- Vetor de reset -----------------
 
-PSECT code, abs
+PSECT code, delta=2, abs
 ORG	0x00		;Define o endereço inicial de processamento
 goto INICIO	 
 
@@ -91,9 +67,7 @@ goto INICIO
 ;PSECT intvector, global, class=CODE, delta=2
 ;ORG	0x04		;Define o endereço inicial do tratamento de interrupções
 ;retfie	
-PSECT code, abs
-ORG	0x04		;Define o endereço inicial de processamento
-retfie	
+
 
 ; ------------------- Subrotinas -----------------
 
@@ -117,14 +91,12 @@ clrf	PORTB	; que não há informações remanescentes
 clrf	PORTC
 clrf	PORTD
 clrf	PORTE
-    
-    
 
 ; ------------------- Configurações do microcontrolador -------------
 bank1		;ALTERA PARA O BANCO 1.
 movlw	0xFF	; Coloca todos os pinos como entrada (menos o RB7) H`FF` -> W -> TRISA
 movwf	TRISA	; Assim, os pinos que não iremos utilizar
-movlw	0000000B ; ficam em alta impedância e não correm o risco
+movlw	0000001B ; ficam em alta impedância e não correm o risco
 movwf	TRISB	; de queimar por algum motivo
 movlw	0xFF
 movwf	TRISC
@@ -133,66 +105,19 @@ movwf	TRISD
 movlw	0xFF
 movwf	TRISE
 ;bcf 	TRISB, 7
-movlw   7		; colocar com 7 coloca no acumulador movlw 
-movwf   ADCON1		; funcao movwf move o 7 para o ADCON1 
-    
-    
+
 bank0				;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
-loop:
-    btfsc BOTAO
-    goto loop1
-    LED_ON
-    call DELAY
-    LED_OFF
-    call DELAY
-    goto loop
+Loop:
+LED_ON	;liga o led
+call DELAY;chama o atraso
+LED_OFF ;deliga o led
+call DELAY;chama o atraso
+goto Loop
+end
 
-loop1:    
-    btfsc BOTAO1
-    goto loop2
-    LED1_ON
-    call DELAY
-    LED1_OFF
-    call DELAY
-    goto loop1
-    
-loop2:
-    btfsc BOTAO2
-    goto loop3
-    LED2_ON
-    call DELAY
-    LED2_OFF
-    call DELAY
-    goto loop2
-    
-loop3:  
-    btfsc BOTAO3
-    goto loop4
-    LED3_ON
-    call DELAY
-    LED3_OFF
-    call DELAY 
-    goto loop3
-    
-loop4:   
-    btfsc BOTAO4
-    goto loop
-    LED4_ON
-    call DELAY
-    LED4_OFF
-    call DELAY
-    goto loop4
-    
 
-   
-; parte adicionada (talvez errada)    
-    
-    
-
- end  
-   
 
 

@@ -1,7 +1,6 @@
-# 1 "codigo.s"
+# 1 "codigo1.s"
 # 1 "<built-in>" 1
-# 1 "codigo.s" 2
-
+# 1 "codigo1.s" 2
 ; Projeto 1 - Exemplo de programa em assembly
 ; Prof. Alessandro
 ; Descrição: Exemplo de projeto em assembly - Para piscar um LED
@@ -1538,8 +1537,7 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.inc" 2 3
-# 8 "codigo.s" 2
-
+# 8 "codigo1.s" 2
 
     ;Configuração do 'hardware' do microcontrolador
 ; CONFIG
@@ -1584,17 +1582,17 @@ PSECT udata
  TEMP2:DS 1
 
 ; ------------------- Definição de entradas ---------------
-# 61 "codigo.s"
+
+
 ; ------------------- Definição de saídas -----------------
 
 
 
 
-; TALVEZ OS DE BAIXO TENHA QUE ALTERAR AS VARIAVEIS ADICIONADO
-# 84 "codigo.s"
+
 ; ------------------- Vetor de reset -----------------
 
-PSECT code, abs
+PSECT code, delta=2, abs
 ORG 0x00 ;Define o endereço inicial de processamento
 goto INICIO
 
@@ -1602,9 +1600,7 @@ goto INICIO
 ;PSECT intvector, global, class=CODE, delta=2
 ;ORG 0x04 ;Define o endereço inicial do tratamento de interrupções
 ;retfie
-PSECT code, abs
-ORG 0x04 ;Define o endereço inicial de processamento
-retfie
+
 
 ; ------------------- Subrotinas -----------------
 
@@ -1629,13 +1625,11 @@ clrf PORTC
 clrf PORTD
 clrf PORTE
 
-
-
 ; ------------------- Configurações do microcontrolador -------------
 bank1 ;ALTERA PARA O BANCO 1.
 movlw 0xFF ; Coloca todos os pinos como entrada (menos o ((PORTB) and 07Fh), 7) H`FF` -> W -> TRISA
 movwf TRISA ; Assim, os pinos que não iremos utilizar
-movlw 0000000B ; ficam em alta impedância e não correm o risco
+movlw 0000001B ; ficam em alta impedância e não correm o risco
 movwf TRISB ; de queimar por algum motivo
 movlw 0xFF
 movwf TRISC
@@ -1644,63 +1638,15 @@ movwf TRISD
 movlw 0xFF
 movwf TRISE
 ;bcf TRISB, 7
-movlw 7 ; colocar com 7 coloca no acumulador movlw
-movwf ADCON1 ; funcao movwf move o 7 para o ADCON1
-
 
 bank0 ;RETORNA PARA O BANCO 0.
 
 ; ------------------- Programa principal -------------
 
-loop:
-    btfsc PORTD, 0
-    goto loop1
-    bsf PORTD, 7
-    call DELAY
-    bcf PORTD, 7
-    call DELAY
-    goto loop
-
-loop1:
-    btfsc PORTA, 0
-    goto loop2
-    bsf PORTB, 0
-    call DELAY
-    bcf PORTB, 0 ; bit-clear-file
-    call DELAY
-    goto loop1
-
-loop2:
-    btfsc PORTA, 1
-    goto loop3
-    bsf PORTB, 1
-    call DELAY
-    bcf PORTB, 1
-    call DELAY
-    goto loop2
-
-loop3:
-    btfsc PORTA, 2
-    goto loop4
-    bsf PORTB, 2
-    call DELAY
-    bcf PORTB, 2
-    call DELAY
-    goto loop3
-
-loop4:
-    btfsc PORTA, 3
-    goto loop
-    bsf PORTB, 3
-    call DELAY
-    bcf PORTB, 3
-    call DELAY
-    goto loop4
-
-
-
-; parte adicionada (talvez errada)
-
-
-
- end
+Loop:
+bsf PORTD, 7 ;liga o led
+call DELAY;chama o atraso
+bcf PORTD, 7 ;deliga o led
+call DELAY;chama o atraso
+goto Loop
+end
