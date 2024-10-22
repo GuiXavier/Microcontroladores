@@ -1583,14 +1583,10 @@ PSECT udata
  TEMP2:DS 1
 
 ; ------------------- Definição de entradas ---------------
-# 61 "codigo1.s"
+
+
 ; ------------------- Definição de saídas -----------------
-
-
-
-
-; TALVEZ OS DE BAIXO TENHA QUE ALTERAR AS VARIAVEIS ADICIONADO
-# 84 "codigo1.s"
+# 90 "codigo1.s"
 ; ------------------- Vetor de reset -----------------
 
 PSECT code, abs
@@ -1638,13 +1634,13 @@ movlw 0000000B ; ficam em alta impedância e não correm o risco
 movwf TRISB ; de queimar por algum motivo
 movlw 0xFF
 movwf TRISC
-movlw 0x01
+movlw 0x00
 movwf TRISD
 movlw 0xFF
 movwf TRISE
 ;bcf TRISB, 7
 movlw 7 ; colocar com 7 coloca no acumulador movlw
-movwf ADCON1 ; funcao movwf move o 7 para o ADCON1
+movwf ADCON1 ; funcao movwf move o 7 para o ADCON1 definindo a PORTA como entrada
 
 
 bank0 ;RETORNA PARA O BANCO 0.
@@ -1652,47 +1648,45 @@ bank0 ;RETORNA PARA O BANCO 0.
 ; ------------------- Programa principal -------------
 
 loop:
-    btfsc PORTD, 0
+
+    btfsc PORTA, 0
     goto loop1
-    bsf PORTD, 7
+    bsf PORTD, 0
     call DELAY
-    bcf PORTD, 7
+    bcf PORTD, 0 ; bit-clear-file
     call DELAY
     goto loop
 
 loop1:
-    btfsc PORTA, 0
     goto loop2
-    bsf PORTB, 0
+    bsf PORTD, 1
     call DELAY
-    bcf PORTB, 0 ; bit-clear-file
+    bcf PORTD, 1
     call DELAY
     goto loop1
 
 loop2:
-    btfsc PORTA, 1
     goto loop3
-    bsf PORTB, 1
+    bsf PORTD, 2
     call DELAY
-    bcf PORTB, 1
+    bcf PORTD, 2
     call DELAY
     goto loop2
 
 loop3:
-    btfsc PORTA, 2
     goto loop4
-    bsf PORTB, 2
+    bsf PORTD, 3
     call DELAY
-    bcf PORTB, 2
+    bcf PORTD, 3
     call DELAY
     goto loop3
 
 loop4:
-    btfsc PORTA, 3
+
     goto loop
-    bsf PORTB, 3
+    bsf PORTD, 4
     call DELAY
-    bcf PORTB, 3
+    bcf PORTD, 4
     call DELAY
     goto loop4
 

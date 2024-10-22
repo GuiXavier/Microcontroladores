@@ -134,7 +134,7 @@ movlw	0000000B ; ficam em alta impedância e não correm o risco
 movwf	TRISB	; de queimar por algum motivo
 movlw	0xFF
 movwf	TRISC
-movlw	0x01
+movlw	0x00
 movwf	TRISD
 movlw	0xFF
 movwf	TRISE
@@ -148,6 +148,7 @@ bank0				;RETORNA PARA O BANCO 0.
 ; ------------------- Programa principal -------------
 
 loop:
+    
     btfsc BOTAO
     goto loop1
     LED_ON
@@ -157,7 +158,6 @@ loop:
     goto loop
 
 loop1:    
-    btfsc BOTAO1
     goto loop2
     LED1_ON
     call DELAY
@@ -166,7 +166,6 @@ loop1:
     goto loop1
     
 loop2:
-    btfsc BOTAO2
     goto loop3
     LED2_ON
     call DELAY
@@ -175,7 +174,6 @@ loop2:
     goto loop2
     
 loop3:  
-    btfsc BOTAO3
     goto loop4
     LED3_ON
     call DELAY
@@ -184,7 +182,7 @@ loop3:
     goto loop3
     
 loop4:   
-    btfsc BOTAO4
+    
     goto loop
     LED4_ON
     call DELAY
