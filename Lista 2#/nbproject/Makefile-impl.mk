@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Lista 1# 5 BOTÕES E 5 LEDs Piscando
+PROJECTNAME=Lista 2#
 
 # Active Configuration
 DEFAULTCONF=default
