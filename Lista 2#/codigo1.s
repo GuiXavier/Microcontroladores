@@ -50,7 +50,6 @@ PSECT udata
  TEMP2:DS 1
     
 ; ------------------- Definição de entradas ---------------   
-#define BOTAO  PORTA, 0
   
 ; ------------------- Definição de saídas -----------------
 
@@ -149,49 +148,60 @@ bank0				;RETORNA PARA O BANCO 0.
 
 loop:
     
-    btfsc BOTAO
-    goto loop
     LED_ON
-    call DELAY
+    call DELAY 
     LED_OFF
-    call DELAY
     goto loop1
 
 loop1:  
     
-    goto loop1
     LED1_ON
     call DELAY
     LED1_OFF
-    call DELAY
     goto loop2
     
 loop2:
-    goto loop3
+    
     LED2_ON
     call DELAY
     LED2_OFF
-    call DELAY
-    goto loop2
+    goto loop3
     
 loop3:  
-    goto loop4
+    
     LED3_ON
     call DELAY
     LED3_OFF
-    call DELAY 
-    goto loop3
+    goto loop4
     
 loop4:   
     
-    goto loop
+   
     LED4_ON
     call DELAY
     LED4_OFF
-    call DELAY
-    goto loop4
+    goto loop5
     
-
+loop5: 
+    
+    LED5_ON
+    call DELAY
+    LED5_OFF
+    goto loop6
+    
+loop6:
+    
+    LED6_ON
+    call DELAY
+    LED6_OFF
+    goto loop7
+    
+loop7:
+    
+    LED7_ON
+    call DELAY
+    LED7_OFF
+    goto loop
    
 ; parte adicionada (talvez errada)    
     
