@@ -6,7 +6,7 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
   -cs -h+dist/default/debug\Lista_2_.debug.sym \
   --cmf=dist/default/debug\Lista_2_.debug.cmf -z -Q16F877 \
-  -oC:\Users\Yan\AppData\Local\Temp\xcAseec.\driver_tmp_3.o \
+  -oC:\Users\Yan\AppData\Local\Temp\xcAsipg.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
   -Mdist/default/debug/Lista_2_.debug.map -E1 --acfsm=1493 \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \

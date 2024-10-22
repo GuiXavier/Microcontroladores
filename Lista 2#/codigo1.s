@@ -150,20 +150,21 @@ bank0				;RETORNA PARA O BANCO 0.
 loop:
     
     btfsc BOTAO
-    goto loop1
+    goto loop
     LED_ON
     call DELAY
     LED_OFF
     call DELAY
-    goto loop
+    goto loop1
 
-loop1:    
-    goto loop2
+loop1:  
+    
+    goto loop1
     LED1_ON
     call DELAY
     LED1_OFF
     call DELAY
-    goto loop1
+    goto loop2
     
 loop2:
     goto loop3

@@ -1650,20 +1650,21 @@ bank0 ;RETORNA PARA O BANCO 0.
 loop:
 
     btfsc PORTA, 0
-    goto loop1
+    goto loop
     bsf PORTD, 0
     call DELAY
     bcf PORTD, 0 ; bit-clear-file
     call DELAY
-    goto loop
+    goto loop1
 
 loop1:
-    goto loop2
+
+    goto loop1
     bsf PORTD, 1
     call DELAY
     bcf PORTD, 1
     call DELAY
-    goto loop1
+    goto loop2
 
 loop2:
     goto loop3
