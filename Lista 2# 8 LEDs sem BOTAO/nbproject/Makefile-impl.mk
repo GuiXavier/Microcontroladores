@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Lista 2#
+PROJECTNAME=Lista 2# 8 LEDs sem BOTAO
 
 # Active Configuration
 DEFAULTCONF=default
