@@ -1,6 +1,6 @@
 <circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="MCU" CircId="p16F877-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-80" rotation="0" hflip="1" vflip="1" label="p16F877-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="1 MHz" Program="../../../../../../../Microcontroladores/LISTA01.X/dist/default/debug/LISTA01.X.debug.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" SerialMon="-1" />
+<item itemtype="MCU" CircId="p16F877-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-80" rotation="0" hflip="1" vflip="1" label="p16F877-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="1 MHz" Program="../Lista 3# 4 LEDs pisca-pisca alternando com 2 botoes/dist/default/debug/Lista_3__4_LEDs_pisca-pisca_alternando_com_2_botoes.debug.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" SerialMon="-1" />
 
 <item itemtype="Fixed Voltage" CircId="Fixed Voltage-3" mainComp="false" Show_id="false" Show_Val="false" Pos="-264,-72" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-3" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 

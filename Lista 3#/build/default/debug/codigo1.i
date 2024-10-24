@@ -1584,10 +1584,8 @@ PSECT udata
 
 ; ------------------- Definição de entradas ---------------
 
+
 ; ------------------- Definição de saídas -----------------
-
-
-
 
 ; ------------------- Vetor de reset -----------------
 
@@ -1654,12 +1652,13 @@ movwf PORTD
 
 loop:
  btfsc PORTA, 0
- goto direita
+ goto pisca1
  rlf PORTD
- call DELAY
- goto loop
-direita:
+ goto $-1
+pisca1:
  rrf PORTD
  call DELAY
  goto loop
+pisca2:
+
 end
