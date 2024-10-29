@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/Lista_2__8_LEDs_com_BOTAO_de_inversao.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/Lista_3_.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=${DISTDIR}/Lista_2__8_LEDs_com_BOTAO_de_inversao.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=${DISTDIR}/Lista_3_.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=codigo1.s
+SOURCEFILES_QUOTED_IF_SPACED=lista3.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/codigo1.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/codigo1.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lista3.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/lista3.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/codigo1.o
+OBJECTFILES=${OBJECTDIR}/lista3.o
 
 # Source Files
-SOURCEFILES=codigo1.s
+SOURCEFILES=lista3.s
 
 
 
@@ -82,28 +82,28 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/Lista_2__8_LEDs_com_BOTAO_de_inversao.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/Lista_3_.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=PIC16F877
-FINAL_IMAGE_NAME_MINUS_EXTENSION=${DISTDIR}/Lista_2__8_LEDs_com_BOTAO_de_inversao.${IMAGE_TYPE}
+FINAL_IMAGE_NAME_MINUS_EXTENSION=${DISTDIR}/Lista_3_.${IMAGE_TYPE}
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: pic-as-assembler
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/codigo1.o: codigo1.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/lista3.o: lista3.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/codigo1.o 
+	@${RM} ${OBJECTDIR}/lista3.o 
 	${MP_AS} -mcpu=PIC16F877 -c \
-	-o ${OBJECTDIR}/codigo1.o \
-	codigo1.s \
+	-o ${OBJECTDIR}/lista3.o \
+	lista3.s \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 else
-${OBJECTDIR}/codigo1.o: codigo1.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/lista3.o: lista3.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/codigo1.o 
+	@${RM} ${OBJECTDIR}/lista3.o 
 	${MP_AS} -mcpu=PIC16F877 -c \
-	-o ${OBJECTDIR}/codigo1.o \
-	codigo1.s \
+	-o ${OBJECTDIR}/lista3.o \
+	lista3.s \
 	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif
@@ -111,16 +111,16 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: pic-as-linker
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${DISTDIR}/Lista_2__8_LEDs_com_BOTAO_de_inversao.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+${DISTDIR}/Lista_3_.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
 	${MP_LD} -mcpu=PIC16F877 ${OBJECTFILES_QUOTED_IF_SPACED} \
-	-o ${DISTDIR}/Lista_2__8_LEDs_com_BOTAO_de_inversao.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
+	-o ${DISTDIR}/Lista_3_.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex
 else
-${DISTDIR}/Lista_2__8_LEDs_com_BOTAO_de_inversao.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+${DISTDIR}/Lista_3_.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
 	${MP_LD} -mcpu=PIC16F877 ${OBJECTFILES_QUOTED_IF_SPACED} \
-	-o ${DISTDIR}/Lista_2__8_LEDs_com_BOTAO_de_inversao.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
+	-o ${DISTDIR}/Lista_3_.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
 	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex
 endif
 
