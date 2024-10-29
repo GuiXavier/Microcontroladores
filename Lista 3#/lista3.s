@@ -54,7 +54,22 @@ PSECT udata
 #define BOTAO1			PORTA, 1
 ; ------------------- Definição de saídas -----------------
 
+#define LED			PORTD, 4  
+#define LED_ON		bsf	PORTD, 4      
+#define LED_OFF		bcf	PORTD, 4 ; bit-clear-file 
     
+#define LED1			PORTD, 5  
+#define LED1_ON		bsf	PORTD, 5      
+#define LED1_OFF	bcf	PORTD, 5
+    
+#define LED2			PORTB, 6  
+#define LED2_ON		bsf	PORTB, 6      
+#define LED2_OFF	bcf	PORTB, 6    
+
+#define LED3			PORTB, 7  
+#define LED3_ON		bsf	PORTB, 7      
+#define LED3_OFF	bcf	PORTB, 7    
+                       
 
 	
 ; ------------------- Vetor de reset -----------------
@@ -127,15 +142,19 @@ movwf PORTB
 loop:
 	btfsc BOTAO 
 	goto direita    
-	rrf  PORTD
+	LED_ON
 	call DELAY
-	goto $-2     
+	LED_OFF
+	goto loop
+	    
 direita:
+    
 	btfsc BOTAO1
 	goto loop
-	rrf PORTB
+	LED2_ON
 	call DELAY
-	goto $-2
+	LED2_OFF
+	goto direita
 end
     
  

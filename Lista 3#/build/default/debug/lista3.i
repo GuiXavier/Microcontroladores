@@ -1586,10 +1586,7 @@ PSECT udata
 
 
 ; ------------------- Definição de saídas -----------------
-
-
-
-
+# 75 "lista3.s"
 ; ------------------- Vetor de reset -----------------
 
 PSECT code, abs
@@ -1660,13 +1657,17 @@ movwf PORTB
 loop:
  btfsc PORTA, 0
  goto direita
- rrf PORTD
+ bsf PORTD, 4
  call DELAY
- goto $-2
+ bcf PORTD, 4 ; bit-clear-file
+ goto loop
+
 direita:
+
  btfsc PORTA, 1
  goto loop
- rrf PORTB
+ bsf PORTB, 6
  call DELAY
- goto $-2
+ bcf PORTB, 6
+ goto direita
 end
