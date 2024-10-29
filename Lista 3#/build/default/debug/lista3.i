@@ -1660,6 +1660,11 @@ loop:
  bsf PORTD, 4
  call DELAY
  bcf PORTD, 4 ; bit-clear-file
+ call DELAY
+ bsf PORTD, 5
+ call DELAY
+ bcf PORTD, 5
+ call DELAY
  goto loop
 
 direita:
@@ -1669,5 +1674,11 @@ direita:
  bsf PORTB, 6
  call DELAY
  bcf PORTB, 6
+ call DELAY
+ bsf PORTB, 7
+ call DELAY
+ bcf PORTB, 7
+ call DELAY
  goto direita
+
 end

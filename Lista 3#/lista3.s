@@ -145,6 +145,11 @@ loop:
 	LED_ON
 	call DELAY
 	LED_OFF
+	call DELAY 
+	LED1_ON
+	call DELAY 
+	LED1_OFF
+	call DELAY 
 	goto loop
 	    
 direita:
@@ -154,7 +159,13 @@ direita:
 	LED2_ON
 	call DELAY
 	LED2_OFF
+	call DELAY
+	LED3_ON
+	call DELAY
+	LED3_OFF
+	call DELAY
 	goto direita
+	
 end
     
  
