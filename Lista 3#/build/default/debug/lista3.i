@@ -1,6 +1,6 @@
-# 1 "codigo1.s"
+# 1 "lista3.s"
 # 1 "<built-in>" 1
-# 1 "codigo1.s" 2
+# 1 "lista3.s" 2
 
 ; Projeto 1 - Exemplo de programa em assembly
 ; Prof. Alessandro
@@ -1538,7 +1538,7 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.inc" 2 3
-# 9 "codigo1.s" 2
+# 9 "lista3.s" 2
 
     ;Configuração do 'hardware' do microcontrolador
 ; CONFIG
@@ -1586,6 +1586,9 @@ PSECT udata
 
 
 ; ------------------- Definição de saídas -----------------
+
+
+
 
 ; ------------------- Vetor de reset -----------------
 
@@ -1650,15 +1653,20 @@ bank0 ;RETORNA PARA O BANCO 0.
 movlw 1
 movwf PORTD
 
+; ----- ADICIONADO
+movlw 1
+movwf PORTB
+
 loop:
  btfsc PORTA, 0
- goto pisca1
- rlf PORTD
- goto $-1
-pisca1:
+ goto direita
  rrf PORTD
  call DELAY
  goto loop
-pisca2:
-
+direita:
+ btfsc PORTA, 1
+ goto loop
+ rrf PORTB
+ call DELAY
+ goto direita
 end

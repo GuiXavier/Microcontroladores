@@ -18,7 +18,7 @@
                    displayName="Source Files"
                    projectFiles="true">
     </logicalFolder>
-    <itemPath>codigo1.s</itemPath>
+    <itemPath>lista3.s</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
