@@ -129,13 +129,13 @@ loop:
 	goto direita    
 	rrf  PORTD
 	call DELAY
-	goto loop     
+	goto $-2     
 direita:
 	btfsc BOTAO1
 	goto loop
 	rrf PORTB
 	call DELAY
-	goto direita
+	goto $-2
 end
     
  
