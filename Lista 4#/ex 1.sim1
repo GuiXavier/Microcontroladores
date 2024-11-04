@@ -28,10 +28,6 @@
 
 <item itemtype="Push" CircId="Push-79" mainComp="false" Show_id="false" Show_Val="false" Pos="-196,128" rotation="90" hflip="1" vflip="1" label="Push-79" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
 
-<item itemtype="Push" CircId="Push-100" mainComp="false" Show_id="false" Show_Val="false" Pos="-244,128" rotation="90" hflip="1" vflip="1" label="Push-100" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
-
-<item itemtype="Resistor" CircId="Resistor-101" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-236,0" rotation="90" hflip="1" vflip="1" label="Resistor-101" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
-
 <item itemtype="Node" CircId="Node-8" mainComp="false" Pos="-196,-72" />
 
 <item itemtype="Node" CircId="Node-16" mainComp="false" Pos="240,24" />
@@ -41,12 +37,6 @@
 <item itemtype="Node" CircId="Node-23" mainComp="false" Pos="240,64" />
 
 <item itemtype="Node" CircId="Node-99" mainComp="false" Pos="-196,64" />
-
-<item itemtype="Node" CircId="Node-103" mainComp="false" Pos="-236,-72" />
-
-<item itemtype="Node" CircId="Node-104" mainComp="false" Pos="-196,188" />
-
-<item itemtype="Node" CircId="Node-105" mainComp="false" Pos="-236,80" />
 
 <item itemtype="Connector" uid="Connector-6" startpinid="Node-8-2" endpinid="p16F877-2-MCLR" pointList="-196,-72,-116,-72" />
 
@@ -84,26 +74,12 @@
 
 <item itemtype="Connector" uid="Connector-269" startpinid="Led-21-lPin" endpinid="p16F877-2-PORTD4" pointList="52,64,-24,64,-24,32,-52,32" />
 
-<item itemtype="Connector" uid="Connector-275" startpinid="Resistor-101-lPin" endpinid="Node-103-1" pointList="-236,-16,-236,-72" />
-
-<item itemtype="Connector" uid="Connector-276" startpinid="Fixed Voltage-3-outnod" endpinid="Node-103-0" pointList="-292,-72,-236,-72" />
-
-<item itemtype="Connector" uid="Connector-277" startpinid="Node-103-2" endpinid="Node-8-0" pointList="-236,-72,-196,-72" />
-
-<item itemtype="Connector" uid="Connector-278" startpinid="Push-100-switch0pinN" endpinid="Node-104-1" pointList="-244,144,-244,188,-196,188" />
-
-<item itemtype="Connector" uid="Connector-279" startpinid="Push-79-switch0pinN" endpinid="Node-104-0" pointList="-196,144,-196,188" />
-
-<item itemtype="Connector" uid="Connector-280" startpinid="Node-104-2" endpinid="Ground-4-Gnd" pointList="-196,188,-196,216" />
-
-<item itemtype="Connector" uid="Connector-281" startpinid="p16F877-2-PORTA1" endpinid="Node-105-1" pointList="-116,-56,-160,-56,-160,80,-236,80" />
-
-<item itemtype="Connector" uid="Connector-282" startpinid="Push-100-pinP0" endpinid="Node-105-0" pointList="-244,112,-244,80,-236,80" />
-
-<item itemtype="Connector" uid="Connector-283" startpinid="Node-105-2" endpinid="Resistor-101-rPin" pointList="-236,80,-236,16" />
-
 <item itemtype="Connector" uid="Connector-285" startpinid="Led-14-lPin" endpinid="p16F877-2-PORTB6" pointList="52,16,-24,16,-24,-64,-52,-64" />
 
 <item itemtype="Connector" uid="Connector-284" startpinid="Led-9-lPin" endpinid="p16F877-2-PORTB7" pointList="52,-8,-12,-8,-12,-72,-52,-72" />
+
+<item itemtype="Connector" uid="Connector-287" startpinid="Fixed Voltage-3-outnod" endpinid="Node-8-0" pointList="-292,-72,-196,-72" />
+
+<item itemtype="Connector" uid="Connector-288" startpinid="Push-79-switch0pinN" endpinid="Ground-4-Gnd" pointList="-196,144,-196,216" />
 
 </circuit>
