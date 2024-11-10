@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=teste.X
+PROJECTNAME=Exemplo pisca led
 
 # Active Configuration
 DEFAULTCONF=default
