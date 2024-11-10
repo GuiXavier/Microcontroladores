@@ -18,7 +18,6 @@
                    displayName="Source Files"
                    projectFiles="true">
     </logicalFolder>
-    <itemPath>lista3.s</itemPath>
     <itemPath>lista4.s</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
