@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=lista3.s
+SOURCEFILES_QUOTED_IF_SPACED=lista3.s lista4.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lista3.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/lista3.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lista3.o ${OBJECTDIR}/lista4.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/lista3.o.d ${OBJECTDIR}/lista4.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/lista3.o
+OBJECTFILES=${OBJECTDIR}/lista3.o ${OBJECTDIR}/lista4.o
 
 # Source Files
-SOURCEFILES=lista3.s
+SOURCEFILES=lista3.s lista4.s
 
 
 
@@ -97,6 +97,14 @@ ${OBJECTDIR}/lista3.o: lista3.s  nbproject/Makefile-${CND_CONF}.mk
 	lista3.s \
 	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull
 	
+${OBJECTDIR}/lista4.o: lista4.s  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/lista4.o 
+	${MP_AS} -mcpu=PIC16F877 -c \
+	-o ${OBJECTDIR}/lista4.o \
+	lista4.s \
+	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull
+	
 else
 ${OBJECTDIR}/lista3.o: lista3.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -104,6 +112,14 @@ ${OBJECTDIR}/lista3.o: lista3.s  nbproject/Makefile-${CND_CONF}.mk
 	${MP_AS} -mcpu=PIC16F877 -c \
 	-o ${OBJECTDIR}/lista3.o \
 	lista3.s \
+	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull
+	
+${OBJECTDIR}/lista4.o: lista4.s  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/lista4.o 
+	${MP_AS} -mcpu=PIC16F877 -c \
+	-o ${OBJECTDIR}/lista4.o \
+	lista4.s \
 	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull
 	
 endif
