@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=lista4.s
+SOURCEFILES_QUOTED_IF_SPACED=lista4a.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lista4.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/lista4.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lista4a.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/lista4a.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/lista4.o
+OBJECTFILES=${OBJECTDIR}/lista4a.o
 
 # Source Files
-SOURCEFILES=lista4.s
+SOURCEFILES=lista4a.s
 
 
 
@@ -89,22 +89,22 @@ FINAL_IMAGE_NAME_MINUS_EXTENSION=${DISTDIR}/Lista_4_.${IMAGE_TYPE}
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: pic-as-assembler
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/lista4.o: lista4.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/lista4a.o: lista4a.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lista4.o 
+	@${RM} ${OBJECTDIR}/lista4a.o 
 	${MP_AS} -mcpu=PIC16F877 -c \
-	-o ${OBJECTDIR}/lista4.o \
-	lista4.s \
-	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull
+	-o ${OBJECTDIR}/lista4a.o \
+	lista4a.s \
+	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 else
-${OBJECTDIR}/lista4.o: lista4.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/lista4a.o: lista4a.s  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/lista4.o 
+	@${RM} ${OBJECTDIR}/lista4a.o 
 	${MP_AS} -mcpu=PIC16F877 -c \
-	-o ${OBJECTDIR}/lista4.o \
-	lista4.s \
-	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull
+	-o ${OBJECTDIR}/lista4a.o \
+	lista4a.s \
+	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif
 

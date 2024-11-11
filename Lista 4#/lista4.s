@@ -1,1 +1,0 @@
-Some of the files in this Project "Lista 4#" contain spaces or odd characters in their name or their path. This could potentially cause issues during the build process. This is a limitation of GNU Make tool that we use as part of our build process. Removing spaces from all file and folder names included in this project will eliminate this potential issue.
