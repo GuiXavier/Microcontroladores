@@ -1,10 +1,9 @@
-# 1 "lista3.s"
+# 1 "codigo.s"
 # 1 "<built-in>" 1
-# 1 "lista3.s" 2
-
+# 1 "codigo.s" 2
 ; Projeto 1 - Exemplo de programa em assembly
 ; Prof. Alessandro
-; Descrição: Exemplo de projeto em assembly - Para piscar um LED
+; Descrição: Contador binário controlado por botão - Exibe o valor nos LEDs do PORTD
 
 ; ------------------- Configuração dos FUSE BITS ------------------
 PROCESSOR 16F877
@@ -1538,147 +1537,118 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.inc" 2 3
-# 9 "lista3.s" 2
+# 7 "codigo.s" 2
 
-    ;Configuração do 'hardware' do microcontrolador
+
+; Configuração do hardware do microcontrolador
 ; CONFIG
-  CONFIG FOSC = HS ; Oscillator Selection bits (HS oscillator)
-  CONFIG WDTE = OFF ; Watchdog Timer Enable bit (WDT disabled)
-  CONFIG PWRTE = OFF ; Power-up Timer Enable bit (PWRT disabled)
-  CONFIG CP = OFF ; FLASH Program Memory Code Protection bits (Code protection off)
-  CONFIG BOREN = OFF ; Brown-out Reset Enable bit (BOR disabled)
-  CONFIG LVP = OFF ; Low Voltage In-Circuit Serial Programming Enable bit (((PORTB) and 07Fh), 3 is digital I/O, HV on MCLR must be used for programming)
-  CONFIG CPD = OFF ; Data EE Memory Code Protection (Code Protection off)
-  CONFIG WRT = OFF ; FLASH Program Memory Write Enable (Unprotected program memory may not be written to by EECON control)
-
-
-
-;#include <xc.inc>
-
-
-;cblock 0x20 ; O endereço 0x20 é a partir de onde eu posso adicionar variáveis na memória de dados
- ;TEMP
-;endc
-
-; ------------------ Arquivos incluídos no projeto -----------------
+CONFIG FOSC = HS ; Oscillator Selection bits (HS oscillator)
+CONFIG WDTE = OFF ; Watchdog Timer Enable bit (WDT disabled)
+CONFIG PWRTE = OFF ; Power-up Timer Enable bit (PWRT disabled)
+CONFIG CP = OFF ; FLASH Program Memory Code Protection bits (Code protection off)
+CONFIG BOREN = OFF ; Brown-out Reset Enable bit (BOR disabled)
+CONFIG LVP = OFF ; Low Voltage In-Circuit Serial Programming Enable bit (((PORTB) and 07Fh), 3 is digital I/O, HV on MCLR must be used for programming)
+CONFIG CPD = OFF ; Data EE Memory Code Protection (Code Protection off)
+CONFIG WRT = OFF ; FLASH Program Memory Write Enable (Unprotected program memory may not be written to by EECON control)
 
 ; ------------------- Paginação da memória (de dados) ----------------
 bank0 MACRO
-    BCF STATUS, 5 ;
-    BCF STATUS, 6 ;
+    BCF STATUS, 5
+    BCF STATUS, 6
     endm
 
 bank1 MACRO
-    BSF STATUS, 5 ;
-    BCF STATUS, 6 ;
+    BSF STATUS, 5
+    BCF STATUS, 6
     endm
 
 bank2 MACRO
-    BCF STATUS, 5 ;
-    BSF STATUS, 6 ;
+    BCF STATUS, 5
+    BSF STATUS, 6
     endm
+
 ; ------------------- Criação de variáveis -------------------------
 PSECT udata
- TEMP1:DS 1
- TEMP2:DS 1
+    TEMP1: DS 1
+    TEMP2: DS 1
+    contador: DS 1
+    botaoEstado: DS 1
+    botaoUltimoEstado: DS 1
 
-; ------------------- Definição de entradas ---------------
-
-
-; ------------------- Definição de saídas -----------------
-# 75 "lista3.s"
 ; ------------------- Vetor de reset -----------------
-
 PSECT code, abs
-ORG 0x00 ;Define o endereço inicial de processamento
+ORG 0x00
 goto INICIO
 
 ; ------------------- Vetor de interrupções -----------------
-;PSECT intvector, global, class=CODE, delta=2
-;ORG 0x04 ;Define o endereço inicial do tratamento de interrupções
-;retfie
 PSECT code, abs
-ORG 0x04 ;Define o endereço inicial de processamento
+ORG 0x04
 retfie
 
 ; ------------------- Subrotinas -----------------
-
 DELAY:
- movlw 11111111B ;inicia a contagem em 10
- movwf TEMP2
-label: movlw 255 ;inicia a contagem em 10
- movwf TEMP1 ;precisamos de uma variável auxiliar que recebe 100
- decfsz TEMP1 ;diminui o valor de TEMP, se 0 pula uma linha. O código fica travado nesta linha até terminar
- goto $-1
-        decfsz TEMP2
- goto label
-return
+    movlw 11111111B
+    movwf TEMP2
+label:
+    movlw 255
+    movwf TEMP1
+    decfsz TEMP1
+    goto $-1
+    decfsz TEMP2
+    goto label
+    return
+
+DelayDebounce:
+    movlw 0xFF ; Atraso maior para debounce (ajustado para ser mais robusto)
+    movwf TEMP1
+DebounceLoop:
+    decfsz TEMP1, F
+    goto DebounceLoop
+    return
 
 ; ------------------- Início do programa -------------
-;PSECT loopPrincipal, delta=2, abs
-;ORG 0x0A
 INICIO:
-clrf PORTA ; Limpa os registradores de portas para garantir
-clrf PORTB ; que não há informações remanescentes
-clrf PORTC
-clrf PORTD
-clrf PORTE
+    clrf PORTA ; Limpa os registradores de portas
+    clrf PORTB
+    clrf PORTC
+    clrf PORTD
+    clrf PORTE
 
+    bank1 ; Configura os pinos como entradas ou saídas
+    movlw 0xFF
+    movwf TRISA ; Configura PORTA como entrada
+    movlw 0x01 ; Configura ((PORTB) and 07Fh), 0 como entrada, os demais como saída
+    movwf TRISB
+    movlw 0x00 ; Configura todos os pinos de PORTD como saídas
+    movwf TRISD
+    bank0
 
+    clrf contador ; Inicializa o contador com 0
+    clrf botaoUltimoEstado ; Inicializa o estado anterior do botão com 0
 
-; ------------------- Configurações do microcontrolador -------------
-bank1 ;ALTERA PARA O BANCO 1.
-movlw 0xFF ; Coloca todos os pinos como entrada (menos o ((PORTB) and 07Fh), 7) H`FF` -> W -> TRISA
-movwf TRISA ; Assim, os pinos que não iremos utilizar
-movlw 0000000B ; ficam em alta impedância e não correm o risco
-movwf TRISB ; de queimar por algum motivo
-movlw 0xFF
-movwf TRISC
-movlw 0x00
-movwf TRISD
-movlw 0xFF
-movwf TRISE
-;bcf TRISB, 7
-movlw 7 ; colocar com 7 coloca no acumulador movlw
-movwf ADCON1 ; funcao movwf move o 7 para o ADCON1 definindo a PORTA como entrada
+Loop:
+    ; Verifica se o botão está pressionado (nível lógico 0)
+    btfss PORTB, 0
+    goto BotaoPressionado
+    ; Caso contrário, o botão está solto (nível lógico 1)
+    goto BotaoSolto
 
+BotaoPressionado:
+    movlw 1
+    movwf botaoEstado ; Marca que o botão foi pressionado
+    goto Loop
 
-bank0 ;RETORNA PARA O BANCO 0.
+BotaoSolto:
+    movf botaoEstado, W
+    btfsc STATUS, 2 ; Se botaoEstado for 0, o botão não foi pressionado antes
+    goto Loop
 
-; ------------------- Programa principal -------------
-
-movlw 1
-movwf PORTD
-
-; ----- ADICIONADO
-movlw 1
-movwf PORTB
-
-loop:
- btfsc PORTA, 0
- goto direita
- bsf PORTD, 4
- call DELAY
- bcf PORTD, 4 ; bit-clear-file
- call DELAY
- bsf PORTD, 5
- call DELAY
- bcf PORTD, 5
- call DELAY
- goto loop
-
-direita:
-
- btfsc PORTA, 1
- goto loop
- bsf PORTB, 6
- call DELAY
- bcf PORTB, 6
- call DELAY
- bsf PORTB, 7
- call DELAY
- bcf PORTB, 7
- call DELAY
- goto direita
+    ; Se o botão foi pressionado anteriormente e agora está solto, incrementa
+    call DelayDebounce ; Chama a sub-rotina de debounce
+    incf contador, F ; Incrementa o contador
+    movf contador, W ; Move o valor do contador para W
+    movwf PORTD ; Exibe o contador nos LEDs conectados ao PORTD
+    clrf botaoEstado ; Limpa o estado do botão
+    goto Loop ; Volta ao loop principal
 
 end

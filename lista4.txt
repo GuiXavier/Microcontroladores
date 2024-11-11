@@ -1,13 +1,13 @@
 
 ; Projeto 1 - Exemplo de programa em assembly
 ; Prof. Alessandro
-; DescriÁ„o: Exemplo de projeto em assembly - Para piscar um LED
+; Descri√ß√£o: Exemplo de projeto em assembly - Para piscar um LED
 
-; ------------------- ConfiguraÁ„o dos FUSE BITS ------------------
+; ------------------- Configura√ß√£o dos FUSE BITS ------------------
 PROCESSOR 16F877
-#include <xc.inc> ; Arquivo da Microchip que contÈm os endereÁos e nomes dos registradores
+#include <xc.inc> ; Arquivo da Microchip que cont√©m os endere√ßos e nomes dos registradores
 
-    ;ConfiguraÁ„o do 'hardware' do microcontrolador
+    ;Configura√ß√£o do 'hardware' do microcontrolador
 ; CONFIG
   CONFIG  FOSC = HS             ; Oscillator Selection bits (HS oscillator)
   CONFIG  WDTE = OFF            ; Watchdog Timer Enable bit (WDT disabled)
@@ -23,13 +23,13 @@ PROCESSOR 16F877
 ;#include <xc.inc>
 
 
-;cblock 0x20 ; O endereÁo 0x20 È a partir de onde eu posso adicionar vari·veis na memÛria de dados
+;cblock 0x20 ; O endere√ßo 0x20 √© a partir de onde eu posso adicionar vari√°veis na mem√≥ria de dados
 	;TEMP
 ;endc
 
-; ------------------ Arquivos incluÌdos no projeto -----------------
+; ------------------ Arquivos inclu√≠dos no projeto -----------------
 
-; ------------------- PaginaÁ„o da memÛria (de dados) ----------------
+; ------------------- Pagina√ß√£o da mem√≥ria (de dados) ----------------
 bank0 MACRO 
     BCF STATUS, 5 ;
     BCF STATUS, 6 ;
@@ -44,15 +44,15 @@ bank2 MACRO
     BCF STATUS, 5 ;
     BSF STATUS, 6 ;
     endm
-; ------------------- CriaÁ„o de vari·veis -------------------------
+; ------------------- Cria√ß√£o de vari√°veis -------------------------
 PSECT udata
  TEMP1:DS 1
  TEMP2:DS 1
     
-; ------------------- DefiniÁ„o de entradas ---------------   
+; ------------------- Defini√ß√£o de entradas ---------------   
 #define BOTAO			PORTA, 0
 #define BOTAO1			PORTA, 1
-; ------------------- DefiniÁ„o de saÌdas -----------------
+; ------------------- Defini√ß√£o de sa√≠das -----------------
 
 #define LED			PORTD, 4  
 #define LED_ON		bsf	PORTD, 4      
@@ -75,15 +75,15 @@ PSECT udata
 ; ------------------- Vetor de reset -----------------
 
 PSECT code, abs
-ORG	0x00		;Define o endereÁo inicial de processamento
+ORG	0x00		;Define o endere√ßo inicial de processamento
 goto INICIO	 
 
-; ------------------- Vetor de interrupÁıes -----------------
+; ------------------- Vetor de interrup√ß√µes -----------------
 ;PSECT intvector, global, class=CODE, delta=2
-;ORG	0x04		;Define o endereÁo inicial do tratamento de interrupÁıes
+;ORG	0x04		;Define o endere√ßo inicial do tratamento de interrup√ß√µes
 ;retfie	
 PSECT code, abs
-ORG	0x04		;Define o endereÁo inicial de processamento
+ORG	0x04		;Define o endere√ßo inicial de processamento
 retfie	
 
 ; ------------------- Subrotinas -----------------
@@ -92,30 +92,30 @@ DELAY:
 	movlw  	11111111B			;inicia a contagem em 10
 	movwf  	TEMP2
 label:  movlw  	255			;inicia a contagem em 10
-	movwf  	TEMP1			;precisamos de uma vari·vel auxiliar que recebe 100
-	decfsz	TEMP1			;diminui o valor de TEMP, se 0 pula uma linha. O cÛdigo fica travado nesta linha atÈ terminar
+	movwf  	TEMP1			;precisamos de uma vari√°vel auxiliar que recebe 100
+	decfsz	TEMP1			;diminui o valor de TEMP, se 0 pula uma linha. O c√≥digo fica travado nesta linha at√© terminar
 	goto    $-1
         decfsz	TEMP2
 	goto    label
 return
 
-; ------------------- InÌcio do programa -------------
+; ------------------- In√≠cio do programa -------------
 ;PSECT loopPrincipal, delta=2, abs
 ;ORG	0x0A	
 INICIO:
 clrf	PORTA	; Limpa os registradores de portas para garantir
-clrf	PORTB	; que n„o h· informaÁıes remanescentes
+clrf	PORTB	; que n√£o h√° informa√ß√µes remanescentes
 clrf	PORTC
 clrf	PORTD
 clrf	PORTE
     
     
 
-; ------------------- ConfiguraÁıes do microcontrolador -------------
+; ------------------- Configura√ß√µes do microcontrolador -------------
 bank1		;ALTERA PARA O BANCO 1.
 movlw	0xFF	; Coloca todos os pinos como entrada (menos o RB7) H`FF` -> W -> TRISA
-movwf	TRISA	; Assim, os pinos que n„o iremos utilizar
-movlw	0000000B ; ficam em alta imped‚ncia e n„o correm o risco
+movwf	TRISA	; Assim, os pinos que n√£o iremos utilizar
+movlw	0000000B ; ficam em alta imped√¢ncia e n√£o correm o risco
 movwf	TRISB	; de queimar por algum motivo
 movlw	0xFF
 movwf	TRISC
