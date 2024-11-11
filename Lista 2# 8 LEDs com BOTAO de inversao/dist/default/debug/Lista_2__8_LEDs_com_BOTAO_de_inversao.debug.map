@@ -4,17 +4,15 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
-  -cs \
-  -h+dist/default/debug\Lista_3__4_LEDs_pisca-pisca_alternando_com_2_botoes.debug.sym \
-  --cmf=dist/default/debug\Lista_3__4_LEDs_pisca-pisca_alternando_com_2_botoes.debug.cmf \
-  -z -Q16F877 -oC:\Users\Yan\AppData\Local\Temp\xcAsa4c.\driver_tmp_3.o \
+  -cs -h+dist/default/debug\Lista_2__8_LEDs_com_BOTAO_de_inversao.debug.sym \
+  --cmf=dist/default/debug\Lista_2__8_LEDs_com_BOTAO_de_inversao.debug.cmf \
+  -z -Q16F877 -oC:\Users\Yan\AppData\Local\Temp\xcAs8ic.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
-  -Mdist/default/debug/Lista_3__4_LEDs_pisca-pisca_alternando_com_2_botoes.debug.map \
-  -E1 --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
-  -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
-  -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
-  -ABANK2=0110h-016Fh -ABANK3=0190h-01EFh \
-  -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
+  -Mdist/default/debug/Lista_2__8_LEDs_com_BOTAO_de_inversao.debug.map -E1 \
+  --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
+  -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 -ACOMMON=070h-07Fh \
+  -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh -ABANK2=0110h-016Fh \
+  -ABANK3=0190h-01EFh -ARAM=020h-06Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh \
   -AABS1=020h-07Fh,0A0h-0EFh,0110h-016Fh,0190h-01EFh -ASFR0=00h-01Fh \
   -ASFR1=080h-09Fh -ASFR2=0100h-010Fh -ASFR3=0180h-018Fh \
   -ACONFIG=02007h-02007h -DCONFIG=2 -AIDLOC=02000h-02003h -DIDLOC=2 \

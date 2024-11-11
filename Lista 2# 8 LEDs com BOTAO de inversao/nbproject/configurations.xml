@@ -19,6 +19,8 @@
                    projectFiles="true">
     </logicalFolder>
     <itemPath>codigo1.s</itemPath>
+    <itemPath>codigo1.s</itemPath>
+    <itemPath>codigo1.s</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
