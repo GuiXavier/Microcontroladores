@@ -95,7 +95,7 @@ ${OBJECTDIR}/lista3.o: lista3.s  nbproject/Makefile-${CND_CONF}.mk
 	${MP_AS} -mcpu=PIC16F877 -c \
 	-o ${OBJECTDIR}/lista3.o \
 	lista3.s \
-	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull
+	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 else
 ${OBJECTDIR}/lista3.o: lista3.s  nbproject/Makefile-${CND_CONF}.mk 
@@ -104,7 +104,7 @@ ${OBJECTDIR}/lista3.o: lista3.s  nbproject/Makefile-${CND_CONF}.mk
 	${MP_AS} -mcpu=PIC16F877 -c \
 	-o ${OBJECTDIR}/lista3.o \
 	lista3.s \
-	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull
+	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
 	
 endif
 
