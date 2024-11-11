@@ -1,6 +1,6 @@
 <circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="MCU" CircId="p16F877-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-80" rotation="0" hflip="1" vflip="1" label="p16F877-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="4 MHz" Program="dist/default/debug/Lista_3_.debug.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" SerialMon="-1" />
+<item itemtype="MCU" CircId="p16F877-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-80" rotation="0" hflip="1" vflip="1" label="p16F877-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="4 MHz" Program="dist/default/debug/Lista_4_.debug.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" SerialMon="-1" />
 
 <item itemtype="Ground" CircId="Ground-5" mainComp="false" Show_id="false" Show_Val="false" Pos="220,228" rotation="0" hflip="1" vflip="1" label="Ground-5" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 

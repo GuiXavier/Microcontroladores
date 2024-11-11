@@ -45,50 +45,24 @@ bank2 MACRO
     BSF STATUS, 6 ;
     endm
 ; ------------------- Criação de variáveis -------------------------
-PSECT udata
- TEMP1:DS 1
- TEMP2:DS 1
+
     
 ; ------------------- Definição de entradas ---------------   
 #define BOTAO			PORTB, 0
 
 ; ------------------- Definição de saídas -----------------
 
-#define LED			PORTD, 0  
-#define LED_ON		bsf	PORTD, 0      
-#define LED_OFF		bcf	PORTD, 0 ; bit-clear-file 
-    
-#define LED1			PORTD, 1  
-#define LED1_ON		bsf	PORTD, 1      
-#define LED1_OFF	bcf	PORTD, 1
-    
-#define LED2			PORTD, 2  
-#define LED2_ON		bsf	PORTD, 2      
-#define LED2_OFF	bcf	PORTD, 2    
 
-#define LED3			PORTD, 3  
-#define LED3_ON		bsf	PORTD, 3      
-#define LED3_OFF	bcf	PORTD, 3    
-                       
-#define LED4			PORTD, 4  
-#define LED4_ON		bsf	PORTD, 4      
-#define LED4_OFF	bcf	PORTD, 4
-    
-#define LED5			PORTD, 5  
-#define LED5_ON		bsf	PORTD, 5      
-#define LED5_OFF	bcf	PORTD, 5 
-    
-#define LED6			PORTD, 6  
-#define LED6_ON		bsf	PORTD, 6      
-#define LED6_OFF	bcf	PORTD, 6
-    
-#define LED7			PORTD, 7  
-#define LED7_ON		bsf	PORTD, 7      
-#define LED7_OFF	bcf	PORTD, 7
-    
     
 ; ------------------- Vetor de reset -----------------
-
+PSECT udata
+	TEMP1: DS 1
+	TEMP2: DS 1
+	contador: DS 1
+	botaoEstado: DS 1
+	botaoUltimoEstado: DS 1
+    
+    
 PSECT code, abs
 ORG	0x00		;Define o endereço inicial de processamento
 goto INICIO	 
@@ -114,6 +88,14 @@ label:  movlw  	255			;inicia a contagem em 10
 	goto    label
 return
 
+DelayDebounce:
+    movlw 0xFF
+    movwf TEMP1
+DebounceLoop:
+    decfsz TEMP1, F                   ;decrementa (DEC) o registrador (F) e pula (S) se o resultado for zero (Z) = DECFSZ
+    goto DebounceLoop
+    return	
+	
 ; ------------------- Início do programa -------------
 ;PSECT loopPrincipal, delta=2, abs
 ;ORG	0x0A	
@@ -154,24 +136,28 @@ movwf PORTD
 movlw 1
 movwf PORTB
 
-loop:
-	btfsc BOTAO 
-	goto direita    
-	LED_ON
-	call DELAY
-	LED_OFF
-	call DELAY 
-	LED1_ON
-	call DELAY 
-	LED1_OFF
-	call DELAY 
-	goto loop
-	
-direita:
-	
-	goto loop
-	
+Loop:
+    btfss PORTB, 0
+    goto BotaoPressionado
+    goto BotaoSolto
 
+BotaoPressionado:
+    
+    movlw 1
+    movwf botaoEstado
+    goto Loop
+
+BotaoSolto:
+    movf botaoEstado, W
+    btfsc STATUS, 2
+    goto Loop
+    call DelayDebounce
+    incf contador, F
+    movf contador, W
+    movwf PORTD
+    clrf botaoEstado
+    goto Loop
+    
 end
     
  
