@@ -1538,8 +1538,7 @@ stk_offset SET 0
 auto_size SET 0
 ENDM
 # 7 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.inc" 2 3
-# 8 "codigo.s" 2
-
+# 9 "codigo.s" 2
 
     ;Configuração do 'hardware' do microcontrolador
 ; CONFIG
