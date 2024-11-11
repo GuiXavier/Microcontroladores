@@ -130,7 +130,7 @@ clrf	PORTE
 bank1		;ALTERA PARA O BANCO 1.
 movlw	0xFF	; Coloca todos os pinos como entrada (menos o RB7) H`FF` -> W -> TRISA
 movwf	TRISA	; Assim, os pinos que não iremos utilizar
-movlw	0000000B ; ficam em alta impedância e não correm o risco
+movlw	0xFF ; ficam em alta impedância e não correm o risco
 movwf	TRISB	; de queimar por algum motivo
 movlw	0xFF
 movwf	TRISC
