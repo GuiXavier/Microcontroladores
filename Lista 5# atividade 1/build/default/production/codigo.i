@@ -1812,8 +1812,13 @@ extern __bank0 __bit __timeout;
 void teclado();
 
 unsigned char segment[]={0x03,0x9f,0x25,0x0d,0x99,0x49,0x41,0x1f,0x01,0x19,0x11,0xc1,0x63,0x85,0x61,0x71},i=0;
+unsigned char contador = 0;
+
+
 void main(void)
 {
+
+
     TRISD = 0x00;
     TRISA = 0x00;
     TRISC = 0x01;
@@ -1821,6 +1826,7 @@ void main(void)
     PORTAbits.RA5 = 0;
 
     TRISBbits.TRISB0 = 1;
+    PORTD = segment[contador];
 
     while(1)
     {
@@ -1831,22 +1837,26 @@ void main(void)
 }
 void botao()
 {
-    int contador = 0;
-
-    if(PORTBbits.RB0==0)
+    while(1)
     {
+        if(PORTBbits.RB0==0)
+        {
+            _delay((unsigned long)((20)*(20000000/4000.0)));
+            if(PORTBbits.RB0 == 0)
+                {
+                    contador++;
+                    if(contador > 15)
+                    contador = 0;
 
-        PORTD = segment[0];
-        while(PORTBbits.RB0==0);
+                PORTD = segment[contador];
+                while(PORTBbits.RB0 == 0);
 
+                }
+
+        }
     }
-    if(PORTBbits.RB1 == 0)
-    {
-        PORTD = segment[1];
-        while(PORTBbits.RB1==0);
-    }
 
-
+    return;
 }
 void teclado()
 {

@@ -13,7 +13,7 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "28 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
 [v _main main `(v  1 e 1 0 ]
-"71
+"73
 [v _teclado teclado `(v  1 e 1 0 ]
 [s S26 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
@@ -37,7 +37,7 @@
 "233
 [u S78 . 1 `S69 1 . 1 0 ]
 [v _PORTBbits PORTBbits `VES78  1 e 1 @6 ]
-[s S96 . 1 `uc 1 RC0 1 0 :1:0 
+[s S98 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -47,8 +47,8 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "295
-[u S105 . 1 `S96 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES105  1 e 1 @7 ]
+[u S107 . 1 `S98 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES107  1 e 1 @7 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "1320
@@ -80,8 +80,8 @@
 {
 "47
 } 0
-"71
+"73
 [v _teclado teclado `(v  1 e 1 0 ]
 {
-"157
+"159
 } 0

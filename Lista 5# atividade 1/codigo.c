@@ -22,8 +22,13 @@
 void teclado();
 
 unsigned char segment[]={0x03,0x9f,0x25,0x0d,0x99,0x49,0x41,0x1f,0x01,0x19,0x11,0xc1,0x63,0x85,0x61,0x71},i=0;
+unsigned char contador = 0;   //determinando as variáveis para fora do código
+
+
 void main(void) 
 {
+    
+    
     TRISD = 0x00;
     TRISA = 0x00;
     TRISC = 0x01;    // definindo as portas A,B e C como saidas 
@@ -31,6 +36,7 @@ void main(void)
     PORTAbits.RA5 = 0;
     
     TRISBbits.TRISB0 = 1;    // definindo o botão b0 como entrada
+    PORTD = segment[contador];
     
     while(1)
     {
@@ -41,22 +47,26 @@ void main(void)
 }
 void botao()
 {
-    int contador = 0;
-    
-    if(b0==0)
+    while(1)
     {
+        if(b0==0)
+        {
+            __delay_ms(20);
+            if(b0 == 0)    // Confirma a pressão do botão
+                {
+                    contador++;   // Incrementa o contador
+                    if(contador > 15) // Retorna para 0 ao passar de F (15)
+                    contador = 0;
+                
+                PORTD = segment[contador]; // Atualiza o display
+                while(b0 == 0);  // Espera o botão ser solto
+                
+                }
         
-        PORTD = segment[0];
-        while(b0==0);
-        
+        }
     }
-    if(b1 == 0)
-    {
-        PORTD = segment[1];
-        while(b1==0);
-    }    
-
-
+   
+    return;
 }
 void teclado()
 {

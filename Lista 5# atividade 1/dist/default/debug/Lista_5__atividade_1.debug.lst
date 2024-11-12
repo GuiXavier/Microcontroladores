@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Nov 12 16:24:14 2024
+                                                                                               Tue Nov 12 16:20:57 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -333,7 +333,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    319     0716                     _main:	
    320                           ;psect for function _main
    321                           
-   322     0716                     l693:	
+   322     0716                     l694:	
    323                           ;incstack = 0
    324                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    325                           
@@ -345,29 +345,29 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    331                           
    332                           ;codigo.c: 33:     TRISA = 0x00;
    333     0719  0185               	clrf	5	;volatile
-   334     071A                     l695:
+   334     071A                     l696:
    335                           
    336                           ;codigo.c: 34:     TRISC = 0x01;
    337     071A  3001               	movlw	1
    338     071B  0087               	movwf	7	;volatile
-   339     071C                     l697:
+   339     071C                     l698:
    340                           
    341                           ;codigo.c: 35:     TRISB = 0xff;
    342     071C  30FF               	movlw	255
    343     071D  0086               	movwf	6	;volatile
-   344     071E                     l699:
+   344     071E                     l700:
    345                           
    346                           ;codigo.c: 36:     PORTAbits.RA5 = 0;
    347     071E  1283               	bcf	3,5	;RP0=0, select bank0
    348     071F  1303               	bcf	3,6	;RP1=0, select bank0
    349     0720  1285               	bcf	5,5	;volatile
-   350     0721                     l701:
+   350     0721                     l702:
    351                           
    352                           ;codigo.c: 38:     TRISBbits.TRISB0 = 1;
    353     0721  1683               	bsf	3,5	;RP0=1, select bank1
    354     0722  1303               	bcf	3,6	;RP1=0, select bank1
    355     0723  1406               	bsf	6,0	;volatile
-   356     0724                     l703:
+   356     0724                     l704:
    357                           
    358                           ;codigo.c: 39:     PORTD = segment[contador];
    359     0724  0870               	movf	_contador,w
@@ -378,18 +378,18 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    364     0729  1283               	bcf	3,5	;RP0=0, select bank0
    365     072A  1303               	bcf	3,6	;RP1=0, select bank0
    366     072B  0088               	movwf	8	;volatile
-   367     072C                     l705:
+   367     072C                     l706:
    368                           
    369                           ;codigo.c: 42:     {;codigo.c: 43:     teclado();
    370     072C  120A  118A  2739  120A  118A  	fcall	_teclado
-   371     0731                     l707:
+   371     0731                     l708:
    372                           
    373                           ;codigo.c: 44:     PORTD = 0xff;
    374     0731  30FF               	movlw	255
    375     0732  1283               	bcf	3,5	;RP0=0, select bank0
    376     0733  1303               	bcf	3,6	;RP1=0, select bank0
    377     0734  0088               	movwf	8	;volatile
-   378     0735  2F2C               	goto	l705
+   378     0735  2F2C               	goto	l706
    379     0736  120A  118A  2800   	ljmp	start
    380     0739                     __end_of_main:
    381                           
@@ -397,7 +397,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    383     0739                     __ptext1:	
    384 ;; *************** function _teclado *****************
    385 ;; Defined at:
-   386 ;;		line 71 in file "codigo.c"
+   386 ;;		line 73 in file "codigo.c"
    387 ;; Parameters:    Size  Location     Type
    388 ;;		None
    389 ;; Auto vars:     Size  Location     Type
@@ -427,12 +427,12 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    413     0739                     _teclado:	
    414                           ;psect for function _teclado
    415                           
-   416     0739                     l659:	
+   416     0739                     l660:	
    417                           ;incstack = 0
    418                           ; Regs used in _teclado: [wreg]
    419                           
    420                           
-   421                           ;codigo.c: 73:     PORTCbits.RC0=0;PORTCbits.RC1=1;PORTCbits.RC2=1;PORTCbits.RC3=1;
+   421                           ;codigo.c: 75:     PORTCbits.RC0=0;PORTCbits.RC1=1;PORTCbits.RC2=1;PORTCbits.RC3=1;
    422     0739  1283               	bcf	3,5	;RP0=0, select bank0
    423     073A  1303               	bcf	3,6	;RP1=0, select bank0
    424     073B  1007               	bcf	7,0	;volatile
@@ -440,421 +440,421 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    426     073D  1507               	bsf	7,2	;volatile
    427     073E  1587               	bsf	7,3	;volatile
    428                           
-   429                           ;codigo.c: 74:     if(PORTBbits.RB0==0)
+   429                           ;codigo.c: 76:     if(PORTBbits.RB0==0)
    430     073F  1806               	btfsc	6,0	;volatile
    431     0740  2F42               	goto	u11
    432     0741  2F43               	goto	u10
    433     0742                     u11:
-   434     0742  2F49               	goto	l51
+   434     0742  2F49               	goto	l52
    435     0743                     u10:
-   436     0743                     l661:
+   436     0743                     l662:
    437                           
-   438                           ;codigo.c: 75:     {;codigo.c: 76:         PORTD = segment[0];
+   438                           ;codigo.c: 77:     {;codigo.c: 78:         PORTD = segment[0];
    439     0743  0820               	movf	_segment,w
    440     0744  0088               	movwf	8	;volatile
-   441     0745                     l52:	
-   442                           ;codigo.c: 77:         while(PORTBbits.RB0==0);
+   441     0745                     l53:	
+   442                           ;codigo.c: 79:         while(PORTBbits.RB0==0);
    443                           
    444     0745  1C06               	btfss	6,0	;volatile
    445     0746  2F48               	goto	u21
    446     0747  2F49               	goto	u20
    447     0748                     u21:
-   448     0748  2F45               	goto	l52
+   448     0748  2F45               	goto	l53
    449     0749                     u20:
-   450     0749                     l51:	
-   451                           ;codigo.c: 78:     }
+   450     0749                     l52:	
+   451                           ;codigo.c: 80:     }
    452                           
    453                           
-   454                           ;codigo.c: 79:     if(PORTBbits.RB1==0)
+   454                           ;codigo.c: 81:     if(PORTBbits.RB1==0)
    455     0749  1886               	btfsc	6,1	;volatile
    456     074A  2F4C               	goto	u31
    457     074B  2F4D               	goto	u30
    458     074C                     u31:
-   459     074C  2F53               	goto	l55
+   459     074C  2F53               	goto	l56
    460     074D                     u30:
-   461     074D                     l663:
+   461     074D                     l664:
    462                           
-   463                           ;codigo.c: 80:     {;codigo.c: 81:         PORTD = segment[1];
+   463                           ;codigo.c: 82:     {;codigo.c: 83:         PORTD = segment[1];
    464     074D  0821               	movf	_segment+1,w
    465     074E  0088               	movwf	8	;volatile
-   466     074F                     l56:	
-   467                           ;codigo.c: 82:         while(PORTBbits.RB1==0);
+   466     074F                     l57:	
+   467                           ;codigo.c: 84:         while(PORTBbits.RB1==0);
    468                           
    469     074F  1C86               	btfss	6,1	;volatile
    470     0750  2F52               	goto	u41
    471     0751  2F53               	goto	u40
    472     0752                     u41:
-   473     0752  2F4F               	goto	l56
+   473     0752  2F4F               	goto	l57
    474     0753                     u40:
-   475     0753                     l55:	
-   476                           ;codigo.c: 83:     }
+   475     0753                     l56:	
+   476                           ;codigo.c: 85:     }
    477                           
    478                           
-   479                           ;codigo.c: 84:     if(PORTBbits.RB2==0)
+   479                           ;codigo.c: 86:     if(PORTBbits.RB2==0)
    480     0753  1906               	btfsc	6,2	;volatile
    481     0754  2F56               	goto	u51
    482     0755  2F57               	goto	u50
    483     0756                     u51:
-   484     0756  2F5D               	goto	l59
+   484     0756  2F5D               	goto	l60
    485     0757                     u50:
-   486     0757                     l665:
+   486     0757                     l666:
    487                           
-   488                           ;codigo.c: 85:     {;codigo.c: 86:         PORTD = segment[2];
+   488                           ;codigo.c: 87:     {;codigo.c: 88:         PORTD = segment[2];
    489     0757  0822               	movf	_segment+2,w
    490     0758  0088               	movwf	8	;volatile
-   491     0759                     l60:	
-   492                           ;codigo.c: 87:         while(PORTBbits.RB2==0);
+   491     0759                     l61:	
+   492                           ;codigo.c: 89:         while(PORTBbits.RB2==0);
    493                           
    494     0759  1D06               	btfss	6,2	;volatile
    495     075A  2F5C               	goto	u61
    496     075B  2F5D               	goto	u60
    497     075C                     u61:
-   498     075C  2F59               	goto	l60
+   498     075C  2F59               	goto	l61
    499     075D                     u60:
-   500     075D                     l59:	
-   501                           ;codigo.c: 88:     }
+   500     075D                     l60:	
+   501                           ;codigo.c: 90:     }
    502                           
    503                           
-   504                           ;codigo.c: 89:     if(PORTBbits.RB3==0)
+   504                           ;codigo.c: 91:     if(PORTBbits.RB3==0)
    505     075D  1986               	btfsc	6,3	;volatile
    506     075E  2F60               	goto	u71
    507     075F  2F61               	goto	u70
    508     0760                     u71:
-   509     0760  2F67               	goto	l63
+   509     0760  2F67               	goto	l64
    510     0761                     u70:
-   511     0761                     l667:
+   511     0761                     l668:
    512                           
-   513                           ;codigo.c: 90:     {;codigo.c: 91:         PORTD = segment[3];
+   513                           ;codigo.c: 92:     {;codigo.c: 93:         PORTD = segment[3];
    514     0761  0823               	movf	_segment+3,w
    515     0762  0088               	movwf	8	;volatile
-   516     0763                     l64:	
-   517                           ;codigo.c: 92:         while(PORTBbits.RB3==0);
+   516     0763                     l65:	
+   517                           ;codigo.c: 94:         while(PORTBbits.RB3==0);
    518                           
    519     0763  1D86               	btfss	6,3	;volatile
    520     0764  2F66               	goto	u81
    521     0765  2F67               	goto	u80
    522     0766                     u81:
-   523     0766  2F63               	goto	l64
+   523     0766  2F63               	goto	l65
    524     0767                     u80:
-   525     0767                     l63:	
-   526                           ;codigo.c: 93:     }
+   525     0767                     l64:	
+   526                           ;codigo.c: 95:     }
    527                           
    528                           
-   529                           ;codigo.c: 94:     PORTCbits.RC0=1;PORTCbits.RC1=0;PORTCbits.RC2=1;PORTCbits.RC3=1;
+   529                           ;codigo.c: 96:     PORTCbits.RC0=1;PORTCbits.RC1=0;PORTCbits.RC2=1;PORTCbits.RC3=1;
    530     0767  1407               	bsf	7,0	;volatile
    531     0768  1087               	bcf	7,1	;volatile
    532     0769  1507               	bsf	7,2	;volatile
    533     076A  1587               	bsf	7,3	;volatile
    534                           
-   535                           ;codigo.c: 95:     if(PORTBbits.RB0==0)
+   535                           ;codigo.c: 97:     if(PORTBbits.RB0==0)
    536     076B  1806               	btfsc	6,0	;volatile
    537     076C  2F6E               	goto	u91
    538     076D  2F6F               	goto	u90
    539     076E                     u91:
-   540     076E  2F75               	goto	l67
+   540     076E  2F75               	goto	l68
    541     076F                     u90:
-   542     076F                     l669:
+   542     076F                     l670:
    543                           
-   544                           ;codigo.c: 96:     {;codigo.c: 97:         PORTD = segment[4];
+   544                           ;codigo.c: 98:     {;codigo.c: 99:         PORTD = segment[4];
    545     076F  0824               	movf	_segment+4,w
    546     0770  0088               	movwf	8	;volatile
-   547     0771                     l68:	
-   548                           ;codigo.c: 98:         while(PORTBbits.RB0==0);
+   547     0771                     l69:	
+   548                           ;codigo.c: 100:         while(PORTBbits.RB0==0);
    549                           
    550     0771  1C06               	btfss	6,0	;volatile
    551     0772  2F74               	goto	u101
    552     0773  2F75               	goto	u100
    553     0774                     u101:
-   554     0774  2F71               	goto	l68
+   554     0774  2F71               	goto	l69
    555     0775                     u100:
-   556     0775                     l67:	
-   557                           ;codigo.c: 99:     }
+   556     0775                     l68:	
+   557                           ;codigo.c: 101:     }
    558                           
    559                           
-   560                           ;codigo.c: 100:     if(PORTBbits.RB1==0)
+   560                           ;codigo.c: 102:     if(PORTBbits.RB1==0)
    561     0775  1886               	btfsc	6,1	;volatile
    562     0776  2F78               	goto	u111
    563     0777  2F79               	goto	u110
    564     0778                     u111:
-   565     0778  2F7F               	goto	l71
+   565     0778  2F7F               	goto	l72
    566     0779                     u110:
-   567     0779                     l671:
+   567     0779                     l672:
    568                           
-   569                           ;codigo.c: 101:     {;codigo.c: 102:         PORTD = segment[5];
+   569                           ;codigo.c: 103:     {;codigo.c: 104:         PORTD = segment[5];
    570     0779  0825               	movf	_segment+5,w
    571     077A  0088               	movwf	8	;volatile
-   572     077B                     l72:	
-   573                           ;codigo.c: 103:         while(PORTBbits.RB1==0);
+   572     077B                     l73:	
+   573                           ;codigo.c: 105:         while(PORTBbits.RB1==0);
    574                           
    575     077B  1C86               	btfss	6,1	;volatile
    576     077C  2F7E               	goto	u121
    577     077D  2F7F               	goto	u120
    578     077E                     u121:
-   579     077E  2F7B               	goto	l72
+   579     077E  2F7B               	goto	l73
    580     077F                     u120:
-   581     077F                     l71:	
-   582                           ;codigo.c: 104:     }
+   581     077F                     l72:	
+   582                           ;codigo.c: 106:     }
    583                           
    584                           
-   585                           ;codigo.c: 105:     if(PORTBbits.RB2==0)
+   585                           ;codigo.c: 107:     if(PORTBbits.RB2==0)
    586     077F  1906               	btfsc	6,2	;volatile
    587     0780  2F82               	goto	u131
    588     0781  2F83               	goto	u130
    589     0782                     u131:
-   590     0782  2F89               	goto	l75
+   590     0782  2F89               	goto	l76
    591     0783                     u130:
-   592     0783                     l673:
+   592     0783                     l674:
    593                           
-   594                           ;codigo.c: 106:     {;codigo.c: 107:         PORTD = segment[6];
+   594                           ;codigo.c: 108:     {;codigo.c: 109:         PORTD = segment[6];
    595     0783  0826               	movf	_segment+6,w
    596     0784  0088               	movwf	8	;volatile
-   597     0785                     l76:	
-   598                           ;codigo.c: 108:         while(PORTBbits.RB2==0);
+   597     0785                     l77:	
+   598                           ;codigo.c: 110:         while(PORTBbits.RB2==0);
    599                           
    600     0785  1D06               	btfss	6,2	;volatile
    601     0786  2F88               	goto	u141
    602     0787  2F89               	goto	u140
    603     0788                     u141:
-   604     0788  2F85               	goto	l76
+   604     0788  2F85               	goto	l77
    605     0789                     u140:
-   606     0789                     l75:	
-   607                           ;codigo.c: 109:     }
+   606     0789                     l76:	
+   607                           ;codigo.c: 111:     }
    608                           
    609                           
-   610                           ;codigo.c: 110:     if(PORTBbits.RB3==0)
+   610                           ;codigo.c: 112:     if(PORTBbits.RB3==0)
    611     0789  1986               	btfsc	6,3	;volatile
    612     078A  2F8C               	goto	u151
    613     078B  2F8D               	goto	u150
    614     078C                     u151:
-   615     078C  2F93               	goto	l79
+   615     078C  2F93               	goto	l80
    616     078D                     u150:
-   617     078D                     l675:
+   617     078D                     l676:
    618                           
-   619                           ;codigo.c: 111:     {;codigo.c: 112:         PORTD = segment[7];
+   619                           ;codigo.c: 113:     {;codigo.c: 114:         PORTD = segment[7];
    620     078D  0827               	movf	_segment+7,w
    621     078E  0088               	movwf	8	;volatile
-   622     078F                     l80:	
-   623                           ;codigo.c: 113:         while(PORTBbits.RB3==0);
+   622     078F                     l81:	
+   623                           ;codigo.c: 115:         while(PORTBbits.RB3==0);
    624                           
    625     078F  1D86               	btfss	6,3	;volatile
    626     0790  2F92               	goto	u161
    627     0791  2F93               	goto	u160
    628     0792                     u161:
-   629     0792  2F8F               	goto	l80
+   629     0792  2F8F               	goto	l81
    630     0793                     u160:
-   631     0793                     l79:	
-   632                           ;codigo.c: 114:     }
+   631     0793                     l80:	
+   632                           ;codigo.c: 116:     }
    633                           
    634                           
-   635                           ;codigo.c: 115:     PORTCbits.RC0=1;PORTCbits.RC1=1;PORTCbits.RC2=0;PORTCbits.RC3=1;
+   635                           ;codigo.c: 117:     PORTCbits.RC0=1;PORTCbits.RC1=1;PORTCbits.RC2=0;PORTCbits.RC3=1;
    636     0793  1407               	bsf	7,0	;volatile
    637     0794  1487               	bsf	7,1	;volatile
    638     0795  1107               	bcf	7,2	;volatile
    639     0796  1587               	bsf	7,3	;volatile
    640                           
-   641                           ;codigo.c: 116:     if(PORTBbits.RB0==0)
+   641                           ;codigo.c: 118:     if(PORTBbits.RB0==0)
    642     0797  1806               	btfsc	6,0	;volatile
    643     0798  2F9A               	goto	u171
    644     0799  2F9B               	goto	u170
    645     079A                     u171:
-   646     079A  2FA1               	goto	l83
+   646     079A  2FA1               	goto	l84
    647     079B                     u170:
-   648     079B                     l677:
+   648     079B                     l678:
    649                           
-   650                           ;codigo.c: 117:     {;codigo.c: 118:         PORTD = segment[8];
+   650                           ;codigo.c: 119:     {;codigo.c: 120:         PORTD = segment[8];
    651     079B  0828               	movf	_segment+8,w
    652     079C  0088               	movwf	8	;volatile
-   653     079D                     l84:	
-   654                           ;codigo.c: 119:         while(PORTBbits.RB0==0);
+   653     079D                     l85:	
+   654                           ;codigo.c: 121:         while(PORTBbits.RB0==0);
    655                           
    656     079D  1C06               	btfss	6,0	;volatile
    657     079E  2FA0               	goto	u181
    658     079F  2FA1               	goto	u180
    659     07A0                     u181:
-   660     07A0  2F9D               	goto	l84
+   660     07A0  2F9D               	goto	l85
    661     07A1                     u180:
-   662     07A1                     l83:	
-   663                           ;codigo.c: 120:     }
+   662     07A1                     l84:	
+   663                           ;codigo.c: 122:     }
    664                           
    665                           
-   666                           ;codigo.c: 121:     if(PORTBbits.RB1==0)
+   666                           ;codigo.c: 123:     if(PORTBbits.RB1==0)
    667     07A1  1886               	btfsc	6,1	;volatile
    668     07A2  2FA4               	goto	u191
    669     07A3  2FA5               	goto	u190
    670     07A4                     u191:
-   671     07A4  2FAB               	goto	l87
+   671     07A4  2FAB               	goto	l88
    672     07A5                     u190:
-   673     07A5                     l679:
+   673     07A5                     l680:
    674                           
-   675                           ;codigo.c: 122:     {;codigo.c: 123:         PORTD = segment[9];
+   675                           ;codigo.c: 124:     {;codigo.c: 125:         PORTD = segment[9];
    676     07A5  0829               	movf	_segment+9,w
    677     07A6  0088               	movwf	8	;volatile
-   678     07A7                     l88:	
-   679                           ;codigo.c: 124:         while(PORTBbits.RB1==0);
+   678     07A7                     l89:	
+   679                           ;codigo.c: 126:         while(PORTBbits.RB1==0);
    680                           
    681     07A7  1C86               	btfss	6,1	;volatile
    682     07A8  2FAA               	goto	u201
    683     07A9  2FAB               	goto	u200
    684     07AA                     u201:
-   685     07AA  2FA7               	goto	l88
+   685     07AA  2FA7               	goto	l89
    686     07AB                     u200:
-   687     07AB                     l87:	
-   688                           ;codigo.c: 125:     }
+   687     07AB                     l88:	
+   688                           ;codigo.c: 127:     }
    689                           
    690                           
-   691                           ;codigo.c: 126:     if(PORTBbits.RB2==0)
+   691                           ;codigo.c: 128:     if(PORTBbits.RB2==0)
    692     07AB  1906               	btfsc	6,2	;volatile
    693     07AC  2FAE               	goto	u211
    694     07AD  2FAF               	goto	u210
    695     07AE                     u211:
-   696     07AE  2FB5               	goto	l91
+   696     07AE  2FB5               	goto	l92
    697     07AF                     u210:
-   698     07AF                     l681:
+   698     07AF                     l682:
    699                           
-   700                           ;codigo.c: 127:     {;codigo.c: 128:         PORTD = segment[10];
+   700                           ;codigo.c: 129:     {;codigo.c: 130:         PORTD = segment[10];
    701     07AF  082A               	movf	_segment+10,w
    702     07B0  0088               	movwf	8	;volatile
-   703     07B1                     l92:	
-   704                           ;codigo.c: 129:         while(PORTBbits.RB2==0);
+   703     07B1                     l93:	
+   704                           ;codigo.c: 131:         while(PORTBbits.RB2==0);
    705                           
    706     07B1  1D06               	btfss	6,2	;volatile
    707     07B2  2FB4               	goto	u221
    708     07B3  2FB5               	goto	u220
    709     07B4                     u221:
-   710     07B4  2FB1               	goto	l92
+   710     07B4  2FB1               	goto	l93
    711     07B5                     u220:
-   712     07B5                     l91:	
-   713                           ;codigo.c: 130:     }
+   712     07B5                     l92:	
+   713                           ;codigo.c: 132:     }
    714                           
    715                           
-   716                           ;codigo.c: 131:     if(PORTBbits.RB3==0)
+   716                           ;codigo.c: 133:     if(PORTBbits.RB3==0)
    717     07B5  1986               	btfsc	6,3	;volatile
    718     07B6  2FB8               	goto	u231
    719     07B7  2FB9               	goto	u230
    720     07B8                     u231:
-   721     07B8  2FBF               	goto	l95
+   721     07B8  2FBF               	goto	l96
    722     07B9                     u230:
-   723     07B9                     l683:
+   723     07B9                     l684:
    724                           
-   725                           ;codigo.c: 132:     {;codigo.c: 133:         PORTD = segment[11];
+   725                           ;codigo.c: 134:     {;codigo.c: 135:         PORTD = segment[11];
    726     07B9  082B               	movf	_segment+11,w
    727     07BA  0088               	movwf	8	;volatile
-   728     07BB                     l96:	
-   729                           ;codigo.c: 134:         while(PORTBbits.RB3==0);
+   728     07BB                     l97:	
+   729                           ;codigo.c: 136:         while(PORTBbits.RB3==0);
    730                           
    731     07BB  1D86               	btfss	6,3	;volatile
    732     07BC  2FBE               	goto	u241
    733     07BD  2FBF               	goto	u240
    734     07BE                     u241:
-   735     07BE  2FBB               	goto	l96
+   735     07BE  2FBB               	goto	l97
    736     07BF                     u240:
-   737     07BF                     l95:	
-   738                           ;codigo.c: 135:     }
+   737     07BF                     l96:	
+   738                           ;codigo.c: 137:     }
    739                           
    740                           
-   741                           ;codigo.c: 136:      PORTCbits.RC0=1;PORTCbits.RC1=1;PORTCbits.RC2=1;PORTCbits.RC3=0;
+   741                           ;codigo.c: 138:      PORTCbits.RC0=1;PORTCbits.RC1=1;PORTCbits.RC2=1;PORTCbits.RC3=0;
    742     07BF  1407               	bsf	7,0	;volatile
    743     07C0  1487               	bsf	7,1	;volatile
    744     07C1  1507               	bsf	7,2	;volatile
    745     07C2  1187               	bcf	7,3	;volatile
    746                           
-   747                           ;codigo.c: 137:     if(PORTBbits.RB0==0)
+   747                           ;codigo.c: 139:     if(PORTBbits.RB0==0)
    748     07C3  1806               	btfsc	6,0	;volatile
    749     07C4  2FC6               	goto	u251
    750     07C5  2FC7               	goto	u250
    751     07C6                     u251:
-   752     07C6  2FCD               	goto	l99
+   752     07C6  2FCD               	goto	l100
    753     07C7                     u250:
-   754     07C7                     l685:
+   754     07C7                     l686:
    755                           
-   756                           ;codigo.c: 138:     {;codigo.c: 139:         PORTD = segment[12];
+   756                           ;codigo.c: 140:     {;codigo.c: 141:         PORTD = segment[12];
    757     07C7  082C               	movf	_segment+12,w
    758     07C8  0088               	movwf	8	;volatile
-   759     07C9                     l100:	
-   760                           ;codigo.c: 140:         while(PORTBbits.RB0==0);
+   759     07C9                     l101:	
+   760                           ;codigo.c: 142:         while(PORTBbits.RB0==0);
    761                           
    762     07C9  1C06               	btfss	6,0	;volatile
    763     07CA  2FCC               	goto	u261
    764     07CB  2FCD               	goto	u260
    765     07CC                     u261:
-   766     07CC  2FC9               	goto	l100
+   766     07CC  2FC9               	goto	l101
    767     07CD                     u260:
-   768     07CD                     l99:	
-   769                           ;codigo.c: 141:     }
+   768     07CD                     l100:	
+   769                           ;codigo.c: 143:     }
    770                           
    771                           
-   772                           ;codigo.c: 142:     if(PORTBbits.RB1==0)
+   772                           ;codigo.c: 144:     if(PORTBbits.RB1==0)
    773     07CD  1886               	btfsc	6,1	;volatile
    774     07CE  2FD0               	goto	u271
    775     07CF  2FD1               	goto	u270
    776     07D0                     u271:
-   777     07D0  2FD7               	goto	l103
+   777     07D0  2FD7               	goto	l104
    778     07D1                     u270:
-   779     07D1                     l687:
+   779     07D1                     l688:
    780                           
-   781                           ;codigo.c: 143:     {;codigo.c: 144:         PORTD = segment[13];
+   781                           ;codigo.c: 145:     {;codigo.c: 146:         PORTD = segment[13];
    782     07D1  082D               	movf	_segment+13,w
    783     07D2  0088               	movwf	8	;volatile
-   784     07D3                     l104:	
-   785                           ;codigo.c: 145:         while(PORTBbits.RB1==0);
+   784     07D3                     l105:	
+   785                           ;codigo.c: 147:         while(PORTBbits.RB1==0);
    786                           
    787     07D3  1C86               	btfss	6,1	;volatile
    788     07D4  2FD6               	goto	u281
    789     07D5  2FD7               	goto	u280
    790     07D6                     u281:
-   791     07D6  2FD3               	goto	l104
+   791     07D6  2FD3               	goto	l105
    792     07D7                     u280:
-   793     07D7                     l103:	
-   794                           ;codigo.c: 146:     }
+   793     07D7                     l104:	
+   794                           ;codigo.c: 148:     }
    795                           
    796                           
-   797                           ;codigo.c: 147:     if(PORTBbits.RB2==0)
+   797                           ;codigo.c: 149:     if(PORTBbits.RB2==0)
    798     07D7  1906               	btfsc	6,2	;volatile
    799     07D8  2FDA               	goto	u291
    800     07D9  2FDB               	goto	u290
    801     07DA                     u291:
-   802     07DA  2FE1               	goto	l107
+   802     07DA  2FE1               	goto	l108
    803     07DB                     u290:
-   804     07DB                     l689:
+   804     07DB                     l690:
    805                           
-   806                           ;codigo.c: 148:     {;codigo.c: 149:         PORTD = segment[14];
+   806                           ;codigo.c: 150:     {;codigo.c: 151:         PORTD = segment[14];
    807     07DB  082E               	movf	_segment+14,w
    808     07DC  0088               	movwf	8	;volatile
-   809     07DD                     l108:	
-   810                           ;codigo.c: 150:         while(PORTBbits.RB2==0);
+   809     07DD                     l109:	
+   810                           ;codigo.c: 152:         while(PORTBbits.RB2==0);
    811                           
    812     07DD  1D06               	btfss	6,2	;volatile
    813     07DE  2FE0               	goto	u301
    814     07DF  2FE1               	goto	u300
    815     07E0                     u301:
-   816     07E0  2FDD               	goto	l108
+   816     07E0  2FDD               	goto	l109
    817     07E1                     u300:
-   818     07E1                     l107:	
-   819                           ;codigo.c: 151:     }
+   818     07E1                     l108:	
+   819                           ;codigo.c: 153:     }
    820                           
    821                           
-   822                           ;codigo.c: 152:     if(PORTBbits.RB3==0)
+   822                           ;codigo.c: 154:     if(PORTBbits.RB3==0)
    823     07E1  1986               	btfsc	6,3	;volatile
    824     07E2  2FE4               	goto	u311
    825     07E3  2FE5               	goto	u310
    826     07E4                     u311:
-   827     07E4  2FEB               	goto	l115
+   827     07E4  2FEB               	goto	l116
    828     07E5                     u310:
-   829     07E5                     l691:
+   829     07E5                     l692:
    830                           
-   831                           ;codigo.c: 153:     {;codigo.c: 154:         PORTD = segment[15];
+   831                           ;codigo.c: 155:     {;codigo.c: 156:         PORTD = segment[15];
    832     07E5  082F               	movf	_segment+15,w
    833     07E6  0088               	movwf	8	;volatile
-   834     07E7                     l112:	
-   835                           ;codigo.c: 155:         while(PORTBbits.RB3==0);
+   834     07E7                     l113:	
+   835                           ;codigo.c: 157:         while(PORTBbits.RB3==0);
    836                           
    837     07E7  1D86               	btfss	6,3	;volatile
    838     07E8  2FEA               	goto	u321
    839     07E9  2FEB               	goto	u320
    840     07EA                     u321:
-   841     07EA  2FE7               	goto	l112
+   841     07EA  2FE7               	goto	l113
    842     07EB                     u320:
-   843     07EB                     l115:
+   843     07EB                     l116:
    844     07EB  0008               	return
    845     07EC                     __end_of_teclado:
    846     0002                     ___latbits      equ	2
@@ -960,34 +960,34 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Nov 12 16:24:14 2024
+Symbol Table                                                                                   Tue Nov 12 16:20:57 2024
 
-                      _i 0071                        pc 0002                       l51 0749  
-                     l60 0759                       l52 0745                       l71 077F  
-                     l63 0767                       l55 0753                       l80 078F  
-                     l72 077B                       l64 0763                       l56 074F  
-                     l91 07B5                       l83 07A1                       l75 0789  
-                     l67 0775                       l59 075D                       l92 07B1  
-                     l84 079D                       l76 0785                       l68 0771  
-                     l95 07BF                       l87 07AB                       l79 0793  
-                     l96 07BB                       l88 07A7                       l99 07CD  
-                     u10 0743                       u11 0742                       u20 0749  
-                     u21 0748                       u30 074D                       u31 074C  
-                     u40 0753                       u41 0752                       u50 0757  
-                     u51 0756                       u60 075D                       u61 075C  
-                     u70 0761                       u71 0760                       u80 0767  
-                     u81 0766                       u90 076F                       u91 076E  
-                     fsr 0004                      l100 07C9                      l103 07D7  
-                    l112 07E7                      l104 07D3                      l115 07EB  
-                    l107 07E1                      l108 07DD                      l701 0721  
-                    l703 0724                      l705 072C                      l707 0731  
-                    l661 0743                      l671 0779                      l663 074D  
-                    l681 07AF                      l673 0783                      l665 0757  
-                    l691 07E5                      l683 07B9                      l675 078D  
-                    l667 0761                      l659 0739                      l685 07C7  
-                    l677 079B                      l669 076F                      l693 0716  
-                    l687 07D1                      l679 07A5                      l695 071A  
-                    l689 07DB                      l697 071C                      l699 071E  
+                      _i 0071                        pc 0002                       l60 075D  
+                     l52 0749                       l61 0759                       l53 0745  
+                     l80 0793                       l72 077F                       l64 0767  
+                     l56 0753                       l81 078F                       l73 077B  
+                     l65 0763                       l57 074F                       l92 07B5  
+                     l84 07A1                       l76 0789                       l68 0775  
+                     l93 07B1                       l85 079D                       l77 0785  
+                     l69 0771                       l96 07BF                       l88 07AB  
+                     l97 07BB                       l89 07A7                       u10 0743  
+                     u11 0742                       u20 0749                       u21 0748  
+                     u30 074D                       u31 074C                       u40 0753  
+                     u41 0752                       u50 0757                       u51 0756  
+                     u60 075D                       u61 075C                       u70 0761  
+                     u71 0760                       u80 0767                       u81 0766  
+                     u90 076F                       u91 076E                       fsr 0004  
+                    l100 07CD                      l101 07C9                      l104 07D7  
+                    l113 07E7                      l105 07D3                      l116 07EB  
+                    l108 07E1                      l109 07DD                      l700 071E  
+                    l702 0721                      l704 0724                      l706 072C  
+                    l660 0739                      l708 0731                      l670 076F  
+                    l662 0743                      l680 07A5                      l672 0779  
+                    l664 074D                      l690 07DB                      l682 07AF  
+                    l674 0783                      l666 0757                      l692 07E5  
+                    l684 07B9                      l676 078D                      l668 0761  
+                    l686 07C7                      l678 079B                      l694 0716  
+                    l688 07D1                      l696 071A                      l698 071C  
                     u100 0775                      u101 0774                      u110 0779  
                     u111 0778                      u200 07AB                      u120 077F  
                     u201 07AA                      u121 077E                      u210 07AF  
