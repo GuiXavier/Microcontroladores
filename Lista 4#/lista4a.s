@@ -138,6 +138,7 @@ movwf PORTB
 
 Loop:
     btfss PORTB, 0
+    
     goto BotaoPressionado
     goto BotaoSolto
 
