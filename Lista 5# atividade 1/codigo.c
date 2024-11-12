@@ -26,9 +26,11 @@ void main(void)
 {
     TRISD = 0x00;
     TRISA = 0x00;
-    TRISC = 0x00;
-    TRISB = 0xff;
+    TRISC = 0x01;    // definindo as portas A,B e C como saidas 
+    TRISB = 0xff;      
     PORTAbits.RA5 = 0;
+    
+    TRISBbits.TRISB0 = 1;    // definindo o botão b0 como entrada
     
     while(1)
     {
@@ -36,6 +38,25 @@ void main(void)
     PORTD = 0xff;
     }
     return;
+}
+void botao()
+{
+    int contador = 0;
+    
+    if(b0==0)
+    {
+        
+        PORTD = segment[0];
+        while(b0==0);
+        
+    }
+    if(b1 == 0)
+    {
+        PORTD = segment[1];
+        while(b1==0);
+    }    
+
+
 }
 void teclado()
 {
