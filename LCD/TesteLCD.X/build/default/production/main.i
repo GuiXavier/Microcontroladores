@@ -1859,9 +1859,9 @@ void main(void)
     while(1)
     {
         lcd_command(0x80);
-        lcd_string("DISCIPLINA",10);
+        lcd_string("Paulo",5);
         lcd_command(0xC0);
-        lcd_string("MICROCONTROLADOR",16);
+        lcd_string("a2095920",8);
     }
     return;
 }
