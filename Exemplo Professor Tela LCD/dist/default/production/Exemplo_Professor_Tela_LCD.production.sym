@@ -130,19 +130,19 @@ reset_vec 0 5 CODE 0 0
 cinit FF8 FFF CODE FF8 0
 cstackCOMMON 70 75 COMMON 70 1
 maintext FA2 FF7 CODE FA2 0
-strings 6 49 STRING 6 0
 text3 F70 FA1 CODE F70 0
 text1 F40 F6F CODE F40 0
+strings 6 2F STRING 6 0
 text2 F18 F3F CODE F18 0
 text4 EF0 F17 CODE EF0 0
 %locals
 dist/default/production\Exemplo_Professor_Tela_LCD.production.o
-C:\Users\Yan\AppData\Local\Temp\xcAsjs8.\driver_tmp_1.s
-406 7FC 0 CODE 0
-409 7FC 0 CODE 0
-415 7FC 0 CODE 0
-417 7FC 0 CODE 0
-418 7FD 0 CODE 0
+C:\Users\Yan\AppData\Local\Temp\xcAs7uo.\driver_tmp_1.s
+393 7FC 0 CODE 0
+396 7FC 0 CODE 0
+402 7FC 0 CODE 0
+404 7FC 0 CODE 0
+405 7FD 0 CODE 0
 codigolcd.c
 55 7D1 0 CODE 0
 57 7D1 0 CODE 0
