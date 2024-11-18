@@ -60,9 +60,9 @@ void main(void)
     while(1)
     {
         lcd_command(0x80);//D7=1 D6 a D0 = 0 - 80h. Começa no primeiro digito
-        lcd_string("DISCIPLINA",10);
+        lcd_string("NOME",4);   //O NUMERO REPRESENTA A QUANTIDADE DE LETRAS DA PALAVRA
         lcd_command(0xC0);
-        lcd_string("MICROCONTROLADOR",16);
+        lcd_string("MATRICULA",9);
     }
     return;
 }
