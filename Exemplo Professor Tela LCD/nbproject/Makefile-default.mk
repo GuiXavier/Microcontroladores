@@ -28,7 +28,7 @@ CP=cp
 CND_CONF=default
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
-OUTPUT_SUFFIX=hex
+OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
 FINAL_IMAGE=${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
@@ -39,7 +39,7 @@ FINAL_IMAGE=${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
-COMPARISON_BUILD=
+COMPARISON_BUILD=-mafrlcsj
 else
 COMPARISON_BUILD=
 endif
@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=codigo.s codigolcd.c
+SOURCEFILES_QUOTED_IF_SPACED=codigolcd.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/codigo.o ${OBJECTDIR}/codigolcd.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/codigo.o.d ${OBJECTDIR}/codigolcd.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/codigolcd.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/codigolcd.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/codigo.o ${OBJECTDIR}/codigolcd.o
+OBJECTFILES=${OBJECTDIR}/codigolcd.p1
 
 # Source Files
-SOURCEFILES=codigo.s codigolcd.c
+SOURCEFILES=codigolcd.c
 
 
 
@@ -84,44 +84,56 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
-MP_PROCESSOR_OPTION=PIC16F877
-FINAL_IMAGE_NAME_MINUS_EXTENSION=${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}
+MP_PROCESSOR_OPTION=16F877
 # ------------------------------------------------------------------------------------
-# Rules for buildStep: pic-as-assembler
+# Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/codigo.o: codigo.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/codigolcd.p1: codigolcd.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/codigo.o 
-	${MP_AS} -mcpu=PIC16F877 -c \
-	-o ${OBJECTDIR}/codigo.o \
-	codigo.s \
-	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	@${RM} ${OBJECTDIR}/codigolcd.p1.d 
+	@${RM} ${OBJECTDIR}/codigolcd.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/codigolcd.p1 codigolcd.c 
+	@-${MV} ${OBJECTDIR}/codigolcd.d ${OBJECTDIR}/codigolcd.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/codigolcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/codigo.o: codigo.s  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/codigolcd.p1: codigolcd.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/codigo.o 
-	${MP_AS} -mcpu=PIC16F877 -c \
-	-o ${OBJECTDIR}/codigo.o \
-	codigo.s \
-	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -fmax-errors=20 -mwarn=0 -xassembler-with-cpp
+	@${RM} ${OBJECTDIR}/codigolcd.p1.d 
+	@${RM} ${OBJECTDIR}/codigolcd.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/codigolcd.p1 codigolcd.c 
+	@-${MV} ${OBJECTDIR}/codigolcd.d ${OBJECTDIR}/codigolcd.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/codigolcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
 # ------------------------------------------------------------------------------------
-# Rules for buildStep: pic-as-linker
+# Rules for buildStep: assemble
+ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+else
+endif
+
+# ------------------------------------------------------------------------------------
+# Rules for buildStep: assembleWithPreprocess
+ifeq ($(TYPE_IMAGE), DEBUG_RUN)
+else
+endif
+
+# ------------------------------------------------------------------------------------
+# Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} ${DISTDIR} 
-	${MP_LD} -mcpu=PIC16F877 ${OBJECTFILES_QUOTED_IF_SPACED} \
-	-o ${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
-	 -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.map  -D__DEBUG=1  -mdebugger=none  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto        $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	@${RM} ${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.hex 
+	
+	
 else
 ${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} ${DISTDIR} 
-	${MP_LD} -mcpu=PIC16F877 ${OBJECTFILES_QUOTED_IF_SPACED} \
-	-o ${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${OUTPUT_SUFFIX} \
-	  -mdfp="${DFP_DIR}/xc8"  -msummary=+mem,-psect,-class,-hex,-file,-sha1,-sha256,-xml,-xmlfull -mcallgraph=std -Wl,-Map=${FINAL_IMAGE_NAME_MINUS_EXTENSION}.map -mno-download-hex
+	${MP_CC} $(MP_EXTRA_LD_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -Wl,-Map=${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.map  -DXPRJ_default=$(CND_CONF)  -Wl,--defsym=__MPLAB_BUILD=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     $(COMPARISON_BUILD) -Wl,--memorysummary,${DISTDIR}/memoryfile.xml -o ${DISTDIR}/Exemplo_Professor_Tela_LCD.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	
+	
 endif
 
 
