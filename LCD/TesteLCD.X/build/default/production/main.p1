@@ -339,13 +339,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 49:         lcd_command(0x80);
 [e ( _lcd_command (1 -> -> 56 `i `uc ]
 "50
-[; ;main.c: 50:         lcd_string("DISCIPLINA",10);
+[; ;main.c: 50:         lcd_string("Paulo",5);
 [e ( _lcd_command (1 -> -> 6 `i `uc ]
 "51
 [; ;main.c: 51:         lcd_command(0xC0);
 [e ( _lcd_command (1 -> -> 12 `i `uc ]
 "52
-[; ;main.c: 52:         lcd_string("MICROCONTROLADOR",16);
+[; ;main.c: 52:         lcd_string("a2095920",8);
 [e ( _lcd_command (1 -> -> 1 `i `uc ]
 "53
 [; ;main.c: 53:     }
@@ -372,11 +372,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "62
 [e ( _lcd_command (1 -> -> 128 `i `uc ]
 "63
-[e ( _lcd_string (2 , :s 1C -> -> 10 `i `uc ]
+[e ( _lcd_string (2 , :s 1C -> -> 5 `i `uc ]
 "64
 [e ( _lcd_command (1 -> -> 192 `i `uc ]
 "65
-[e ( _lcd_string (2 , :s 2C -> -> 16 `i `uc ]
+[e ( _lcd_string (2 , :s 2C -> -> 8 `i `uc ]
 "66
 }
 [e :U 103 ]
@@ -387,5 +387,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 "68
 [e :UE 102 ]
 }
-[a 2C 77 73 67 82 79 67 79 78 84 82 79 76 65 68 79 82 0 ]
-[a 1C 68 73 83 67 73 80 76 73 78 65 0 ]
+[a 1C 80 97 117 108 111 0 ]
+[a 2C 97 50 48 57 53 57 50 48 0 ]

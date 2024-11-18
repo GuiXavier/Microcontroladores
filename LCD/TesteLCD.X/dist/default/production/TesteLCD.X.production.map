@@ -4,12 +4,12 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
-  -cn -h+dist/default/debug\TesteLCD.X.debug.sym \
-  --cmf=dist/default/debug\TesteLCD.X.debug.cmf -z -Q16F877 \
-  -oC:\Users\GUILHE~1\AppData\Local\Temp\xcAschg.\driver_tmp_3.o \
+  -cn -h+dist/default/production\TesteLCD.X.production.sym \
+  --cmf=dist/default/production\TesteLCD.X.production.cmf -z -Q16F877 \
+  -oC:\Users\GUILHE~1\AppData\Local\Temp\xcAs2sg.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
-  -Mdist/default/debug/TesteLCD.X.debug.map \
-  --md=C:\Users\GUILHE~1\AppData\Local\Temp\xcAschg.\driver_tmp_0.dat -E1 \
+  -Mdist/default/production/TesteLCD.X.production.map \
+  --md=C:\Users\GUILHE~1\AppData\Local\Temp\xcAs2sg.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -22,8 +22,8 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\GUILHE~1\AppData\Local\Temp\xcAschg.\driver_tmp_12.o \
-  dist/default/debug\TesteLCD.X.debug.o 
+  C:\Users\GUILHE~1\AppData\Local\Temp\xcAs2sg.\driver_tmp_12.o \
+  dist/default/production\TesteLCD.X.production.o 
 
 Object code version is 3.11
 
@@ -32,10 +32,10 @@ Machine type is 16F877
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\GUILHE~1\AppData\Local\Temp\xcAschg.\driver_tmp_12.o
+C:\Users\GUILHE~1\AppData\Local\Temp\xcAs2sg.\driver_tmp_12.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
-dist/default/debug\TesteLCD.X.debug.o
+dist/default/production\TesteLCD.X.production.o
                 cinit                               7FC      7FC        4      FF8       0
                 config                             2007     2007        1        0       4
                 text4                               778      778       14      EF0       0
@@ -44,7 +44,7 @@ dist/default/debug\TesteLCD.X.debug.o
                 text1                               7A0      7A0       18      F40       0
                 maintext                            7D1      7D1       2B      FA2       0
                 cstackCOMMON                         70       70        6       70       1
-                strings                               3        3       22        6       0
+                strings                               3        3       15        6       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
@@ -59,7 +59,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                               3        3       22         0
+                strings                               3        3       15         0
 
         CLASS   CONST          
 
@@ -105,7 +105,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                strings                        000003  000022  000025         6       0  STRING      2
+                strings                        000003  000015  000018         6       0  STRING      2
                 cstackCOMMON                   000070  000006  000076        70       1  COMMON      1
                 text4                          000778  000014  00078C       EF0       0  CODE        2
                 text2                          00078C  000014  0007A0       F18       0  CODE        2
@@ -122,13 +122,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0025-0777            753           2
+        CODE             0018-0777            760           2
                          0800-1FFF            800
         COMMON           0076-007D              8           1
-        CONST            0025-0777            100           2
+        CONST            0018-0777            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0025-0777            100           2
+        ENTRY            0018-0777            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -139,9 +139,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          0025-0777            753           2
+        STRCODE          0018-0777            760           2
                          0800-1FFF           1800
-        STRING           0025-0777            100           2
+        STRING           0018-0777            100           2
                          0800-1FFF            100
 
                                   Symbol Table
