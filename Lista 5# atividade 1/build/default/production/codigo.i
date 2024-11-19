@@ -1811,61 +1811,48 @@ extern __bank0 __bit __timeout;
 #pragma config CP = OFF
 
 
-unsigned char segment[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07,0x7F, 0x6F, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71}, i=0;
+unsigned char segment[] = {0x03,0x9f,0x25,0x0d,0x99,0x49,0x41,0x1f,0x01,0x19,0x11,0xc1,0x63,0x85,0x61,0x71},i=0;
 
 
 unsigned char contador = 0;
-unsigned char sentido = 1;
-
-void verificaBotao(){
-    if(PORTBbits.RB0 == 0)
-    {
-
-        return 1;
-
-    }else{
-
-        return 0;
-
-    }
- }
+unsigned char sentido = 0;
 
 
 void main(void) {
 
     TRISD = 0x00;
     TRISB = 0xFF;
-    PORTD = 0x00;
 
-    OPTION_REGbits.nRBPU = 0;
-
-
-
+    TRISA = 0x00;
+    contador = 0;
+    PORTAbits.RA5 = 0;
 
 
-    while(verificaBotao()){
+
+
+    while(1){
+if(PORTBbits.RB0 == 0){
 
         if(PORTBbits.RB0 == 0)
-        {
+       {
             sentido = !sentido;
         }
 
 
-        if (sentido) {
+        if (sentido == 1){
             contador++;
-            if (contador > 15) {
+           if (contador > 15)
                 contador = 0;
-            }
-        } else {
-            if (contador == 0) {
+            PORTD = segment[contador];
+            _delay((unsigned long)((500)*(20000000/4000.0)));
+        }else{
+            contador--;
+            if(contador == 0)
                 contador = 15;
-            } else {
-                contador--;
-            }
+            PORTD = segment[contador];
+            _delay((unsigned long)((500)*(20000000/4000.0)));
         }
-
-
-        PORTD = segment[contador];
-        _delay((unsigned long)((500)*(20000000/4000.0)));
-    }
+# 66 "codigo.c"
+}
+}
 }

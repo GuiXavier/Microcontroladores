@@ -12,18 +12,15 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\Lista_5__atividade_1.production.o
-cinit CODE 0 7E6 7E6 1A 2 1
-text1 CODE 0 767 767 13 2 1
-idataCOMMON CODE 0 756 756 1 2 1
-maintext CODE 0 78D 78D 59 2 1
-cstackCOMMON COMMON 1 70 70 5 1 1
-inittext CODE 0 77A 77A 13 2 1
-idataBANK0 CODE 0 757 757 10 2 1
+cinit CODE 0 7EB 7EB 15 2 1
+maintext CODE 0 7A0 7A0 4B 2 1
+cstackCOMMON COMMON 1 73 73 3 1 1
+inittext CODE 0 78D 78D 13 2 1
+idataBANK0 CODE 0 77D 77D 10 2 1
 dataBANK0 BANK0 1 20 20 10 1 1
-dataCOMMON COMMON 1 77 77 1 1 1
-bssCOMMON COMMON 1 75 75 2 1 1
+bssCOMMON COMMON 1 70 70 3 1 1
 config CONFIG 4 2007 2007 1 2 1
-$C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
+$C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
@@ -40,22 +37,22 @@ BANK0 30-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3-755 2
+CONST 3-77C 2
 CONST 800-1FFF 2
-ENTRY 3-755 2
+ENTRY 3-77C 2
 ENTRY 800-1FFF 2
 IDLOC 2000-2003 2
-CODE 3-755 2
+CODE 3-77C 2
 CODE 800-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
-COMMON 78-7D 1
+COMMON 76-7D 1
 EEDATA 2100-21FF 2
-STRCODE 3-755 2
+STRCODE 3-77C 2
 STRCODE 800-1FFF 2
-STRING 3-755 2
+STRING 3-77C 2
 STRING 800-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -71,72 +68,62 @@ STRING 800-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lista_5__atividade_1.production.o
-7E6 cinit CODE >384:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7E6 cinit CODE >387:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7E6 cinit CODE >445:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7E7 cinit CODE >446:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7E8 cinit CODE >447:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7E9 cinit CODE >448:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7EA cinit CODE >449:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7EB cinit CODE >450:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7EC cinit CODE >451:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7ED cinit CODE >452:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7EE cinit CODE >453:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7EF cinit CODE >454:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7F4 cinit CODE >458:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7F9 cinit CODE >459:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7FA cinit CODE >463:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7FB cinit CODE >464:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7FC cinit CODE >470:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7FC cinit CODE >472:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-7FD cinit CODE >473:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-767 text1 CODE >21:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-767 text1 CODE >22:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-76D text1 CODE >23:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-776 text1 CODE >25:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-778 text1 CODE >28:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-779 text1 CODE >33:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-78D maintext CODE >36:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-78D maintext CODE >38:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-790 maintext CODE >39:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-792 maintext CODE >40:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-795 maintext CODE >42:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-798 maintext CODE >45:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-799 maintext CODE >47:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-79F maintext CODE >47:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7A3 maintext CODE >49:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7AB maintext CODE >50:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7AB maintext CODE >53:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7B0 maintext CODE >54:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7B2 maintext CODE >55:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7B4 maintext CODE >55:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7B8 maintext CODE >56:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7BA maintext CODE >59:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7BF maintext CODE >60:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7C1 maintext CODE >61:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7C2 maintext CODE >62:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7C4 maintext CODE >67:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7CC maintext CODE >68:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7D9 maintext CODE >45:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7DF maintext CODE >45:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-7E3 maintext CODE >70:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-77A inittext CODE >419:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-77A inittext CODE >420:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-77B inittext CODE >421:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-77C inittext CODE >422:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-77D inittext CODE >423:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-77E inittext CODE >430:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-77E inittext CODE >431:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-783 inittext CODE >432:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-784 inittext CODE >433:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-785 inittext CODE >434:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-786 inittext CODE >435:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-787 inittext CODE >436:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-788 inittext CODE >437:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-789 inittext CODE >438:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-78A inittext CODE >439:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-78B inittext CODE >440:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
-78C inittext CODE >441:C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_1.s
+7EB cinit CODE >378:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7EB cinit CODE >381:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7EB cinit CODE >434:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7EC cinit CODE >435:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7ED cinit CODE >436:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7EE cinit CODE >437:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7EF cinit CODE >438:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7F0 cinit CODE >439:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7F1 cinit CODE >440:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7F2 cinit CODE >441:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7F3 cinit CODE >442:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7F4 cinit CODE >443:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7F9 cinit CODE >447:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7FA cinit CODE >448:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7FB cinit CODE >449:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7FC cinit CODE >455:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7FC cinit CODE >457:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7FD cinit CODE >458:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+7A0 maintext CODE >22:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7A0 maintext CODE >24:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7A3 maintext CODE >25:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7A5 maintext CODE >27:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7A6 maintext CODE >28:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7A7 maintext CODE >29:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7AA maintext CODE >35:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7B0 maintext CODE >37:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7B4 maintext CODE >39:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7BC maintext CODE >40:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7BC maintext CODE >43:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7C1 maintext CODE >44:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7C3 maintext CODE >45:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7C5 maintext CODE >45:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7C9 maintext CODE >46:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7CA maintext CODE >47:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7D0 maintext CODE >48:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7DD maintext CODE >49:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7DE maintext CODE >50:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7E0 maintext CODE >51:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+7E5 maintext CODE >52:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+78D inittext CODE >408:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+78D inittext CODE >409:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+78E inittext CODE >410:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+78F inittext CODE >411:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+790 inittext CODE >412:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+791 inittext CODE >419:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+791 inittext CODE >420:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+796 inittext CODE >421:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+797 inittext CODE >422:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+798 inittext CODE >423:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+799 inittext CODE >424:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+79A inittext CODE >425:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+79B inittext CODE >426:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+79C inittext CODE >427:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+79D inittext CODE >428:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+79E inittext CODE >429:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+79F inittext CODE >430:C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -152,7 +139,7 @@ $dist/default/production\Lista_5__atividade_1.production.o
 ___latbits 2 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 -
 __Hspace_0 800 0 ABS 0 - -
-__Hspace_1 78 0 ABS 0 - -
+__Hspace_1 76 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
@@ -160,42 +147,35 @@ __HidataBANK0 0 0 ABS 0 idataBANK0 -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 0 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-_main F1A 0 CODE 0 maintext dist/default/production\Lista_5__atividade_1.production.o
+___sp 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+_main F40 0 CODE 0 maintext dist/default/production\Lista_5__atividade_1.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-___stack_lo 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-start 0 0 CODE 0 init C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
+___stack_hi 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+___stack_lo 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+start 0 0 CODE 0 init C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
-_OPTION_REGbits 81 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 __Hpowerup 0 0 CODE 0 powerup -
-__HdataCOMMON 0 0 ABS 0 dataCOMMON -
-intlevel0 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-__pidataCOMMON EAC 0 CODE 0 idataCOMMON dist/default/production\Lista_5__atividade_1.production.o
-__LdataCOMMON 0 0 ABS 0 dataCOMMON -
 __Lmaintext 0 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-___stacklo 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-_verificarBotao ECE 0 CODE 0 text1 dist/default/production\Lista_5__atividade_1.production.o
-__LidataCOMMON 0 0 ABS 0 idataCOMMON -
-start_initialization FCC 0 CODE 0 cinit dist/default/production\Lista_5__atividade_1.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
+___stackhi 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+___stacklo 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+start_initialization FD6 0 CODE 0 cinit dist/default/production\Lista_5__atividade_1.production.o
+___int_sp 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
-__end_of_verificarBotao EF4 0 CODE 0 text1 dist/default/production\Lista_5__atividade_1.production.o
 __Hstack 0 0 STACK 2 stack -
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
@@ -204,9 +184,10 @@ __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Lbank3 0 0 ABS 0 bank3 -
-__Lcinit FCC 0 CODE 0 cinit -
+__Lcinit FD6 0 CODE 0 cinit -
 __Lstack 0 0 STACK 2 stack -
 __Linittext 0 0 ABS 0 inittext -
+_PORTAbits 5 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
 _PORTBbits 6 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
@@ -230,57 +211,55 @@ __Lsivt 0 0 CODE 0 sivt -
 __Ltext 0 0 ABS 0 text -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __S0 800 0 ABS 0 - -
-__S1 78 0 ABS 0 - -
+__S1 76 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-__HidataCOMMON 0 0 ABS 0 idataCOMMON -
 __Lintentry 0 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
 __pdataBANK0 20 0 BANK0 1 dataBANK0 dist/default/production\Lista_5__atividade_1.production.o
-__pmaintext F1A 0 CODE 0 maintext dist/default/production\Lista_5__atividade_1.production.o
+__pmaintext F40 0 CODE 0 maintext dist/default/production\Lista_5__atividade_1.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
 __Hinittext 0 0 ABS 0 inittext -
 _segment 20 0 BANK0 1 dataBANK0 dist/default/production\Lista_5__atividade_1.production.o
-_sentido 77 0 COMMON 1 dataCOMMON dist/default/production\Lista_5__atividade_1.production.o
+_sentido 70 0 COMMON 1 bssCOMMON dist/default/production\Lista_5__atividade_1.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-__pbssCOMMON 75 0 COMMON 1 bssCOMMON dist/default/production\Lista_5__atividade_1.production.o
-init_fetch0 EF4 0 CODE 0 inittext dist/default/production\Lista_5__atividade_1.production.o
+__pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/production\Lista_5__atividade_1.production.o
+init_fetch0 F1A 0 CODE 0 inittext dist/default/production\Lista_5__atividade_1.production.o
 __Lend_init 0 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 end_of_initialization FF8 0 CODE 0 cinit dist/default/production\Lista_5__atividade_1.production.o
 __Hintentry 0 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 ECE 0 CODE 0 text1 dist/default/production\Lista_5__atividade_1.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-___heap_hi 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-___heap_lo 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
+___heap_hi 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+___heap_lo 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/production\Lista_5__atividade_1.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-__pidataBANK0 EAE 0 CODE 0 idataBANK0 dist/default/production\Lista_5__atividade_1.production.o
+__pidataBANK0 EFA 0 CODE 0 idataBANK0 dist/default/production\Lista_5__atividade_1.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\Lista_5__atividade_1.production.o
+__pcstackCOMMON 73 0 COMMON 1 cstackCOMMON dist/default/production\Lista_5__atividade_1.production.o
 __Hend_init 6 0 CODE 0 end_init -
-init_ram0 EFC 0 CODE 0 inittext dist/default/production\Lista_5__atividade_1.production.o
-__end_of_main FCC 0 CODE 0 maintext dist/default/production\Lista_5__atividade_1.production.o
+init_ram0 F22 0 CODE 0 inittext dist/default/production\Lista_5__atividade_1.production.o
+__end_of_main FD6 0 CODE 0 maintext dist/default/production\Lista_5__atividade_1.production.o
 _PORTD 8 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
+_TRISA 85 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
 _TRISB 86 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
 _TRISD 88 0 ABS 0 - dist/default/production\Lista_5__atividade_1.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
-_contador 75 0 COMMON 1 bssCOMMON dist/default/production\Lista_5__atividade_1.production.o
-__initialization FCC 0 CODE 0 cinit dist/default/production\Lista_5__atividade_1.production.o
-__pdataCOMMON 77 0 COMMON 1 dataCOMMON dist/default/production\Lista_5__atividade_1.production.o
-___int_stack_hi 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
-___int_stack_lo 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAs86s.\driver_tmp_12.o
+_contador 71 0 COMMON 1 bssCOMMON dist/default/production\Lista_5__atividade_1.production.o
+__initialization FD6 0 CODE 0 cinit dist/default/production\Lista_5__atividade_1.production.o
+___int_stack_hi 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
+___int_stack_lo 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_12.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -306,15 +285,13 @@ ___int_stack_lo 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAs86s.\drive
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7E6 FCC 1A 2
-text1 0 767 ECE 13 2
-idataCOMMON 0 756 EAC 1 2
-maintext 0 78D F1A 59 2
-cstackCOMMON 1 70 70 8 1
-inittext 0 77A EF4 13 2
+cinit 0 7EB FD6 15 2
+maintext 0 7A0 F40 4B 2
+inittext 0 78D F1A 13 2
 reset_vec 0 0 0 3 2
-idataBANK0 0 757 EAE 10 2
+idataBANK0 0 77D EFA 10 2
 dataBANK0 1 20 20 10 1
+bssCOMMON 1 70 70 6 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
