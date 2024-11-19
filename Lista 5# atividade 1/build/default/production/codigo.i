@@ -1800,6 +1800,7 @@ extern __bank0 __bit __timeout;
 
 
 
+
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
@@ -1808,140 +1809,50 @@ extern __bank0 __bit __timeout;
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
-# 22 "codigo.c"
-void teclado();
 
-unsigned char segment[]={0x03,0x9f,0x25,0x0d,0x99,0x49,0x41,0x1f,0x01,0x19,0x11,0xc1,0x63,0x85,0x61,0x71},i=0;
+
+unsigned char segment[] = {0x03, 0x9F, 0x25, 0x0D, 0x99, 0x49, 0x41, 0x1F, 0x01, 0x19, 0x11, 0xC1, 0x63, 0x85, 0x61, 0x71};
+
+
 unsigned char contador = 0;
+unsigned char sentido = 1;
 
-
-void main(void)
-{
-
+void main(void) {
 
     TRISD = 0x00;
-    TRISA = 0x00;
-    TRISC = 0x01;
-    TRISB = 0xff;
-    PORTAbits.RA5 = 0;
-
     TRISBbits.TRISB0 = 1;
-    PORTD = segment[contador];
+    PORTD = 0x00;
 
-    while(1)
-    {
-    teclado();
-    PORTD = 0xff;
-    }
-    return;
-}
-void botao()
-{
-    while(1)
-    {
-        if(PORTBbits.RB0==0)
-        {
+
+    OPTION_REGbits.nRBPU = 0;
+
+
+    while (1) {
+
+        if (PORTBbits.RB0 == 0) {
             _delay((unsigned long)((20)*(20000000/4000.0)));
-            if(PORTBbits.RB0 == 0)
-                {
-                    contador++;
-                    if(contador > 15)
-                    contador = 0;
-
-                PORTD = segment[contador];
-                while(PORTBbits.RB0 == 0);
-
-                }
-
+            if (PORTBbits.RB0 == 0) {
+                sentido = !sentido;
+                while (PORTBbits.RB0 == 0);
+            }
         }
-    }
 
-    return;
-}
-void teclado()
-{
-    PORTCbits.RC0=0;PORTCbits.RC1=1;PORTCbits.RC2=1;PORTCbits.RC3=1;
-    if(PORTBbits.RB0==0)
-    {
-        PORTD = segment[0];
-        while(PORTBbits.RB0==0);
-    }
-    if(PORTBbits.RB1==0)
-    {
-        PORTD = segment[1];
-        while(PORTBbits.RB1==0);
-    }
-    if(PORTBbits.RB2==0)
-    {
-        PORTD = segment[2];
-        while(PORTBbits.RB2==0);
-    }
-    if(PORTBbits.RB3==0)
-    {
-        PORTD = segment[3];
-        while(PORTBbits.RB3==0);
-    }
-    PORTCbits.RC0=1;PORTCbits.RC1=0;PORTCbits.RC2=1;PORTCbits.RC3=1;
-    if(PORTBbits.RB0==0)
-    {
-        PORTD = segment[4];
-        while(PORTBbits.RB0==0);
-    }
-    if(PORTBbits.RB1==0)
-    {
-        PORTD = segment[5];
-        while(PORTBbits.RB1==0);
-    }
-    if(PORTBbits.RB2==0)
-    {
-        PORTD = segment[6];
-        while(PORTBbits.RB2==0);
-    }
-    if(PORTBbits.RB3==0)
-    {
-        PORTD = segment[7];
-        while(PORTBbits.RB3==0);
-    }
-    PORTCbits.RC0=1;PORTCbits.RC1=1;PORTCbits.RC2=0;PORTCbits.RC3=1;
-    if(PORTBbits.RB0==0)
-    {
-        PORTD = segment[8];
-        while(PORTBbits.RB0==0);
-    }
-    if(PORTBbits.RB1==0)
-    {
-        PORTD = segment[9];
-        while(PORTBbits.RB1==0);
-    }
-    if(PORTBbits.RB2==0)
-    {
-        PORTD = segment[10];
-        while(PORTBbits.RB2==0);
-    }
-    if(PORTBbits.RB3==0)
-    {
-        PORTD = segment[11];
-        while(PORTBbits.RB3==0);
-    }
-     PORTCbits.RC0=1;PORTCbits.RC1=1;PORTCbits.RC2=1;PORTCbits.RC3=0;
-    if(PORTBbits.RB0==0)
-    {
-        PORTD = segment[12];
-        while(PORTBbits.RB0==0);
-    }
-    if(PORTBbits.RB1==0)
-    {
-        PORTD = segment[13];
-        while(PORTBbits.RB1==0);
-    }
-    if(PORTBbits.RB2==0)
-    {
-        PORTD = segment[14];
-        while(PORTBbits.RB2==0);
-    }
-    if(PORTBbits.RB3==0)
-    {
-        PORTD = segment[15];
-        while(PORTBbits.RB3==0);
+
+        if (sentido) {
+            contador++;
+            if (contador > 15) {
+                contador = 0;
+            }
+        } else {
+            if (contador == 0) {
+                contador = 15;
+            } else {
+                contador--;
+            }
+        }
+
+
+        PORTD = segment[contador];
+        _delay((unsigned long)((500)*(20000000/4000.0)));
     }
 }

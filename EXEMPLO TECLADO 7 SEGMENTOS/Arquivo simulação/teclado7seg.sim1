@@ -110,8 +110,6 @@
 
 <item itemtype="Node" CircId="Node-25" mainComp="false" Pos="-324,-440" />
 
-<item itemtype="Node" CircId="Node-26" mainComp="false" Pos="-316,-440" />
-
 <item itemtype="Node" CircId="Node-27" mainComp="false" Pos="-236,-440" />
 
 <item itemtype="Node" CircId="Node-28" mainComp="false" Pos="-576,-332" />
@@ -125,8 +123,6 @@
 <item itemtype="Node" CircId="Node-16" mainComp="false" Pos="240,24" />
 
 <item itemtype="Node" CircId="Node-20" mainComp="false" Pos="240,40" />
-
-<item itemtype="Node" CircId="Node-23" mainComp="false" Pos="240,64" />
 
 <item itemtype="Node" CircId="Node-26" mainComp="false" Pos="240,88" />
 
@@ -220,7 +216,7 @@
 
 <item itemtype="Connector" uid="Connector-32" startpinid="KeyPad-3-Pin2" endpinid="p16f877-1-PORTC1" pointList="-760,-436,-708,-436,-708,-272,-652,-272" />
 
-<item itemtype="Connector" uid="Connector-33" startpinid="KeyPad-3-Pin1" endpinid="p16f877-1-PORTC2" pointList="-760,-452,-720,-452,-720,-264,-652,-264" />
+<item itemtype="Connector" uid="Connector-33" startpinid="KeyPad-3-Pin1" endpinid="p16f877-1-PORTC2" pointList="-760,-452,-716,-452,-716,-264,-652,-264" />
 
 <item itemtype="Connector" uid="Connector-34" startpinid="KeyPad-3-Pin0" endpinid="p16f877-1-PORTC3" pointList="-760,-468,-732,-468,-732,-256,-652,-256" />
 
@@ -240,7 +236,7 @@
 
 <item itemtype="Connector" uid="Connector-42" startpinid="Tunnel-22-pin" endpinid="KeyPad-3-Pin7" pointList="-776,-384,-776,-404" />
 
-<item itemtype="Connector" uid="Connector-43" startpinid="ResistorDip-4-resistor3-ePin7" endpinid="Node-28-1" pointList="-332,-408,-332,-404,-576,-404,-576,-332" />
+<item itemtype="Connector" uid="Connector-43" startpinid="ResistorDip-4-resistor3-ePin7" endpinid="Node-28-1" pointList="-332,-408,-332,-404,-580,-404,-580,-332,-576,-332" />
 
 <item itemtype="Connector" uid="Connector-44" startpinid="Node-28-2" endpinid="p16f877-1-PORTB0" pointList="-576,-332,-588,-332,-588,-336" />
 
@@ -276,17 +272,7 @@
 
 <item itemtype="Connector" uid="Connector-40" startpinid="Led-21-rPin" endpinid="Resistor-22-lPin" pointList="84,64,104,64" />
 
-<item itemtype="Connector" uid="Connector-41" startpinid="Resistor-22-rPin" endpinid="Node-23-1" pointList="136,64,240,64" />
-
-<item itemtype="Connector" uid="Connector-42" startpinid="Node-20-2" endpinid="Node-23-0" pointList="240,40,240,64" />
-
 <item itemtype="Connector" uid="Connector-44" startpinid="Led-25-rPin" endpinid="Resistor-24-lPin" pointList="84,88,104,88" />
-
-<item itemtype="Connector" uid="Connector-50" startpinid="Resistor-24-rPin" endpinid="Node-26-1" pointList="136,88,240,88" />
-
-<item itemtype="Connector" uid="Connector-51" startpinid="Node-23-2" endpinid="Node-26-0" pointList="240,64,240,88" />
-
-<item itemtype="Connector" uid="Connector-52" startpinid="Node-26-2" endpinid="Ground-5-Gnd" pointList="240,88,240,156" />
 
 <item itemtype="Connector" uid="Connector-104" startpinid="Resistor-43-lPin" endpinid="Node-45-1" pointList="-332,-56,-332,-72" />
 
@@ -377,5 +363,7 @@
 <item itemtype="Connector" uid="Connector-275" startpinid="Push-79-switch0pinN" endpinid="Node-81-1" pointList="-196,144,-196,176" />
 
 <item itemtype="Connector" uid="Connector-276" startpinid="p16F877-2-PORTB0" endpinid="Node-91-1" pointList="-52,-16,-16,-16,-16,104,-176,104,-176,68,-196,68" />
+
+<item itemtype="Connector" uid="Connector-277" startpinid="Node-20-2" endpinid="Resistor-22-rPin" pointList="240,40,240,64,136,64" />
 
 </circuit>
