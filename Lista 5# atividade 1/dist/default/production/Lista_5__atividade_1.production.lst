@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Nov 19 15:04:18 2024
+                                                                                               Tue Nov 19 15:19:58 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -214,8 +214,8 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    200     0778  3471               	retlw	113
    201     0006                     _PORTBbits      set	6
    202     0008                     _PORTD          set	8
-   203     0081                     _OPTION_REGbits set	129
-   204     0086                     _TRISBbits      set	134
+   203     0005                     _PORTAbits      set	5
+   204     0081                     _OPTION_REGbits set	129
    205     0088                     _TRISD          set	136
    206                           
    207                           	psect	cinit
@@ -349,11 +349,11 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    335     078F                     l582:
    336                           
    337                           ;codigo.c: 24:             }
-   338     078F  1406               	bsf	6,0	;volatile
-   339                           
-   340                           ;codigo.c: 25:         }
-   341     0790  1283               	bcf	3,5	;RP0=0, select bank0
-   342     0791  1303               	bcf	3,6	;RP1=0, select bank0
+   338     078F  1283               	bcf	3,5	;RP0=0, select bank0
+   339     0790  1303               	bcf	3,6	;RP1=0, select bank0
+   340     0791  1405               	bsf	5,0	;volatile
+   341                           
+   342                           ;codigo.c: 25:         }
    343     0792  0188               	clrf	8	;volatile
    344     0793                     l584:
    345                           
@@ -590,7 +590,7 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Nov 19 15:04:18 2024
+Symbol Table                                                                                   Tue Nov 19 15:19:58 2024
 
                       pc 0002                       l26 07B3                       u10 079C  
                      u11 079B                       u20 07AB                       u21 07AA  
@@ -611,7 +611,7 @@ Symbol Table                                                                    
            __end_of_main 07E7                   ??_main 0070             __pdataCOMMON 0074  
 __end_of__initialization 07FC           __pcstackCOMMON 0070             __pidataBANK0 0769  
          _OPTION_REGbits 0081               __pmaintext 078C                  _segment 0020  
-                _sentido 0074     end_of_initialization 07FC                _PORTBbits 0006  
-              _TRISBbits 0086            __pidataCOMMON 0768      start_initialization 07E7  
+                _sentido 0074     end_of_initialization 07FC                _PORTAbits 0005  
+              _PORTBbits 0006            __pidataCOMMON 0768      start_initialization 07E7  
              init_fetch0 0779              __pdataBANK0 0020              __pbssCOMMON 0073  
               ___latbits 0002                 _contador 0073                 init_ram0 077D  

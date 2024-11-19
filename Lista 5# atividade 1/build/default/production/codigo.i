@@ -1820,7 +1820,7 @@ unsigned char sentido = 1;
 void main(void) {
 
     TRISD = 0x00;
-    TRISBbits.TRISB0 = 1;
+    PORTAbits.RA0 = 1;
     PORTD = 0x00;
 
 

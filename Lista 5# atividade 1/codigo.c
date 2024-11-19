@@ -21,7 +21,7 @@ unsigned char sentido = 1;   // 1 = crescente, 0 = decrescente
 void main(void) {
     // Configuração das portas
     TRISD = 0x00;       // PORTD como saída (conectado ao display de 7 segmentos)
-    TRISBbits.TRISB0 = 1; // RB0 como entrada (botão)
+    PORTAbits.RA0 = 1; // RB0 como entrada (botão)
     PORTD = 0x00;       // Inicializa display apagado
 
     // Habilita os resistores de pull-up internos

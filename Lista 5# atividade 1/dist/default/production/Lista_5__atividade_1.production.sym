@@ -54,7 +54,7 @@ __LdataBANK0 0 0 ABS 0
 __pdataBANK0 20 0 BANK0 1
 end_of_initialization 7FC 0 CODE 0
 ___stacklo 0 0 ABS 0
-_TRISBbits 86 0 ABS 0
+_PORTAbits 5 0 ABS 0
 _PORTBbits 6 0 ABS 0
 __Hstrings 0 0 ABS 0
 __Lstrings 0 0 ABS 0
@@ -138,7 +138,7 @@ idataBANK0 ED2 EF1 CODE ED2 0
 idataCOMMON ED0 ED1 CODE ED0 0
 %locals
 dist/default/production\Lista_5__atividade_1.production.o
-C:\Users\Yan\AppData\Local\Temp\xcAs5kc.\driver_tmp_1.s
+C:\Users\Yan\AppData\Local\Temp\xcAs46k.\driver_tmp_1.s
 383 7E7 0 CODE 0
 386 7E7 0 CODE 0
 441 7E7 0 CODE 0
@@ -178,7 +178,7 @@ codigo.c
 21 78C 0 CODE 0
 23 78C 0 CODE 0
 24 78F 0 CODE 0
-25 790 0 CODE 0
+25 792 0 CODE 0
 28 793 0 CODE 0
 33 796 0 CODE 0
 34 79C 0 CODE 0
