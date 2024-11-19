@@ -1817,19 +1817,18 @@ unsigned char segment[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07,0x7F, 
 unsigned char contador = 0;
 unsigned char sentido = 1;
 
-unsigned char verificarBotao(void) {
-    if (PORTBbits.RB0 == 0) {
-        _delay((unsigned long)((20)*(20000000/4000.0)));
+void verificaBotao(){
+    if(PORTBbits.RB0 == 0)
+    {
 
-            return 1;
+        return 1;
+
     }else{
 
-    return 0;
+        return 0;
 
     }
-
-
-}
+ }
 
 
 void main(void) {
@@ -1841,9 +1840,12 @@ void main(void) {
     OPTION_REGbits.nRBPU = 0;
 
 
-    while(verificarBotao()){
 
-        if(verificarBotao())
+
+
+    while(verificaBotao()){
+
+        if(PORTBbits.RB0 == 0)
         {
             sentido = !sentido;
         }

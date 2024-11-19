@@ -18,19 +18,18 @@ unsigned char segment[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07,0x7F, 
 unsigned char contador = 0;  // Armazena o valor atual (0-15)
 unsigned char sentido = 1;   // Define o sentido da contagem (1 = crescente, 0 = decrescente)
 
-unsigned char verificarBotao(void) {
-    if (PORTBbits.RB0 == 0) {
-        __delay_ms(20);
-  
-            return 1;
+void verificaBotao(){  
+    if(PORTBbits.RB0 == 0)
+    {
+        //__delay_ms(20);
+        return 1;
+    
     }else{
-    
-    return 0;
-    
+        
+        return 0;    
+        
     }
-    
-    
-}
+ }
 
 
 void main(void) {
@@ -41,10 +40,13 @@ void main(void) {
 
     OPTION_REGbits.nRBPU = 0; // Habilita os resistores de pull-up internos para PORTB
 
+    
+ 
+    
     // LOOP PRINCIPAL
-    while(verificarBotao()){
+    while(verificaBotao()){
         // DETECÇÃO DO BOTÃO EM RB0
-        if(verificarBotao())
+        if(PORTBbits.RB0 == 0)
         {
             sentido = !sentido;
         }    
