@@ -40,9 +40,7 @@ void main(void) {
 
     OPTION_REGbits.nRBPU = 0; // Habilita os resistores de pull-up internos para PORTB
 
-    
- 
-    
+
     // LOOP PRINCIPAL
     while(verificaBotao()){
         // DETECÇÃO DO BOTÃO EM RB0
