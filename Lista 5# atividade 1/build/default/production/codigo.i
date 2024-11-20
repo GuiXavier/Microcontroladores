@@ -1836,10 +1836,11 @@ if(PORTBbits.RB0 == 0){
         if(PORTBbits.RB0 == 0)
        {
             sentido = !sentido;
-        }
+       }
 
 
-        if (sentido == 1){
+
+        if(sentido == 1){
             contador++;
            if (contador > 15)
                 contador = 0;
@@ -1853,7 +1854,7 @@ if(PORTBbits.RB0 == 0){
 
             PORTD = segment[contador];
             _delay((unsigned long)((500)*(20000000/4000.0)));
-# 65 "codigo.c"
+# 66 "codigo.c"
         }
     }
 }

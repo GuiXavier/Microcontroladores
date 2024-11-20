@@ -295,69 +295,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;codigo.c: 28: 
 [e = _contador -> -> 0 `i `uc ]
 "29
-[; ;codigo.c: 29:         if (sentido == 1){
+[; ;codigo.c: 29: 
 [e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
 "34
-[; ;codigo.c: 34:         }else{
+[; ;codigo.c: 34: 
 [e :U 96 ]
 {
 "35
-[; ;codigo.c: 35:             contador--;
+[; ;codigo.c: 35:         }else{
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 98  ]
 {
 "37
-[; ;codigo.c: 37:                 contador = 15;
+[; ;codigo.c: 37:             if(contador == 0)
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 99  ]
 "38
-[; ;codigo.c: 38: 
+[; ;codigo.c: 38:                 contador = 15;
 {
 "39
-[; ;codigo.c: 39:         }
+[; ;codigo.c: 39: 
 [e = _sentido -> -> ! != -> _sentido `i -> 0 `i `i `uc ]
 "40
-[; ;codigo.c: 40: 
+[; ;codigo.c: 40:         }
 }
 [e :U 99 ]
-"43
+"44
 [e $ ! == -> _sentido `i -> 1 `i 100  ]
 {
-"44
-[e ++ _contador -> -> 1 `i `uc ]
 "45
-[e $ ! > -> _contador `i -> 15 `i 101  ]
+[e ++ _contador -> -> 1 `i `uc ]
 "46
+[e $ ! > -> _contador `i -> 15 `i 101  ]
+"47
 [e = _contador -> -> 0 `i `uc ]
 [e :U 101 ]
-"48
+"49
 }
 [e $U 102  ]
 [e :U 100 ]
 {
-"49
-[e -- _contador -> -> 1 `i `uc ]
 "50
-[e $ ! == -> _contador `i -> 0 `i 103  ]
+[e -- _contador -> -> 1 `i `uc ]
 "51
+[e $ ! == -> _contador `i -> 0 `i 103  ]
+"52
 [e = _contador -> -> 15 `i `uc ]
 [e :U 103 ]
-"53
+"54
 }
 [e :U 102 ]
-"55
-[e = _PORTD *U + &U _segment * -> _contador `ux -> -> # *U &U _segment `ui `ux ]
 "56
+[e = _PORTD *U + &U _segment * -> _contador `ux -> -> # *U &U _segment `ui `ux ]
+"57
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"65
-[; ;codigo.c: 65:         }
+"66
+[; ;codigo.c: 66:         }
 }
 [e :U 98 ]
-"66
-[; ;codigo.c: 66:     }
+"67
+[; ;codigo.c: 67:     }
 }
 [e :U 95 ]
 [e $U 96  ]
 [e :U 97 ]
-"67
-[; ;codigo.c: 67: }
+"68
+[; ;codigo.c: 68: }
 [e :UE 94 ]
 }

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Nov 19 23:15:02 2024
+                                                                                               Wed Nov 20 02:01:49 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -349,13 +349,13 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    335     07A6  01F1               	clrf	_contador
    336     07A7                     l584:
    337                           
-   338                           ;codigo.c: 29:         if (sentido == 1){
+   338                           ;codigo.c: 29: 
    339     07A7  1283               	bcf	3,5	;RP0=0, select bank0
    340     07A8  1303               	bcf	3,6	;RP1=0, select bank0
    341     07A9  1285               	bcf	5,5	;volatile
    342     07AA                     l586:
    343                           
-   344                           ;codigo.c: 35:             contador--;
+   344                           ;codigo.c: 35:         }else{
    345     07AA  1283               	bcf	3,5	;RP0=0, select bank0
    346     07AB  1303               	bcf	3,6	;RP1=0, select bank0
    347     07AC  1806               	btfsc	6,0	;volatile
@@ -366,7 +366,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    352     07B0                     u10:
    353     07B0                     l588:
    354                           
-   355                           ;codigo.c: 37:                 contador = 15;
+   355                           ;codigo.c: 37:             if(contador == 0)
    356     07B0  1806               	btfsc	6,0	;volatile
    357     07B1  2FB3               	goto	u21
    358     07B2  2FB4               	goto	u20
@@ -375,7 +375,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    361     07B4                     u20:
    362     07B4                     l590:
    363                           
-   364                           ;codigo.c: 38: ;codigo.c: 39:         }
+   364                           ;codigo.c: 38:                 contador = 15;;codigo.c: 39: 
    365     07B4  0870               	movf	_sentido,w
    366     07B5  1903               	btfsc	3,2
    367     07B6  2FB8               	goto	u31
@@ -388,7 +388,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    374     07BB                     u40:
    375     07BB  00F0               	movwf	_sentido
    376     07BC                     l29:	
-   377                           ;codigo.c: 40: 
+   377                           ;codigo.c: 40:         }
    378                           
    379     07BC  0370               	decf	_sentido,w
    380     07BD  1D03               	btfss	3,2
@@ -550,7 +550,7 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Nov 19 23:15:02 2024
+Symbol Table                                                                                   Wed Nov 20 02:01:49 2024
 
                       _i 0072                        pc 0002                       l29 07BC  
                      u10 07B0                       u11 07AF                       u20 07B4  

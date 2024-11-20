@@ -37,10 +37,11 @@ if(PORTBbits.RB0 == 0){
         if(PORTBbits.RB0 == 0)
        {
             sentido = !sentido;
-        }    
+       }    
 
         // CONTROLE DA CONTAGEM
-        if (sentido == 1){// Contagem crescente
+        
+        if(sentido == 1){// Contagem crescente
             contador++;
            if (contador > 15)  // Reinicia a contagem ao atingir o limite
                 contador = 0;            
