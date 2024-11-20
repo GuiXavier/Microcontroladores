@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Nov 19 22:05:45 2024
+                                                                                               Tue Nov 19 23:15:02 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -375,7 +375,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    361     07B4                     u20:
    362     07B4                     l590:
    363                           
-   364                           ;codigo.c: 38: ;codigo.c: 39: 
+   364                           ;codigo.c: 38: ;codigo.c: 39:         }
    365     07B4  0870               	movf	_sentido,w
    366     07B5  1903               	btfsc	3,2
    367     07B6  2FB8               	goto	u31
@@ -388,97 +388,95 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    374     07BB                     u40:
    375     07BB  00F0               	movwf	_sentido
    376     07BC                     l29:	
-   377                           ;codigo.c: 40:         }
+   377                           ;codigo.c: 40: 
    378                           
-   379                           
-   380                           ;codigo.c: 43:             _delay((unsigned long)((500)*(20000000/4000.0)));
-   381     07BC  0370               	decf	_sentido,w
-   382     07BD  1D03               	btfss	3,2
-   383     07BE  2FC0               	goto	u51
-   384     07BF  2FC1               	goto	u50
-   385     07C0                     u51:
-   386     07C0  2FCB               	goto	l598
-   387     07C1                     u50:
-   388     07C1                     l592:
-   389     07C1  3001               	movlw	1
-   390     07C2  07F1               	addwf	_contador,f
-   391     07C3                     l594:
-   392     07C3  3010               	movlw	16
-   393     07C4  0271               	subwf	_contador,w
-   394     07C5  1C03               	skipc
-   395     07C6  2FC8               	goto	u61
-   396     07C7  2FC9               	goto	u60
-   397     07C8                     u61:
-   398     07C8  2FD4               	goto	l602
-   399     07C9                     u60:
-   400     07C9                     l596:
-   401     07C9  01F1               	clrf	_contador
-   402     07CA  2FD4               	goto	l602
-   403     07CB                     l598:
-   404     07CB  3001               	movlw	1
-   405     07CC  02F1               	subwf	_contador,f
-   406     07CD  0871               	movf	_contador,w
-   407     07CE  1D03               	btfss	3,2
-   408     07CF  2FD1               	goto	u71
-   409     07D0  2FD2               	goto	u70
-   410     07D1                     u71:
-   411     07D1  2FD4               	goto	l602
-   412     07D2                     u70:
-   413     07D2                     l600:
-   414     07D2  300F               	movlw	15
-   415     07D3  00F1               	movwf	_contador
-   416     07D4                     l602:
-   417     07D4  0871               	movf	_contador,w
-   418     07D5  3E20               	addlw	(low (_segment| 0))& (0+255)
-   419     07D6  0084               	movwf	4
-   420     07D7  1383               	bcf	3,7	;select IRP bank0
-   421     07D8  0800               	movf	0,w
-   422     07D9  0088               	movwf	8	;volatile
-   423     07DA                     l604:
-   424     07DA  300D               	movlw	13
-   425     07DB  00F5               	movwf	??_main+2
-   426     07DC  30AF               	movlw	175
-   427     07DD  00F4               	movwf	??_main+1
-   428     07DE  30B6               	movlw	182
-   429     07DF  00F3               	movwf	??_main
-   430     07E0                     u87:
-   431     07E0  0BF3               	decfsz	??_main,f
-   432     07E1  2FE0               	goto	u87
-   433     07E2  0BF4               	decfsz	??_main+1,f
-   434     07E3  2FE0               	goto	u87
-   435     07E4  0BF5               	decfsz	??_main+2,f
-   436     07E5  2FE0               	goto	u87
-   437     07E6  0000               	nop
-   438     07E7  2FAA               	goto	l586
-   439     07E8  120A  118A  2800   	ljmp	start
-   440     07EB                     __end_of_main:
-   441     0002                     ___latbits      equ	2
-   442     007E                     btemp           set	126	;btemp
-   443     007E                     wtemp0          set	126
+   379     07BC  0370               	decf	_sentido,w
+   380     07BD  1D03               	btfss	3,2
+   381     07BE  2FC0               	goto	u51
+   382     07BF  2FC1               	goto	u50
+   383     07C0                     u51:
+   384     07C0  2FCB               	goto	l598
+   385     07C1                     u50:
+   386     07C1                     l592:
+   387     07C1  3001               	movlw	1
+   388     07C2  07F1               	addwf	_contador,f
+   389     07C3                     l594:
+   390     07C3  3010               	movlw	16
+   391     07C4  0271               	subwf	_contador,w
+   392     07C5  1C03               	skipc
+   393     07C6  2FC8               	goto	u61
+   394     07C7  2FC9               	goto	u60
+   395     07C8                     u61:
+   396     07C8  2FD4               	goto	l602
+   397     07C9                     u60:
+   398     07C9                     l596:
+   399     07C9  01F1               	clrf	_contador
+   400     07CA  2FD4               	goto	l602
+   401     07CB                     l598:
+   402     07CB  3001               	movlw	1
+   403     07CC  02F1               	subwf	_contador,f
+   404     07CD  0871               	movf	_contador,w
+   405     07CE  1D03               	btfss	3,2
+   406     07CF  2FD1               	goto	u71
+   407     07D0  2FD2               	goto	u70
+   408     07D1                     u71:
+   409     07D1  2FD4               	goto	l602
+   410     07D2                     u70:
+   411     07D2                     l600:
+   412     07D2  300F               	movlw	15
+   413     07D3  00F1               	movwf	_contador
+   414     07D4                     l602:
+   415     07D4  0871               	movf	_contador,w
+   416     07D5  3E20               	addlw	(low (_segment| 0))& (0+255)
+   417     07D6  0084               	movwf	4
+   418     07D7  1383               	bcf	3,7	;select IRP bank0
+   419     07D8  0800               	movf	0,w
+   420     07D9  0088               	movwf	8	;volatile
+   421     07DA                     l604:
+   422     07DA  300D               	movlw	13
+   423     07DB  00F5               	movwf	??_main+2
+   424     07DC  30AF               	movlw	175
+   425     07DD  00F4               	movwf	??_main+1
+   426     07DE  30B6               	movlw	182
+   427     07DF  00F3               	movwf	??_main
+   428     07E0                     u87:
+   429     07E0  0BF3               	decfsz	??_main,f
+   430     07E1  2FE0               	goto	u87
+   431     07E2  0BF4               	decfsz	??_main+1,f
+   432     07E3  2FE0               	goto	u87
+   433     07E4  0BF5               	decfsz	??_main+2,f
+   434     07E5  2FE0               	goto	u87
+   435     07E6  0000               	nop
+   436     07E7  2FAA               	goto	l586
+   437     07E8  120A  118A  2800   	ljmp	start
+   438     07EB                     __end_of_main:
+   439     0002                     ___latbits      equ	2
+   440     007E                     btemp           set	126	;btemp
+   441     007E                     wtemp0          set	126
+   442                           
+   443                           	psect	config
    444                           
-   445                           	psect	config
-   446                           
-   447                           ;Config register CONFIG @ 0x2007
-   448                           ;	Oscillator Selection bits
-   449                           ;	FOSC = HS, HS oscillator
-   450                           ;	Watchdog Timer Enable bit
-   451                           ;	WDTE = OFF, WDT disabled
-   452                           ;	Power-up Timer Enable bit
-   453                           ;	PWRTE = OFF, PWRT disabled
-   454                           ;	FLASH Program Memory Code Protection bits
-   455                           ;	CP = OFF, Code protection off
-   456                           ;	Brown-out Reset Enable bit
-   457                           ;	BOREN = OFF, BOR disabled
-   458                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-   459                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-   460                           ;	Data EE Memory Code Protection
-   461                           ;	CPD = OFF, Code Protection off
-   462                           ;	FLASH Program Memory Write Enable
-   463                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
-   464                           ;	In-Circuit Debugger Mode bit
-   465                           ;	DEBUG = 0x1, unprogrammed default
-   466     2007                     	org	8199
-   467     2007  3D3A               	dw	15674
+   445                           ;Config register CONFIG @ 0x2007
+   446                           ;	Oscillator Selection bits
+   447                           ;	FOSC = HS, HS oscillator
+   448                           ;	Watchdog Timer Enable bit
+   449                           ;	WDTE = OFF, WDT disabled
+   450                           ;	Power-up Timer Enable bit
+   451                           ;	PWRTE = OFF, PWRT disabled
+   452                           ;	FLASH Program Memory Code Protection bits
+   453                           ;	CP = OFF, Code protection off
+   454                           ;	Brown-out Reset Enable bit
+   455                           ;	BOREN = OFF, BOR disabled
+   456                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+   457                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   458                           ;	Data EE Memory Code Protection
+   459                           ;	CPD = OFF, Code Protection off
+   460                           ;	FLASH Program Memory Write Enable
+   461                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+   462                           ;	In-Circuit Debugger Mode bit
+   463                           ;	DEBUG = 0x1, unprogrammed default
+   464     2007                     	org	8199
+   465     2007  3D3A               	dw	15674
 
 Data Sizes:
     Strings     0
@@ -552,7 +550,7 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Nov 19 22:05:45 2024
+Symbol Table                                                                                   Tue Nov 19 23:15:02 2024
 
                       _i 0072                        pc 0002                       l29 07BC  
                      u10 07B0                       u11 07AF                       u20 07B4  

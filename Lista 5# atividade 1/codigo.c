@@ -49,8 +49,7 @@ if(PORTBbits.RB0 == 0){
             contador--;
             if(contador == 0)
                 contador = 15;
-         //  PORTD = segment[contador];
-         //   __delay_ms(500);
+         
         }
 
             PORTD = segment[contador]; // Mostra o valor no display de 7 segmentos

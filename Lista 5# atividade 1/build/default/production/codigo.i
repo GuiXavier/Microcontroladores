@@ -1849,12 +1849,11 @@ if(PORTBbits.RB0 == 0){
             if(contador == 0)
                 contador = 15;
 
-
         }
 
             PORTD = segment[contador];
             _delay((unsigned long)((500)*(20000000/4000.0)));
-# 66 "codigo.c"
+# 65 "codigo.c"
         }
     }
 }

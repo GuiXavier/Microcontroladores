@@ -312,14 +312,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;codigo.c: 38: 
 {
 "39
-[; ;codigo.c: 39: 
+[; ;codigo.c: 39:         }
 [e = _sentido -> -> ! != -> _sentido `i -> 0 `i `i `uc ]
 "40
-[; ;codigo.c: 40:         }
+[; ;codigo.c: 40: 
 }
 [e :U 99 ]
 "43
-[; ;codigo.c: 43:             _delay((unsigned long)((500)*(20000000/4000.0)));
 [e $ ! == -> _sentido `i -> 1 `i 100  ]
 {
 "44
@@ -341,24 +340,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "51
 [e = _contador -> -> 15 `i `uc ]
 [e :U 103 ]
-"54
+"53
 }
 [e :U 102 ]
-"56
+"55
 [e = _PORTD *U + &U _segment * -> _contador `ux -> -> # *U &U _segment `ui `ux ]
-"57
+"56
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"66
-[; ;codigo.c: 66:         }
+"65
+[; ;codigo.c: 65:         }
 }
 [e :U 98 ]
-"67
-[; ;codigo.c: 67:     }
+"66
+[; ;codigo.c: 66:     }
 }
 [e :U 95 ]
 [e $U 96  ]
 [e :U 97 ]
-"68
-[; ;codigo.c: 68: }
+"67
+[; ;codigo.c: 67: }
 [e :UE 94 ]
 }
