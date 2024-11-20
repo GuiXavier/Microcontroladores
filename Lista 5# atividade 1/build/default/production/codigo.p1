@@ -298,27 +298,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;codigo.c: 29:         if (sentido == 1){
 [e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
 "34
-[; ;codigo.c: 34:             _delay((unsigned long)((500)*(20000000/4000.0)));
+[; ;codigo.c: 34:         }else{
 [e :U 96 ]
 {
 "35
-[; ;codigo.c: 35:         }else{
+[; ;codigo.c: 35:             contador--;
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 98  ]
 {
 "37
-[; ;codigo.c: 37:             if(contador == 0)
+[; ;codigo.c: 37:                 contador = 15;
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 99  ]
 "38
-[; ;codigo.c: 38:                 contador = 15;
+[; ;codigo.c: 38: 
 {
 "39
-[; ;codigo.c: 39:             PORTD = segment[contador];
+[; ;codigo.c: 39: 
 [e = _sentido -> -> ! != -> _sentido `i -> 0 `i `i `uc ]
 "40
-[; ;codigo.c: 40:             _delay((unsigned long)((500)*(20000000/4000.0)));
+[; ;codigo.c: 40:         }
 }
 [e :U 99 ]
 "43
+[; ;codigo.c: 43:             _delay((unsigned long)((500)*(20000000/4000.0)));
 [e $ ! == -> _sentido `i -> 1 `i 100  ]
 {
 "44
@@ -328,35 +329,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [e = _contador -> -> 0 `i `uc ]
 [e :U 101 ]
-"47
-[e = _PORTD *U + &U _segment * -> _contador `ux -> -> # *U &U _segment `ui `ux ]
 "48
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"49
 }
 [e $U 102  ]
 [e :U 100 ]
 {
-"50
+"49
 [e -- _contador -> -> 1 `i `uc ]
-"51
+"50
 [e $ ! == -> _contador `i -> 0 `i 103  ]
-"52
+"51
 [e = _contador -> -> 15 `i `uc ]
 [e :U 103 ]
-"53
-[e = _PORTD *U + &U _segment * -> _contador `ux -> -> # *U &U _segment `ui `ux ]
 "54
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"55
 }
 [e :U 102 ]
+"56
+[e = _PORTD *U + &U _segment * -> _contador `ux -> -> # *U &U _segment `ui `ux ]
+"57
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "66
-[; ;codigo.c: 66: }
+[; ;codigo.c: 66:         }
 }
 [e :U 98 ]
 "67
-[; ;codigo.c: 67: }
+[; ;codigo.c: 67:     }
 }
 [e :U 95 ]
 [e $U 96  ]

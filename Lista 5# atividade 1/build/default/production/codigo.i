@@ -1830,7 +1830,7 @@ void main(void) {
 
 
 
-    while(1){
+while(1){
 if(PORTBbits.RB0 == 0){
 
         if(PORTBbits.RB0 == 0)
@@ -1843,16 +1843,18 @@ if(PORTBbits.RB0 == 0){
             contador++;
            if (contador > 15)
                 contador = 0;
-            PORTD = segment[contador];
-            _delay((unsigned long)((500)*(20000000/4000.0)));
+
         }else{
             contador--;
             if(contador == 0)
                 contador = 15;
+
+
+        }
+
             PORTD = segment[contador];
             _delay((unsigned long)((500)*(20000000/4000.0)));
-        }
 # 66 "codigo.c"
-}
-}
+        }
+    }
 }

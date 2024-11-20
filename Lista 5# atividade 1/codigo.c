@@ -31,7 +31,7 @@ void main(void) {
 
     // LOOP PRINCIPAL
     
-    while(1){
+while(1){
 if(PORTBbits.RB0 == 0){
 //        // DETECÇÃO DO BOTÃO EM RB0
         if(PORTBbits.RB0 == 0)
@@ -44,17 +44,17 @@ if(PORTBbits.RB0 == 0){
             contador++;
            if (contador > 15)  // Reinicia a contagem ao atingir o limite
                 contador = 0;            
-            PORTD = segment[contador]; // Mostra o valor no display de 7 segmentos
-            __delay_ms(500); // Intervalo para visibilidade da contagem
+            
         }else{
             contador--;
             if(contador == 0)
                 contador = 15;
-            PORTD = segment[contador];
-            __delay_ms(500);
+         //  PORTD = segment[contador];
+         //   __delay_ms(500);
         }
 
-       
+            PORTD = segment[contador]; // Mostra o valor no display de 7 segmentos
+            __delay_ms(500); // Intervalo para visibilidade da contagem
 //       if(contador == 16){
 //           contador = 0;
 //       }
@@ -63,6 +63,6 @@ if(PORTBbits.RB0 == 0){
 //       }
     
     
-}
-}
+        }
+    }
 }

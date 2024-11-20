@@ -132,7 +132,7 @@ inittext F1A F3F CODE F1A 0
 idataBANK0 EFA F19 CODE EFA 0
 %locals
 dist/default/production\Lista_5__atividade_1.production.o
-C:\Users\Yan\AppData\Local\Temp\xcAsc1o.\driver_tmp_1.s
+C:\Users\Yan\AppData\Local\Temp\xcAsc4k.\driver_tmp_1.s
 378 7EB 0 CODE 0
 381 7EB 0 CODE 0
 434 7EB 0 CODE 0
@@ -184,9 +184,8 @@ codigo.c
 45 7C3 0 CODE 0
 45 7C5 0 CODE 0
 46 7C9 0 CODE 0
-47 7CA 0 CODE 0
-48 7D0 0 CODE 0
-49 7DD 0 CODE 0
-50 7DE 0 CODE 0
-51 7E0 0 CODE 0
-52 7E5 0 CODE 0
+49 7CB 0 CODE 0
+50 7CD 0 CODE 0
+51 7D2 0 CODE 0
+56 7D4 0 CODE 0
+57 7DA 0 CODE 0
