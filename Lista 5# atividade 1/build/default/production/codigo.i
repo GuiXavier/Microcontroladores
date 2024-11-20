@@ -1831,30 +1831,32 @@ void main(void) {
 
 
 while(1){
-if(PORTBbits.RB0 == 0){
-
-        if(PORTBbits.RB0 == 0)
-       {
-            sentido = !sentido;
-       }
-
-
-
-        if(sentido == 1){
-            contador++;
-           if (contador > 15)
-                contador = 0;
-
-        }else{
-            contador--;
-            if(contador == 0)
-                contador = 15;
-
-        }
-
-            PORTD = segment[contador];
-            _delay((unsigned long)((500)*(20000000/4000.0)));
-# 66 "codigo.c"
-        }
+if (PORTBbits.RB0 == 0)
+{
+    _delay((unsigned long)((50)*(20000000/4000.0)));
+    if (PORTBbits.RB0 == 0) {
+        sentido = !sentido;
+        while (PORTBbits.RB0 == 0);
     }
+
+
+    while (1) {
+        if (sentido == 1) {
+            contador++;
+            if (contador > 15)
+                contador = 0;
+        } else {
+            if (contador == 0)
+                contador = 15;
+            else
+                contador--;
+        }
+
+        PORTD = segment[contador];
+        _delay((unsigned long)((500)*(20000000/4000.0)));
+
+
+    }
+   }
+  }
 }

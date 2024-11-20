@@ -32,37 +32,32 @@ void main(void) {
     // LOOP PRINCIPAL
     
 while(1){
-if(PORTBbits.RB0 == 0){
-//        // DETECÇÃO DO BOTÃO EM RB0
-        if(PORTBbits.RB0 == 0)
-       {
-            sentido = !sentido;
-       }    
-
-        // CONTROLE DA CONTAGEM
-        
-        if(sentido == 1){// Contagem crescente
-            contador++;
-           if (contador > 15)  // Reinicia a contagem ao atingir o limite
-                contador = 0;            
-            
-        }else{
-            contador--;
-            if(contador == 0)
-                contador = 15;
-         
-        }
-
-            PORTD = segment[contador]; // Mostra o valor no display de 7 segmentos
-            __delay_ms(500); // Intervalo para visibilidade da contagem
-//       if(contador == 16){
-//           contador = 0;
-//       }
-//       if(contador == 0){
-//           contador = 15;
-//       }
-    
-    
-        }
+if (PORTBbits.RB0 == 0) 
+{
+    __delay_ms(50); // Debounce para evitar leituras instáveis
+    if (PORTBbits.RB0 == 0) {
+        sentido = !sentido; // Alterna o sentido
+        while (PORTBbits.RB0 == 0); // Aguarda o botão ser solto
     }
+
+    // CONTROLE DA CONTAGEM
+    while (1) {
+        if (sentido == 1) { // Contagem crescente
+            contador++;
+            if (contador > 15)  // Reinicia a contagem ao atingir o limite
+                contador = 0;
+        } else { // Contagem decrescente
+            if (contador == 0)
+                contador = 15;
+            else
+                contador--;
+        }
+
+        PORTD = segment[contador]; // Mostra o valor no display de 7 segmentos
+        __delay_ms(500);           // Intervalo para visibilidade da contagem
+
+        
+    }
+   }
+  }
 }
