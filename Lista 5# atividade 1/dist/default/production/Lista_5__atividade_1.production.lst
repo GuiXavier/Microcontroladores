@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Wed Nov 20 20:37:01 2024
+                                                                                               Wed Nov 20 23:08:42 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -185,25 +185,25 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    171     018D                     EECON2          equ	397	;# 
    172                           
    173                           	psect	idataBANK0
-   174     0769                     __pidataBANK0:
+   174     076B                     __pidataBANK0:
    175                           
    176                           ;initializer for _segment
-   177     0769  3403               	retlw	3
-   178     076A  349F               	retlw	159
-   179     076B  3425               	retlw	37
-   180     076C  340D               	retlw	13
-   181     076D  3499               	retlw	153
-   182     076E  3449               	retlw	73
-   183     076F  3441               	retlw	65
-   184     0770  341F               	retlw	31
-   185     0771  3401               	retlw	1
-   186     0772  3419               	retlw	25
-   187     0773  3411               	retlw	17
-   188     0774  34C1               	retlw	193
-   189     0775  3463               	retlw	99
-   190     0776  3485               	retlw	133
-   191     0777  3461               	retlw	97
-   192     0778  3471               	retlw	113
+   177     076B  3403               	retlw	3
+   178     076C  349F               	retlw	159
+   179     076D  3425               	retlw	37
+   180     076E  340D               	retlw	13
+   181     076F  3499               	retlw	153
+   182     0770  3449               	retlw	73
+   183     0771  3441               	retlw	65
+   184     0772  341F               	retlw	31
+   185     0773  3401               	retlw	1
+   186     0774  3419               	retlw	25
+   187     0775  3411               	retlw	17
+   188     0776  34C1               	retlw	193
+   189     0777  3463               	retlw	99
+   190     0778  3485               	retlw	133
+   191     0779  3461               	retlw	97
+   192     077A  3471               	retlw	113
    193     0008                     _PORTD          set	8
    194     0006                     _PORTBbits      set	6
    195     0005                     _PORTAbits      set	5
@@ -223,11 +223,11 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    209     07ED  00FD               	movwf	btemp+-1
    210     07EE  3007               	movlw	high __pidataBANK0
    211     07EF  00FE               	movwf	btemp
-   212     07F0  3069               	movlw	low __pidataBANK0
+   212     07F0  306B               	movlw	low __pidataBANK0
    213     07F1  00FF               	movwf	btemp+1
    214     07F2  3020               	movlw	low __pdataBANK0
    215     07F3  0084               	movwf	4
-   216     07F4  120A  118A  277D  120A  118A  	fcall	init_ram0
+   216     07F4  120A  118A  277F  120A  118A  	fcall	init_ram0
    217                           
    218                           ; Clear objects allocated to COMMON
    219     07F9  01F0               	clrf	__pbssCOMMON& (0+127)
@@ -238,7 +238,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    224                           
    225     07FC                     __end_of__initialization:
    226     07FC  0183               	clrf	3
-   227     07FD  120A  118A  2F8C   	ljmp	_main	;jump to C main() function
+   227     07FD  120A  118A  2F8E   	ljmp	_main	;jump to C main() function
    228                           
    229                           	psect	bssCOMMON
    230     0070                     __pbssCOMMON:
@@ -255,31 +255,31 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    241     0020                     	ds	16
    242                           
    243                           	psect	inittext
-   244     0779                     init_fetch0:	
+   244     077B                     init_fetch0:	
    245                           ;	Called with low address in FSR and high address in W
    246                           
-   247     0779  087E               	movf	btemp,w
-   248     077A  008A               	movwf	10
-   249     077B  087F               	movf	btemp+1,w
-   250     077C  0082               	movwf	2
-   251     077D                     init_ram0:	
+   247     077B  087E               	movf	btemp,w
+   248     077C  008A               	movwf	10
+   249     077D  087F               	movf	btemp+1,w
+   250     077E  0082               	movwf	2
+   251     077F                     init_ram0:	
    252                           ;Called with:
    253                           ;	high address of idata address in btemp 
    254                           ;	low address of idata address in btemp+1 
    255                           ;	low address of data in FSR
    256                           ;	high address + 1 of data in btemp-1
    257                           
-   258     077D  120A  118A  2779  120A  118A  	fcall	init_fetch0
-   259     0782  0080               	movwf	0
-   260     0783  0A84               	incf	4,f
-   261     0784  0804               	movf	4,w
-   262     0785  067D               	xorwf	btemp+-1,w
-   263     0786  1903               	btfsc	3,2
-   264     0787  3400               	retlw	0
-   265     0788  0AFF               	incf	btemp+1,f
-   266     0789  1903               	btfsc	3,2
-   267     078A  0AFE               	incf	btemp,f
-   268     078B  2F7D               	goto	init_ram0
+   258     077F  120A  118A  277B  120A  118A  	fcall	init_fetch0
+   259     0784  0080               	movwf	0
+   260     0785  0A84               	incf	4,f
+   261     0786  0804               	movf	4,w
+   262     0787  067D               	xorwf	btemp+-1,w
+   263     0788  1903               	btfsc	3,2
+   264     0789  3400               	retlw	0
+   265     078A  0AFF               	incf	btemp+1,f
+   266     078B  1903               	btfsc	3,2
+   267     078C  0AFE               	incf	btemp,f
+   268     078D  2F7F               	goto	init_ram0
    269                           
    270                           	psect	cstackCOMMON
    271     0073                     __pcstackCOMMON:
@@ -292,7 +292,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    278     0073                     	ds	3
    279                           
    280                           	psect	maintext
-   281     078C                     __pmaintext:	
+   281     078E                     __pmaintext:	
    282 ;;
    283 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
    284 ;;
@@ -324,196 +324,193 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    310 ;; This function uses a non-reentrant model
    311 ;;
    312                           
-   313     078C                     _main:	
+   313     078E                     _main:	
    314                           ;psect for function _main
    315                           
-   316     078C                     l587:	
+   316     078E                     l587:	
    317                           ;incstack = 0
    318                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0]
    319                           
    320                           
-   321                           ;codigo.c: 24:     if (PORTBbits.RB0 == 0) {
-   322     078C  1683               	bsf	3,5	;RP0=1, select bank1
-   323     078D  1303               	bcf	3,6	;RP1=0, select bank1
-   324     078E  0188               	clrf	8	;volatile
-   325     078F                     l589:
+   321                           ;codigo.c: 24: 
+   322     078E  1683               	bsf	3,5	;RP0=1, select bank1
+   323     078F  1303               	bcf	3,6	;RP1=0, select bank1
+   324     0790  0188               	clrf	8	;volatile
+   325     0791                     l589:
    326                           
-   327                           ;codigo.c: 25:         sentido = !sentido;
-   328     078F  30FF               	movlw	255
-   329     0790  0086               	movwf	6	;volatile
+   327                           ;codigo.c: 25: 
+   328     0791  30FF               	movlw	255
+   329     0792  0086               	movwf	6	;volatile
    330                           
-   331                           ;codigo.c: 27:     }
-   332     0791  0185               	clrf	5	;volatile
+   331                           ;codigo.c: 27:     while (1) {
+   332     0793  0185               	clrf	5	;volatile
    333                           
-   334                           ;codigo.c: 28: 
-   335     0792  01F1               	clrf	_contador
-   336     0793                     l591:
+   334                           ;codigo.c: 28:     _delay((unsigned long)((50)*(20000000/4000.0)));
+   335     0794  01F1               	clrf	_contador
+   336     0795                     l591:
    337                           
-   338                           ;codigo.c: 29: 
-   339     0793  1283               	bcf	3,5	;RP0=0, select bank0
-   340     0794  1303               	bcf	3,6	;RP1=0, select bank0
-   341     0795  1285               	bcf	5,5	;volatile
-   342     0796                     l593:
+   338                           ;codigo.c: 29:     if (PORTBbits.RB0 == 0) {
+   339     0795  1283               	bcf	3,5	;RP0=0, select bank0
+   340     0796  1303               	bcf	3,6	;RP1=0, select bank0
+   341     0797  1285               	bcf	5,5	;volatile
+   342     0798                     l593:
    343                           
-   344                           ;codigo.c: 35:         } else {
-   345     0796  1806               	btfsc	6,0	;volatile
-   346     0797  2F99               	goto	u11
-   347     0798  2F9A               	goto	u10
-   348     0799                     u11:
-   349     0799  2F96               	goto	l593
-   350     079A                     u10:
-   351     079A                     l595:
+   344                           ;codigo.c: 35:             if (contador > 15)
+   345     0798  1806               	btfsc	6,0	;volatile
+   346     0799  2F9B               	goto	u11
+   347     079A  2F9C               	goto	u10
+   348     079B                     u11:
+   349     079B  2F98               	goto	l593
+   350     079C                     u10:
+   351     079C                     l595:
    352                           
-   353                           ;codigo.c: 36:             if (contador == 0);codigo.c: 37:                 contador = 1
-      +                          5;
-   354     079A  3002               	movlw	2
-   355     079B  00F5               	movwf	??_main+2
-   356     079C  3045               	movlw	69
-   357     079D  00F4               	movwf	??_main+1
-   358     079E  30A9               	movlw	169
-   359     079F  00F3               	movwf	??_main
-   360     07A0                     u97:
-   361     07A0  0BF3               	decfsz	??_main,f
-   362     07A1  2FA0               	goto	u97
-   363     07A2  0BF4               	decfsz	??_main+1,f
-   364     07A3  2FA0               	goto	u97
-   365     07A4  0BF5               	decfsz	??_main+2,f
-   366     07A5  2FA0               	goto	u97
-   367     07A6  2FA7               	nop2
-   368     07A7                     l597:
+   353                           ;codigo.c: 42:                 contador--;
+   354     079C  3002               	movlw	2
+   355     079D  00F5               	movwf	??_main+2
+   356     079E  3045               	movlw	69
+   357     079F  00F4               	movwf	??_main+1
+   358     07A0  30A9               	movlw	169
+   359     07A1  00F3               	movwf	??_main
+   360     07A2                     u97:
+   361     07A2  0BF3               	decfsz	??_main,f
+   362     07A3  2FA2               	goto	u97
+   363     07A4  0BF4               	decfsz	??_main+1,f
+   364     07A5  2FA2               	goto	u97
+   365     07A6  0BF5               	decfsz	??_main+2,f
+   366     07A7  2FA2               	goto	u97
+   367     07A8  2FA9               	nop2
+   368     07A9                     l597:
    369                           
-   370                           ;codigo.c: 38:             else
-   371     07A7  1283               	bcf	3,5	;RP0=0, select bank0
-   372     07A8  1303               	bcf	3,6	;RP1=0, select bank0
-   373     07A9  1806               	btfsc	6,0	;volatile
-   374     07AA  2FAC               	goto	u21
-   375     07AB  2FAD               	goto	u20
-   376     07AC                     u21:
-   377     07AC  2FB9               	goto	l601
-   378     07AD                     u20:
-   379     07AD                     l599:
+   370                           ;codigo.c: 43:         }
+   371     07A9  1283               	bcf	3,5	;RP0=0, select bank0
+   372     07AA  1303               	bcf	3,6	;RP1=0, select bank0
+   373     07AB  1806               	btfsc	6,0	;volatile
+   374     07AC  2FAE               	goto	u21
+   375     07AD  2FAF               	goto	u20
+   376     07AE                     u21:
+   377     07AE  2FBB               	goto	l601
+   378     07AF                     u20:
+   379     07AF                     l599:
    380                           
-   381                           ;codigo.c: 39:                 contador--;
-   382     07AD  0870               	movf	_sentido,w
-   383     07AE  1903               	btfsc	3,2
-   384     07AF  2FB1               	goto	u31
-   385     07B0  2FB3               	goto	u30
-   386     07B1                     u31:
-   387     07B1  3001               	movlw	1
-   388     07B2  2FB4               	goto	u40
-   389     07B3                     u30:
-   390     07B3  3000               	movlw	0
-   391     07B4                     u40:
-   392     07B4  00F0               	movwf	_sentido
-   393     07B5                     l30:	
-   394                           ;codigo.c: 40:         }
+   381                           ;codigo.c: 44: 
+   382     07AF  0870               	movf	_sentido,w
+   383     07B0  1903               	btfsc	3,2
+   384     07B1  2FB3               	goto	u31
+   385     07B2  2FB5               	goto	u30
+   386     07B3                     u31:
+   387     07B3  3001               	movlw	1
+   388     07B4  2FB6               	goto	u40
+   389     07B5                     u30:
+   390     07B5  3000               	movlw	0
+   391     07B6                     u40:
+   392     07B6  00F0               	movwf	_sentido
+   393     07B7                     l31:	
+   394                           ;codigo.c: 45:         PORTD = segment[contador];
    395                           
-   396     07B5  1C06               	btfss	6,0	;volatile
-   397     07B6  2FB8               	goto	u51
-   398     07B7  2FB9               	goto	u50
-   399     07B8                     u51:
-   400     07B8  2FB5               	goto	l30
-   401     07B9                     u50:
-   402     07B9                     l601:
+   396     07B7  1C06               	btfss	6,0	;volatile
+   397     07B8  2FBA               	goto	u51
+   398     07B9  2FBB               	goto	u50
+   399     07BA                     u51:
+   400     07BA  2FB7               	goto	l31
+   401     07BB                     u50:
+   402     07BB                     l601:
    403                           
-   404                           ;codigo.c: 45: 
-   405     07B9  0370               	decf	_sentido,w
-   406     07BA  1D03               	btfss	3,2
-   407     07BB  2FBD               	goto	u61
-   408     07BC  2FBE               	goto	u60
-   409     07BD                     u61:
-   410     07BD  2FC8               	goto	l609
-   411     07BE                     u60:
-   412     07BE                     l603:
+   404                           ;codigo.c: 47: 
+   405     07BB  0370               	decf	_sentido,w
+   406     07BC  1D03               	btfss	3,2
+   407     07BD  2FBF               	goto	u61
+   408     07BE  2FC0               	goto	u60
+   409     07BF                     u61:
+   410     07BF  2FCA               	goto	l609
+   411     07C0                     u60:
+   412     07C0                     l603:
    413                           
-   414                           ;codigo.c: 46:     }
-   415     07BE  3001               	movlw	1
-   416     07BF  07F1               	addwf	_contador,f
-   417     07C0                     l605:
+   414                           ;codigo.c: 48: 
+   415     07C0  3001               	movlw	1
+   416     07C1  07F1               	addwf	_contador,f
+   417     07C2                     l605:
    418                           
-   419                           ;codigo.c: 47:    }
-   420     07C0  3010               	movlw	16
-   421     07C1  0271               	subwf	_contador,w
-   422     07C2  1C03               	skipc
-   423     07C3  2FC5               	goto	u71
-   424     07C4  2FC6               	goto	u70
-   425     07C5                     u71:
-   426     07C5  2FD2               	goto	l615
-   427     07C6                     u70:
-   428     07C6                     l607:
+   419                           ;codigo.c: 49:     }
+   420     07C2  3010               	movlw	16
+   421     07C3  0271               	subwf	_contador,w
+   422     07C4  1C03               	skipc
+   423     07C5  2FC7               	goto	u71
+   424     07C6  2FC8               	goto	u70
+   425     07C7                     u71:
+   426     07C7  2FD4               	goto	l615
+   427     07C8                     u70:
+   428     07C8                     l607:
    429                           
-   430                           ;codigo.c: 48:   }
-   431     07C6  01F1               	clrf	_contador
-   432     07C7  2FD2               	goto	l615
-   433     07C8                     l609:
-   434     07C8  0871               	movf	_contador,w
-   435     07C9  1D03               	btfss	3,2
-   436     07CA  2FCC               	goto	u81
-   437     07CB  2FCD               	goto	u80
-   438     07CC                     u81:
-   439     07CC  2FD0               	goto	l613
-   440     07CD                     u80:
-   441     07CD                     l611:
-   442     07CD  300F               	movlw	15
-   443     07CE  00F1               	movwf	_contador
-   444     07CF  2FD2               	goto	l615
-   445     07D0                     l613:
-   446     07D0  3001               	movlw	1
-   447     07D1  02F1               	subwf	_contador,f
-   448     07D2                     l615:
-   449     07D2  0871               	movf	_contador,w
-   450     07D3  3E20               	addlw	(low (_segment| 0))& (0+255)
-   451     07D4  0084               	movwf	4
-   452     07D5  1383               	bcf	3,7	;select IRP bank0
-   453     07D6  0800               	movf	0,w
-   454     07D7  1283               	bcf	3,5	;RP0=0, select bank0
-   455     07D8  1303               	bcf	3,6	;RP1=0, select bank0
-   456     07D9  0088               	movwf	8	;volatile
-   457     07DA                     l617:
-   458     07DA  300D               	movlw	13
-   459     07DB  00F5               	movwf	??_main+2
-   460     07DC  30AF               	movlw	175
-   461     07DD  00F4               	movwf	??_main+1
-   462     07DE  30B6               	movlw	182
-   463     07DF  00F3               	movwf	??_main
-   464     07E0                     u107:
-   465     07E0  0BF3               	decfsz	??_main,f
-   466     07E1  2FE0               	goto	u107
-   467     07E2  0BF4               	decfsz	??_main+1,f
-   468     07E3  2FE0               	goto	u107
-   469     07E4  0BF5               	decfsz	??_main+2,f
-   470     07E5  2FE0               	goto	u107
-   471     07E6  0000               	nop
-   472     07E7  2FB9               	goto	l601
-   473     07E8  120A  118A  2800   	ljmp	start
-   474     07EB                     __end_of_main:
-   475     0002                     ___latbits      equ	2
-   476     007E                     btemp           set	126	;btemp
-   477     007E                     wtemp0          set	126
+   430                           ;codigo.c: 50:    }
+   431     07C8  01F1               	clrf	_contador
+   432     07C9  2FD4               	goto	l615
+   433     07CA                     l609:
+   434     07CA  0871               	movf	_contador,w
+   435     07CB  1D03               	btfss	3,2
+   436     07CC  2FCE               	goto	u81
+   437     07CD  2FCF               	goto	u80
+   438     07CE                     u81:
+   439     07CE  2FD2               	goto	l613
+   440     07CF                     u80:
+   441     07CF                     l611:
+   442     07CF  300F               	movlw	15
+   443     07D0  00F1               	movwf	_contador
+   444     07D1  2FD4               	goto	l615
+   445     07D2                     l613:
+   446     07D2  3001               	movlw	1
+   447     07D3  02F1               	subwf	_contador,f
+   448     07D4                     l615:
+   449     07D4  0871               	movf	_contador,w
+   450     07D5  3E20               	addlw	(low (_segment| 0))& (0+255)
+   451     07D6  0084               	movwf	4
+   452     07D7  1383               	bcf	3,7	;select IRP bank0
+   453     07D8  0800               	movf	0,w
+   454     07D9  0088               	movwf	8	;volatile
+   455     07DA                     l617:
+   456     07DA  300D               	movlw	13
+   457     07DB  00F5               	movwf	??_main+2
+   458     07DC  30AF               	movlw	175
+   459     07DD  00F4               	movwf	??_main+1
+   460     07DE  30B6               	movlw	182
+   461     07DF  00F3               	movwf	??_main
+   462     07E0                     u107:
+   463     07E0  0BF3               	decfsz	??_main,f
+   464     07E1  2FE0               	goto	u107
+   465     07E2  0BF4               	decfsz	??_main+1,f
+   466     07E3  2FE0               	goto	u107
+   467     07E4  0BF5               	decfsz	??_main+2,f
+   468     07E5  2FE0               	goto	u107
+   469     07E6  0000               	nop
+   470     07E7  2F9C               	goto	l595
+   471     07E8  120A  118A  2800   	ljmp	start
+   472     07EB                     __end_of_main:
+   473     0002                     ___latbits      equ	2
+   474     007E                     btemp           set	126	;btemp
+   475     007E                     wtemp0          set	126
+   476                           
+   477                           	psect	config
    478                           
-   479                           	psect	config
-   480                           
-   481                           ;Config register CONFIG @ 0x2007
-   482                           ;	Oscillator Selection bits
-   483                           ;	FOSC = HS, HS oscillator
-   484                           ;	Watchdog Timer Enable bit
-   485                           ;	WDTE = OFF, WDT disabled
-   486                           ;	Power-up Timer Enable bit
-   487                           ;	PWRTE = OFF, PWRT disabled
-   488                           ;	FLASH Program Memory Code Protection bits
-   489                           ;	CP = OFF, Code protection off
-   490                           ;	Brown-out Reset Enable bit
-   491                           ;	BOREN = OFF, BOR disabled
-   492                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-   493                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-   494                           ;	Data EE Memory Code Protection
-   495                           ;	CPD = OFF, Code Protection off
-   496                           ;	FLASH Program Memory Write Enable
-   497                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
-   498                           ;	In-Circuit Debugger Mode bit
-   499                           ;	DEBUG = 0x1, unprogrammed default
-   500     2007                     	org	8199
-   501     2007  3D3A               	dw	15674
+   479                           ;Config register CONFIG @ 0x2007
+   480                           ;	Oscillator Selection bits
+   481                           ;	FOSC = HS, HS oscillator
+   482                           ;	Watchdog Timer Enable bit
+   483                           ;	WDTE = OFF, WDT disabled
+   484                           ;	Power-up Timer Enable bit
+   485                           ;	PWRTE = OFF, PWRT disabled
+   486                           ;	FLASH Program Memory Code Protection bits
+   487                           ;	CP = OFF, Code protection off
+   488                           ;	Brown-out Reset Enable bit
+   489                           ;	BOREN = OFF, BOR disabled
+   490                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+   491                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+   492                           ;	Data EE Memory Code Protection
+   493                           ;	CPD = OFF, Code Protection off
+   494                           ;	FLASH Program Memory Write Enable
+   495                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+   496                           ;	In-Circuit Debugger Mode bit
+   497                           ;	DEBUG = 0x1, unprogrammed default
+   498     2007                     	org	8199
+   499     2007  3D3A               	dw	15674
 
 Data Sizes:
     Strings     0
@@ -587,28 +584,28 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Wed Nov 20 20:37:01 2024
+Symbol Table                                                                                   Wed Nov 20 23:08:42 2024
 
-                      _i 0072                        pc 0002                       l30 07B5  
-                     u10 079A                       u11 0799                       u20 07AD  
-                     u21 07AC                       u30 07B3                       u31 07B1  
-                     u40 07B4                       u50 07B9                       u51 07B8  
-                     u60 07BE                       u61 07BD                       u70 07C6  
-                     u71 07C5                       u80 07CD                       u81 07CC  
-                     u97 07A0                       fsr 0004                      l601 07B9  
-                    l611 07CD                      l603 07BE                      l613 07D0  
-                    l605 07C0                      l607 07C6                      l615 07D2  
-                    l617 07DA                      l609 07C8                      l591 0793  
-                    l593 0796                      l595 079A                      l587 078C  
-                    l597 07A7                      l589 078F                      l599 07AD  
+                      _i 0072                        pc 0002                       l31 07B7  
+                     u10 079C                       u11 079B                       u20 07AF  
+                     u21 07AE                       u30 07B5                       u31 07B3  
+                     u40 07B6                       u50 07BB                       u51 07BA  
+                     u60 07C0                       u61 07BF                       u70 07C8  
+                     u71 07C7                       u80 07CF                       u81 07CE  
+                     u97 07A2                       fsr 0004                      l601 07BB  
+                    l611 07CF                      l603 07C0                      l613 07D2  
+                    l605 07C2                      l607 07C8                      l615 07D4  
+                    l617 07DA                      l609 07CA                      l591 0795  
+                    l593 0798                      l595 079C                      l587 078E  
+                    l597 07A9                      l589 0791                      l599 07AF  
                     u107 07E0                      fsr0 0004                      indf 0000  
-                   _main 078C                     btemp 007E                     start 0000  
+                   _main 078E                     btemp 007E                     start 0000  
                   ?_main 0073                    _PORTD 0008                    _TRISA 0085  
                   _TRISB 0086                    _TRISD 0088                    pclath 000A  
                   status 0003                    wtemp0 007E          __initialization 07EB  
            __end_of_main 07EB                   ??_main 0073  __end_of__initialization 07FC  
-         __pcstackCOMMON 0073             __pidataBANK0 0769               __pmaintext 078C  
+         __pcstackCOMMON 0073             __pidataBANK0 076B               __pmaintext 078E  
                 _segment 0020                  _sentido 0070     end_of_initialization 07FC  
               _PORTAbits 0005                _PORTBbits 0006      start_initialization 07EB  
-             init_fetch0 0779              __pdataBANK0 0020              __pbssCOMMON 0070  
-              ___latbits 0002                 _contador 0071                 init_ram0 077D  
+             init_fetch0 077B              __pdataBANK0 0020              __pbssCOMMON 0070  
+              ___latbits 0002                 _contador 0071                 init_ram0 077F  

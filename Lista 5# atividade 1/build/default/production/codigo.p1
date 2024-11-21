@@ -283,105 +283,107 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _main ]
 [f ]
 "24
-[; ;codigo.c: 24:     if (PORTBbits.RB0 == 0) {
+[; ;codigo.c: 24: 
 [e = _TRISD -> -> 0 `i `uc ]
 "25
-[; ;codigo.c: 25:         sentido = !sentido;
+[; ;codigo.c: 25: 
 [e = _TRISB -> -> 255 `i `uc ]
 "27
-[; ;codigo.c: 27:     }
+[; ;codigo.c: 27:     while (1) {
 [e = _TRISA -> -> 0 `i `uc ]
 "28
-[; ;codigo.c: 28: 
+[; ;codigo.c: 28:     _delay((unsigned long)((50)*(20000000/4000.0)));
 [e = _contador -> -> 0 `i `uc ]
 "29
-[; ;codigo.c: 29: 
+[; ;codigo.c: 29:     if (PORTBbits.RB0 == 0) {
 [e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
 "34
-[; ;codigo.c: 34:                 contador = 0;
+[; ;codigo.c: 34:             contador++;
 [e :U 96 ]
 {
 "35
-[; ;codigo.c: 35:         } else {
+[; ;codigo.c: 35:             if (contador > 15)
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 98  ]
 "36
-[; ;codigo.c: 36:             if (contador == 0)
+[; ;codigo.c: 36:                 contador = 0;
 {
-"37
-[; ;codigo.c: 37:                 contador = 15;
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"38
-[; ;codigo.c: 38:             else
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 99  ]
-{
-"39
-[; ;codigo.c: 39:                 contador--;
-[e = _sentido -> -> ! != -> _sentido `i -> 0 `i `i `uc ]
-"40
-[; ;codigo.c: 40:         }
-[e $U 100  ]
-[e :U 101 ]
-[e :U 100 ]
-[e $ == -> . . _PORTBbits 0 0 `i -> 0 `i 101  ]
-[e :U 102 ]
 "41
-[; ;codigo.c: 41: 
-}
-[e :U 99 ]
+[; ;codigo.c: 41:             else
+[e :U 100 ]
+{
+"42
+[; ;codigo.c: 42:                 contador--;
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"43
+[; ;codigo.c: 43:         }
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 102  ]
+{
 "44
 [; ;codigo.c: 44: 
-[e :U 104 ]
-{
+[e = _sentido -> -> ! != -> _sentido `i -> 0 `i `i `uc ]
 "45
-[; ;codigo.c: 45: 
+[; ;codigo.c: 45:         PORTD = segment[contador];
+[e $U 103  ]
+[e :U 104 ]
+[e :U 103 ]
+[e $ == -> . . _PORTBbits 0 0 `i -> 0 `i 104  ]
+[e :U 105 ]
+"46
+[; ;codigo.c: 46:         _delay((unsigned long)((500)*(20000000/4000.0)));
+}
+[e :U 102 ]
+"47
+[; ;codigo.c: 47: 
 [e $ ! == -> _sentido `i -> 1 `i 106  ]
 {
-"46
-[; ;codigo.c: 46:     }
-[e ++ _contador -> -> 1 `i `uc ]
-"47
-[; ;codigo.c: 47:    }
-[e $ ! > -> _contador `i -> 15 `i 107  ]
 "48
-[; ;codigo.c: 48:   }
+[; ;codigo.c: 48: 
+[e ++ _contador -> -> 1 `i `uc ]
+"49
+[; ;codigo.c: 49:     }
+[e $ ! > -> _contador `i -> 15 `i 107  ]
+"50
+[; ;codigo.c: 50:    }
 [e = _contador -> -> 0 `i `uc ]
 [e :U 107 ]
-"49
-[; ;codigo.c: 49: }
+"51
+[; ;codigo.c: 51:   }
 }
 [e $U 108  ]
+"52
+[; ;codigo.c: 52: }
 [e :U 106 ]
 {
-"50
+"53
 [e $ ! == -> _contador `i -> 0 `i 109  ]
-"51
+"54
 [e = _contador -> -> 15 `i `uc ]
 [e $U 110  ]
-"52
+"55
 [e :U 109 ]
-"53
+"56
 [e -- _contador -> -> 1 `i `uc ]
 [e :U 110 ]
-"54
+"57
 }
 [e :U 108 ]
-"56
+"59
 [e = _PORTD *U + &U _segment * -> _contador `ux -> -> # *U &U _segment `ui `ux ]
-"57
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "60
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"63
 }
-[e :U 103 ]
-[e $U 104  ]
-[e :U 105 ]
-"61
+[e :U 99 ]
+[e $U 100  ]
+[e :U 101 ]
+"64
 }
 [e :U 98 ]
-"62
+"65
 }
 [e :U 95 ]
 [e $U 96  ]
 [e :U 97 ]
-"63
+"66
 [e :UE 94 ]
 }

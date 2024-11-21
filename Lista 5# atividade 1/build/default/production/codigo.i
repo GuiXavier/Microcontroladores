@@ -1833,19 +1833,22 @@ void main(void) {
 while(1){
 if (PORTBbits.RB0 == 0)
 {
-    _delay((unsigned long)((50)*(20000000/4000.0)));
-    if (PORTBbits.RB0 == 0) {
-        sentido = !sentido;
-        while (PORTBbits.RB0 == 0);
-    }
+
+
 
 
     while (1) {
+    _delay((unsigned long)((50)*(20000000/4000.0)));
+    if (PORTBbits.RB0 == 0) {
+    sentido = !sentido;
+    while (PORTBbits.RB0 == 0);
+    }
         if (sentido == 1) {
             contador++;
             if (contador > 15)
                 contador = 0;
-        } else {
+        }
+        else {
             if (contador == 0)
                 contador = 15;
             else

@@ -34,19 +34,22 @@ void main(void) {
 while(1){
 if (PORTBbits.RB0 == 0) 
 {
-    __delay_ms(50); // Debounce para evitar leituras instáveis
-    if (PORTBbits.RB0 == 0) {
-        sentido = !sentido; // Alterna o sentido
-        while (PORTBbits.RB0 == 0); // Aguarda o botão ser solto
-    }
+    
+    
 
     // CONTROLE DA CONTAGEM
     while (1) {
+    __delay_ms(50); // Debounce para evitar leituras instáveis
+    if (PORTBbits.RB0 == 0) {
+    sentido = !sentido; // Alterna o sentido
+    while (PORTBbits.RB0 == 0); // Aguarda o botão ser solto
+    }
         if (sentido == 1) { // Contagem crescente
             contador++;
             if (contador > 15)  // Reinicia a contagem ao atingir o limite
                 contador = 0;
-        } else { // Contagem decrescente
+        } 
+        else { // Contagem decrescente
             if (contador == 0)
                 contador = 15;
             else

@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
   -cn -h+dist/default/production\Lista_5__atividade_1.production.sym \
   --cmf=dist/default/production\Lista_5__atividade_1.production.cmf -z \
-  -Q16F877 -oC:\Users\Yan\AppData\Local\Temp\xcAs4osg.\driver_tmp_3.o \
+  -Q16F877 -oC:\Users\Yan\AppData\Local\Temp\xcAs60k8.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/Lista_5__atividade_1.production.map \
-  --md=C:\Users\Yan\AppData\Local\Temp\xcAs4osg.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\Yan\AppData\Local\Temp\xcAs60k8.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -22,7 +22,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\Yan\AppData\Local\Temp\xcAs4osg.\driver_tmp_12.o \
+  C:\Users\Yan\AppData\Local\Temp\xcAs60k8.\driver_tmp_12.o \
   dist/default/production\Lista_5__atividade_1.production.o 
 
 Object code version is 3.11
@@ -32,26 +32,26 @@ Machine type is 16F877
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Yan\AppData\Local\Temp\xcAs4osg.\driver_tmp_12.o
+C:\Users\Yan\AppData\Local\Temp\xcAs60k8.\driver_tmp_12.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\Lista_5__atividade_1.production.o
                 cinit                               7EB      7EB       15      FD6       0
                 config                             2007     2007        1        0       4
-                maintext                            78C      78C       5F      F18       0
+                maintext                            78E      78E       5D      F1C       0
                 cstackCOMMON                         73       73        3       70       1
-                inittext                            779      779       13      EF2       0
+                inittext                            77B      77B       13      EF6       0
                 dataBANK0                            20       20       10       20       1
                 bssCOMMON                            70       70        3       70       1
-                idataBANK0                          769      769       10      ED2       0
+                idataBANK0                          76B      76B       10      ED6       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 end_init                              0        0        3         0
                 cinit                               7EB      7EB       15         0
-                maintext                            78C      78C       5F         0
-                inittext                            779      779       13         0
-                idataBANK0                          769      769       10         0
+                maintext                            78E      78E       5D         0
+                inittext                            77B      77B       13         0
+                idataBANK0                          76B      76B       10         0
 
         CLASS   STRCODE        
 
@@ -105,9 +105,9 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
                 dataBANK0                      000020  000010  000030        20       1  BANK0       1
                 bssCOMMON                      000070  000006  000076        70       1  COMMON      1
-                idataBANK0                     000769  000010  000779       ED2       0  CODE        2
-                inittext                       000779  000013  00078C       EF2       0  CODE        2
-                maintext                       00078C  00005F  0007EB       F18       0  CODE        2
+                idataBANK0                     00076B  000010  00077B       ED6       0  CODE        2
+                inittext                       00077B  000013  00078E       EF6       0  CODE        2
+                maintext                       00078E  00005D  0007EB       F1C       0  CODE        2
                 cinit                          0007EB  000015  000800       FD6       0  CODE        2
 
 
@@ -118,13 +118,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-0768            766           2
+        CODE             0003-076A            768           2
                          0800-1FFF            800
         COMMON           0076-007D              8           1
-        CONST            0003-0768            100           2
+        CONST            0003-076A            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-0768            100           2
+        ENTRY            0003-076A            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0030-006F             40           1
@@ -135,9 +135,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          0003-0768            766           2
+        STRCODE          0003-076A            768           2
                          0800-1FFF           1800
-        STRING           0003-0768            100           2
+        STRING           0003-076A            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -246,16 +246,16 @@ __initialization         cinit        07EB
 __pbssCOMMON             bssCOMMON    0070
 __pcstackCOMMON          cstackCOMMON 0073
 __pdataBANK0             dataBANK0    0020
-__pidataBANK0            idataBANK0   0769
-__pmaintext              maintext     078C
+__pidataBANK0            idataBANK0   076B
+__pmaintext              maintext     078E
 _contador                bssCOMMON    0071
-_main                    maintext     078C
+_main                    maintext     078E
 _segment                 dataBANK0    0020
 _sentido                 bssCOMMON    0070
 btemp                    (abs)        007E
 end_of_initialization    cinit        07FC
-init_fetch0              inittext     0779
-init_ram0                inittext     077D
+init_fetch0              inittext     077B
+init_ram0                inittext     077F
 intlevel0                functab      0000
 intlevel1                functab      0000
 intlevel2                functab      0000
@@ -277,7 +277,7 @@ shared
 shared estimated size: 17
 
 codigo.c
-		_main          		CODE           	078C	0000	95
+		_main          		CODE           	078E	0000	93
 
-codigo.c estimated size: 95
+codigo.c estimated size: 93
 
