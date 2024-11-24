@@ -57,6 +57,9 @@ void main(void)
     TRISE = 0x00;
     TRISD = 0x00;
     lcd_initialise();
+   
+    
+    
     while(1)
     {
         lcd_command(0x80);//D7=1 D6 a D0 = 0 - 80h. Começa no primeiro digito

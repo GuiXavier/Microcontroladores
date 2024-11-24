@@ -322,7 +322,7 @@
 
 <item itemtype="Connector" uid="Connector-305" startpinid="Node-125-2" endpinid="p16f877-1-MCLR" pointList="-668,-392,-652,-392" />
 
-<item itemtype="Connector" uid="Connector-307" startpinid="ResistorDip-4-resistor1-ePin2" endpinid="ResistorDip-4-resistor0-ePin0" pointList="-316,-440,240,-440,-308,-440" />
+<item itemtype="Connector" uid="Connector-307" startpinid="ResistorDip-4-resistor1-ePin2" endpinid="ResistorDip-4-resistor0-ePin0" pointList="-316,-440,-308,-440" />
 
 <item itemtype="Connector" uid="Connector-308" startpinid="ResistorDip-4-resistor2-ePin4" endpinid="Node-24-1" pointList="-324,-440,-332,-440" />
 
