@@ -1,6 +1,6 @@
-<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+<circuit version="1.1.0-SR0" rev="1973" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="MCU" CircId="p16f877-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-644,-400" rotation="0" hflip="1" vflip="1" label="p16f877-1" idLabPos="0,-20" labelrot="0" valLabPos="0,0" valLabRot="0" Frequency="20 MHz" Program="../dist/default/production/EXEMPLO_TECLADO_7_SEGMENTOS.production.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" eeprom="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
+<item itemtype="MCU" CircId="p16f877-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-644,-400" rotation="0" hflip="1" vflip="1" label="p16f877-1" idLabPos="0,-20" labelrot="0" valLabPos="0,0" valLabRot="0" Frequency="20 MHz" Program="../../Lista 4#/dist/default/debug/Lista_4_.debug.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" eeprom="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
 
 <item itemtype="Fixed Voltage" CircId="Fixed Voltage-2" mainComp="false" Show_id="true" Show_Val="true" Pos="-252,-470" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-2" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
@@ -46,7 +46,7 @@
 
 <item itemtype="Fixed Voltage" CircId="Fixed Voltage-23" mainComp="false" Show_id="false" Show_Val="false" Pos="-684,-452" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-23" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
-<item itemtype="MCU" CircId="p16F877-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-80" rotation="0" hflip="1" vflip="1" label="p16F877-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="1 MHz" Program="../dist/default/production/EXEMPLO_TECLADO_7_SEGMENTOS.production.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" SerialMon="-1" />
+<item itemtype="MCU" CircId="p16F877-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-108,-80" rotation="0" hflip="1" vflip="1" label="p16F877-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="1 MHz" Program="../dist/default/production/EXEMPLO_TECLADO_7_SEGMENTOS.production.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="false" SerialMon="-1" />
 
 <item itemtype="Fixed Voltage" CircId="Fixed Voltage-3" mainComp="false" Show_id="false" Show_Val="false" Pos="-440,-72" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-3" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
@@ -216,7 +216,7 @@
 
 <item itemtype="Connector" uid="Connector-32" startpinid="KeyPad-3-Pin2" endpinid="p16f877-1-PORTC1" pointList="-760,-436,-708,-436,-708,-272,-652,-272" />
 
-<item itemtype="Connector" uid="Connector-33" startpinid="KeyPad-3-Pin1" endpinid="p16f877-1-PORTC2" pointList="-760,-452,-716,-452,-716,-264,-652,-264" />
+<item itemtype="Connector" uid="Connector-33" startpinid="KeyPad-3-Pin1" endpinid="p16f877-1-PORTC2" pointList="-760,-452,-720,-452,-720,-264,-652,-264" />
 
 <item itemtype="Connector" uid="Connector-34" startpinid="KeyPad-3-Pin0" endpinid="p16f877-1-PORTC3" pointList="-760,-468,-732,-468,-732,-256,-652,-256" />
 
@@ -236,7 +236,7 @@
 
 <item itemtype="Connector" uid="Connector-42" startpinid="Tunnel-22-pin" endpinid="KeyPad-3-Pin7" pointList="-776,-384,-776,-404" />
 
-<item itemtype="Connector" uid="Connector-43" startpinid="ResistorDip-4-resistor3-ePin7" endpinid="Node-28-1" pointList="-332,-408,-332,-404,-580,-404,-580,-332,-576,-332" />
+<item itemtype="Connector" uid="Connector-43" startpinid="ResistorDip-4-resistor3-ePin7" endpinid="Node-28-1" pointList="-332,-408,-332,-404,-576,-404,-576,-332" />
 
 <item itemtype="Connector" uid="Connector-44" startpinid="Node-28-2" endpinid="p16f877-1-PORTB0" pointList="-576,-332,-588,-332,-588,-336" />
 
