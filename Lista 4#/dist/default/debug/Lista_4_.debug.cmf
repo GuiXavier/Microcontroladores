@@ -12,8 +12,8 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $build/default/debug/lista4a.o
-udata RAM 1 20 20 5 1 1
-code CODE 0 0 0 3B 2 1
+udata RAM 1 20 20 3 1 1
+code CODE 0 0 0 A5 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -21,25 +21,23 @@ config CONFIG 4 2007 2007 1 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 25-6F 1
+RAM 23-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 25-6F 1
+BANK0 23-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
-CONST 3B-1FFF 2
-ENTRY 3B-1FFF 2
+CONST A5-1FFF 2
+ENTRY A5-1FFF 2
 IDLOC 2000-2003 2
-CODE 3B-1FFF 2
-SFR1 80-9F 1
-SFR2 100-10F 1
+CODE A5-1FFF 2
 SFR3 180-18F 1
 COMMON 70-7F 1
 EEDATA 2100-21FF 2
-STRCODE 3B-1FFF 2
-STRING 3B-1FFF 2
+STRCODE A5-1FFF 2
+STRING A5-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -54,62 +52,168 @@ STRING 3B-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $build/default/debug/lista4a.o
-0 code CODE >68:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-4 code CODE >76:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-5 code CODE >81:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-6 code CODE >82:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-7 code CODE >83:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-8 code CODE >84:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-9 code CODE >85:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-A code CODE >86:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-B code CODE >87:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-C code CODE >88:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-D code CODE >89:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-E code CODE >92:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-F code CODE >93:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-10 code CODE >95:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-11 code CODE >96:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-12 code CODE >97:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-13 code CODE >103:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-14 code CODE >104:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-15 code CODE >105:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-16 code CODE >106:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-17 code CODE >107:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-18 code CODE >112:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-19 code CODE >112:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-1A code CODE >113:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-1B code CODE >114:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-1C code CODE >115:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-1D code CODE >116:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-1E code CODE >117:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-1F code CODE >118:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-20 code CODE >119:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-21 code CODE >120:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-22 code CODE >121:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-23 code CODE >122:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-24 code CODE >124:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-25 code CODE >125:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-26 code CODE >128:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-27 code CODE >128:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-28 code CODE >132:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-29 code CODE >133:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-2A code CODE >136:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-2B code CODE >137:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-2C code CODE >140:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-2D code CODE >141:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-2E code CODE >142:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-2F code CODE >146:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-30 code CODE >147:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-31 code CODE >148:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-32 code CODE >151:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-33 code CODE >152:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-34 code CODE >153:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-35 code CODE >154:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-36 code CODE >155:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-37 code CODE >156:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-38 code CODE >157:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-39 code CODE >158:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
-3A code CODE >159:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+0 code CODE >69:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+4 code CODE >74:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+5 code CODE >78:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+6 code CODE >79:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+7 code CODE >81:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+8 code CODE >82:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+9 code CODE >83:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+A code CODE >84:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+B code CODE >85:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+C code CODE >86:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+D code CODE >87:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+E code CODE >91:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+F code CODE >92:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+10 code CODE >93:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+11 code CODE >94:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+12 code CODE >95:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+13 code CODE >96:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+14 code CODE >99:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+15 code CODE >99:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+16 code CODE >100:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+17 code CODE >101:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+18 code CODE >102:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+19 code CODE >103:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+1A code CODE >104:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+1B code CODE >105:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+1C code CODE >106:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+1D code CODE >107:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+1E code CODE >108:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+1F code CODE >109:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+20 code CODE >110:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+21 code CODE >110:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+22 code CODE >116:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+23 code CODE >117:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+24 code CODE >118:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+25 code CODE >119:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+26 code CODE >120:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+27 code CODE >124:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+28 code CODE >125:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+29 code CODE >126:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+2A code CODE >127:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+2B code CODE >128:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+2C code CODE >129:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+2D code CODE >130:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+2E code CODE >131:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+2F code CODE >132:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+30 code CODE >134:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+31 code CODE >135:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+32 code CODE >136:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+33 code CODE >137:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+34 code CODE >138:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+35 code CODE >139:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+36 code CODE >140:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+37 code CODE >141:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+38 code CODE >142:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+39 code CODE >144:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+3A code CODE >145:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+3B code CODE >148:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+3C code CODE >149:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+3D code CODE >150:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+3E code CODE >151:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+3F code CODE >152:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+40 code CODE >153:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+41 code CODE >154:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+42 code CODE >155:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+43 code CODE >156:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+44 code CODE >157:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+45 code CODE >158:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+46 code CODE >159:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+47 code CODE >160:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+48 code CODE >161:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+49 code CODE >162:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+4A code CODE >163:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+4B code CODE >165:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+4C code CODE >166:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+4D code CODE >169:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+4E code CODE >170:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+4F code CODE >171:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+50 code CODE >172:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+51 code CODE >173:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+52 code CODE >174:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+53 code CODE >175:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+54 code CODE >176:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+55 code CODE >177:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+56 code CODE >178:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+57 code CODE >179:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+58 code CODE >180:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+59 code CODE >181:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+5A code CODE >182:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+5B code CODE >183:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+5C code CODE >184:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+5D code CODE >186:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+5E code CODE >187:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+5F code CODE >189:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+60 code CODE >190:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+61 code CODE >194:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+62 code CODE >195:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+63 code CODE >196:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+64 code CODE >197:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+65 code CODE >198:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+66 code CODE >199:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+67 code CODE >200:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+68 code CODE >201:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+69 code CODE >202:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+6A code CODE >204:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+6B code CODE >205:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+6C code CODE >206:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+6D code CODE >207:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+6E code CODE >208:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+6F code CODE >209:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+70 code CODE >210:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+71 code CODE >211:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+72 code CODE >212:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+73 code CODE >214:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+74 code CODE >215:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+75 code CODE >218:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+76 code CODE >219:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+77 code CODE >220:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+78 code CODE >221:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+79 code CODE >222:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+7A code CODE >223:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+7B code CODE >224:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+7C code CODE >225:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+7D code CODE >226:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+7E code CODE >227:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+7F code CODE >228:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+80 code CODE >229:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+81 code CODE >230:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+82 code CODE >231:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+83 code CODE >232:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+84 code CODE >233:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+85 code CODE >234:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+86 code CODE >235:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+87 code CODE >236:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+88 code CODE >237:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+89 code CODE >238:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+8A code CODE >239:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+8B code CODE >240:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+8C code CODE >241:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+8D code CODE >244:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+8E code CODE >245:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+8F code CODE >246:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+90 code CODE >247:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+91 code CODE >248:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+92 code CODE >249:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+93 code CODE >250:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+94 code CODE >251:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+95 code CODE >252:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+96 code CODE >253:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+97 code CODE >254:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+98 code CODE >255:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+99 code CODE >256:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+9A code CODE >257:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+9B code CODE >258:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+9C code CODE >259:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+9D code CODE >260:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+9E code CODE >261:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+9F code CODE >262:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+A0 code CODE >263:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+A1 code CODE >264:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+A2 code CODE >266:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+A3 code CODE >267:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
+A4 code CODE >268:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 4#\lista4a.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -122,8 +226,8 @@ F code CODE >93:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 4#\lista4
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 3B 0 ABS 0 - -
-__Hspace_1 25 0 ABS 0 - -
+__Hspace_0 A5 0 ABS 0 - -
+__Hspace_1 23 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
 __Hudata_bank0 0 0 ABS 0 udata_bank0 -
@@ -141,7 +245,7 @@ __Hdata 0 0 ABS 0 data -
 __Lcode 0 0 ABS 0 code -
 __Ldata 0 0 ABS 0 data -
 __S0 0 0 ABS 0 - -
-__S1 25 0 ABS 0 - -
+__S1 23 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Lconfig 0 0 CONFIG 4 config -
 __Lspace_0 0 0 ABS 0 - -
@@ -179,7 +283,7 @@ __Ludata_shr 0 0 ABS 0 udata_shr -
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-udata 1 20 20 5 1
+udata 1 20 20 3 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
