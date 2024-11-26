@@ -13,11 +13,8 @@
 
 #define RS PORTEbits.RE0
 #define EN PORTEbits.RE1
+#define BOTAO PORTBbits.RB0
 
-// Variáveis globais
-unsigned int contador = 0;
-
-// Função para envio de dados ao LCD
 void lcd_data(unsigned char data) {
     PORTD = data;
     RS = 1;
@@ -26,7 +23,6 @@ void lcd_data(unsigned char data) {
     EN = 0;
 }
 
-// Função para envio de comandos ao LCD
 void lcd_command(unsigned char cmd) {
     PORTD = cmd;
     RS = 0;
@@ -35,77 +31,58 @@ void lcd_command(unsigned char cmd) {
     EN = 0;
 }
 
-// Função para exibir uma string no LCD
-void lcd_string(const char *str) {
+void lcd_string(const unsigned char *str) {
     while (*str) {
         lcd_data(*str++);
     }
 }
 
-// Inicialização do LCD
 void lcd_initialise() {
-    lcd_command(0x38);  // Configuração do modo de 8 bits
-    lcd_command(0x06);  // Cursor incrementa à direita
-    lcd_command(0x0C);  // Display ON, Cursor OFF
-    lcd_command(0x01);  // Limpa o display
+    lcd_command(0x38);  // Function Set
+    lcd_command(0x06);  // Entry Mode Set
+    lcd_command(0x0C);  // Display ON/OFF
+    lcd_command(0x01);  // Display Clear
 }
 
-// Leitura do teclado matricial
-char teclado_matricial() {
-    PORTB = 0x0E;  // Primeira linha ativa
-    if (PORTBbits.RB4 == 0) return '1';
-    if (PORTBbits.RB5 == 0) return '2';
-    if (PORTBbits.RB6 == 0) return '3';
-    if (PORTBbits.RB7 == 0) return 'A';
-
-    PORTB = 0x0D;  // Segunda linha ativa
-    if (PORTBbits.RB4 == 0) return '4';
-    if (PORTBbits.RB5 == 0) return '5';
-    if (PORTBbits.RB6 == 0) return '6';
-    if (PORTBbits.RB7 == 0) return 'B';
-
-    PORTB = 0x0B;  // Terceira linha ativa
-    if (PORTBbits.RB4 == 0) return '7';
-    if (PORTBbits.RB5 == 0) return '8';
-    if (PORTBbits.RB6 == 0) return '9';
-    if (PORTBbits.RB7 == 0) return 'C';
-
-    PORTB = 0x07;  // Quarta linha ativa
-    if (PORTBbits.RB4 == 0) return '*';
-    if (PORTBbits.RB5 == 0) return '0';
-    if (PORTBbits.RB6 == 0) return '#';
-    if (PORTBbits.RB7 == 0) return 'D';
-
-    return 0;  // Nenhuma tecla pressionada
+void debounce() {
+    __delay_ms(50);  // Delay for debounce
 }
 
 void main(void) {
-    TRISE = 0x00;  // Configurações do LCD
-    TRISD = 0x00;
-    TRISB = 0xF0;  // Linhas do teclado como entrada, colunas como saída
-    PORTB = 0x0F;  // Colunas inicialmente em nível alto
+    TRISE = 0x00;  // Configura PORT E como saída
+    TRISD = 0x00;  // Configura PORT D como saída
+    TRISB = 0x01;  // Configura RB0 como entrada
 
     lcd_initialise();
 
-    char buffer[10];  // Buffer para armazenar o contador formatado
-    char tecla;
+    unsigned char estado = 0;  // Inicializa o estado para exibir "Paulo"
 
     while (1) {
-        tecla = teclado_matricial();  // Lê a tecla pressionada
+        if (BOTAO == 1) {  // Botão pressionado
+            debounce();    // Aguarda para debounce
 
-        if (tecla) {
-            __delay_ms(200);  // Anti-bounce
-            if (tecla == '0') {
-                contador = 0;  // Zera o contador
-            } else {
-                contador++;    // Incrementa o contador
+            if (BOTAO == 1) {  // Confirma que o botão ainda está pressionado
+                estado = (estado + 1) % 3;  // Alterna entre 0, 1 e 2
+                lcd_command(0x01);  // Limpa o display
+
+                switch (estado) {
+                    case 1:  // Exibe "Paulo"
+                        lcd_command(0x80);  // Cursor no início da primeira linha
+                        lcd_string((const unsigned char *)"Paulo");
+                        break;
+                    case 2:  // Exibe "a2095920"
+                        lcd_command(0xC0);  // Cursor no início da segunda linha
+                        lcd_string((const unsigned char *)"a2095920");
+                        break;
+                    case 3:  // Limpa o display
+                        lcd_command(0x01);  // Display Clear
+                        break;
+                }
+
+                while (BOTAO == 1) {
+                    // Aguarda o botão ser solto antes de continuar
+                }
             }
-
-            lcd_command(0x80);       // Posiciona o cursor na linha 1
-            sprintf(buffer, "%04d", contador);  // Formata o contador com 4 dígitos
-            lcd_string("Contador:");
-            lcd_command(0xC0);       // Posiciona o cursor na linha 2
-            lcd_string(buffer);      // Exibe o contador
         }
     }
 }
