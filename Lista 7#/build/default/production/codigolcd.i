@@ -1808,10 +1808,10 @@ extern __bank0 __bit __timeout;
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
+# 26 "codigolcd.c"
+void teclado();
 
-
-
-
+unsigned char segment[]={0x03,0x9f,0x25,0x0d,0x99,0x49,0x41,0x1f,0x01,0x19,0x11,0xc1,0x63,0x85,0x61,0x71},i=0;
 
 void lcd_data(unsigned char data)
 {
@@ -1856,12 +1856,109 @@ void main(void)
     TRISE = 0x00;
     TRISD = 0x00;
     lcd_initialise();
+
+    TRISA = 0x00;
+    TRISC = 0x00;
+    TRISB = 0xff;
+
+
     while(1)
     {
+        teclado();
+        PORTD = 0xff;
+
+
         lcd_command(0x80);
         lcd_string("NOME",4);
         lcd_command(0xC0);
         lcd_string("MATRICULA",9);
     }
     return;
+}
+void teclado()
+{
+    PORTCbits.RC0=0;PORTCbits.RC1=1;PORTCbits.RC2=1;PORTCbits.RC3=1;
+    if(PORTBbits.RB0==0)
+    {
+        PORTD = segment[0];
+        while(PORTBbits.RB0==0);
+    }
+    if(PORTBbits.RB1==0)
+    {
+        PORTD = segment[1];
+        while(PORTBbits.RB1==0);
+    }
+    if(PORTBbits.RB2==0)
+    {
+        PORTD = segment[2];
+        while(PORTBbits.RB2==0);
+    }
+    if(PORTBbits.RB3==0)
+    {
+        PORTD = segment[3];
+        while(PORTBbits.RB3==0);
+    }
+    PORTCbits.RC0=1;PORTCbits.RC1=0;PORTCbits.RC2=1;PORTCbits.RC3=1;
+    if(PORTBbits.RB0==0)
+    {
+        PORTD = segment[4];
+        while(PORTBbits.RB0==0);
+    }
+    if(PORTBbits.RB1==0)
+    {
+        PORTD = segment[5];
+        while(PORTBbits.RB1==0);
+    }
+    if(PORTBbits.RB2==0)
+    {
+        PORTD = segment[6];
+        while(PORTBbits.RB2==0);
+    }
+    if(PORTBbits.RB3==0)
+    {
+        PORTD = segment[7];
+        while(PORTBbits.RB3==0);
+    }
+    PORTCbits.RC0=1;PORTCbits.RC1=1;PORTCbits.RC2=0;PORTCbits.RC3=1;
+    if(PORTBbits.RB0==0)
+    {
+        PORTD = segment[8];
+        while(PORTBbits.RB0==0);
+    }
+    if(PORTBbits.RB1==0)
+    {
+        PORTD = segment[9];
+        while(PORTBbits.RB1==0);
+    }
+    if(PORTBbits.RB2==0)
+    {
+        PORTD = segment[10];
+        while(PORTBbits.RB2==0);
+    }
+    if(PORTBbits.RB3==0)
+    {
+        PORTD = segment[11];
+        while(PORTBbits.RB3==0);
+    }
+     PORTCbits.RC0=1;PORTCbits.RC1=1;PORTCbits.RC2=1;PORTCbits.RC3=0;
+    if(PORTBbits.RB0==0)
+    {
+        PORTD = segment[12];
+        while(PORTBbits.RB0==0);
+    }
+    if(PORTBbits.RB1==0)
+    {
+        PORTD = segment[13];
+        while(PORTBbits.RB1==0);
+    }
+    if(PORTBbits.RB2==0)
+    {
+        PORTD = segment[14];
+        while(PORTBbits.RB2==0);
+    }
+    if(PORTBbits.RB3==0)
+    {
+        PORTD = segment[15];
+        while(PORTBbits.RB3==0);
+    }
 }
