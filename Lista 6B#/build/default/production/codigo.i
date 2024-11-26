@@ -1805,14 +1805,13 @@ extern __bank0 __bit __timeout;
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config BOREN = OFF
-#pragma config LVP = ON
+#pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
-
-
-
-
+# 25 "codigo.c"
+unsigned int contador = 0;
+unsigned char tecla_anterior = 0xFF;
 
 void lcd_data(unsigned char data) {
     PORTD = data;
@@ -1830,7 +1829,7 @@ void lcd_command(unsigned char cmd) {
     PORTEbits.RE1 = 0;
 }
 
-void lcd_string(const unsigned char *str) {
+void lcd_string(const char *str) {
     while (*str) {
         lcd_data(*str++);
     }
@@ -1847,41 +1846,89 @@ void debounce() {
     _delay((unsigned long)((50)*(20000000/4000.0)));
 }
 
+unsigned char teclado() {
+    unsigned char tecla = 0xFF;
+
+    PORTCbits.RC0 = 0; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
+    if (PORTBbits.RB0 == 0) tecla = 0;
+    if (PORTBbits.RB1 == 0) tecla = 1;
+    if (PORTBbits.RB2 == 0) tecla = 2;
+    if (PORTBbits.RB3 == 0) tecla = 3;
+
+    PORTCbits.RC0 = 1; PORTCbits.RC1 = 0; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
+    if (PORTBbits.RB0 == 0) tecla = 4;
+    if (PORTBbits.RB1 == 0) tecla = 5;
+    if (PORTBbits.RB2 == 0) tecla = 6;
+    if (PORTBbits.RB3 == 0) tecla = 7;
+
+    PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 0; PORTCbits.RC3 = 1;
+    if (PORTBbits.RB0 == 0) tecla = 8;
+    if (PORTBbits.RB1 == 0) tecla = 9;
+    if (PORTBbits.RB2 == 0) tecla = 10;
+    if (PORTBbits.RB3 == 0) tecla = 11;
+
+    PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 0;
+    if (PORTBbits.RB0 == 0) tecla = 12;
+    if (PORTBbits.RB1 == 0) tecla = 13;
+    if (PORTBbits.RB2 == 0) tecla = 14;
+    if (PORTBbits.RB3 == 0) tecla = 15;
+
+    return tecla;
+}
+
+void atualiza_lcd() {
+    char buffer[16];
+    unsigned int temp = contador;
+    int pos = 14;
+
+
+    buffer[15] = '\0';
+    while (pos >= 2) {
+        buffer[pos--] = (temp % 10) + '0';
+        temp /= 10;
+    }
+
+
+    while (pos >= 2) {
+        buffer[pos--] = ' ';
+    }
+
+
+    buffer[0] = 'N';
+    buffer[1] = ':';
+
+    lcd_command(0x80);
+    lcd_string("Contador cliques");
+    lcd_command(0xC0);
+    lcd_string(buffer);
+}
+
 void main(void) {
     TRISE = 0x00;
     TRISD = 0x00;
-    TRISB = 0x01;
-
+    TRISC = 0x00;
+    TRISB = 0xFF;
     lcd_initialise();
 
-    unsigned char estado = 0;
+    atualiza_lcd();
 
     while (1) {
-        if (PORTBbits.RB0 == 1) {
+        unsigned char tecla = teclado();
+
+        if (tecla != 0xFF) {
             debounce();
 
-            if (PORTBbits.RB0 == 1) {
-                estado = (estado + 1) % 3;
-                lcd_command(0x01);
-
-                switch (estado) {
-                    case 1:
-                        lcd_command(0x80);
-                        lcd_string((const unsigned char *)"Paulo");
-                        break;
-                    case 2:
-                        lcd_command(0xC0);
-                        lcd_string((const unsigned char *)"a2095920");
-                        break;
-                    case 3:
-                        lcd_command(0x01);
-                        break;
-                }
-
-                while (PORTBbits.RB0 == 1) {
-
-                }
+            if (tecla == tecla_anterior) {
+                contador++;
+            } else {
+                contador = 1;
+                tecla_anterior = tecla;
             }
+
+            atualiza_lcd();
+
+
+            while (teclado() != 0xFF);
         }
     }
 }

@@ -1,0 +1,157 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"28 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 6B#\codigo.c
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+"36
+[v _lcd_command lcd_command `(v  1 e 1 0 ]
+"44
+[v _lcd_string lcd_string `(v  1 e 1 0 ]
+"50
+[v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
+"57
+[v _debounce debounce `(v  1 e 1 0 ]
+"61
+[v _teclado teclado `(uc  1 e 1 0 ]
+"91
+[v _atualiza_lcd atualiza_lcd `(v  1 e 1 0 ]
+"118
+[v _main main `(v  1 e 1 0 ]
+[s S61 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[u S70 . 1 `S61 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES70  1 e 1 @6 ]
+[s S40 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"295
+[u S49 . 1 `S40 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES49  1 e 1 @7 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S23 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+]
+"414
+[u S27 . 1 `S23 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES27  1 e 1 @9 ]
+"1370
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1432
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1494
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1556
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"25 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 6B#\codigo.c
+[v _contador contador `ui  1 e 2 0 ]
+"26
+[v _tecla_anterior tecla_anterior `uc  1 e 1 0 ]
+"118
+[v _main main `(v  1 e 1 0 ]
+{
+"128
+[v main@tecla tecla `uc  1 a 1 7 ]
+"146
+} 0
+"61
+[v _teclado teclado `(uc  1 e 1 0 ]
+{
+"62
+[v teclado@tecla tecla `uc  1 a 1 0 ]
+"89
+} 0
+"50
+[v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
+{
+"55
+} 0
+"57
+[v _debounce debounce `(v  1 e 1 0 ]
+{
+"59
+} 0
+"91
+[v _atualiza_lcd atualiza_lcd `(v  1 e 1 0 ]
+{
+"92
+[v atualiza_lcd@buffer buffer `[16]uc  1 a 16 0 ]
+"94
+[v atualiza_lcd@pos pos `i  1 a 2 18 ]
+"93
+[v atualiza_lcd@temp temp `ui  1 a 2 16 ]
+"116
+} 0
+"44
+[v _lcd_string lcd_string `(v  1 e 1 0 ]
+{
+[v lcd_string@str str `*.26DCuc  1 p 2 3 ]
+"48
+} 0
+"28
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+{
+[v lcd_data@data data `uc  1 p 1 wreg ]
+[v lcd_data@data data `uc  1 p 1 wreg ]
+[v lcd_data@data data `uc  1 p 1 2 ]
+"34
+} 0
+"36
+[v _lcd_command lcd_command `(v  1 e 1 0 ]
+{
+[v lcd_command@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_command@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_command@cmd cmd `uc  1 p 1 2 ]
+"42
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 4 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
+"25
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"30
+} 0
