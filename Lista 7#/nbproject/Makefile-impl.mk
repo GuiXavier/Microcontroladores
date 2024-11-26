@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Exemplo Professor Tela LCD
+PROJECTNAME=Lista 7#
 
 # Active Configuration
 DEFAULTCONF=default
