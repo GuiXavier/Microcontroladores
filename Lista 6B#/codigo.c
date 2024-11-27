@@ -1,4 +1,5 @@
 #include <xc.h>
+#include <stdio.h> // Biblioteca necessária para sprintf
 #define _XTAL_FREQ 20000000
 
 // CONFIG
@@ -90,56 +91,41 @@ unsigned char teclado() {
 
 void atualiza_lcd() {
     char buffer[16];
-    unsigned int temp = contador;
-    int pos = 14;
+    sprintf(buffer, "N:%04d", contador); 
 
-    // Construir o número alinhado à direita
-    buffer[15] = '\0';  // Final da string
-    while (pos >= 2) {
-        buffer[pos--] = (temp % 10) + '0';
-        temp /= 10;
-    }
-
-    // Preencher espaço até N:
-    while (pos >= 2) {
-        buffer[pos--] = ' ';
-    }
-
-    // Adicionar prefixo N:
-    buffer[0] = 'N';
-    buffer[1] = ':';
-
-    lcd_command(0x80);  // Cursor na primeira linha
+    lcd_command(0x80);
     lcd_string("Contador cliques");
-    lcd_command(0xC0);  // Cursor na segunda linha
+    lcd_command(0xC0);
     lcd_string(buffer);
 }
 
 void main(void) {
-    TRISE = 0x00;  // Configura PORT E como saída
-    TRISD = 0x00;  // Configura PORT D como saída
-    TRISC = 0x00;  // Configura PORT C como saída
-    TRISB = 0xFF;  // Configura PORT B como entrada
+    TRISE = 0x00;  
+    TRISD = 0x00; 
+    TRISC = 0x00;  
+    TRISB = 0xFF; 
     lcd_initialise();
-
-    atualiza_lcd();  // Exibe a mensagem inicial no LCD
-
+    atualiza_lcd();
+    
     while (1) {
-        unsigned char tecla = teclado();  // Captura a tecla pressionada
+        unsigned char tecla = teclado();  
 
-        if (tecla != 0xFF) {  // Se alguma tecla foi pressionada
-            debounce();  // Aguarda para debounce
+        if (tecla != 0xFF) {  
+            debounce();  
 
-            if (tecla == tecla_anterior) {
-                contador++;  // Incrementa o contador para a mesma tecla
-            } else {
-                contador = 1;  // Reinicia o contador para uma nova tecla
-                tecla_anterior = tecla;  // Atualiza a tecla anterior
-            }
+            if (tecla == 9) {
+                contador++;  
+            } 
+            else if (tecla == 8) {
+                contador = 0;  
+            } 
+            /*else {
+                contador = 0;  
+                tecla_anterior = tecla;  
+            }*/
 
-            atualiza_lcd();  // Atualiza o display LCD
+            atualiza_lcd();
 
-            // Aguarda a tecla ser solta
             while (teclado() != 0xFF);
         }
     }

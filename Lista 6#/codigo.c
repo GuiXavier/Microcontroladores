@@ -55,32 +55,32 @@ void main(void) {
 
     lcd_initialise();
 
-    unsigned char estado = 0;  // Inicializa o estado para exibir "Paulo"
+    unsigned char estado = 0;  
 
     while (1) {
-        if (BOTAO == 1) {  // Botão pressionado
-            debounce();    // Aguarda para debounce
+        if (BOTAO == 1) {  
+            debounce();
 
-            if (BOTAO == 1) {  // Confirma que o botão ainda está pressionado
-                estado = (estado + 1) % 3;  // Alterna entre 0, 1 e 2
-                lcd_command(0x01);  // Limpa o display
+            if (BOTAO == 1) {  
+                estado = (estado + 1) % 3;  
+                lcd_command(0x01);  
 
                 switch (estado) {
-                    case 1:  // Exibe "Paulo"
-                        lcd_command(0x80);  // Cursor no início da primeira linha
+                    case 1:  
+                        lcd_command(0x80);
                         lcd_string((const unsigned char *)"Paulo");
                         break;
-                    case 2:  // Exibe "a2095920"
-                        lcd_command(0xC0);  // Cursor no início da segunda linha
+                    case 2:  
+                        lcd_command(0xC0);  
                         lcd_string((const unsigned char *)"a2095920");
                         break;
-                    case 3:  // Limpa o display
-                        lcd_command(0x01);  // Display Clear
+                    case 3:  
+                        lcd_command(0x01);
                         break;
                 }
 
                 while (BOTAO == 1) {
-                    // Aguarda o botão ser solto antes de continuar
+                   
                 }
             }
         }
