@@ -14,7 +14,7 @@ reset_vec 0 0 CODE 0
 _TRISD 88 0 ABS 0
 _TRISE 89 0 ABS 0
 _PORTD 8 0 ABS 0
-_debounce 6CC 0 CODE 0
+_debounce 6D1 0 CODE 0
 wtemp0 7E 0 ABS 0
 __Hconfig 2008 0 CONFIG 4
 __Lconfig 0 0 CONFIG 4
@@ -85,7 +85,7 @@ __ptext2 6EE 0 CODE 0
 __ptext3 702 0 CODE 0
 ___stack_hi 0 0 STACK 2
 __ptext4 6DA 0 CODE 0
-__ptext5 6CC 0 CODE 0
+__ptext5 6D1 0 CODE 0
 __ptext6 737 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
@@ -145,18 +145,18 @@ maintext F1C FF7 CODE F1C 0
 text6 E6E F1B CODE E6E 0
 text1 E36 E6D CODE E36 0
 text3 E04 E35 CODE E04 0
-strings 6 2F STRING 6 0
 text2 DDC E03 CODE DDC 0
 text4 DB4 DDB CODE DB4 0
-text5 D98 DB3 CODE D98 0
+strings 6 2B STRING 6 0
+text5 DA2 DB3 CODE DA2 0
 %locals
 dist/default/production\Lista_6_.production.o
-C:\Users\GUILHE~1\AppData\Local\Temp\xcAsc9s.\driver_tmp_1.s
-399 7FC 0 CODE 0
-402 7FC 0 CODE 0
+C:\Users\Yan\AppData\Local\Temp\xcAs7tg.\driver_tmp_1.s
+397 7FC 0 CODE 0
+400 7FC 0 CODE 0
+406 7FC 0 CODE 0
 408 7FC 0 CODE 0
-410 7FC 0 CODE 0
-411 7FD 0 CODE 0
+409 7FD 0 CODE 0
 codigo.c
 51 78E 0 CODE 0
 52 78E 0 CODE 0
@@ -211,8 +211,8 @@ codigo.c
 30 6E1 0 CODE 0
 31 6EA 0 CODE 0
 32 6ED 0 CODE 0
-47 6CC 0 CODE 0
-48 6CC 0 CODE 0
+47 6D1 0 CODE 0
+48 6D1 0 CODE 0
 49 6D9 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\awmod.c
 5 737 0 CODE 0

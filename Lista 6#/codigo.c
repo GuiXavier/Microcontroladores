@@ -45,7 +45,7 @@ void lcd_initialise() {
 }
 
 void debounce() {
-    __delay_ms(50);  // Delay for debounce
+    __delay_ms(25);  // Delay for debounce
 }
 
 void main(void) {
@@ -68,11 +68,11 @@ void main(void) {
                 switch (estado) {
                     case 1:  
                         lcd_command(0x80);
-                        lcd_string((const unsigned char *)"Paulo");
+                        lcd_string((const unsigned char *)"Yan");
                         break;
                     case 2:  
                         lcd_command(0xC0);  
-                        lcd_string((const unsigned char *)"a2095920");
+                        lcd_string((const unsigned char *)"a2263939");
                         break;
                     case 3:  
                         lcd_command(0x01);

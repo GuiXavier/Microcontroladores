@@ -289,7 +289,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 95 ]
 }
 "34
-[; ;codigo.c: 34:     _delay((unsigned long)((50)*(20000000/4000.0)));
+[; ;codigo.c: 34:     _delay((unsigned long)((25)*(20000000/4000.0)));
 [v _lcd_string `(v ~T0 @X0 1 ef1`*Cuc ]
 {
 [e :U _lcd_string ]
@@ -345,7 +345,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "48
 [; ;codigo.c: 48:             debounce();
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[e ( __delay (1 -> * -> -> 25 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "49
 [; ;codigo.c: 49: 
 [e :UE 101 ]
@@ -378,7 +378,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 104 ]
 {
 "61
-[; ;codigo.c: 61:                         lcd_string((const unsigned char *)"a2095920");
+[; ;codigo.c: 61:                         lcd_string((const unsigned char *)"a2263939");
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 106  ]
 {
 "62
@@ -459,5 +459,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 "88
 [e :UE 102 ]
 }
-[a 1C 80 97 117 108 111 0 ]
-[a 2C 97 50 48 57 53 57 50 48 0 ]
+[a 1C 89 97 110 0 ]
+[a 2C 97 50 50 54 51 57 51 57 0 ]

@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
   -cn -h+dist/default/production\Lista_6_.production.sym \
   --cmf=dist/default/production\Lista_6_.production.cmf -z -Q16F877 \
-  -oC:\Users\GUILHE~1\AppData\Local\Temp\xcAsc9s.\driver_tmp_3.o \
+  -oC:\Users\Yan\AppData\Local\Temp\xcAs7tg.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/Lista_6_.production.map \
-  --md=C:\Users\GUILHE~1\AppData\Local\Temp\xcAsc9s.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\Yan\AppData\Local\Temp\xcAs7tg.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -22,7 +22,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\GUILHE~1\AppData\Local\Temp\xcAsc9s.\driver_tmp_12.o \
+  C:\Users\Yan\AppData\Local\Temp\xcAs7tg.\driver_tmp_12.o \
   dist/default/production\Lista_6_.production.o 
 
 Object code version is 3.11
@@ -32,28 +32,28 @@ Machine type is 16F877
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\GUILHE~1\AppData\Local\Temp\xcAsc9s.\driver_tmp_12.o
+C:\Users\Yan\AppData\Local\Temp\xcAs7tg.\driver_tmp_12.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\Lista_6_.production.o
                 cinit                               7FC      7FC        4      FF8       0
                 config                             2007     2007        1        0       4
                 text6                               737      737       57      E6E       0
-                text5                               6CC      6CC        E      D98       0
+                text5                               6D1      6D1        9      DA2       0
                 text4                               6DA      6DA       14      DB4       0
                 text3                               702      702       19      E04       0
                 text2                               6EE      6EE       14      DDC       0
                 text1                               71B      71B       1C      E36       0
                 maintext                            78E      78E       6E      F1C       0
                 cstackCOMMON                         70       70        7       70       1
-                strings                               3        3       15        6       0
+                strings                               3        3       13        6       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 end_init                              0        0        3         0
                 cinit                               7FC      7FC        4         0
                 text6                               737      737       57         0
-                text5                               6CC      6CC        E         0
+                text5                               6D1      6D1        9         0
                 text4                               6DA      6DA       14         0
                 text3                               702      702       19         0
                 text2                               6EE      6EE       14         0
@@ -63,7 +63,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                               3        3       15         0
+                strings                               3        3       13         0
 
         CLASS   CONST          
 
@@ -109,9 +109,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                strings                        000003  000015  000018         6       0  STRING      2
+                strings                        000003  000013  000016         6       0  STRING      2
                 cstackCOMMON                   000070  000007  000077        70       1  COMMON      1
-                text5                          0006CC  00000E  0006DA       D98       0  CODE        2
+                text5                          0006D1  000009  0006DA       DA2       0  CODE        2
                 text4                          0006DA  000014  0006EE       DB4       0  CODE        2
                 text2                          0006EE  000014  000702       DDC       0  CODE        2
                 text3                          000702  000019  00071B       E04       0  CODE        2
@@ -128,13 +128,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0018-06CB            6B4           2
+        CODE             0016-06D0            6BB           2
                          0800-1FFF            800
         COMMON           0077-007D              7           1
-        CONST            0018-06CB            100           2
+        CONST            0016-06D0            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0018-06CB            100           2
+        ENTRY            0016-06D0            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -145,9 +145,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          0018-06CB            6B4           2
+        STRCODE          0016-06D0            6BB           2
                          0800-1FFF           1800
-        STRING           0018-06CB            100           2
+        STRING           0016-06D0            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -265,11 +265,11 @@ __ptext1                 text1        071B
 __ptext2                 text2        06EE
 __ptext3                 text3        0702
 __ptext4                 text4        06DA
-__ptext5                 text5        06CC
+__ptext5                 text5        06D1
 __ptext6                 text6        0737
 __stringbase             strings      0008
 __stringtab              strings      0003
-_debounce                text5        06CC
+_debounce                text5        06D1
 _lcd_command             text4        06DA
 _lcd_data                text2        06EE
 _lcd_initialise          text3        0702
@@ -309,11 +309,11 @@ shared estimated size: 7
 
 codigo.c
 		_lcd_command   		CODE           	06DA	0000	20
-		_debounce      		CODE           	06CC	0000	14
+		_debounce      		CODE           	06D1	0000	9
 		_lcd_data      		CODE           	06EE	0000	20
 		_lcd_initialise		CODE           	0702	0000	25
 		_main          		CODE           	078E	0000	110
 		_lcd_string    		CODE           	071B	0000	28
 
-codigo.c estimated size: 217
+codigo.c estimated size: 212
 
