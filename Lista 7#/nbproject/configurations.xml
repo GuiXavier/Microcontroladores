@@ -18,7 +18,7 @@
                    displayName="Source Files"
                    projectFiles="true">
     </logicalFolder>
-    <itemPath>codigolcd.c</itemPath>
+    <itemPath>atividade07.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

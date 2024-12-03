@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=codigolcd.c
+SOURCEFILES_QUOTED_IF_SPACED=atividade07.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/codigolcd.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/codigolcd.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/atividade07.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/atividade07.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/codigolcd.p1
+OBJECTFILES=${OBJECTDIR}/atividade07.p1
 
 # Source Files
-SOURCEFILES=codigolcd.c
+SOURCEFILES=atividade07.c
 
 
 
@@ -88,22 +88,22 @@ MP_PROCESSOR_OPTION=16F877
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/codigolcd.p1: codigolcd.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/atividade07.p1: atividade07.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/codigolcd.p1.d 
-	@${RM} ${OBJECTDIR}/codigolcd.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/codigolcd.p1 codigolcd.c 
-	@-${MV} ${OBJECTDIR}/codigolcd.d ${OBJECTDIR}/codigolcd.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/codigolcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/atividade07.p1.d 
+	@${RM} ${OBJECTDIR}/atividade07.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/atividade07.p1 atividade07.c 
+	@-${MV} ${OBJECTDIR}/atividade07.d ${OBJECTDIR}/atividade07.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/atividade07.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/codigolcd.p1: codigolcd.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/atividade07.p1: atividade07.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/codigolcd.p1.d 
-	@${RM} ${OBJECTDIR}/codigolcd.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/codigolcd.p1 codigolcd.c 
-	@-${MV} ${OBJECTDIR}/codigolcd.d ${OBJECTDIR}/codigolcd.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/codigolcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/atividade07.p1.d 
+	@${RM} ${OBJECTDIR}/atividade07.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/atividade07.p1 atividade07.c 
+	@-${MV} ${OBJECTDIR}/atividade07.d ${OBJECTDIR}/atividade07.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/atividade07.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
