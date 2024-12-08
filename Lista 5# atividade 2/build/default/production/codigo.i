@@ -1811,55 +1811,37 @@ extern __bank0 __bit __timeout;
 #pragma config CP = OFF
 
 
-unsigned char segment[] = {0x03,0x9f,0x25,0x0d,0x99,0x49,0x41,0x1f,0x01,0x19,0x11,0xc1,0x63,0x85,0x61,0x71},i=0;
-
-
-unsigned char contador = 0;
+unsigned char stepSequence[] = {0x09, 0x0C, 0x06, 0x03};
+unsigned char stepIndex = 0;
 unsigned char sentido = 0;
-
 
 void main(void) {
 
     TRISD = 0x00;
     TRISB = 0xFF;
-
-    TRISA = 0x00;
-    contador = 0;
-    PORTAbits.RA5 = 0;
-
-
-
-
-while(1){
-if (PORTBbits.RB0 == 0)
-{
-
-
+    PORTD = 0x00;
+    unsigned char botaoAnterior = 1;
 
 
     while (1) {
-    _delay((unsigned long)((50)*(20000000/4000.0)));
-    if (PORTBbits.RB0 == 0) {
-    sentido = !sentido;
-    while (PORTBbits.RB0 == 0);
-    }
+
+        if (PORTBbits.RB0 == 0 && botaoAnterior == 1) {
+            _delay((unsigned long)((50)*(20000000/4000.0)));
+            if (PORTBbits.RB0 == 0) {
+                sentido = !sentido;
+                while (PORTBbits.RB0 == 0);
+            }
+        }
+        botaoAnterior = PORTBbits.RB0;
+
+
         if (sentido == 1) {
-            contador++;
-            if (contador > 15)
-                contador = 0;
-        }
-        else {
-            if (contador == 0)
-                contador = 15;
-            else
-                contador--;
+            stepIndex = (stepIndex + 1) % 4;
+        } else {
+            stepIndex = (stepIndex == 0) ? 3 : stepIndex - 1;
         }
 
-        PORTD = segment[contador];
-        _delay((unsigned long)((500)*(20000000/4000.0)));
-
-
+        PORTD = stepSequence[stepIndex];
+        _delay((unsigned long)((200)*(20000000/4000.0)));
     }
-   }
-  }
 }

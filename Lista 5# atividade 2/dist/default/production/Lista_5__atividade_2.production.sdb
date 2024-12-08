@@ -11,19 +11,9 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"22 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
+"19 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 2\codigo.c
 [v _main main `(v  1 e 1 0 ]
-[s S25 . 1 `uc 1 RA0 1 0 :1:0 
-`uc 1 RA1 1 0 :1:1 
-`uc 1 RA2 1 0 :1:2 
-`uc 1 RA3 1 0 :1:3 
-`uc 1 RA4 1 0 :1:4 
-`uc 1 RA5 1 0 :1:5 
-]
-"181 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
-[u S32 . 1 `S25 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES32  1 e 1 @5 ]
-[s S42 . 1 `uc 1 RB0 1 0 :1:0 
+[s S25 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -32,25 +22,25 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-"233
-[u S51 . 1 `S42 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES51  1 e 1 @6 ]
+"233 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[u S34 . 1 `S25 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES34  1 e 1 @6 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
-"1320
-[v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1370
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
 "1494
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-"15 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 1\codigo.c
-[v _segment segment `[16]uc  1 e 16 0 ]
-"18
-[v _contador contador `uc  1 e 1 0 ]
-"19
+"15 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 5# atividade 2\codigo.c
+[v _stepSequence stepSequence `[4]uc  1 e 4 0 ]
+"16
+[v _stepIndex stepIndex `uc  1 e 1 0 ]
+"17
 [v _sentido sentido `uc  1 e 1 0 ]
-"22
+"19
 [v _main main `(v  1 e 1 0 ]
 {
-"66
+"24
+[v main@botaoAnterior botaoAnterior `uc  1 a 1 5 ]
+"48
 } 0

@@ -3,8 +3,8 @@
 [d edition pro ]
 [d chip 16F877 ]
 [d frameptr 0 ]
-"9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
@@ -13,21 +13,19 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"21 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 6#\codigo.c
+"18 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 6#\codigo.c
 [v _lcd_data lcd_data `(v  1 e 1 0 ]
-"30
+"26
 [v _lcd_command lcd_command `(v  1 e 1 0 ]
-"39
+"34
 [v _lcd_string lcd_string `(v  1 e 1 0 ]
-"46
+"40
 [v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
-"54
-[v _teclado_matricial teclado_matricial `(uc  1 e 1 0 ]
-"82
+"47
+[v _debounce debounce `(v  1 e 1 0 ]
+"51
 [v _main main `(v  1 e 1 0 ]
-"216 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
-[v _PORTB PORTB `VEuc  1 e 1 @6 ]
-[s S41 . 1 `uc 1 RB0 1 0 :1:0 
+[s S43 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -36,9 +34,9 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-"233
-[u S50 . 1 `S41 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES50  1 e 1 @6 ]
+"233 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[u S52 . 1 `S43 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES52  1 e 1 @6 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 [s S23 . 1 `uc 1 RE0 1 0 :1:0 
@@ -54,60 +52,53 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1556
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-"18 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 6#\codigo.c
-[v _contador contador `ui  1 e 2 0 ]
-"82
+"51 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 6#\codigo.c
 [v _main main `(v  1 e 1 0 ]
 {
-"90
-[v main@buffer buffer `[10]uc  1 a 10 12 ]
-"91
-[v main@tecla tecla `uc  1 a 1 22 ]
-"111
+"58
+[v main@estado estado `uc  1 a 1 6 ]
+"88
 } 0
-"54
-[v _teclado_matricial teclado_matricial `(uc  1 e 1 0 ]
-{
-"80
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-{
-[u S544 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
-"13
-[s S547 _IO_FILE 11 `S544 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S547  1 a 11 1 ]
-"12
-[v sprintf@ap ap `[1]*.30v  1 a 1 0 ]
-"9
-[v sprintf@s s `*.4uc  1 p 1 0 ]
-[v sprintf@fmt fmt `*.24DCuc  1 p 1 1 ]
-"23
-} 0
-"39 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 6#\codigo.c
+"34
 [v _lcd_string lcd_string `(v  1 e 1 0 ]
 {
-[v lcd_string@str str `*.26DCuc  1 p 2 3 ]
-"43
+[v lcd_string@str str `*.24DCuc  1 p 1 3 ]
+"38
 } 0
-"21
+"18
 [v _lcd_data lcd_data `(v  1 e 1 0 ]
 {
 [v lcd_data@data data `uc  1 p 1 wreg ]
 [v lcd_data@data data `uc  1 p 1 wreg ]
 [v lcd_data@data data `uc  1 p 1 2 ]
-"27
+"24
 } 0
-"46
+"40
 [v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
 {
-"51
+"45
 } 0
-"30
+"26
 [v _lcd_command lcd_command `(v  1 e 1 0 ]
 {
 [v lcd_command@cmd cmd `uc  1 p 1 wreg ]
 [v lcd_command@cmd cmd `uc  1 p 1 wreg ]
 [v lcd_command@cmd cmd `uc  1 p 1 2 ]
-"36
+"32
+} 0
+"47
+[v _debounce debounce `(v  1 e 1 0 ]
+{
+"49
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"34
 } 0

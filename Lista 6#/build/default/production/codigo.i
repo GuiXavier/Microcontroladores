@@ -1814,9 +1814,6 @@ extern __bank0 __bit __timeout;
 
 
 
-unsigned int contador = 0;
-
-
 void lcd_data(unsigned char data) {
     PORTD = data;
     PORTEbits.RE0 = 1;
@@ -1824,7 +1821,6 @@ void lcd_data(unsigned char data) {
     _delay((unsigned long)((5)*(20000000/4000.0)));
     PORTEbits.RE1 = 0;
 }
-
 
 void lcd_command(unsigned char cmd) {
     PORTD = cmd;
@@ -1834,13 +1830,11 @@ void lcd_command(unsigned char cmd) {
     PORTEbits.RE1 = 0;
 }
 
-
-void lcd_string(const char *str) {
+void lcd_string(const unsigned char *str) {
     while (*str) {
         lcd_data(*str++);
     }
 }
-
 
 void lcd_initialise() {
     lcd_command(0x38);
@@ -1849,62 +1843,45 @@ void lcd_initialise() {
     lcd_command(0x01);
 }
 
-
-char teclado_matricial() {
-    PORTB = 0x0E;
-    if (PORTBbits.RB4 == 0) return '1';
-    if (PORTBbits.RB5 == 0) return '2';
-    if (PORTBbits.RB6 == 0) return '3';
-    if (PORTBbits.RB7 == 0) return 'A';
-
-    PORTB = 0x0D;
-    if (PORTBbits.RB4 == 0) return '4';
-    if (PORTBbits.RB5 == 0) return '5';
-    if (PORTBbits.RB6 == 0) return '6';
-    if (PORTBbits.RB7 == 0) return 'B';
-
-    PORTB = 0x0B;
-    if (PORTBbits.RB4 == 0) return '7';
-    if (PORTBbits.RB5 == 0) return '8';
-    if (PORTBbits.RB6 == 0) return '9';
-    if (PORTBbits.RB7 == 0) return 'C';
-
-    PORTB = 0x07;
-    if (PORTBbits.RB4 == 0) return '*';
-    if (PORTBbits.RB5 == 0) return '0';
-    if (PORTBbits.RB6 == 0) return '#';
-    if (PORTBbits.RB7 == 0) return 'D';
-
-    return 0;
+void debounce() {
+    _delay((unsigned long)((25)*(20000000/4000.0)));
 }
 
 void main(void) {
     TRISE = 0x00;
     TRISD = 0x00;
-    TRISB = 0xF0;
-    PORTB = 0x0F;
+    TRISB = 0x01;
 
     lcd_initialise();
 
-    char buffer[10];
-    char tecla;
+    unsigned char estado = 0;
 
     while (1) {
-        tecla = teclado_matricial();
+        if (PORTBbits.RB0 == 1) {
+            debounce();
 
-        if (tecla) {
-            _delay((unsigned long)((200)*(20000000/4000.0)));
-            if (tecla == '0') {
-                contador = 0;
-            } else {
-                contador++;
+            if (PORTBbits.RB0 == 1) {
+                estado = (estado + 1) % 3;
+                lcd_command(0x01);
+
+                switch (estado) {
+                    case 1:
+                        lcd_command(0x80);
+                        lcd_string((const unsigned char *)"Yan");
+                        break;
+                    case 2:
+                        lcd_command(0xC0);
+                        lcd_string((const unsigned char *)"a2263939");
+                        break;
+                    case 3:
+                        lcd_command(0x01);
+                        break;
+                }
+
+                while (PORTBbits.RB0 == 1) {
+
+                }
             }
-
-            lcd_command(0x80);
-            sprintf(buffer, "%04d", contador);
-            lcd_string("Contador:");
-            lcd_command(0xC0);
-            lcd_string(buffer);
         }
     }
 }

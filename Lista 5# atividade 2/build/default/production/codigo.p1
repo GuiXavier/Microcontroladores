@@ -6,20 +6,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1370
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 1370: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"1320
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 1320: extern volatile unsigned char TRISA __attribute__((address(0x085)));
-[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
-"172
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 172:     struct {
-[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S10 . RA0 RA1 RA2 RA3 RA4 RA5 ]
-"171
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 171: typedef union {
-[u S9 `S10 1 ]
-[n S9 . . ]
-"181
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 181: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x005)));
-[v _PORTAbits `VS9 ~T0 @X0 0 e@5 ]
+"340
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 340: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "222
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 222:     struct {
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -35,9 +24,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 C:\Program Files\Microchip\xc8\v2.50\pic\include\builtins.h
 [v __delay `JF164 ~T0 @X0 0 e ]
 [p i __delay ]
-"340 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 340: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -213,177 +199,130 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 2210: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "5 codigo.c
-[; ;codigo.c: 5: unsigned char sentido = 0;
+[; ;codigo.c: 5: void main(void) {
 [p x FOSC  =  HS         ]
 "6
 [; ;codigo.c: 6: 
 [p x WDTE  =  OFF        ]
 "7
-[; ;codigo.c: 7: 
+[; ;codigo.c: 7:     TRISD = 0x00;
 [p x PWRTE  =  OFF       ]
 "8
-[; ;codigo.c: 8: void main(void) {
+[; ;codigo.c: 8:     TRISB = 0xFF;
 [p x BOREN  =  OFF       ]
 "9
-[; ;codigo.c: 9: 
+[; ;codigo.c: 9:     PORTD = 0x00;
 [p x LVP  =  OFF         ]
 "10
-[; ;codigo.c: 10:     TRISD = 0x00;
+[; ;codigo.c: 10:     unsigned char botaoAnterior = 1;
 [p x CPD  =  OFF         ]
 "11
-[; ;codigo.c: 11:     TRISB = 0xFF;
+[; ;codigo.c: 11: 
 [p x WRT  =  OFF         ]
 "12
 [; ;codigo.c: 12: 
 [p x CP  =  OFF          ]
 "15
-[; ;codigo.c: 15:     PORTAbits.RA5 = 0;
-[v _segment `uc ~T0 @X0 -> 16 `i e ]
-[i _segment
+[; ;codigo.c: 15:         if (PORTBbits.RB0 == 0 && botaoAnterior == 1) {
+[v _stepSequence `uc ~T0 @X0 -> 4 `i e ]
+[i _stepSequence
 :U ..
+-> -> 9 `i `uc
+-> -> 12 `i `uc
+-> -> 6 `i `uc
 -> -> 3 `i `uc
--> -> 159 `i `uc
--> -> 37 `i `uc
--> -> 13 `i `uc
--> -> 153 `i `uc
--> -> 73 `i `uc
--> -> 65 `i `uc
--> -> 31 `i `uc
--> -> 1 `i `uc
--> -> 25 `i `uc
--> -> 17 `i `uc
--> -> 193 `i `uc
--> -> 99 `i `uc
--> -> 133 `i `uc
--> -> 97 `i `uc
--> -> 113 `i `uc
 ..
 ]
-[v _i `uc ~T0 @X0 1 e ]
-[i _i
+"16
+[; ;codigo.c: 16:             _delay((unsigned long)((50)*(20000000/4000.0)));
+[v _stepIndex `uc ~T0 @X0 1 e ]
+[i _stepIndex
 -> -> 0 `i `uc
 ]
-"18
-[; ;codigo.c: 18: 
-[v _contador `uc ~T0 @X0 1 e ]
-[i _contador
--> -> 0 `i `uc
-]
-"19
-[; ;codigo.c: 19: 
+"17
+[; ;codigo.c: 17:             if (PORTBbits.RB0 == 0) {
 [v _sentido `uc ~T0 @X0 1 e ]
 [i _sentido
 -> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"22
-[; ;codigo.c: 22: {
+"19
+[; ;codigo.c: 19:                 while (PORTBbits.RB0 == 0);
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
+"21
+[; ;codigo.c: 21:         }
+[e = _TRISD -> -> 0 `i `uc ]
+"22
+[; ;codigo.c: 22:         botaoAnterior = PORTBbits.RB0;
+[e = _TRISB -> -> 255 `i `uc ]
+"23
+[; ;codigo.c: 23: 
+[e = _PORTD -> -> 0 `i `uc ]
 "24
 [; ;codigo.c: 24: 
-[e = _TRISD -> -> 0 `i `uc ]
-"25
-[; ;codigo.c: 25: 
-[e = _TRISB -> -> 255 `i `uc ]
+[v _botaoAnterior `uc ~T0 @X0 1 a ]
+[e = _botaoAnterior -> -> 1 `i `uc ]
 "27
-[; ;codigo.c: 27:     while (1) {
-[e = _TRISA -> -> 0 `i `uc ]
-"28
-[; ;codigo.c: 28:     _delay((unsigned long)((50)*(20000000/4000.0)));
-[e = _contador -> -> 0 `i `uc ]
-"29
-[; ;codigo.c: 29:     if (PORTBbits.RB0 == 0) {
-[e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]
-"34
-[; ;codigo.c: 34:             contador++;
+[; ;codigo.c: 27:         } else {
 [e :U 96 ]
 {
-"35
-[; ;codigo.c: 35:             if (contador > 15)
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 98  ]
-"36
-[; ;codigo.c: 36:                 contador = 0;
+"29
+[; ;codigo.c: 29:         }
+[e $ ! && == -> . . _PORTBbits 0 0 `i -> 0 `i == -> _botaoAnterior `i -> 1 `i 98  ]
 {
-"41
-[; ;codigo.c: 41:             else
-[e :U 100 ]
-{
-"42
-[; ;codigo.c: 42:                 contador--;
+"30
+[; ;codigo.c: 30: 
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"43
-[; ;codigo.c: 43:         }
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 102  ]
+"31
+[; ;codigo.c: 31:         PORTD = stepSequence[stepIndex];
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 99  ]
 {
-"44
-[; ;codigo.c: 44: 
+"32
+[; ;codigo.c: 32:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e = _sentido -> -> ! != -> _sentido `i -> 0 `i `i `uc ]
-"45
-[; ;codigo.c: 45:         PORTD = segment[contador];
-[e $U 103  ]
-[e :U 104 ]
-[e :U 103 ]
-[e $ == -> . . _PORTBbits 0 0 `i -> 0 `i 104  ]
-[e :U 105 ]
-"46
-[; ;codigo.c: 46:         _delay((unsigned long)((500)*(20000000/4000.0)));
-}
-[e :U 102 ]
-"47
-[; ;codigo.c: 47: 
-[e $ ! == -> _sentido `i -> 1 `i 106  ]
-{
-"48
-[; ;codigo.c: 48: 
-[e ++ _contador -> -> 1 `i `uc ]
-"49
-[; ;codigo.c: 49:     }
-[e $ ! > -> _contador `i -> 15 `i 107  ]
-"50
-[; ;codigo.c: 50:    }
-[e = _contador -> -> 0 `i `uc ]
-[e :U 107 ]
-"51
-[; ;codigo.c: 51:   }
-}
-[e $U 108  ]
-"52
-[; ;codigo.c: 52: }
-[e :U 106 ]
-{
-"53
-[e $ ! == -> _contador `i -> 0 `i 109  ]
-"54
-[e = _contador -> -> 15 `i `uc ]
-[e $U 110  ]
-"55
-[e :U 109 ]
-"56
-[e -- _contador -> -> 1 `i `uc ]
-[e :U 110 ]
-"57
-}
-[e :U 108 ]
-"59
-[e = _PORTD *U + &U _segment * -> _contador `ux -> -> # *U &U _segment `ui `ux ]
-"60
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"63
-}
-[e :U 99 ]
+"33
+[; ;codigo.c: 33:     }
 [e $U 100  ]
 [e :U 101 ]
-"64
+[e :U 100 ]
+[e $ == -> . . _PORTBbits 0 0 `i -> 0 `i 101  ]
+[e :U 102 ]
+"34
+[; ;codigo.c: 34: }
+}
+[e :U 99 ]
+"35
 }
 [e :U 98 ]
-"65
+"36
+[e = _botaoAnterior . . _PORTBbits 0 0 ]
+"39
+[e $ ! == -> _sentido `i -> 1 `i 103  ]
+{
+"40
+[e = _stepIndex -> % + -> _stepIndex `i -> 1 `i -> 4 `i `uc ]
+"41
+}
+[e $U 104  ]
+[e :U 103 ]
+{
+"42
+[e = _stepIndex -> ? == -> _stepIndex `i -> 0 `i : -> 3 `i - -> _stepIndex `i -> 1 `i `uc ]
+"43
+}
+[e :U 104 ]
+"45
+[e = _PORTD *U + &U _stepSequence * -> _stepIndex `ux -> -> # *U &U _stepSequence `ui `ux ]
+"46
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"47
 }
 [e :U 95 ]
 [e $U 96  ]
 [e :U 97 ]
-"66
+"48
 [e :UE 94 ]
 }
