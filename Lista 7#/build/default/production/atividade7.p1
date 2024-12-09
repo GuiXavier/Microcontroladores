@@ -246,10 +246,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13
 [p x CP  =  OFF          ]
 "26
-[; ;atividade7.c: 26: unsigned int contador = 0;
-[v _contador `ui ~T0 @X0 1 e ]
-[i _contador
--> -> 0 `i `ui
+[; ;atividade7.c: 26: unsigned char tecla_pressionada = 0;
+[v _tecla_pressionada `uc ~T0 @X0 1 e ]
+[i _tecla_pressionada
+-> -> 0 `i `uc
 ]
 "27
 [; ;atividade7.c: 27: unsigned char tecla_anterior = 0xFF;
@@ -378,237 +378,300 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _teclado ]
 [f ]
 "63
-[; ;atividade7.c: 63:     unsigned char tecla = 0xFF;
+[; ;atividade7.c: 63:     unsigned char tecla = 20;
 [v _tecla `uc ~T0 @X0 1 a ]
-[e = _tecla -> -> 255 `i `uc ]
+[e = _tecla -> -> 20 `i `uc ]
 "65
-[; ;atividade7.c: 65:     PORTCbits.RC0 = 0; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
+[; ;atividade7.c: 65:   while(tecla == 20){
+[e $U 105  ]
+[e :U 106 ]
+{
+"66
+[; ;atividade7.c: 66:     PORTCbits.RC0 = 0; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
 [e = . . _PORTCbits 0 0 -> -> 0 `i `uc ]
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"66
-[; ;atividade7.c: 66:     if (PORTBbits.RB0 == 0) tecla = 0;
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 105  ]
-[e = _tecla -> -> 0 `i `uc ]
-[e :U 105 ]
 "67
-[; ;atividade7.c: 67:     if (PORTBbits.RB1 == 0) tecla = 1;
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 106  ]
-[e = _tecla -> -> 1 `i `uc ]
-[e :U 106 ]
-"68
-[; ;atividade7.c: 68:     if (PORTBbits.RB2 == 0) tecla = 2;
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 107  ]
-[e = _tecla -> -> 2 `i `uc ]
-[e :U 107 ]
-"69
-[; ;atividade7.c: 69:     if (PORTBbits.RB3 == 0) tecla = 3;
-[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 108  ]
-[e = _tecla -> -> 3 `i `uc ]
+[; ;atividade7.c: 67:     if (PORTBbits.RB0 == 0) tecla = 0;
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 108  ]
+[e = _tecla -> -> 0 `i `uc ]
 [e :U 108 ]
-"71
-[; ;atividade7.c: 71:     PORTCbits.RC0 = 1; PORTCbits.RC1 = 0; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
+"68
+[; ;atividade7.c: 68:     if (PORTBbits.RB1 == 0) tecla = 1;
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 109  ]
+[e = _tecla -> -> 1 `i `uc ]
+[e :U 109 ]
+"69
+[; ;atividade7.c: 69:     if (PORTBbits.RB2 == 0) tecla = 2;
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 110  ]
+[e = _tecla -> -> 2 `i `uc ]
+[e :U 110 ]
+"70
+[; ;atividade7.c: 70:     if (PORTBbits.RB3 == 0) tecla = 3;
+[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 111  ]
+[e = _tecla -> -> 3 `i `uc ]
+[e :U 111 ]
+"72
+[; ;atividade7.c: 72:     PORTCbits.RC0 = 1; PORTCbits.RC1 = 0; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 1 -> -> 0 `i `uc ]
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"72
-[; ;atividade7.c: 72:     if (PORTBbits.RB0 == 0) tecla = 4;
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 109  ]
-[e = _tecla -> -> 4 `i `uc ]
-[e :U 109 ]
 "73
-[; ;atividade7.c: 73:     if (PORTBbits.RB1 == 0) tecla = 5;
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 110  ]
-[e = _tecla -> -> 5 `i `uc ]
-[e :U 110 ]
-"74
-[; ;atividade7.c: 74:     if (PORTBbits.RB2 == 0) tecla = 6;
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 111  ]
-[e = _tecla -> -> 6 `i `uc ]
-[e :U 111 ]
-"75
-[; ;atividade7.c: 75:     if (PORTBbits.RB3 == 0) tecla = 7;
-[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 112  ]
-[e = _tecla -> -> 7 `i `uc ]
+[; ;atividade7.c: 73:     if (PORTBbits.RB0 == 0) tecla = 4;
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 112  ]
+[e = _tecla -> -> 4 `i `uc ]
 [e :U 112 ]
-"77
-[; ;atividade7.c: 77:     PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 0; PORTCbits.RC3 = 1;
+"74
+[; ;atividade7.c: 74:     if (PORTBbits.RB1 == 0) tecla = 5;
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 113  ]
+[e = _tecla -> -> 5 `i `uc ]
+[e :U 113 ]
+"75
+[; ;atividade7.c: 75:     if (PORTBbits.RB2 == 0) tecla = 6;
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 114  ]
+[e = _tecla -> -> 6 `i `uc ]
+[e :U 114 ]
+"76
+[; ;atividade7.c: 76:     if (PORTBbits.RB3 == 0) tecla = 7;
+[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 115  ]
+[e = _tecla -> -> 7 `i `uc ]
+[e :U 115 ]
+"78
+[; ;atividade7.c: 78:     PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 0; PORTCbits.RC3 = 1;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 2 -> -> 0 `i `uc ]
 [e = . . _PORTCbits 0 3 -> -> 1 `i `uc ]
-"78
-[; ;atividade7.c: 78:     if (PORTBbits.RB0 == 0) tecla = 8;
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 113  ]
-[e = _tecla -> -> 8 `i `uc ]
-[e :U 113 ]
 "79
-[; ;atividade7.c: 79:     if (PORTBbits.RB1 == 0) tecla = 9;
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 114  ]
-[e = _tecla -> -> 9 `i `uc ]
-[e :U 114 ]
-"80
-[; ;atividade7.c: 80:     if (PORTBbits.RB2 == 0) tecla = 10;
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 115  ]
-[e = _tecla -> -> 10 `i `uc ]
-[e :U 115 ]
-"81
-[; ;atividade7.c: 81:     if (PORTBbits.RB3 == 0) tecla = 11;
-[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 116  ]
-[e = _tecla -> -> 11 `i `uc ]
+[; ;atividade7.c: 79:     if (PORTBbits.RB0 == 0) tecla = 8;
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 116  ]
+[e = _tecla -> -> 8 `i `uc ]
 [e :U 116 ]
-"83
-[; ;atividade7.c: 83:     PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 0;
+"80
+[; ;atividade7.c: 80:     if (PORTBbits.RB1 == 0) tecla = 9;
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 117  ]
+[e = _tecla -> -> 9 `i `uc ]
+[e :U 117 ]
+"81
+[; ;atividade7.c: 81:     if (PORTBbits.RB2 == 0) tecla = 10;
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 118  ]
+[e = _tecla -> -> 10 `i `uc ]
+[e :U 118 ]
+"82
+[; ;atividade7.c: 82:     if (PORTBbits.RB3 == 0) tecla = 11;
+[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 119  ]
+[e = _tecla -> -> 11 `i `uc ]
+[e :U 119 ]
+"84
+[; ;atividade7.c: 84:     PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 0;
 [e = . . _PORTCbits 0 0 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 1 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 2 -> -> 1 `i `uc ]
 [e = . . _PORTCbits 0 3 -> -> 0 `i `uc ]
-"84
-[; ;atividade7.c: 84:     if (PORTBbits.RB0 == 0) tecla = 12;
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 117  ]
-[e = _tecla -> -> 12 `i `uc ]
-[e :U 117 ]
 "85
-[; ;atividade7.c: 85:     if (PORTBbits.RB1 == 0) tecla = 13;
-[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 118  ]
-[e = _tecla -> -> 13 `i `uc ]
-[e :U 118 ]
-"86
-[; ;atividade7.c: 86:     if (PORTBbits.RB2 == 0) tecla = 14;
-[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 119  ]
-[e = _tecla -> -> 14 `i `uc ]
-[e :U 119 ]
-"87
-[; ;atividade7.c: 87:     if (PORTBbits.RB3 == 0) tecla = 15;
-[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 120  ]
-[e = _tecla -> -> 15 `i `uc ]
+[; ;atividade7.c: 85:     if (PORTBbits.RB0 == 0) tecla = 12;
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 0 `i 120  ]
+[e = _tecla -> -> 12 `i `uc ]
 [e :U 120 ]
+"86
+[; ;atividade7.c: 86:     if (PORTBbits.RB1 == 0) tecla = 13;
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 0 `i 121  ]
+[e = _tecla -> -> 13 `i `uc ]
+[e :U 121 ]
+"87
+[; ;atividade7.c: 87:     if (PORTBbits.RB2 == 0) tecla = 14;
+[e $ ! == -> . . _PORTBbits 0 2 `i -> 0 `i 122  ]
+[e = _tecla -> -> 14 `i `uc ]
+[e :U 122 ]
+"88
+[; ;atividade7.c: 88:     if (PORTBbits.RB3 == 0) tecla = 15;
+[e $ ! == -> . . _PORTBbits 0 3 `i -> 0 `i 123  ]
+[e = _tecla -> -> 15 `i `uc ]
+[e :U 123 ]
 "89
-[; ;atividade7.c: 89:     return tecla;
+[; ;atividade7.c: 89:   }
+}
+[e :U 105 ]
+"65
+[; ;atividade7.c: 65:   while(tecla == 20){
+[e $ == -> _tecla `i -> 20 `i 106  ]
+[e :U 107 ]
+"90
+[; ;atividade7.c: 90:     return tecla;
 [e ) _tecla ]
 [e $UE 104  ]
-"90
-[; ;atividade7.c: 90: }
+"91
+[; ;atividade7.c: 91: }
 [e :UE 104 ]
 }
-"92
-[; ;atividade7.c: 92: void atualiza_lcd() {
+"93
+[; ;atividade7.c: 93: void atualiza_lcd() {
 [v _atualiza_lcd `(v ~T0 @X0 1 ef ]
 {
 [e :U _atualiza_lcd ]
 [f ]
-"93
-[; ;atividade7.c: 93:     char buffer[16];
-[v _buffer `uc ~T0 @X0 -> 16 `i a ]
-"94
-[; ;atividade7.c: 94:     sprintf(buffer, "N:%04d", contador);
-[e ( _sprintf (1 , (. , &U _buffer :s 1C _contador ]
-"96
-[; ;atividade7.c: 96:     lcd_command(0x80);
-[e ( _lcd_command (1 -> -> 128 `i `uc ]
+"95
+[; ;atividade7.c: 95:      unsigned char tecla_pressionado = teclado();
+[v _tecla_pressionado `uc ~T0 @X0 1 a ]
+[e = _tecla_pressionado ( _teclado ..  ]
 "97
-[; ;atividade7.c: 97:     lcd_string("Contador cliques");
-[e ( _lcd_string (1 :s 2C ]
+[; ;atividade7.c: 97:     char buffer[16];
+[v _buffer `uc ~T0 @X0 -> 16 `i a ]
 "98
-[; ;atividade7.c: 98:     lcd_command(0xC0);
-[e ( _lcd_command (1 -> -> 192 `i `uc ]
-"99
-[; ;atividade7.c: 99:     lcd_string(buffer);
-[e ( _lcd_string (1 -> &U _buffer `*Cuc ]
+[; ;atividade7.c: 98:     sprintf(buffer, "%d", tecla_pressionado);
+[e ( _sprintf (1 , (. , &U _buffer :s 1C -> _tecla_pressionado `i ]
 "100
-[; ;atividade7.c: 100: }
-[e :UE 121 ]
+[; ;atividade7.c: 100:     lcd_command(0x80);
+[e ( _lcd_command (1 -> -> 128 `i `uc ]
+"102
+[; ;atividade7.c: 102:     lcd_command(0xC0);
+[e ( _lcd_command (1 -> -> 192 `i `uc ]
+"103
+[; ;atividade7.c: 103:     lcd_string(buffer);
+[e ( _lcd_string (1 -> &U _buffer `*Cuc ]
+"105
+[; ;atividade7.c: 105: }
+[e :UE 124 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"102
-[; ;atividade7.c: 102: void main(void) {
+"127
+[; ;atividade7.c: 127: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"103
-[; ;atividade7.c: 103:     TRISE = 0x00;
+"129
+[; ;atividade7.c: 129:     TRISE = 0x00;
 [e = _TRISE -> -> 0 `i `uc ]
-"104
-[; ;atividade7.c: 104:     TRISD = 0x00;
+"130
+[; ;atividade7.c: 130:     TRISD = 0x00;
 [e = _TRISD -> -> 0 `i `uc ]
-"105
-[; ;atividade7.c: 105:     TRISC = 0x00;
+"131
+[; ;atividade7.c: 131:     TRISC = 0x00;
 [e = _TRISC -> -> 0 `i `uc ]
-"106
-[; ;atividade7.c: 106:     TRISB = 0xFF;
+"132
+[; ;atividade7.c: 132:     TRISB = 0xFF;
 [e = _TRISB -> -> 255 `i `uc ]
-"107
-[; ;atividade7.c: 107:     lcd_initialise();
+"134
+[; ;atividade7.c: 134:     lcd_initialise();
 [e ( _lcd_initialise ..  ]
-"108
-[; ;atividade7.c: 108:     atualiza_lcd();
+"135
+[; ;atividade7.c: 135:     atualiza_lcd();
 [e ( _atualiza_lcd ..  ]
-"110
-[; ;atividade7.c: 110:     while (1) {
-[e :U 124 ]
+"137
+[; ;atividade7.c: 137:     while (1) {
+[e :U 127 ]
 {
-"111
-[; ;atividade7.c: 111:         unsigned char tecla = teclado();
+"139
+[; ;atividade7.c: 139:         unsigned char tecla = teclado();
 [v _tecla `uc ~T0 @X0 1 a ]
 [e = _tecla ( _teclado ..  ]
-"113
-[; ;atividade7.c: 113:         if (tecla != 0xFF) {
-[e $ ! != -> _tecla `i -> 255 `i 126  ]
+"141
+[; ;atividade7.c: 141:         static unsigned char cursor_pos = 0x80;
+[v F1289 `uc ~T0 @X0 1 s cursor_pos ]
+[i F1289
+-> -> 128 `i `uc
+]
+"144
+[; ;atividade7.c: 144:         for(int i = cursor_pos; i < 31; i++ ){
 {
-"114
-[; ;atividade7.c: 114:             debounce();
-[e ( _debounce ..  ]
-"116
-[; ;atividade7.c: 116:             if (tecla == 9) {
-[e $ ! == -> _tecla `i -> 9 `i 127  ]
-{
-"117
-[; ;atividade7.c: 117:                 contador++;
-[e ++ _contador -> -> 1 `i `ui ]
-"118
-[; ;atividade7.c: 118:             }
-}
-[e $U 128  ]
-"119
-[; ;atividade7.c: 119:             else if (tecla == 8) {
-[e :U 127 ]
-[e $ ! == -> _tecla `i -> 8 `i 129  ]
-{
-"120
-[; ;atividade7.c: 120:                 contador = 0;
-[e = _contador -> -> 0 `i `ui ]
-"121
-[; ;atividade7.c: 121:             }
-}
-[e :U 129 ]
-[e :U 128 ]
-"127
-[; ;atividade7.c: 127:             atualiza_lcd();
-[e ( _atualiza_lcd ..  ]
-"129
-[; ;atividade7.c: 129:             while (teclado() != 0xFF);
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> F1289 `i ]
+[e $ < _i -> 31 `i 129  ]
 [e $U 130  ]
-[e :U 131 ]
-[e :U 130 ]
-[e $ != -> ( _teclado ..  `i -> 255 `i 131  ]
+[e :U 129 ]
+{
+"146
+[; ;atividade7.c: 146:             lcd_command(i);
+[e ( _lcd_command (1 -> _i `uc ]
+"148
+[; ;atividade7.c: 148:             if(cursor_pos < 16){
+[e $ ! < -> F1289 `i -> 16 `i 132  ]
+{
+"150
+[; ;atividade7.c: 150:               if (tecla < 10) {
+[e $ ! < -> _tecla `i -> 10 `i 133  ]
+{
+"151
+[; ;atividade7.c: 151:                     lcd_data(tecla + '0');
+[e ( _lcd_data (1 -> + -> _tecla `ui -> 48 `ui `uc ]
+"152
+[; ;atividade7.c: 152:               } else {
+}
+[e $U 134  ]
+[e :U 133 ]
+{
+"154
+[; ;atividade7.c: 154:                     lcd_data(tecla - 10 + 'A');
+[e ( _lcd_data (1 -> + -> - -> _tecla `i -> 10 `i `ui -> 65 `ui `uc ]
+"155
+[; ;atividade7.c: 155:               }
+}
+[e :U 134 ]
+"156
+[; ;atividade7.c: 156:               cursor_pos++;
+[e ++ F1289 -> -> 1 `i `uc ]
+"157
+[; ;atividade7.c: 157:                 break;
+[e $U 130  ]
+"159
+[; ;atividade7.c: 159:             lcd_command(0xC0);
+[e ( _lcd_command (1 -> -> 192 `i `uc ]
+"160
+[; ;atividade7.c: 160:             atualiza_lcd();
+[e ( _atualiza_lcd ..  ]
+"162
+[; ;atividade7.c: 162:             }else{
+}
+[e $U 135  ]
 [e :U 132 ]
-"130
-[; ;atividade7.c: 130:         }
+{
+"163
+[; ;atividade7.c: 163:                     lcd_command(0xC0);
+[e ( _lcd_command (1 -> -> 192 `i `uc ]
+"164
+[; ;atividade7.c: 164:                     cursor_pos = 0xC0;
+[e = F1289 -> -> 192 `i `uc ]
+"166
+[; ;atividade7.c: 166:             }
+}
+[e :U 135 ]
+"168
+[; ;atividade7.c: 168:         }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 31 `i 129  ]
+[e :U 130 ]
+}
+"169
+[; ;atividade7.c: 169:         if (tecla != 0xFF) {
+[e $ ! != -> _tecla `i -> 255 `i 136  ]
+{
+"170
+[; ;atividade7.c: 170:             debounce();
+[e ( _debounce ..  ]
+"171
+[; ;atividade7.c: 171:             while (teclado() != 0xFF);
+[e $U 137  ]
+[e :U 138 ]
+[e :U 137 ]
+[e $ != -> ( _teclado ..  `i -> 255 `i 138  ]
+[e :U 139 ]
+"172
+[; ;atividade7.c: 172:         }
+}
+[e :U 136 ]
+"173
+[; ;atividade7.c: 173:     }
 }
 [e :U 126 ]
-"131
-[; ;atividade7.c: 131:     }
+[e $U 127  ]
+[e :U 128 ]
+"174
+[; ;atividade7.c: 174: }
+[e :UE 125 ]
 }
-[e :U 123 ]
-[e $U 124  ]
-[e :U 125 ]
-"132
-[; ;atividade7.c: 132: }
-[e :UE 122 ]
-}
-[p f _sprintf 8421508 ]
-[a 2C 67 111 110 116 97 100 111 114 32 99 108 105 113 117 101 115 0 ]
-[a 1C 78 58 37 48 52 100 0 ]
+[p f _sprintf 8388736 ]
+[a 1C 37 100 0 ]
