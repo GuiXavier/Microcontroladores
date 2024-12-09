@@ -2056,40 +2056,15 @@ void main(void) {
     atualiza_lcd();
 
     while (1) {
+# 174 "atividade7.c"
+         lcd_initialise();
 
+    while (1) {
         unsigned char tecla = teclado();
+        atualiza_lcd(tecla);
 
-        static unsigned char cursor_pos = 0x80;
-
-
-        for(int i = cursor_pos; i < 31; i++ ){
-
-            lcd_command(i);
-
-            if(cursor_pos < 16){
-
-              if (tecla < 10) {
-                    lcd_data(tecla + '0');
-              } else {
-
-                    lcd_data(tecla - 10 + 'A');
-              }
-              cursor_pos++;
-                break;
-
-            lcd_command(0xC0);
-            atualiza_lcd();
-
-            }else{
-                    lcd_command(0xC0);
-                    cursor_pos = 0xC0;
-
-            }
-
-        }
-        if (tecla != 0xFF) {
-            debounce();
-            while (teclado() != 0xFF);
-        }
+        debounce();
+        while (teclado() != 20);
+                }
     }
 }
