@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Dec 10 14:12:25 2024
+                                                                                               Tue Dec 10 14:21:42 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -189,10 +189,10 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    175     018D                     EECON2          equ	397	;# 
    176                           
    177                           	psect	idataCOMMON
-   178     06CC                     __pidataCOMMON:
+   178     06CB                     __pidataCOMMON:
    179                           
    180                           ;initializer for _cursor_pos
-   181     06CC  3480               	retlw	128
+   181     06CB  3480               	retlw	128
    182     0006                     _PORTBbits      set	6
    183     0007                     _PORTCbits      set	7
    184     0009                     _PORTEbits      set	9
@@ -209,14 +209,14 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    195     07F6                     __initialization:
    196                           
    197                           ; Initialize objects allocated to COMMON
-   198     07F6  120A  118A  26CC  120A  118A  	fcall	__pidataCOMMON	;fetch initializer
+   198     07F6  120A  118A  26CB  120A  118A  	fcall	__pidataCOMMON	;fetch initializer
    199     07FB  00F5               	movwf	__pdataCOMMON& (0+127)
    200     07FC                     end_of_initialization:	
    201                           ;End of C runtime variable initialization code
    202                           
    203     07FC                     __end_of__initialization:
    204     07FC  0183               	clrf	3
-   205     07FD  120A  118A  2F1C   	ljmp	_main	;jump to C main() function
+   205     07FD  120A  118A  2F1B   	ljmp	_main	;jump to C main() function
    206                           
    207                           	psect	dataCOMMON
    208     0075                     __pdataCOMMON:
@@ -288,13 +288,13 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    274     0074                     	ds	1
    275                           
    276                           	psect	maintext
-   277     071C                     __pmaintext:	
+   277     071B                     __pmaintext:	
    278 ;;
    279 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
    280 ;;
    281 ;; *************** function _main *****************
    282 ;; Defined at:
-   283 ;;		line 116 in file "atividade7.c"
+   283 ;;		line 117 in file "atividade7.c"
    284 ;; Parameters:    Size  Location     Type
    285 ;;		None
    286 ;; Auto vars:     Size  Location     Type
@@ -324,70 +324,70 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    310 ;; This function uses a non-reentrant model
    311 ;;
    312                           
-   313     071C                     _main:	
+   313     071B                     _main:	
    314                           ;psect for function _main
    315                           
-   316     071C                     l706:	
+   316     071B                     l710:	
    317                           ;incstack = 0
    318                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    319                           
    320                           
-   321                           ;atividade7.c: 117:     TRISE = 0x00;
-   322     071C  1683               	bsf	3,5	;RP0=1, select bank1
-   323     071D  1303               	bcf	3,6	;RP1=0, select bank1
-   324     071E  0189               	clrf	9	;volatile
+   321                           ;atividade7.c: 118:     TRISE = 0x00;
+   322     071B  1683               	bsf	3,5	;RP0=1, select bank1
+   323     071C  1303               	bcf	3,6	;RP1=0, select bank1
+   324     071D  0189               	clrf	9	;volatile
    325                           
-   326                           ;atividade7.c: 118:     TRISD = 0x00;
-   327     071F  0188               	clrf	8	;volatile
+   326                           ;atividade7.c: 119:     TRISD = 0x00;
+   327     071E  0188               	clrf	8	;volatile
    328                           
-   329                           ;atividade7.c: 119:     TRISC = 0x00;
-   330     0720  0187               	clrf	7	;volatile
-   331     0721                     l708:
+   329                           ;atividade7.c: 120:     TRISC = 0x00;
+   330     071F  0187               	clrf	7	;volatile
+   331     0720                     l712:
    332                           
-   333                           ;atividade7.c: 120:     TRISB = 0xFF;
-   334     0721  30FF               	movlw	255
-   335     0722  0086               	movwf	6	;volatile
-   336     0723                     l710:
+   333                           ;atividade7.c: 121:     TRISB = 0xFF;
+   334     0720  30FF               	movlw	255
+   335     0721  0086               	movwf	6	;volatile
+   336     0722                     l714:
    337                           
-   338                           ;atividade7.c: 122:     lcd_initialise();
-   339     0723  120A  118A  2703  120A  118A  	fcall	_lcd_initialise
-   340     0728                     l712:
+   338                           ;atividade7.c: 123:     lcd_initialise();
+   339     0722  120A  118A  2702  120A  118A  	fcall	_lcd_initialise
+   340     0727                     l716:
    341                           
-   342                           ;atividade7.c: 125:         unsigned char tecla = teclado();
-   343     0728  120A  118A  2781  120A  118A  	fcall	_teclado
-   344     072D  00F4               	movwf	main@tecla
-   345     072E                     l714:
+   342                           ;atividade7.c: 126:         unsigned char tecla = teclado();
+   343     0727  120A  118A  2781  120A  118A  	fcall	_teclado
+   344     072C  00F4               	movwf	main@tecla
+   345     072D                     l718:
    346                           
-   347                           ;atividade7.c: 127:         if (tecla != 0xFF) {
-   348     072E  0A74               	incf	main@tecla,w
-   349     072F  1903               	btfsc	3,2
-   350     0730  2F32               	goto	u211
-   351     0731  2F33               	goto	u210
-   352     0732                     u211:
-   353     0732  2F28               	goto	l712
-   354     0733                     u210:
-   355     0733                     l716:
+   347                           ;atividade7.c: 128:         if (tecla != 0xFF) {
+   348     072D  0A74               	incf	main@tecla,w
+   349     072E  1903               	btfsc	3,2
+   350     072F  2F31               	goto	u211
+   351     0730  2F32               	goto	u210
+   352     0731                     u211:
+   353     0731  2F27               	goto	l716
+   354     0732                     u210:
+   355     0732                     l720:
    356                           
-   357                           ;atividade7.c: 128:             debounce();
-   358     0733  120A  118A  26CD  120A  118A  	fcall	_debounce
+   357                           ;atividade7.c: 129:             debounce();
+   358     0732  120A  118A  26CC  120A  118A  	fcall	_debounce
    359                           
-   360                           ;atividade7.c: 129:             atualiza_lcd(tecla);
-   361     0738  0874               	movf	main@tecla,w
-   362     0739  120A  118A  274C  120A  118A  	fcall	_atualiza_lcd
-   363     073E                     l718:	
-   364                           ;atividade7.c: 131:             while (teclado() != 0xFF);
+   360                           ;atividade7.c: 130:             atualiza_lcd(tecla);
+   361     0737  0874               	movf	main@tecla,w
+   362     0738  120A  118A  274B  120A  118A  	fcall	_atualiza_lcd
+   363     073D                     l722:	
+   364                           ;atividade7.c: 132:             while (teclado() != 0xFF);
    365                           
-   366     073E  120A  118A  2781  120A  118A  	fcall	_teclado
-   367     0743  3AFF               	xorlw	255
-   368     0744  1D03               	skipz
-   369     0745  2F47               	goto	u221
-   370     0746  2F48               	goto	u220
-   371     0747                     u221:
-   372     0747  2F3E               	goto	l718
-   373     0748                     u220:
-   374     0748  2F28               	goto	l712
-   375     0749  120A  118A  2800   	ljmp	start
-   376     074C                     __end_of_main:
+   366     073D  120A  118A  2781  120A  118A  	fcall	_teclado
+   367     0742  3AFF               	xorlw	255
+   368     0743  1D03               	skipz
+   369     0744  2F46               	goto	u221
+   370     0745  2F47               	goto	u220
+   371     0746                     u221:
+   372     0746  2F3D               	goto	l722
+   373     0747                     u220:
+   374     0747  2F27               	goto	l716
+   375     0748  120A  118A  2800   	ljmp	start
+   376     074B                     __end_of_main:
    377                           
    378                           	psect	text1
    379     0781                     __ptext1:	
@@ -660,7 +660,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    642     07F6                     __end_of_teclado:
    643                           
    644                           	psect	text2
-   645     0703                     __ptext2:	
+   645     0702                     __ptext2:	
    646 ;; *************** function _lcd_initialise *****************
    647 ;; Defined at:
    648 ;;		line 50 in file "atividade7.c"
@@ -691,35 +691,35 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    673 ;; This function uses a non-reentrant model
    674 ;;
    675                           
-   676     0703                     _lcd_initialise:	
+   676     0702                     _lcd_initialise:	
    677                           ;psect for function _lcd_initialise
    678                           
-   679     0703                     l636:	
+   679     0702                     l636:	
    680                           ;incstack = 0
    681                           ; Regs used in _lcd_initialise: [wreg+status,2+status,0+pclath+cstack]
    682                           
    683                           
    684                           ;atividade7.c: 51:     lcd_command(0x38);
-   685     0703  3038               	movlw	56
-   686     0704  120A  118A  26DB  120A  118A  	fcall	_lcd_command
+   685     0702  3038               	movlw	56
+   686     0703  120A  118A  26DA  120A  118A  	fcall	_lcd_command
    687                           
    688                           ;atividade7.c: 52:     lcd_command(0x06);
-   689     0709  3006               	movlw	6
-   690     070A  120A  118A  26DB  120A  118A  	fcall	_lcd_command
+   689     0708  3006               	movlw	6
+   690     0709  120A  118A  26DA  120A  118A  	fcall	_lcd_command
    691                           
    692                           ;atividade7.c: 53:     lcd_command(0x0C);
-   693     070F  300C               	movlw	12
-   694     0710  120A  118A  26DB  120A  118A  	fcall	_lcd_command
+   693     070E  300C               	movlw	12
+   694     070F  120A  118A  26DA  120A  118A  	fcall	_lcd_command
    695                           
    696                           ;atividade7.c: 54:     lcd_command(0x01);
-   697     0715  3001               	movlw	1
-   698     0716  120A  118A  26DB  120A  118A  	fcall	_lcd_command
-   699     071B                     l35:
-   700     071B  0008               	return
-   701     071C                     __end_of_lcd_initialise:
+   697     0714  3001               	movlw	1
+   698     0715  120A  118A  26DA  120A  118A  	fcall	_lcd_command
+   699     071A                     l35:
+   700     071A  0008               	return
+   701     071B                     __end_of_lcd_initialise:
    702                           
    703                           	psect	text3
-   704     06CD                     __ptext3:	
+   704     06CC                     __ptext3:	
    705 ;; *************** function _debounce *****************
    706 ;; Defined at:
    707 ;;		line 57 in file "atividade7.c"
@@ -749,35 +749,35 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    731 ;; This function uses a non-reentrant model
    732 ;;
    733                           
-   734     06CD                     _debounce:	
+   734     06CC                     _debounce:	
    735                           ;psect for function _debounce
    736                           
-   737     06CD                     l638:	
+   737     06CC                     l638:	
    738                           ;incstack = 0
    739                           ; Regs used in _debounce: [wreg]
    740                           
    741                           
    742                           ;atividade7.c: 58:     _delay((unsigned long)((50)*(20000000/4000.0)));
-   743     06CD  3002               	movlw	2
-   744     06CE  00F2               	movwf	??_debounce+2
-   745     06CF  3045               	movlw	69
-   746     06D0  00F1               	movwf	??_debounce+1
-   747     06D1  30A9               	movlw	169
-   748     06D2  00F0               	movwf	??_debounce
-   749     06D3                     u237:
-   750     06D3  0BF0               	decfsz	??_debounce,f
-   751     06D4  2ED3               	goto	u237
-   752     06D5  0BF1               	decfsz	??_debounce+1,f
-   753     06D6  2ED3               	goto	u237
-   754     06D7  0BF2               	decfsz	??_debounce+2,f
-   755     06D8  2ED3               	goto	u237
-   756     06D9  2EDA               	nop2
-   757     06DA                     l38:
-   758     06DA  0008               	return
-   759     06DB                     __end_of_debounce:
+   743     06CC  3002               	movlw	2
+   744     06CD  00F2               	movwf	??_debounce+2
+   745     06CE  3045               	movlw	69
+   746     06CF  00F1               	movwf	??_debounce+1
+   747     06D0  30A9               	movlw	169
+   748     06D1  00F0               	movwf	??_debounce
+   749     06D2                     u237:
+   750     06D2  0BF0               	decfsz	??_debounce,f
+   751     06D3  2ED2               	goto	u237
+   752     06D4  0BF1               	decfsz	??_debounce+1,f
+   753     06D5  2ED2               	goto	u237
+   754     06D6  0BF2               	decfsz	??_debounce+2,f
+   755     06D7  2ED2               	goto	u237
+   756     06D8  2ED9               	nop2
+   757     06D9                     l38:
+   758     06D9  0008               	return
+   759     06DA                     __end_of_debounce:
    760                           
    761                           	psect	text4
-   762     074C                     __ptext4:	
+   762     074B                     __ptext4:	
    763 ;; *************** function _atualiza_lcd *****************
    764 ;; Defined at:
    765 ;;		line 95 in file "atividade7.c"
@@ -809,273 +809,272 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    791 ;; This function uses a non-reentrant model
    792 ;;
    793                           
-   794     074C                     _atualiza_lcd:	
+   794     074B                     _atualiza_lcd:	
    795                           ;psect for function _atualiza_lcd
    796                           
    797                           
    798                           ;incstack = 0
    799                           ; Regs used in _atualiza_lcd: [wreg+status,2+status,0+pclath+cstack]
    800                           ;atualiza_lcd@tecla stored from wreg
-   801     074C  00F3               	movwf	atualiza_lcd@tecla
-   802     074D                     l680:
+   801     074B  00F3               	movwf	atualiza_lcd@tecla
+   802     074C                     l680:
    803                           
-   804                           ;atividade7.c: 96:     if (cursor_pos == 0x90) {
-   805     074D  3090               	movlw	144
-   806     074E  0675               	xorwf	_cursor_pos,w
-   807     074F  1D03               	btfss	3,2
-   808     0750  2F52               	goto	u171
-   809     0751  2F53               	goto	u170
-   810     0752                     u171:
-   811     0752  2F5B               	goto	l60
-   812     0753                     u170:
-   813     0753                     l682:
+   804                           ;atividade7.c: 96:     if (cursor_pos == 0xD0) {
+   805     074C  30D0               	movlw	208
+   806     074D  0675               	xorwf	_cursor_pos,w
+   807     074E  1D03               	btfss	3,2
+   808     074F  2F51               	goto	u171
+   809     0750  2F52               	goto	u170
+   810     0751                     u171:
+   811     0751  2F5B               	goto	l688
+   812     0752                     u170:
+   813     0752                     l682:
    814                           
    815                           ;atividade7.c: 97:         lcd_command(0x01);
-   816     0753  3001               	movlw	1
-   817     0754  120A  118A  26DB  120A  118A  	fcall	_lcd_command
-   818     0759                     l684:
+   816     0752  3001               	movlw	1
+   817     0753  120A  118A  26DA  120A  118A  	fcall	_lcd_command
+   818     0758                     l684:
    819                           
    820                           ;atividade7.c: 98:         cursor_pos = 0x80;
-   821     0759  3080               	movlw	128
-   822     075A  00F5               	movwf	_cursor_pos
-   823     075B                     l60:	
-   824                           ;atividade7.c: 99:     }
+   821     0758  3080               	movlw	128
+   822     0759  00F5               	movwf	_cursor_pos
+   823     075A  2F80               	goto	l61
+   824     075B                     l688:
    825                           
-   826                           
-   827                           ;atividade7.c: 101:     lcd_command(cursor_pos);
-   828     075B  0875               	movf	_cursor_pos,w
-   829     075C  120A  118A  26DB  120A  118A  	fcall	_lcd_command
-   830     0761                     l686:
-   831                           
-   832                           ;atividade7.c: 103:     if (tecla < 10) {
-   833     0761  300A               	movlw	10
-   834     0762  0273               	subwf	atualiza_lcd@tecla,w
-   835     0763  1803               	skipnc
-   836     0764  2F66               	goto	u181
-   837     0765  2F67               	goto	u180
-   838     0766                     u181:
-   839     0766  2F6F               	goto	l690
-   840     0767                     u180:
-   841     0767                     l688:
-   842                           
-   843                           ;atividade7.c: 104:         lcd_data(tecla + '0');
-   844     0767  0873               	movf	atualiza_lcd@tecla,w
-   845     0768  3E30               	addlw	48
-   846     0769  120A  118A  26EF  120A  118A  	fcall	_lcd_data
-   847                           
-   848                           ;atividade7.c: 105:     } else {
-   849     076E  2F76               	goto	l692
-   850     076F                     l690:
-   851                           
-   852                           ;atividade7.c: 106:         lcd_data(tecla - 10 + 'A');
-   853     076F  0873               	movf	atualiza_lcd@tecla,w
-   854     0770  3E37               	addlw	55
-   855     0771  120A  118A  26EF  120A  118A  	fcall	_lcd_data
-   856     0776                     l692:
-   857                           
-   858                           ;atividade7.c: 109:     cursor_pos++;
-   859     0776  3001               	movlw	1
-   860     0777  07F5               	addwf	_cursor_pos,f
-   861     0778                     l694:
-   862                           
-   863                           ;atividade7.c: 111:     if (cursor_pos == 0x90) {
-   864     0778  3090               	movlw	144
-   865     0779  0675               	xorwf	_cursor_pos,w
-   866     077A  1D03               	btfss	3,2
-   867     077B  2F7D               	goto	u191
-   868     077C  2F7E               	goto	u190
-   869     077D                     u191:
-   870     077D  2F80               	goto	l64
-   871     077E                     u190:
-   872     077E                     l696:
-   873                           
-   874                           ;atividade7.c: 112:         cursor_pos = 0xC0;
-   875     077E  30C0               	movlw	192
-   876     077F  00F5               	movwf	_cursor_pos
-   877     0780                     l64:
-   878     0780  0008               	return
-   879     0781                     __end_of_atualiza_lcd:
-   880                           
-   881                           	psect	text5
-   882     06EF                     __ptext5:	
-   883 ;; *************** function _lcd_data *****************
-   884 ;; Defined at:
-   885 ;;		line 28 in file "atividade7.c"
-   886 ;; Parameters:    Size  Location     Type
-   887 ;;  data            1    wreg     unsigned char 
-   888 ;; Auto vars:     Size  Location     Type
-   889 ;;  data            1    2[COMMON] unsigned char 
-   890 ;; Return value:  Size  Location     Type
-   891 ;;                  1    wreg      void 
-   892 ;; Registers used:
-   893 ;;		wreg
-   894 ;; Tracked objects:
-   895 ;;		On entry : 0/0
-   896 ;;		On exit  : 0/0
-   897 ;;		Unchanged: 0/0
-   898 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   899 ;;      Params:         0       0       0       0       0
-   900 ;;      Locals:         1       0       0       0       0
-   901 ;;      Temps:          2       0       0       0       0
-   902 ;;      Totals:         3       0       0       0       0
-   903 ;;Total ram usage:        3 bytes
-   904 ;; Hardware stack levels used: 1
-   905 ;; This function calls:
-   906 ;;		Nothing
-   907 ;; This function is called by:
-   908 ;;		_atualiza_lcd
-   909 ;;		_lcd_string
-   910 ;; This function uses a non-reentrant model
-   911 ;;
-   912                           
-   913     06EF                     _lcd_data:	
-   914                           ;psect for function _lcd_data
+   826                           ;atividade7.c: 102:     lcd_command(cursor_pos);
+   827     075B  0875               	movf	_cursor_pos,w
+   828     075C  120A  118A  26DA  120A  118A  	fcall	_lcd_command
+   829     0761                     l690:
+   830                           
+   831                           ;atividade7.c: 104:     if (tecla < 10) {
+   832     0761  300A               	movlw	10
+   833     0762  0273               	subwf	atualiza_lcd@tecla,w
+   834     0763  1803               	skipnc
+   835     0764  2F66               	goto	u181
+   836     0765  2F67               	goto	u180
+   837     0766                     u181:
+   838     0766  2F6F               	goto	l694
+   839     0767                     u180:
+   840     0767                     l692:
+   841                           
+   842                           ;atividade7.c: 105:         lcd_data(tecla + '0');
+   843     0767  0873               	movf	atualiza_lcd@tecla,w
+   844     0768  3E30               	addlw	48
+   845     0769  120A  118A  26EE  120A  118A  	fcall	_lcd_data
+   846                           
+   847                           ;atividade7.c: 106:     } else {
+   848     076E  2F76               	goto	l696
+   849     076F                     l694:
+   850                           
+   851                           ;atividade7.c: 107:         lcd_data(tecla - 10 + 'A');
+   852     076F  0873               	movf	atualiza_lcd@tecla,w
+   853     0770  3E37               	addlw	55
+   854     0771  120A  118A  26EE  120A  118A  	fcall	_lcd_data
+   855     0776                     l696:
+   856                           
+   857                           ;atividade7.c: 110:     cursor_pos++;
+   858     0776  3001               	movlw	1
+   859     0777  07F5               	addwf	_cursor_pos,f
+   860     0778                     l698:
+   861                           
+   862                           ;atividade7.c: 112:     if (cursor_pos == 0x90) {
+   863     0778  3090               	movlw	144
+   864     0779  0675               	xorwf	_cursor_pos,w
+   865     077A  1D03               	btfss	3,2
+   866     077B  2F7D               	goto	u191
+   867     077C  2F7E               	goto	u190
+   868     077D                     u191:
+   869     077D  2F80               	goto	l61
+   870     077E                     u190:
+   871     077E                     l700:
+   872                           
+   873                           ;atividade7.c: 113:         cursor_pos = 0xC0;
+   874     077E  30C0               	movlw	192
+   875     077F  00F5               	movwf	_cursor_pos
+   876     0780                     l61:
+   877     0780  0008               	return
+   878     0781                     __end_of_atualiza_lcd:
+   879                           
+   880                           	psect	text5
+   881     06EE                     __ptext5:	
+   882 ;; *************** function _lcd_data *****************
+   883 ;; Defined at:
+   884 ;;		line 28 in file "atividade7.c"
+   885 ;; Parameters:    Size  Location     Type
+   886 ;;  data            1    wreg     unsigned char 
+   887 ;; Auto vars:     Size  Location     Type
+   888 ;;  data            1    2[COMMON] unsigned char 
+   889 ;; Return value:  Size  Location     Type
+   890 ;;                  1    wreg      void 
+   891 ;; Registers used:
+   892 ;;		wreg
+   893 ;; Tracked objects:
+   894 ;;		On entry : 0/0
+   895 ;;		On exit  : 0/0
+   896 ;;		Unchanged: 0/0
+   897 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   898 ;;      Params:         0       0       0       0       0
+   899 ;;      Locals:         1       0       0       0       0
+   900 ;;      Temps:          2       0       0       0       0
+   901 ;;      Totals:         3       0       0       0       0
+   902 ;;Total ram usage:        3 bytes
+   903 ;; Hardware stack levels used: 1
+   904 ;; This function calls:
+   905 ;;		Nothing
+   906 ;; This function is called by:
+   907 ;;		_atualiza_lcd
+   908 ;;		_lcd_string
+   909 ;; This function uses a non-reentrant model
+   910 ;;
+   911                           
+   912     06EE                     _lcd_data:	
+   913                           ;psect for function _lcd_data
+   914                           
    915                           
-   916                           
-   917                           ;incstack = 0
-   918                           ; Regs used in _lcd_data: [wreg]
-   919                           ;lcd_data@data stored from wreg
-   920     06EF  00F2               	movwf	lcd_data@data
-   921     06F0                     l620:
-   922                           
-   923                           ;atividade7.c: 29:     PORTD = data;
-   924     06F0  0872               	movf	lcd_data@data,w
-   925     06F1  1283               	bcf	3,5	;RP0=0, select bank0
-   926     06F2  1303               	bcf	3,6	;RP1=0, select bank0
-   927     06F3  0088               	movwf	8	;volatile
-   928     06F4                     l622:
-   929                           
-   930                           ;atividade7.c: 30:     PORTEbits.RE0 = 1;
-   931     06F4  1409               	bsf	9,0	;volatile
-   932     06F5                     l624:
-   933                           
-   934                           ;atividade7.c: 31:     PORTEbits.RE1 = 1;
-   935     06F5  1489               	bsf	9,1	;volatile
-   936                           
-   937                           ;atividade7.c: 32:     _delay((unsigned long)((5)*(20000000/4000.0)));
-   938     06F6  3021               	movlw	33
-   939     06F7  00F1               	movwf	??_lcd_data+1
-   940     06F8  3076               	movlw	118
-   941     06F9  00F0               	movwf	??_lcd_data
-   942     06FA                     u247:
-   943     06FA  0BF0               	decfsz	??_lcd_data,f
-   944     06FB  2EFA               	goto	u247
-   945     06FC  0BF1               	decfsz	??_lcd_data+1,f
-   946     06FD  2EFA               	goto	u247
-   947     06FE  0000               	nop
-   948     06FF                     l626:
-   949                           
-   950                           ;atividade7.c: 33:     PORTEbits.RE1 = 0;
-   951     06FF  1283               	bcf	3,5	;RP0=0, select bank0
-   952     0700  1303               	bcf	3,6	;RP1=0, select bank0
-   953     0701  1089               	bcf	9,1	;volatile
-   954     0702                     l23:
-   955     0702  0008               	return
-   956     0703                     __end_of_lcd_data:
-   957                           
-   958                           	psect	text6
-   959     06DB                     __ptext6:	
-   960 ;; *************** function _lcd_command *****************
-   961 ;; Defined at:
-   962 ;;		line 36 in file "atividade7.c"
-   963 ;; Parameters:    Size  Location     Type
-   964 ;;  cmd             1    wreg     unsigned char 
-   965 ;; Auto vars:     Size  Location     Type
-   966 ;;  cmd             1    2[COMMON] unsigned char 
-   967 ;; Return value:  Size  Location     Type
-   968 ;;                  1    wreg      void 
-   969 ;; Registers used:
-   970 ;;		wreg
-   971 ;; Tracked objects:
-   972 ;;		On entry : 0/0
-   973 ;;		On exit  : 0/0
-   974 ;;		Unchanged: 0/0
-   975 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   976 ;;      Params:         0       0       0       0       0
-   977 ;;      Locals:         1       0       0       0       0
-   978 ;;      Temps:          2       0       0       0       0
-   979 ;;      Totals:         3       0       0       0       0
-   980 ;;Total ram usage:        3 bytes
-   981 ;; Hardware stack levels used: 1
-   982 ;; This function calls:
-   983 ;;		Nothing
-   984 ;; This function is called by:
-   985 ;;		_lcd_initialise
-   986 ;;		_atualiza_lcd
-   987 ;; This function uses a non-reentrant model
-   988 ;;
-   989                           
-   990     06DB                     _lcd_command:	
-   991                           ;psect for function _lcd_command
+   916                           ;incstack = 0
+   917                           ; Regs used in _lcd_data: [wreg]
+   918                           ;lcd_data@data stored from wreg
+   919     06EE  00F2               	movwf	lcd_data@data
+   920     06EF                     l620:
+   921                           
+   922                           ;atividade7.c: 29:     PORTD = data;
+   923     06EF  0872               	movf	lcd_data@data,w
+   924     06F0  1283               	bcf	3,5	;RP0=0, select bank0
+   925     06F1  1303               	bcf	3,6	;RP1=0, select bank0
+   926     06F2  0088               	movwf	8	;volatile
+   927     06F3                     l622:
+   928                           
+   929                           ;atividade7.c: 30:     PORTEbits.RE0 = 1;
+   930     06F3  1409               	bsf	9,0	;volatile
+   931     06F4                     l624:
+   932                           
+   933                           ;atividade7.c: 31:     PORTEbits.RE1 = 1;
+   934     06F4  1489               	bsf	9,1	;volatile
+   935                           
+   936                           ;atividade7.c: 32:     _delay((unsigned long)((5)*(20000000/4000.0)));
+   937     06F5  3021               	movlw	33
+   938     06F6  00F1               	movwf	??_lcd_data+1
+   939     06F7  3076               	movlw	118
+   940     06F8  00F0               	movwf	??_lcd_data
+   941     06F9                     u247:
+   942     06F9  0BF0               	decfsz	??_lcd_data,f
+   943     06FA  2EF9               	goto	u247
+   944     06FB  0BF1               	decfsz	??_lcd_data+1,f
+   945     06FC  2EF9               	goto	u247
+   946     06FD  0000               	nop
+   947     06FE                     l626:
+   948                           
+   949                           ;atividade7.c: 33:     PORTEbits.RE1 = 0;
+   950     06FE  1283               	bcf	3,5	;RP0=0, select bank0
+   951     06FF  1303               	bcf	3,6	;RP1=0, select bank0
+   952     0700  1089               	bcf	9,1	;volatile
+   953     0701                     l23:
+   954     0701  0008               	return
+   955     0702                     __end_of_lcd_data:
+   956                           
+   957                           	psect	text6
+   958     06DA                     __ptext6:	
+   959 ;; *************** function _lcd_command *****************
+   960 ;; Defined at:
+   961 ;;		line 36 in file "atividade7.c"
+   962 ;; Parameters:    Size  Location     Type
+   963 ;;  cmd             1    wreg     unsigned char 
+   964 ;; Auto vars:     Size  Location     Type
+   965 ;;  cmd             1    2[COMMON] unsigned char 
+   966 ;; Return value:  Size  Location     Type
+   967 ;;                  1    wreg      void 
+   968 ;; Registers used:
+   969 ;;		wreg
+   970 ;; Tracked objects:
+   971 ;;		On entry : 0/0
+   972 ;;		On exit  : 0/0
+   973 ;;		Unchanged: 0/0
+   974 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   975 ;;      Params:         0       0       0       0       0
+   976 ;;      Locals:         1       0       0       0       0
+   977 ;;      Temps:          2       0       0       0       0
+   978 ;;      Totals:         3       0       0       0       0
+   979 ;;Total ram usage:        3 bytes
+   980 ;; Hardware stack levels used: 1
+   981 ;; This function calls:
+   982 ;;		Nothing
+   983 ;; This function is called by:
+   984 ;;		_lcd_initialise
+   985 ;;		_atualiza_lcd
+   986 ;; This function uses a non-reentrant model
+   987 ;;
+   988                           
+   989     06DA                     _lcd_command:	
+   990                           ;psect for function _lcd_command
+   991                           
    992                           
-   993                           
-   994                           ;incstack = 0
-   995                           ; Regs used in _lcd_command: [wreg]
-   996                           ;lcd_command@cmd stored from wreg
-   997     06DB  00F2               	movwf	lcd_command@cmd
-   998     06DC                     l628:
-   999                           
-  1000                           ;atividade7.c: 37:     PORTD = cmd;
-  1001     06DC  0872               	movf	lcd_command@cmd,w
-  1002     06DD  1283               	bcf	3,5	;RP0=0, select bank0
-  1003     06DE  1303               	bcf	3,6	;RP1=0, select bank0
-  1004     06DF  0088               	movwf	8	;volatile
-  1005     06E0                     l630:
-  1006                           
-  1007                           ;atividade7.c: 38:     PORTEbits.RE0 = 0;
-  1008     06E0  1009               	bcf	9,0	;volatile
-  1009     06E1                     l632:
-  1010                           
-  1011                           ;atividade7.c: 39:     PORTEbits.RE1 = 1;
-  1012     06E1  1489               	bsf	9,1	;volatile
-  1013                           
-  1014                           ;atividade7.c: 40:     _delay((unsigned long)((5)*(20000000/4000.0)));
-  1015     06E2  3021               	movlw	33
-  1016     06E3  00F1               	movwf	??_lcd_command+1
-  1017     06E4  3076               	movlw	118
-  1018     06E5  00F0               	movwf	??_lcd_command
-  1019     06E6                     u257:
-  1020     06E6  0BF0               	decfsz	??_lcd_command,f
-  1021     06E7  2EE6               	goto	u257
-  1022     06E8  0BF1               	decfsz	??_lcd_command+1,f
-  1023     06E9  2EE6               	goto	u257
-  1024     06EA  0000               	nop
-  1025     06EB                     l634:
-  1026                           
-  1027                           ;atividade7.c: 41:     PORTEbits.RE1 = 0;
-  1028     06EB  1283               	bcf	3,5	;RP0=0, select bank0
-  1029     06EC  1303               	bcf	3,6	;RP1=0, select bank0
-  1030     06ED  1089               	bcf	9,1	;volatile
-  1031     06EE                     l26:
-  1032     06EE  0008               	return
-  1033     06EF                     __end_of_lcd_command:
-  1034     0002                     ___latbits      equ	2
-  1035     007E                     btemp           set	126	;btemp
-  1036     007E                     wtemp0          set	126
-  1037                           
-  1038                           	psect	config
-  1039                           
-  1040                           ;Config register CONFIG @ 0x2007
-  1041                           ;	Oscillator Selection bits
-  1042                           ;	FOSC = HS, HS oscillator
-  1043                           ;	Watchdog Timer Enable bit
-  1044                           ;	WDTE = OFF, WDT disabled
-  1045                           ;	Power-up Timer Enable bit
-  1046                           ;	PWRTE = OFF, PWRT disabled
-  1047                           ;	FLASH Program Memory Code Protection bits
-  1048                           ;	CP = OFF, Code protection off
-  1049                           ;	Brown-out Reset Enable bit
-  1050                           ;	BOREN = OFF, BOR disabled
-  1051                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-  1052                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
-  1053                           ;	Data EE Memory Code Protection
-  1054                           ;	CPD = OFF, Code Protection off
-  1055                           ;	FLASH Program Memory Write Enable
-  1056                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
-  1057                           ;	In-Circuit Debugger Mode bit
-  1058                           ;	DEBUG = 0x1, unprogrammed default
-  1059     2007                     	org	8199
-  1060     2007  3D3A               	dw	15674
+   993                           ;incstack = 0
+   994                           ; Regs used in _lcd_command: [wreg]
+   995                           ;lcd_command@cmd stored from wreg
+   996     06DA  00F2               	movwf	lcd_command@cmd
+   997     06DB                     l628:
+   998                           
+   999                           ;atividade7.c: 37:     PORTD = cmd;
+  1000     06DB  0872               	movf	lcd_command@cmd,w
+  1001     06DC  1283               	bcf	3,5	;RP0=0, select bank0
+  1002     06DD  1303               	bcf	3,6	;RP1=0, select bank0
+  1003     06DE  0088               	movwf	8	;volatile
+  1004     06DF                     l630:
+  1005                           
+  1006                           ;atividade7.c: 38:     PORTEbits.RE0 = 0;
+  1007     06DF  1009               	bcf	9,0	;volatile
+  1008     06E0                     l632:
+  1009                           
+  1010                           ;atividade7.c: 39:     PORTEbits.RE1 = 1;
+  1011     06E0  1489               	bsf	9,1	;volatile
+  1012                           
+  1013                           ;atividade7.c: 40:     _delay((unsigned long)((5)*(20000000/4000.0)));
+  1014     06E1  3021               	movlw	33
+  1015     06E2  00F1               	movwf	??_lcd_command+1
+  1016     06E3  3076               	movlw	118
+  1017     06E4  00F0               	movwf	??_lcd_command
+  1018     06E5                     u257:
+  1019     06E5  0BF0               	decfsz	??_lcd_command,f
+  1020     06E6  2EE5               	goto	u257
+  1021     06E7  0BF1               	decfsz	??_lcd_command+1,f
+  1022     06E8  2EE5               	goto	u257
+  1023     06E9  0000               	nop
+  1024     06EA                     l634:
+  1025                           
+  1026                           ;atividade7.c: 41:     PORTEbits.RE1 = 0;
+  1027     06EA  1283               	bcf	3,5	;RP0=0, select bank0
+  1028     06EB  1303               	bcf	3,6	;RP1=0, select bank0
+  1029     06EC  1089               	bcf	9,1	;volatile
+  1030     06ED                     l26:
+  1031     06ED  0008               	return
+  1032     06EE                     __end_of_lcd_command:
+  1033     0002                     ___latbits      equ	2
+  1034     007E                     btemp           set	126	;btemp
+  1035     007E                     wtemp0          set	126
+  1036                           
+  1037                           	psect	config
+  1038                           
+  1039                           ;Config register CONFIG @ 0x2007
+  1040                           ;	Oscillator Selection bits
+  1041                           ;	FOSC = HS, HS oscillator
+  1042                           ;	Watchdog Timer Enable bit
+  1043                           ;	WDTE = OFF, WDT disabled
+  1044                           ;	Power-up Timer Enable bit
+  1045                           ;	PWRTE = OFF, PWRT disabled
+  1046                           ;	FLASH Program Memory Code Protection bits
+  1047                           ;	CP = OFF, Code protection off
+  1048                           ;	Brown-out Reset Enable bit
+  1049                           ;	BOREN = OFF, BOR disabled
+  1050                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+  1051                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+  1052                           ;	Data EE Memory Code Protection
+  1053                           ;	CPD = OFF, Code Protection off
+  1054                           ;	FLASH Program Memory Write Enable
+  1055                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+  1056                           ;	In-Circuit Debugger Mode bit
+  1057                           ;	DEBUG = 0x1, unprogrammed default
+  1058     2007                     	org	8199
+  1059     2007  3D3A               	dw	15674
 
 Data Sizes:
     Strings     0
@@ -1183,63 +1182,63 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Dec 10 14:12:25 2024
+Symbol Table                                                                                   Tue Dec 10 14:21:42 2024
 
-           lcd_data@data 0072                       l23 0702                       l26 06EE  
-                     l50 07CC                       l42 0794                       l35 071B  
-                     l51 07D2                       l43 079A                       l60 075B  
-                     l52 07D8                       l44 07A0                       l53 07E2  
-                     l45 07AA                       l38 06DA                       l54 07E8  
+           lcd_data@data 0072                       l23 0701                       l26 06ED  
+                     l50 07CC                       l42 0794                       l35 071A  
+                     l51 07D2                       l43 079A                       l52 07D8  
+                     l44 07A0                       l61 0780                       l53 07E2  
+                     l45 07AA                       l38 06D9                       l54 07E8  
                      l46 07B0                       l55 07EE                       l47 07B6  
-                     l64 0780                       l48 07BC                       l57 07F5  
-                     l49 07C6                       u10 078D                       u11 078C  
-                     u20 0792                       u21 0791                       u30 0798  
-                     u31 0797                       u40 079E                       u41 079D  
-                     u50 07A8                       u51 07A7                       u60 07AE  
-                     u61 07AD                       u70 07B4                       u71 07B3  
-                     u80 07BA                       u81 07B9                       u90 07C4  
-                     u91 07C3                      l620 06F0                      l630 06E0  
-                    l622 06F4                      l710 0723                      l632 06E1  
-                    l624 06F5                      l640 0781                      l712 0728  
-                    l634 06EB                      l626 06FF                      l650 079E  
-                    l642 078D                      l714 072E                      l706 071C  
-                    l628 06DC                      l636 0703                      l660 07C4  
-                    l652 07A8                      l644 078E                      l716 0733  
-                    l708 0721                      l638 06CD                      l670 07E6  
+                     l48 07BC                       l57 07F5                       l49 07C6  
+                     u10 078D                       u11 078C                       u20 0792  
+                     u21 0791                       u30 0798                       u31 0797  
+                     u40 079E                       u41 079D                       u50 07A8  
+                     u51 07A7                       u60 07AE                       u61 07AD  
+                     u70 07B4                       u71 07B3                       u80 07BA  
+                     u81 07B9                       u90 07C4                       u91 07C3  
+                    l620 06EF                      l700 077E                      l630 06DF  
+                    l622 06F3                      l710 071B                      l632 06E0  
+                    l624 06F4                      l640 0781                      l720 0732  
+                    l712 0720                      l634 06EA                      l626 06FE  
+                    l650 079E                      l642 078D                      l722 073D  
+                    l714 0722                      l628 06DB                      l636 0702  
+                    l660 07C4                      l652 07A8                      l644 078E  
+                    l716 0727                      l638 06CC                      l670 07E6  
                     l662 07CA                      l654 07AE                      l646 0792  
-                    l718 073E                      l680 074D                      l672 07EC  
+                    l718 072D                      l680 074C                      l672 07EC  
                     l664 07D0                      l656 07B4                      l648 0798  
-                    l690 076F                      l682 0753                      l674 07F2  
-                    l666 07D6                      l658 07BA                      l692 0776  
-                    l684 0759                      l676 07F4                      l668 07E0  
-                    l694 0778                      l686 0761                      l696 077E  
-                    l688 0767                      u100 07CA                      u101 07C9  
+                    l690 0761                      l682 0752                      l674 07F2  
+                    l666 07D6                      l658 07BA                      l692 0767  
+                    l684 0758                      l676 07F4                      l668 07E0  
+                    l694 076F                      l696 0776                      l688 075B  
+                    l698 0778                      u100 07CA                      u101 07C9  
                     u110 07D0                      u111 07CF                      u120 07D6  
-                    u121 07D5                      u130 07E0                      u210 0733  
-                    u131 07DF                      u211 0732                      u140 07E6  
-                    u220 0748                      u141 07E5                      u221 0747  
+                    u121 07D5                      u130 07E0                      u210 0732  
+                    u131 07DF                      u211 0731                      u140 07E6  
+                    u220 0747                      u141 07E5                      u221 0746  
                     u150 07EC                      u151 07EB                      u160 07F2  
-                    u161 07F1                      u170 0753                      u171 0752  
-                    u180 0767                      u181 0766                      u237 06D3  
-                    u190 077E                      u247 06FA                      u191 077D  
-                    u257 06E6                     _main 071C                     btemp 007E  
+                    u161 07F1                      u170 0752                      u171 0751  
+                    u180 0767                      u181 0766                      u237 06D2  
+                    u190 077E                      u247 06F9                      u191 077D  
+                    u257 06E5                     _main 071B                     btemp 007E  
                    start 0000            ?_atualiza_lcd 0070                    ?_main 0070  
                   _PORTD 0008                    _TRISB 0086                    _TRISC 0087  
                   _TRISD 0088                    _TRISE 0089          __end_of_teclado 07F6  
                   status 0003                    wtemp0 007E           ??_atualiza_lcd 0073  
-        __initialization 07F6             __end_of_main 074C                   ??_main 0074  
-         lcd_command@cmd 0072         __end_of_debounce 06DB         __end_of_lcd_data 0703  
+        __initialization 07F6             __end_of_main 074B                   ??_main 0074  
+         lcd_command@cmd 0072         __end_of_debounce 06DA         __end_of_lcd_data 0702  
            __pdataCOMMON 0075                ??_teclado 0070         ??_lcd_initialise 0073  
 __end_of__initialization 07FC           __pcstackCOMMON 0070     __end_of_atualiza_lcd 0781  
-             __pmaintext 071C                ?_debounce 0070                ?_lcd_data 0070  
-                __ptext1 0781                  __ptext2 0703                  __ptext3 06CD  
-                __ptext4 074C                  __ptext5 06EF                  __ptext6 06DB  
+             __pmaintext 071B                ?_debounce 0070                ?_lcd_data 0070  
+                __ptext1 0781                  __ptext2 0702                  __ptext3 06CC  
+                __ptext4 074B                  __ptext5 06EE                  __ptext6 06DA  
              _cursor_pos 0075               ??_debounce 0070                  _teclado 0781  
              ??_lcd_data 0070     end_of_initialization 07FC                _PORTBbits 0006  
               _PORTCbits 0007                _PORTEbits 0009            ??_lcd_command 0070  
-           _atualiza_lcd 074C            __pidataCOMMON 06CC      start_initialization 07F6  
-    __end_of_lcd_command 06EF                ___latbits 0002        atualiza_lcd@tecla 0073  
-           teclado@tecla 0070                 ?_teclado 0070              _lcd_command 06DB  
-              main@tecla 0074                 _debounce 06CD                 _lcd_data 06EF  
-         _lcd_initialise 0703   __end_of_lcd_initialise 071C          ?_lcd_initialise 0070  
+           _atualiza_lcd 074B            __pidataCOMMON 06CB      start_initialization 07F6  
+    __end_of_lcd_command 06EE                ___latbits 0002        atualiza_lcd@tecla 0073  
+           teclado@tecla 0070                 ?_teclado 0070              _lcd_command 06DA  
+              main@tecla 0074                 _debounce 06CC                 _lcd_data 06EE  
+         _lcd_initialise 0702   __end_of_lcd_initialise 071B          ?_lcd_initialise 0070  
            ?_lcd_command 0070  

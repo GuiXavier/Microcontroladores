@@ -93,9 +93,10 @@ unsigned char teclado() {
 }
 
 void atualiza_lcd(unsigned char tecla) {
-    if (cursor_pos == 0x90) { // Se preencheu as 16 casas da segunda linha
+    if (cursor_pos == 0xD0) { // Se preencheu as 16 casas da segunda linha
         lcd_command(0x01);   // Limpa o display
         cursor_pos = 0x80;   // Reseta para o início da primeira linha
+        return;              // Sai da função para aguardar o próximo clique
     }
 
     lcd_command(cursor_pos); // Define a posição do cursor no LCD

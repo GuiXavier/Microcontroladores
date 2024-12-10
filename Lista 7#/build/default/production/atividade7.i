@@ -2034,9 +2034,10 @@ unsigned char teclado() {
 }
 
 void atualiza_lcd(unsigned char tecla) {
-    if (cursor_pos == 0x90) {
+    if (cursor_pos == 0xD0) {
         lcd_command(0x01);
         cursor_pos = 0x80;
+        return;
     }
 
     lcd_command(cursor_pos);
