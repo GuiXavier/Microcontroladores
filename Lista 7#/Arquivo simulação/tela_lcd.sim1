@@ -1,10 +1,10 @@
 <circuit version="1.1.0-SR0" rev="1973" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="MCU" CircId="p16f877-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-644,-400" rotation="0" hflip="1" vflip="1" label="p16f877-1" idLabPos="0,-20" labelrot="0" valLabPos="0,0" valLabRot="0" Frequency="20 MHz" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" eeprom="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
+<item itemtype="MCU" CircId="p16f877-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-644,-400" rotation="0" hflip="1" vflip="1" label="p16f877-1" idLabPos="0,-20" labelrot="0" valLabPos="0,0" valLabRot="0" Frequency="20 MHz" Program="../dist/default/production/Lista_7_.production.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="true" eeprom="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
 
 <item itemtype="Fixed Voltage" CircId="Fixed Voltage-2" mainComp="false" Show_id="true" Show_Val="true" Pos="-252,-470" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-2" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
-<item itemtype="KeyPad" CircId="KeyPad-3" mainComp="false" Show_id="false" Show_Val="false" Pos="-824,-476" rotation="0" hflip="1" vflip="1" label="KeyPad-3" idLabPos="-8,-16" labelrot="0" valLabPos="0,0" valLabRot="0" Rows="4" Cols="4" Key_Labels="CDEF89AB45670123" />
+<item itemtype="KeyPad" CircId="KeyPad-3" mainComp="false" Show_id="false" Show_Val="false" Pos="-824,-480" rotation="0" hflip="1" vflip="1" label="KeyPad-3" idLabPos="-8,-16" labelrot="0" valLabPos="0,0" valLabRot="0" Rows="4" Cols="4" Key_Labels="CDEF89AB45670123" />
 
 <item itemtype="ResistorDip" CircId="ResistorDip-4" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-332,-424" rotation="90" hflip="1" vflip="1" label="ResistorDip-4" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" Resistance="1 kΩ" Size="4" PullUp="false" PuVolt="5 V" />
 
@@ -110,11 +110,11 @@
 
 <item itemtype="Connector" uid="Connector-10" startpinid="p16f877-1-PORTE0" endpinid="Tunnel-7-pin" pointList="-652,-336,-652,-332,-656,-332" />
 
-<item itemtype="Connector" uid="Connector-12" startpinid="KeyPad-3-Pin2" endpinid="p16f877-1-PORTC1" pointList="-760,-436,-708,-436,-708,-272,-652,-272" />
+<item itemtype="Connector" uid="Connector-12" startpinid="KeyPad-3-Pin2" endpinid="p16f877-1-PORTC1" pointList="-760,-440,-708,-440,-708,-272,-652,-272" />
 
-<item itemtype="Connector" uid="Connector-13" startpinid="KeyPad-3-Pin1" endpinid="p16f877-1-PORTC2" pointList="-760,-452,-720,-452,-720,-264,-652,-264" />
+<item itemtype="Connector" uid="Connector-13" startpinid="KeyPad-3-Pin1" endpinid="p16f877-1-PORTC2" pointList="-760,-456,-720,-456,-720,-264,-652,-264" />
 
-<item itemtype="Connector" uid="Connector-14" startpinid="KeyPad-3-Pin0" endpinid="p16f877-1-PORTC3" pointList="-760,-468,-732,-468,-732,-256,-652,-256" />
+<item itemtype="Connector" uid="Connector-14" startpinid="KeyPad-3-Pin0" endpinid="p16f877-1-PORTC3" pointList="-760,-472,-732,-472,-732,-256,-652,-256" />
 
 <item itemtype="Connector" uid="Connector-15" startpinid="Tunnel-12-pin" endpinid="Node-34-0" pointList="-540,-332,-576,-332" />
 
@@ -124,13 +124,13 @@
 
 <item itemtype="Connector" uid="Connector-18" startpinid="Tunnel-15-pin" endpinid="Node-37-0" pointList="-540,-356,-548,-356" />
 
-<item itemtype="Connector" uid="Connector-19" startpinid="Tunnel-16-pin" endpinid="KeyPad-3-Pin4" pointList="-824,-384,-824,-404" />
+<item itemtype="Connector" uid="Connector-19" startpinid="Tunnel-16-pin" endpinid="KeyPad-3-Pin4" pointList="-824,-384,-824,-408" />
 
-<item itemtype="Connector" uid="Connector-20" startpinid="Tunnel-17-pin" endpinid="KeyPad-3-Pin5" pointList="-808,-384,-808,-404" />
+<item itemtype="Connector" uid="Connector-20" startpinid="Tunnel-17-pin" endpinid="KeyPad-3-Pin5" pointList="-808,-384,-808,-408" />
 
-<item itemtype="Connector" uid="Connector-21" startpinid="Tunnel-18-pin" endpinid="KeyPad-3-Pin6" pointList="-792,-384,-792,-404" />
+<item itemtype="Connector" uid="Connector-21" startpinid="Tunnel-18-pin" endpinid="KeyPad-3-Pin6" pointList="-792,-384,-792,-408" />
 
-<item itemtype="Connector" uid="Connector-22" startpinid="Tunnel-19-pin" endpinid="KeyPad-3-Pin7" pointList="-776,-384,-776,-404" />
+<item itemtype="Connector" uid="Connector-22" startpinid="Tunnel-19-pin" endpinid="KeyPad-3-Pin7" pointList="-776,-384,-776,-408" />
 
 <item itemtype="Connector" uid="Connector-23" startpinid="ResistorDip-4-resistor3-ePin7" endpinid="Node-34-1" pointList="-332,-408,-332,-404,-576,-404,-576,-332" />
 
@@ -190,6 +190,6 @@
 
 <item itemtype="Connector" uid="Connector-51" startpinid="Tunnel-48-pin" endpinid="Hd44780-21-dataPin3" pointList="-524,-132,-524,-152" />
 
-<item itemtype="Connector" uid="Connector-11" startpinid="KeyPad-3-Pin3" endpinid="p16f877-1-PORTC0" pointList="-760,-420,-700,-420,-700,-280,-652,-280" />
+<item itemtype="Connector" uid="Connector-11" startpinid="KeyPad-3-Pin3" endpinid="p16f877-1-PORTC0" pointList="-760,-424,-700,-424,-700,-280,-652,-280" />
 
 </circuit>
