@@ -492,8 +492,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _tecla `uc ~T0 @X0 1 r1 ]
 [f ]
 "96
-[; ;atividade7.c: 96:     if (cursor_pos == 0x90) {
-[e $ ! == -> _cursor_pos `i -> 144 `i 122  ]
+[; ;atividade7.c: 96:     if (cursor_pos == 0xD0) {
+[e $ ! == -> _cursor_pos `i -> 208 `i 122  ]
 {
 "97
 [; ;atividade7.c: 97:         lcd_command(0x01);
@@ -502,108 +502,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;atividade7.c: 98:         cursor_pos = 0x80;
 [e = _cursor_pos -> -> 128 `i `uc ]
 "99
-[; ;atividade7.c: 99:     }
+[; ;atividade7.c: 99:         return;
+[e $UE 121  ]
+"100
+[; ;atividade7.c: 100:     }
 }
 [e :U 122 ]
-"101
-[; ;atividade7.c: 101:     lcd_command(cursor_pos);
+"102
+[; ;atividade7.c: 102:     lcd_command(cursor_pos);
 [e ( _lcd_command (1 _cursor_pos ]
-"103
-[; ;atividade7.c: 103:     if (tecla < 10) {
+"104
+[; ;atividade7.c: 104:     if (tecla < 10) {
 [e $ ! < -> _tecla `i -> 10 `i 123  ]
 {
-"104
-[; ;atividade7.c: 104:         lcd_data(tecla + '0');
-[e ( _lcd_data (1 -> + -> _tecla `ui -> 48 `ui `uc ]
 "105
-[; ;atividade7.c: 105:     } else {
+[; ;atividade7.c: 105:         lcd_data(tecla + '0');
+[e ( _lcd_data (1 -> + -> _tecla `ui -> 48 `ui `uc ]
+"106
+[; ;atividade7.c: 106:     } else {
 }
 [e $U 124  ]
 [e :U 123 ]
 {
-"106
-[; ;atividade7.c: 106:         lcd_data(tecla - 10 + 'A');
-[e ( _lcd_data (1 -> + -> - -> _tecla `i -> 10 `i `ui -> 65 `ui `uc ]
 "107
-[; ;atividade7.c: 107:     }
+[; ;atividade7.c: 107:         lcd_data(tecla - 10 + 'A');
+[e ( _lcd_data (1 -> + -> - -> _tecla `i -> 10 `i `ui -> 65 `ui `uc ]
+"108
+[; ;atividade7.c: 108:     }
 }
 [e :U 124 ]
-"109
-[; ;atividade7.c: 109:     cursor_pos++;
+"110
+[; ;atividade7.c: 110:     cursor_pos++;
 [e ++ _cursor_pos -> -> 1 `i `uc ]
-"111
-[; ;atividade7.c: 111:     if (cursor_pos == 0x90) {
+"112
+[; ;atividade7.c: 112:     if (cursor_pos == 0x90) {
 [e $ ! == -> _cursor_pos `i -> 144 `i 125  ]
 {
-"112
-[; ;atividade7.c: 112:         cursor_pos = 0xC0;
-[e = _cursor_pos -> -> 192 `i `uc ]
 "113
-[; ;atividade7.c: 113:     }
+[; ;atividade7.c: 113:         cursor_pos = 0xC0;
+[e = _cursor_pos -> -> 192 `i `uc ]
+"114
+[; ;atividade7.c: 114:     }
 }
 [e :U 125 ]
-"114
-[; ;atividade7.c: 114: }
+"115
+[; ;atividade7.c: 115: }
 [e :UE 121 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"116
-[; ;atividade7.c: 116: void main(void) {
+"117
+[; ;atividade7.c: 117: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"117
-[; ;atividade7.c: 117:     TRISE = 0x00;
-[e = _TRISE -> -> 0 `i `uc ]
 "118
-[; ;atividade7.c: 118:     TRISD = 0x00;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;atividade7.c: 118:     TRISE = 0x00;
+[e = _TRISE -> -> 0 `i `uc ]
 "119
-[; ;atividade7.c: 119:     TRISC = 0x00;
-[e = _TRISC -> -> 0 `i `uc ]
+[; ;atividade7.c: 119:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
 "120
-[; ;atividade7.c: 120:     TRISB = 0xFF;
+[; ;atividade7.c: 120:     TRISC = 0x00;
+[e = _TRISC -> -> 0 `i `uc ]
+"121
+[; ;atividade7.c: 121:     TRISB = 0xFF;
 [e = _TRISB -> -> 255 `i `uc ]
-"122
-[; ;atividade7.c: 122:     lcd_initialise();
+"123
+[; ;atividade7.c: 123:     lcd_initialise();
 [e ( _lcd_initialise ..  ]
-"124
-[; ;atividade7.c: 124:     while (1) {
+"125
+[; ;atividade7.c: 125:     while (1) {
 [e :U 128 ]
 {
-"125
-[; ;atividade7.c: 125:         unsigned char tecla = teclado();
+"126
+[; ;atividade7.c: 126:         unsigned char tecla = teclado();
 [v _tecla `uc ~T0 @X0 1 a ]
 [e = _tecla ( _teclado ..  ]
-"127
-[; ;atividade7.c: 127:         if (tecla != 0xFF) {
+"128
+[; ;atividade7.c: 128:         if (tecla != 0xFF) {
 [e $ ! != -> _tecla `i -> 255 `i 130  ]
 {
-"128
-[; ;atividade7.c: 128:             debounce();
-[e ( _debounce ..  ]
 "129
-[; ;atividade7.c: 129:             atualiza_lcd(tecla);
+[; ;atividade7.c: 129:             debounce();
+[e ( _debounce ..  ]
+"130
+[; ;atividade7.c: 130:             atualiza_lcd(tecla);
 [e ( _atualiza_lcd (1 _tecla ]
-"131
-[; ;atividade7.c: 131:             while (teclado() != 0xFF);
+"132
+[; ;atividade7.c: 132:             while (teclado() != 0xFF);
 [e $U 131  ]
 [e :U 132 ]
 [e :U 131 ]
 [e $ != -> ( _teclado ..  `i -> 255 `i 132  ]
 [e :U 133 ]
-"132
-[; ;atividade7.c: 132:         }
+"133
+[; ;atividade7.c: 133:         }
 }
 [e :U 130 ]
-"133
-[; ;atividade7.c: 133:     }
+"134
+[; ;atividade7.c: 134:     }
 }
 [e :U 127 ]
 [e $U 128  ]
 [e :U 129 ]
-"134
-[; ;atividade7.c: 134: }
+"135
+[; ;atividade7.c: 135: }
 [e :UE 126 ]
 }
