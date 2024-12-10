@@ -1964,8 +1964,7 @@ char *tempnam(const char *, const char *);
 #pragma config WRT = OFF
 #pragma config CP = OFF
 # 26 "atividade7.c"
-unsigned char tecla_pressionada = 0;
-unsigned char tecla_anterior = 0xFF;
+unsigned char cursor_pos = 0x80;
 
 void lcd_data(unsigned char data) {
     PORTD = data;
@@ -2001,14 +2000,15 @@ void debounce() {
 }
 
 unsigned char teclado() {
-    unsigned char tecla = 20;
+    unsigned char tecla = 0xFF;
 
-  while(tecla == 20){
+
     PORTCbits.RC0 = 0; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
     if (PORTBbits.RB0 == 0) tecla = 0;
     if (PORTBbits.RB1 == 0) tecla = 1;
     if (PORTBbits.RB2 == 0) tecla = 2;
     if (PORTBbits.RB3 == 0) tecla = 3;
+
 
     PORTCbits.RC0 = 1; PORTCbits.RC1 = 0; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
     if (PORTBbits.RB0 == 0) tecla = 4;
@@ -2016,89 +2016,60 @@ unsigned char teclado() {
     if (PORTBbits.RB2 == 0) tecla = 6;
     if (PORTBbits.RB3 == 0) tecla = 7;
 
+
     PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 0; PORTCbits.RC3 = 1;
     if (PORTBbits.RB0 == 0) tecla = 8;
     if (PORTBbits.RB1 == 0) tecla = 9;
     if (PORTBbits.RB2 == 0) tecla = 10;
     if (PORTBbits.RB3 == 0) tecla = 11;
 
+
     PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 0;
     if (PORTBbits.RB0 == 0) tecla = 12;
     if (PORTBbits.RB1 == 0) tecla = 13;
     if (PORTBbits.RB2 == 0) tecla = 14;
     if (PORTBbits.RB3 == 0) tecla = 15;
-  }
+
     return tecla;
 }
 
-void atualiza_lcd() {
+void atualiza_lcd(unsigned char tecla) {
+    if (cursor_pos == 0x90) {
+        lcd_command(0x01);
+        cursor_pos = 0x80;
+    }
 
-     unsigned char tecla_pressionado = teclado();
+    lcd_command(cursor_pos);
 
-    char buffer[16];
-    sprintf(buffer, "%d", tecla_pressionado);
+    if (tecla < 10) {
+        lcd_data(tecla + '0');
+    } else {
+        lcd_data(tecla - 10 + 'A');
+    }
 
-    lcd_command(0x80);
+    cursor_pos++;
 
-    lcd_command(0xC0);
-    lcd_string(buffer);
+    if (cursor_pos == 0x90) {
+        cursor_pos = 0xC0;
+    }
 }
-# 126 "atividade7.c"
-void main(void) {
 
+void main(void) {
     TRISE = 0x00;
     TRISD = 0x00;
     TRISC = 0x00;
     TRISB = 0xFF;
 
     lcd_initialise();
-    atualiza_lcd();
 
     while (1) {
-
         unsigned char tecla = teclado();
 
-        static unsigned char cursor_pos = 0x80;
-
-
-        for(int i = cursor_pos; i < 31; i++ ){
-
-            lcd_command(i);
-
-            if(cursor_pos < 16){
-
-              if (tecla < 10) {
-                    lcd_data(tecla + '0');
-              } else {
-
-                    lcd_data(tecla - 10 + 'A');
-              }
-              cursor_pos++;
-                break;
-
-            lcd_command(0xC0);
-            atualiza_lcd();
-
-            }else{
-                    lcd_command(0xC0);
-                    cursor_pos = 0xC0;
-
-            }
-
-        }
         if (tecla != 0xFF) {
             debounce();
+            atualiza_lcd(tecla);
+
             while (teclado() != 0xFF);
         }
-
-         lcd_initialise();
-
-    while (1) {
-        unsigned char tecla = teclado();
-        atualiza_lcd();
-
-        debounce();
-        while (teclado() != 20);
-                }
     }
 }

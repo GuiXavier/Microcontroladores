@@ -23,8 +23,7 @@
 #define b2 PORTBbits.RB2
 #define b3 PORTBbits.RB3
 
-unsigned char tecla_pressionada = 0;  // Tecla pressionada
-unsigned char tecla_anterior = 0xFF;
+unsigned char cursor_pos = 0x80; // Posição inicial do cursor no LCD
 
 void lcd_data(unsigned char data) {
     PORTD = data;
@@ -56,128 +55,80 @@ void lcd_initialise() {
 }
 
 void debounce() {
-    __delay_ms(50);  // Delay for debounce
+    __delay_ms(50);  // Delay para debounce
 }
 
 unsigned char teclado() {
-    unsigned char tecla = 20;
-    
-  while(tecla == 20){  
+    unsigned char tecla = 0xFF; // Valor inicial para nenhuma tecla
+
+    // Verifica a primeira coluna
     c0 = 0; c1 = 1; c2 = 1; c3 = 1;
     if (b0 == 0) tecla = 0;
-    if (b1 == 0) tecla = 1; 
+    if (b1 == 0) tecla = 1;
     if (b2 == 0) tecla = 2;
     if (b3 == 0) tecla = 3;
 
+    // Verifica a segunda coluna
     c0 = 1; c1 = 0; c2 = 1; c3 = 1;
     if (b0 == 0) tecla = 4;
     if (b1 == 0) tecla = 5;
     if (b2 == 0) tecla = 6;
     if (b3 == 0) tecla = 7;
 
+    // Verifica a terceira coluna
     c0 = 1; c1 = 1; c2 = 0; c3 = 1;
     if (b0 == 0) tecla = 8;
     if (b1 == 0) tecla = 9;
     if (b2 == 0) tecla = 10;
     if (b3 == 0) tecla = 11;
 
+    // Verifica a quarta coluna
     c0 = 1; c1 = 1; c2 = 1; c3 = 0;
     if (b0 == 0) tecla = 12;
     if (b1 == 0) tecla = 13;
     if (b2 == 0) tecla = 14;
     if (b3 == 0) tecla = 15;
-  }
+
     return tecla;
 }
 
-void atualiza_lcd() {
-    
-     unsigned char tecla_pressionado = teclado();
-    
-    char buffer[16];
-    sprintf(buffer, "%d", tecla_pressionado); 
+void atualiza_lcd(unsigned char tecla) {
+    if (cursor_pos == 0x90) { // Se preencheu as 16 casas da segunda linha
+        lcd_command(0x01);   // Limpa o display
+        cursor_pos = 0x80;   // Reseta para o início da primeira linha
+    }
 
-    lcd_command(0x80);
-    //lcd_string("Contador cliques");
-    lcd_command(0xC0);
-    lcd_string(buffer);
+    lcd_command(cursor_pos); // Define a posição do cursor no LCD
+
+    if (tecla < 10) { // Teclas 0-9 (números)
+        lcd_data(tecla + '0'); // Converte o número em caractere ASCII
+    } else { // Teclas 10-15 (A-F)
+        lcd_data(tecla - 10 + 'A'); // Converte o número em letra (A-F)
+    }
+
+    cursor_pos++; // Move o cursor para a próxima posição
+
+    if (cursor_pos == 0x90) { // Caso atinja o final da primeira linha
+        cursor_pos = 0xC0;    // Muda para o início da segunda linha
+    }
 }
-//void atualiza_lcd_com_for(unsigned char tecla) {
-//    static unsigned char cursor_pos = 0x80; // Início da primeira linha do LCD.
-//
-//    if (cursor_pos < 0x90) { // Se ainda houver espaço na primeira linha.
-//        for (unsigned char i = cursor_pos; i < 0x90; i++) {
-//            lcd_command(i); // Move o cursor para a posição atual.
-//            if (tecla < 10) {          // Teclas 0-9 (números).
-//                lcd_data(tecla + '0'); // Converte o número em caractere ASCII.
-//            } else {                   // Teclas 10-15 (A-F).
-//                lcd_data(tecla - 10 + 'A'); // Converte o número em letra (A-F).
-//            }
-//            cursor_pos++; // Atualiza a posição do cursor.
-//            break;        // Sai do loop após escrever uma tecla.
-//        }
-//    } else {
-//        lcd_command(0x01);   // Limpa o display.
-//        cursor_pos = 0x80;   // Reseta para o início da primeira linha.
-//    }
-//}
-
 
 void main(void) {
-    
-    TRISE = 0x00;  
-    TRISD = 0x00; 
-    TRISC = 0x00;  
-    TRISB = 0xFF; 
-    
+    TRISE = 0x00;  // Configura PORT E como saída
+    TRISD = 0x00;  // Configura PORT D como saída
+    TRISC = 0x00;  // Configura PORT C como saída
+    TRISB = 0xFF;  // Configura PORT B como entrada
+
     lcd_initialise();
-    atualiza_lcd();
-    
-    while (1) {
-        
-        unsigned char tecla = teclado();
-        
-        static unsigned char cursor_pos = 0x80; // Início da primeira linha do LCD.
-
-        
-        for(int i = cursor_pos; i < 31; i++ ){
-            
-            lcd_command(i); // Move o cursor para a posição atual.
-
-            if(cursor_pos < 16){
-            
-              if (tecla < 10) {          // Teclas 0-9 (números).
-                    lcd_data(tecla + '0'); // Converte o número em caractere ASCII.
-              } else { 
-                                          // Teclas 10-15 (A-F).
-                    lcd_data(tecla - 10 + 'A'); // Converte o número em letra (A-F).
-              }
-              cursor_pos++; // Atualiza a posição do cursor.
-                break;        // Sai do loop após escrever uma tecla.
-                
-            lcd_command(0xC0);    // para pular de linha 
-            atualiza_lcd();
-            
-            }else{
-                    lcd_command(0xC0);
-                    cursor_pos = 0xC0;
-            
-            }
-        
-        }
-        if (tecla != 0xFF) {  
-            debounce();  
-            while (teclado() != 0xFF);
-        }
-        
-         lcd_initialise();
 
     while (1) {
         unsigned char tecla = teclado();
-        atualiza_lcd();
 
-        debounce();
-        while (teclado() != 20); // Aguarda soltar a tecla
-                }
+        if (tecla != 0xFF) { // Se alguma tecla foi pressionada
+            debounce();      // Evita múltiplos cliques devido ao bounce
+            atualiza_lcd(tecla); // Atualiza o LCD com a tecla pressionada
+
+            while (teclado() != 0xFF); // Aguarda a tecla ser solta
+        }
     }
 }

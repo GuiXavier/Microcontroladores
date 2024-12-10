@@ -3,40 +3,20 @@
 [d edition pro ]
 [d chip 16F877 ]
 [d frameptr 0 ]
-"29 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
+"28 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
 [v _lcd_data lcd_data `(v  1 e 1 0 ]
-"37
+"36
 [v _lcd_command lcd_command `(v  1 e 1 0 ]
-"45
-[v _lcd_string lcd_string `(v  1 e 1 0 ]
-"51
+"50
 [v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
-"58
+"57
 [v _debounce debounce `(v  1 e 1 0 ]
-"62
+"61
 [v _teclado teclado `(uc  1 e 1 0 ]
-"93
+"95
 [v _atualiza_lcd atualiza_lcd `(v  1 e 1 0 ]
-"126
+"116
 [v _main main `(v  1 e 1 0 ]
-"1 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-"1177 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
-[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
-"1817
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-"9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
@@ -45,6 +25,8 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"26 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
+[v _cursor_pos cursor_pos `uc  1 e 1 0 ]
 [s S61 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
@@ -86,157 +68,51 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1556
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-"153 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
-[v _prec prec `i  1 s 2 prec ]
-[v _width width `i  1 s 2 width ]
-"154
-[v _flags flags `uc  1 s 1 flags ]
-"185
-[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"126 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
+"116 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
 [v _main main `(v  1 e 1 0 ]
 {
-"143
-[v main@i i `i  1 a 2 55 ]
-"138
-[v main@tecla tecla `uc  1 a 1 57 ]
-"140
-[v main@cursor_pos cursor_pos `uc  1 s 1 cursor_pos ]
-"183
+"125
+[v main@tecla tecla `uc  1 a 1 4 ]
+"134
 } 0
-"51
-[v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
-{
-"56
-} 0
-"58
-[v _debounce debounce `(v  1 e 1 0 ]
-{
-"60
-} 0
-"93
-[v _atualiza_lcd atualiza_lcd `(v  1 e 1 0 ]
-{
-"97
-[v atualiza_lcd@buffer buffer `[16]uc  1 a 16 36 ]
-"95
-[v atualiza_lcd@tecla_pressionado tecla_pressionado `uc  1 a 1 52 ]
-"104
-} 0
-"62
+"61
 [v _teclado teclado `(uc  1 e 1 0 ]
 {
-"63
+"62
 [v teclado@tecla tecla `uc  1 a 1 0 ]
-"91
+"93
 } 0
-"9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
+"50
+[v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
 {
-[u S584 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
-"13
-[s S587 _IO_FILE 11 `S584 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S587  1 a 11 23 ]
-"12
-[v sprintf@ap ap `[1]*.4v  1 a 1 22 ]
-"9
-[v sprintf@s s `*.4uc  1 p 1 17 ]
-[v sprintf@fmt fmt `*.24DCuc  1 p 1 18 ]
-"23
+"55
 } 0
-"1817 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"57
+[v _debounce debounce `(v  1 e 1 0 ]
 {
-"1820
-[v vfprintf@cfmt cfmt `*.24uc  1 a 1 13 ]
-[s S619 _IO_FILE 0 ]
-"1817
-[v vfprintf@fp fp `*.39S619  1 p 2 13 ]
-[v vfprintf@fmt fmt `*.24DCuc  1 p 1 15 ]
-[v vfprintf@ap ap `*.4*.4v  1 p 1 16 ]
-"1840
+"59
 } 0
-"1177
-[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+"95
+[v _atualiza_lcd atualiza_lcd `(v  1 e 1 0 ]
 {
-[u S632 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
-"1188
-[v vfpfcnvrt@convarg convarg `S632  1 a 4 8 ]
-"1179
-[v vfpfcnvrt@c c `uc  1 a 1 12 ]
-[v vfpfcnvrt@cp cp `*.24uc  1 a 1 7 ]
-"1180
-[v vfpfcnvrt@done done `a  1 a 1 6 ]
-[s S619 _IO_FILE 0 ]
-"1177
-[v vfpfcnvrt@fp fp `*.39S619  1 p 2 0 ]
-[v vfpfcnvrt@fmt fmt `*.30*.24uc  1 p 1 2 ]
-[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 3 ]
-"1814
+[v atualiza_lcd@tecla tecla `uc  1 p 1 wreg ]
+[v atualiza_lcd@tecla tecla `uc  1 p 1 wreg ]
+[v atualiza_lcd@tecla tecla `uc  1 p 1 3 ]
+"114
 } 0
-"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 0 ]
-[u S584 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
-[s S587 _IO_FILE 11 `S584 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S587  1 p 2 2 ]
-"24
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-"9
-} 0
-"1 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-{
-[v abs@a a `i  1 p 2 6 ]
-"4
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
-{
-"10
-[v ___awmod@sign sign `uc  1 a 1 5 ]
-[v ___awmod@counter counter `uc  1 a 1 4 ]
-"5
-[v ___awmod@divisor divisor `i  1 p 2 0 ]
-[v ___awmod@dividend dividend `i  1 p 2 2 ]
-"34
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\awdiv.c
-[v ___awdiv __awdiv `(i  1 e 2 0 ]
-{
-"10
-[v ___awdiv@quotient quotient `i  1 a 2 6 ]
-"11
-[v ___awdiv@sign sign `uc  1 a 1 5 ]
-[v ___awdiv@counter counter `uc  1 a 1 4 ]
-"5
-[v ___awdiv@divisor divisor `i  1 p 2 0 ]
-[v ___awdiv@dividend dividend `i  1 p 2 2 ]
-"41
-} 0
-"45 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
-[v _lcd_string lcd_string `(v  1 e 1 0 ]
-{
-[v lcd_string@str str `*.4DCuc  1 p 1 3 ]
-"49
-} 0
-"29
+"28
 [v _lcd_data lcd_data `(v  1 e 1 0 ]
 {
 [v lcd_data@data data `uc  1 p 1 wreg ]
 [v lcd_data@data data `uc  1 p 1 wreg ]
 [v lcd_data@data data `uc  1 p 1 2 ]
-"35
+"34
 } 0
-"37
+"36
 [v _lcd_command lcd_command `(v  1 e 1 0 ]
 {
 [v lcd_command@cmd cmd `uc  1 p 1 wreg ]
 [v lcd_command@cmd cmd `uc  1 p 1 wreg ]
 [v lcd_command@cmd cmd `uc  1 p 1 2 ]
-"43
+"42
 } 0

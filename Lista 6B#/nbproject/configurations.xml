@@ -19,7 +19,6 @@
                    projectFiles="true">
     </logicalFolder>
     <itemPath>codigo.c</itemPath>
-    <itemPath>codigo.c</itemPath>
     <itemPath>atividade6.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
