@@ -101,13 +101,6 @@ void atualiza_lcd() {
     //lcd_string("Contador cliques");
     lcd_command(0xC0);
     lcd_string(buffer);
-<<<<<<< HEAD
-
-
-
-=======
-     
->>>>>>> 73f5533cd038b6cb2d0220557f74eb21c24f4fd3
 }
 //void atualiza_lcd_com_for(unsigned char tecla) {
 //    static unsigned char cursor_pos = 0x80; // Início da primeira linha do LCD.
@@ -142,40 +135,40 @@ void main(void) {
     
     while (1) {
         
-//        unsigned char tecla = teclado();
-//        
-//        static unsigned char cursor_pos = 0x80; // Início da primeira linha do LCD.
-//
-//        
-//        for(int i = cursor_pos; i < 31; i++ ){
-//            
-//            lcd_command(i); // Move o cursor para a posição atual.
-//
-//            if(cursor_pos < 16){
-//            
-//              if (tecla < 10) {          // Teclas 0-9 (números).
-//                    lcd_data(tecla + '0'); // Converte o número em caractere ASCII.
-//              } else { 
-//                                          // Teclas 10-15 (A-F).
-//                    lcd_data(tecla - 10 + 'A'); // Converte o número em letra (A-F).
-//              }
-//              cursor_pos++; // Atualiza a posição do cursor.
-//                break;        // Sai do loop após escrever uma tecla.
-//                
-//            lcd_command(0xC0);    // para pular de linha 
-//            atualiza_lcd();
-//            
-//            }else{
-//                    lcd_command(0xC0);
-//                    cursor_pos = 0xC0;
-//            
-//            }
-//        
-//        }
-//        if (tecla != 0xFF) {  
-//            debounce();  
-//            while (teclado() != 0xFF);
-//        }
+        unsigned char tecla = teclado();
+        
+        static unsigned char cursor_pos = 0x80; // Início da primeira linha do LCD.
+
+        
+        for(int i = cursor_pos; i < 31; i++ ){
+            
+            lcd_command(i); // Move o cursor para a posição atual.
+
+            if(cursor_pos < 16){
+            
+              if (tecla < 10) {          // Teclas 0-9 (números).
+                    lcd_data(tecla + '0'); // Converte o número em caractere ASCII.
+              } else { 
+                                          // Teclas 10-15 (A-F).
+                    lcd_data(tecla - 10 + 'A'); // Converte o número em letra (A-F).
+              }
+              cursor_pos++; // Atualiza a posição do cursor.
+                break;        // Sai do loop após escrever uma tecla.
+                
+            lcd_command(0xC0);    // para pular de linha 
+            atualiza_lcd();
+            
+            }else{
+                    lcd_command(0xC0);
+                    cursor_pos = 0xC0;
+            
+            }
+        
+        }
+        if (tecla != 0xFF) {  
+            debounce();  
+            while (teclado() != 0xFF);
+        }
         
          lcd_initialise();
 

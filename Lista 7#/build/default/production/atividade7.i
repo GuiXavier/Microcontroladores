@@ -2042,16 +2042,8 @@ void atualiza_lcd() {
 
     lcd_command(0xC0);
     lcd_string(buffer);
-<<<<<<< HEAD
-
-
-
 }
-=======
->>>>>>> 73f5533cd038b6cb2d0220557f74eb21c24f4fd3
-
-}
-# 127 "atividade7.c"
+# 126 "atividade7.c"
 void main(void) {
 
     TRISE = 0x00;
@@ -2063,7 +2055,42 @@ void main(void) {
     atualiza_lcd();
 
     while (1) {
-# 174 "atividade7.c"
+
+        unsigned char tecla = teclado();
+
+        static unsigned char cursor_pos = 0x80;
+
+
+        for(int i = cursor_pos; i < 31; i++ ){
+
+            lcd_command(i);
+
+            if(cursor_pos < 16){
+
+              if (tecla < 10) {
+                    lcd_data(tecla + '0');
+              } else {
+
+                    lcd_data(tecla - 10 + 'A');
+              }
+              cursor_pos++;
+                break;
+
+            lcd_command(0xC0);
+            atualiza_lcd();
+
+            }else{
+                    lcd_command(0xC0);
+                    cursor_pos = 0xC0;
+
+            }
+
+        }
+        if (tecla != 0xFF) {
+            debounce();
+            while (teclado() != 0xFF);
+        }
+
          lcd_initialise();
 
     while (1) {
