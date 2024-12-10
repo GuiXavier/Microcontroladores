@@ -517,96 +517,96 @@ Version 4.0 HI-TECH Software Intermediate Code
 "99
 [; ;atividade7.c: 99:     lcd_string(buffer);
 [e ( _lcd_string (1 -> &U _buffer `*Cuc ]
-"100
-[; ;atividade7.c: 100: }
+"103
+[; ;atividade7.c: 103: }
 [e :UE 121 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"102
-[; ;atividade7.c: 102: void main(void) {
+"105
+[; ;atividade7.c: 105: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"103
-[; ;atividade7.c: 103:     TRISE = 0x00;
-[e = _TRISE -> -> 0 `i `uc ]
-"104
-[; ;atividade7.c: 104:     TRISD = 0x00;
-[e = _TRISD -> -> 0 `i `uc ]
-"105
-[; ;atividade7.c: 105:     TRISC = 0x00;
-[e = _TRISC -> -> 0 `i `uc ]
 "106
-[; ;atividade7.c: 106:     TRISB = 0xFF;
-[e = _TRISB -> -> 255 `i `uc ]
+[; ;atividade7.c: 106:     TRISE = 0x00;
+[e = _TRISE -> -> 0 `i `uc ]
 "107
-[; ;atividade7.c: 107:     lcd_initialise();
-[e ( _lcd_initialise ..  ]
+[; ;atividade7.c: 107:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
 "108
-[; ;atividade7.c: 108:     atualiza_lcd();
-[e ( _atualiza_lcd ..  ]
+[; ;atividade7.c: 108:     TRISC = 0x00;
+[e = _TRISC -> -> 0 `i `uc ]
+"109
+[; ;atividade7.c: 109:     TRISB = 0xFF;
+[e = _TRISB -> -> 255 `i `uc ]
 "110
-[; ;atividade7.c: 110:     while (1) {
+[; ;atividade7.c: 110:     lcd_initialise();
+[e ( _lcd_initialise ..  ]
+"111
+[; ;atividade7.c: 111:     atualiza_lcd();
+[e ( _atualiza_lcd ..  ]
+"113
+[; ;atividade7.c: 113:     while (1) {
 [e :U 124 ]
 {
-"111
-[; ;atividade7.c: 111:         unsigned char tecla = teclado();
+"114
+[; ;atividade7.c: 114:         unsigned char tecla = teclado();
 [v _tecla `uc ~T0 @X0 1 a ]
 [e = _tecla ( _teclado ..  ]
-"113
-[; ;atividade7.c: 113:         if (tecla != 0xFF) {
+"116
+[; ;atividade7.c: 116:         if (tecla != 0xFF) {
 [e $ ! != -> _tecla `i -> 255 `i 126  ]
 {
-"114
-[; ;atividade7.c: 114:             debounce();
+"117
+[; ;atividade7.c: 117:             debounce();
 [e ( _debounce ..  ]
-"116
-[; ;atividade7.c: 116:             if (tecla == 9) {
+"119
+[; ;atividade7.c: 119:             if (tecla == 9) {
 [e $ ! == -> _tecla `i -> 9 `i 127  ]
 {
-"117
-[; ;atividade7.c: 117:                 contador++;
-[e ++ _contador -> -> 1 `i `ui ]
-"118
-[; ;atividade7.c: 118:             }
-}
-[e $U 128  ]
-"119
-[; ;atividade7.c: 119:             else if (tecla == 8) {
-[e :U 127 ]
-[e $ ! == -> _tecla `i -> 8 `i 129  ]
-{
 "120
-[; ;atividade7.c: 120:                 contador = 0;
-[e = _contador -> -> 0 `i `ui ]
+[; ;atividade7.c: 120:                 contador++;
+[e ++ _contador -> -> 1 `i `ui ]
 "121
 [; ;atividade7.c: 121:             }
 }
+[e $U 128  ]
+"122
+[; ;atividade7.c: 122:             else if (tecla == 8) {
+[e :U 127 ]
+[e $ ! == -> _tecla `i -> 8 `i 129  ]
+{
+"123
+[; ;atividade7.c: 123:                 contador = 0;
+[e = _contador -> -> 0 `i `ui ]
+"124
+[; ;atividade7.c: 124:             }
+}
 [e :U 129 ]
 [e :U 128 ]
-"127
-[; ;atividade7.c: 127:             atualiza_lcd();
+"130
+[; ;atividade7.c: 130:             atualiza_lcd();
 [e ( _atualiza_lcd ..  ]
-"129
-[; ;atividade7.c: 129:             while (teclado() != 0xFF);
+"132
+[; ;atividade7.c: 132:             while (teclado() != 0xFF);
 [e $U 130  ]
 [e :U 131 ]
 [e :U 130 ]
 [e $ != -> ( _teclado ..  `i -> 255 `i 131  ]
 [e :U 132 ]
-"130
-[; ;atividade7.c: 130:         }
+"133
+[; ;atividade7.c: 133:         }
 }
 [e :U 126 ]
-"131
-[; ;atividade7.c: 131:     }
+"134
+[; ;atividade7.c: 134:     }
 }
 [e :U 123 ]
 [e $U 124  ]
 [e :U 125 ]
-"132
-[; ;atividade7.c: 132: }
+"135
+[; ;atividade7.c: 135: }
 [e :UE 122 ]
 }
 [p f _sprintf 8421508 ]

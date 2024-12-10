@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Sun Dec 08 23:41:01 2024
+                                                                                               Tue Dec 10 00:36:13 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -684,7 +684,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    670 ;;
    671 ;; *************** function _main *****************
    672 ;; Defined at:
-   673 ;;		line 102 in file "atividade7.c"
+   673 ;;		line 105 in file "atividade7.c"
    674 ;; Parameters:    Size  Location     Type
    675 ;;		None
    676 ;; Auto vars:     Size  Location     Type
@@ -723,39 +723,39 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    709                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
    710                           
    711                           
-   712                           ;atividade7.c: 103:     TRISE = 0x00;
+   712                           ;atividade7.c: 106:     TRISE = 0x00;
    713     03A1  1683               	bsf	3,5	;RP0=1, select bank1
    714     03A2  1303               	bcf	3,6	;RP1=0, select bank1
    715     03A3  0189               	clrf	9	;volatile
    716                           
-   717                           ;atividade7.c: 104:     TRISD = 0x00;
+   717                           ;atividade7.c: 107:     TRISD = 0x00;
    718     03A4  0188               	clrf	8	;volatile
    719                           
-   720                           ;atividade7.c: 105:     TRISC = 0x00;
+   720                           ;atividade7.c: 108:     TRISC = 0x00;
    721     03A5  0187               	clrf	7	;volatile
    722     03A6                     l1470:
    723                           
-   724                           ;atividade7.c: 106:     TRISB = 0xFF;
+   724                           ;atividade7.c: 109:     TRISB = 0xFF;
    725     03A6  30FF               	movlw	255
    726     03A7  0086               	movwf	6	;volatile
    727     03A8                     l1472:
    728                           
-   729                           ;atividade7.c: 107:     lcd_initialise();
+   729                           ;atividade7.c: 110:     lcd_initialise();
    730     03A8  120A  118A  2296  120A  118A  	fcall	_lcd_initialise
    731     03AD                     l1474:
    732                           
-   733                           ;atividade7.c: 108:     atualiza_lcd();
+   733                           ;atividade7.c: 111:     atualiza_lcd();
    734     03AD  120A  118A  236B  120A  118A  	fcall	_atualiza_lcd
    735     03B2                     l1476:
    736                           
-   737                           ;atividade7.c: 111:         unsigned char tecla = teclado();
+   737                           ;atividade7.c: 114:         unsigned char tecla = teclado();
    738     03B2  120A  118A  2552  120A  118A  	fcall	_teclado
    739     03B7  1283               	bcf	3,5	;RP0=0, select bank0
    740     03B8  1303               	bcf	3,6	;RP1=0, select bank0
    741     03B9  00ED               	movwf	main@tecla
    742     03BA                     l1478:
    743                           
-   744                           ;atividade7.c: 113:         if (tecla != 0xFF) {
+   744                           ;atividade7.c: 116:         if (tecla != 0xFF) {
    745     03BA  0A6D               	incf	main@tecla,w
    746     03BB  1903               	btfsc	3,2
    747     03BC  2BBE               	goto	u1431
@@ -765,11 +765,11 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    751     03BF                     u1430:
    752     03BF                     l1480:
    753                           
-   754                           ;atividade7.c: 114:             debounce();
+   754                           ;atividade7.c: 117:             debounce();
    755     03BF  120A  118A  224F  120A  118A  	fcall	_debounce
    756     03C4                     l1482:
    757                           
-   758                           ;atividade7.c: 116:             if (tecla == 9) {
+   758                           ;atividade7.c: 119:             if (tecla == 9) {
    759     03C4  3009               	movlw	9
    760     03C5  1283               	bcf	3,5	;RP0=0, select bank0
    761     03C6  1303               	bcf	3,6	;RP1=0, select bank0
@@ -782,7 +782,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    768     03CC                     u1440:
    769     03CC                     l1484:
    770                           
-   771                           ;atividade7.c: 117:                 contador++;
+   771                           ;atividade7.c: 120:                 contador++;
    772     03CC  3001               	movlw	1
    773     03CD  1683               	bsf	3,5	;RP0=1, select bank1
    774     03CE  1303               	bcf	3,6	;RP1=0, select bank1
@@ -792,7 +792,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    778     03D2  3000               	movlw	0
    779     03D3  07A5               	addwf	(_contador+1)^(0+128),f
    780                           
-   781                           ;atividade7.c: 118:             }
+   781                           ;atividade7.c: 121:             }
    782     03D4  2BDF               	goto	l1490
    783     03D5                     l1486:
    784     03D5  3008               	movlw	8
@@ -805,17 +805,17 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    791     03DB                     u1450:
    792     03DB                     l1488:
    793                           
-   794                           ;atividade7.c: 120:                 contador = 0;
+   794                           ;atividade7.c: 123:                 contador = 0;
    795     03DB  1683               	bsf	3,5	;RP0=1, select bank1
    796     03DC  1303               	bcf	3,6	;RP1=0, select bank1
    797     03DD  01A4               	clrf	_contador^(0+128)
    798     03DE  01A5               	clrf	(_contador+1)^(0+128)
    799     03DF                     l1490:
    800                           
-   801                           ;atividade7.c: 127:             atualiza_lcd();
+   801                           ;atividade7.c: 130:             atualiza_lcd();
    802     03DF  120A  118A  236B  120A  118A  	fcall	_atualiza_lcd
    803     03E4                     l1492:	
-   804                           ;atividade7.c: 129:             while (teclado() != 0xFF);
+   804                           ;atividade7.c: 132:             while (teclado() != 0xFF);
    805                           
    806     03E4  120A  118A  2552  120A  118A  	fcall	_teclado
    807     03E9  3AFF               	xorlw	255
@@ -3860,7 +3860,7 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Sun Dec 08 23:41:01 2024
+Symbol Table                                                                                   Tue Dec 10 00:36:13 2024
 
                          pc 0002                lcd_data@data 0072                          l30 0281  
                         l42 025C                          l50 0581                          l27 0295  

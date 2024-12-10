@@ -17,7 +17,7 @@
 [v _teclado teclado `(uc  1 e 1 0 ]
 "92
 [v _atualiza_lcd atualiza_lcd `(v  1 e 1 0 ]
-"102
+"105
 [v _main main `(v  1 e 1 0 ]
 "1 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
@@ -103,12 +103,12 @@
 [v _flags flags `uc  1 s 1 flags ]
 "185
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"102 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
+"105 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
 [v _main main `(v  1 e 1 0 ]
 {
-"111
+"114
 [v main@tecla tecla `uc  1 a 1 77 ]
-"132
+"135
 } 0
 "62
 [v _teclado teclado `(uc  1 e 1 0 ]
@@ -132,7 +132,7 @@
 {
 "93
 [v atualiza_lcd@buffer buffer `[16]uc  1 a 16 61 ]
-"100
+"103
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]

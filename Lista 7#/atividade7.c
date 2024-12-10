@@ -97,6 +97,9 @@ void atualiza_lcd() {
     lcd_string("Contador cliques");
     lcd_command(0xC0);
     lcd_string(buffer);
+
+
+
 }
 
 void main(void) {
