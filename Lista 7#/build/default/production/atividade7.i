@@ -2095,7 +2095,7 @@ void main(void) {
 
     while (1) {
         unsigned char tecla = teclado();
-        atualiza_lcd(tecla);
+        atualiza_lcd();
 
         debounce();
         while (teclado() != 20);

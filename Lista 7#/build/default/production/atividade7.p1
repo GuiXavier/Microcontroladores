@@ -675,8 +675,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _tecla `uc ~T0 @X0 1 a ]
 [e = _tecla ( _teclado ..  ]
 "177
-[; ;atividade7.c: 177:         atualiza_lcd(tecla);
-[e ( _atualiza_lcd -> _tecla `i ]
+[; ;atividade7.c: 177:         atualiza_lcd();
+[e ( _atualiza_lcd ..  ]
 "179
 [; ;atividade7.c: 179:         debounce();
 [e ( _debounce ..  ]
