@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F877 ]
 [d frameptr 0 ]
-"28 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
+"28 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
 [v _lcd_data lcd_data `(v  1 e 1 0 ]
 "36
 [v _lcd_command lcd_command `(v  1 e 1 0 ]
@@ -25,7 +25,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"26 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
+"26 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
 [v _cursor_pos cursor_pos `uc  1 e 1 0 ]
 [s S61 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
@@ -68,7 +68,7 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1556
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
-"116 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
+"116 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 7#\atividade7.c
 [v _main main `(v  1 e 1 0 ]
 {
 "125
