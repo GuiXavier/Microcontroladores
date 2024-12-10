@@ -1,4 +1,4 @@
-# 1 "codigolcd.c"
+# 1 "atividade7.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "codigolcd.c" 2
+# 1 "atividade7.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1796,7 +1796,162 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
-# 1 "codigolcd.c" 2
+# 1 "atividade7.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef short ssize_t;
+# 253 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 2 "atividade7.c" 2
+
 
 
 
@@ -1804,64 +1959,142 @@ extern __bank0 __bit __timeout;
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config BOREN = OFF
-#pragma config LVP = ON
+#pragma config LVP = OFF
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
+# 26 "atividade7.c"
+unsigned char tecla_pressionada = 0;
+unsigned char tecla_anterior = 0xFF;
 
-
-
-
-
-void lcd_data(unsigned char data)
-{
+void lcd_data(unsigned char data) {
     PORTD = data;
     PORTEbits.RE0 = 1;
-
     PORTEbits.RE1 = 1;
     _delay((unsigned long)((5)*(20000000/4000.0)));
     PORTEbits.RE1 = 0;
 }
 
-void lcd_command(unsigned char cmd)
-{
+void lcd_command(unsigned char cmd) {
     PORTD = cmd;
     PORTEbits.RE0 = 0;
-
     PORTEbits.RE1 = 1;
     _delay((unsigned long)((5)*(20000000/4000.0)));
     PORTEbits.RE1 = 0;
 }
 
-void lcd_string(const unsigned char *str,unsigned char num)
-{
-    unsigned char i;
-    for(i=0;i<num;i++)
-    {
-      lcd_data(str[i]);
-
+void lcd_string(const char *str) {
+    while (*str) {
+        lcd_data(*str++);
     }
 }
 
-void lcd_initialise()
-{
+void lcd_initialise() {
     lcd_command(0x38);
     lcd_command(0x06);
     lcd_command(0x0C);
     lcd_command(0x01);
 }
 
-void main(void)
-{
+void debounce() {
+    _delay((unsigned long)((50)*(20000000/4000.0)));
+}
+
+unsigned char teclado() {
+    unsigned char tecla = 0xFF;
+
+    PORTCbits.RC0 = 0; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
+    if (PORTBbits.RB0 == 0)
+    {
+        tecla = 0;
+        tecla_pressionada = tecla;
+    }
+
+    if (PORTBbits.RB1 == 0){
+
+                tecla = 1;
+                tecla_pressionada = tecla;
+    }
+    if (PORTBbits.RB2 == 0) tecla = 2;
+    if (PORTBbits.RB3 == 0) tecla = 3;
+
+    PORTCbits.RC0 = 1; PORTCbits.RC1 = 0; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
+    if (PORTBbits.RB0 == 0) tecla = 4;
+    if (PORTBbits.RB1 == 0) tecla = 5;
+    if (PORTBbits.RB2 == 0) tecla = 6;
+    if (PORTBbits.RB3 == 0) tecla = 7;
+
+    PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 0; PORTCbits.RC3 = 1;
+    if (PORTBbits.RB0 == 0) tecla = 8;
+    if (PORTBbits.RB1 == 0) tecla = 9;
+    if (PORTBbits.RB2 == 0) tecla = 10;
+    if (PORTBbits.RB3 == 0) tecla = 11;
+
+    PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 0;
+    if (PORTBbits.RB0 == 0) tecla = 12;
+    if (PORTBbits.RB1 == 0) tecla = 13;
+    if (PORTBbits.RB2 == 0) tecla = 14;
+    if (PORTBbits.RB3 == 0) tecla = 15;
+
+    return tecla;
+}
+
+void atualiza_lcd() {
+
+    char buffer[16];
+    sprintf(buffer, "%04d", tecla_pressionada);
+
+    lcd_command(0x80);
+
+    lcd_command(0xC0);
+    lcd_string(buffer);
+
+}
+# 133 "atividade7.c"
+void main(void) {
+
     TRISE = 0x00;
     TRISD = 0x00;
+    TRISC = 0x00;
+    TRISB = 0xFF;
+
     lcd_initialise();
-    while(1)
-    {
-        lcd_command(0x80);
-        lcd_string("DISCIPLINA",10);
-        lcd_command(0xC0);
-        lcd_string("MICROCONTROLADOR",16);
+    atualiza_lcd();
+
+    while (1) {
+        unsigned char tecla = teclado();
+
+        static unsigned char cursor_pos = 0x80;
+
+
+        for(int i = 0; i < 31; i++ ){
+
+            lcd_command(i);
+
+            if(cursor_pos < 16){
+
+              if (tecla < 10) {
+                    lcd_data(tecla + '0');
+              } else {
+
+                    lcd_data(tecla - 10 + 'A');
+              }
+              cursor_pos++;
+                break;
+
+            lcd_command(0xC0);
+            atualiza_lcd();
+
+            }else{
+                    lcd_command(0xC0);
+                    cursor_pos = 0xC0;
+
+            }
+
+        }
+        if (tecla != 0xFF) {
+            debounce();
+            while (teclado() != 0xFF);
+        }
     }
-    return;
 }
