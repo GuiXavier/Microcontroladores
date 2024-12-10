@@ -23,7 +23,7 @@
 #define b2 PORTBbits.RB2
 #define b3 PORTBbits.RB3
 
-unsigned int contador = 0;  // Contador de cliques
+unsigned char tecla_pressionada = 0;  // Tecla pressionada
 unsigned char tecla_anterior = 0xFF;
 
 void lcd_data(unsigned char data) {
@@ -60,11 +60,12 @@ void debounce() {
 }
 
 unsigned char teclado() {
-    unsigned char tecla = 0xFF;
-
+    unsigned char tecla = 20;
+    
+  while(tecla == 20){  
     c0 = 0; c1 = 1; c2 = 1; c3 = 1;
     if (b0 == 0) tecla = 0;
-    if (b1 == 0) tecla = 1;
+    if (b1 == 0) tecla = 1; 
     if (b2 == 0) tecla = 2;
     if (b3 == 0) tecla = 3;
 
@@ -85,51 +86,105 @@ unsigned char teclado() {
     if (b1 == 0) tecla = 13;
     if (b2 == 0) tecla = 14;
     if (b3 == 0) tecla = 15;
-
+  }
     return tecla;
 }
 
 void atualiza_lcd() {
+    
+     unsigned char tecla_pressionado = teclado();
+    
     char buffer[16];
-    sprintf(buffer, "N:%04d", contador); 
+    sprintf(buffer, "%d", tecla_pressionado); 
 
     lcd_command(0x80);
-    lcd_string("Contador cliques");
+    //lcd_string("Contador cliques");
     lcd_command(0xC0);
     lcd_string(buffer);
+<<<<<<< HEAD
 
 
 
+=======
+     
+>>>>>>> 73f5533cd038b6cb2d0220557f74eb21c24f4fd3
 }
+//void atualiza_lcd_com_for(unsigned char tecla) {
+//    static unsigned char cursor_pos = 0x80; // Início da primeira linha do LCD.
+//
+//    if (cursor_pos < 0x90) { // Se ainda houver espaço na primeira linha.
+//        for (unsigned char i = cursor_pos; i < 0x90; i++) {
+//            lcd_command(i); // Move o cursor para a posição atual.
+//            if (tecla < 10) {          // Teclas 0-9 (números).
+//                lcd_data(tecla + '0'); // Converte o número em caractere ASCII.
+//            } else {                   // Teclas 10-15 (A-F).
+//                lcd_data(tecla - 10 + 'A'); // Converte o número em letra (A-F).
+//            }
+//            cursor_pos++; // Atualiza a posição do cursor.
+//            break;        // Sai do loop após escrever uma tecla.
+//        }
+//    } else {
+//        lcd_command(0x01);   // Limpa o display.
+//        cursor_pos = 0x80;   // Reseta para o início da primeira linha.
+//    }
+//}
+
 
 void main(void) {
+    
     TRISE = 0x00;  
     TRISD = 0x00; 
     TRISC = 0x00;  
     TRISB = 0xFF; 
+    
     lcd_initialise();
     atualiza_lcd();
     
     while (1) {
-        unsigned char tecla = teclado();  
+        
+//        unsigned char tecla = teclado();
+//        
+//        static unsigned char cursor_pos = 0x80; // Início da primeira linha do LCD.
+//
+//        
+//        for(int i = cursor_pos; i < 31; i++ ){
+//            
+//            lcd_command(i); // Move o cursor para a posição atual.
+//
+//            if(cursor_pos < 16){
+//            
+//              if (tecla < 10) {          // Teclas 0-9 (números).
+//                    lcd_data(tecla + '0'); // Converte o número em caractere ASCII.
+//              } else { 
+//                                          // Teclas 10-15 (A-F).
+//                    lcd_data(tecla - 10 + 'A'); // Converte o número em letra (A-F).
+//              }
+//              cursor_pos++; // Atualiza a posição do cursor.
+//                break;        // Sai do loop após escrever uma tecla.
+//                
+//            lcd_command(0xC0);    // para pular de linha 
+//            atualiza_lcd();
+//            
+//            }else{
+//                    lcd_command(0xC0);
+//                    cursor_pos = 0xC0;
+//            
+//            }
+//        
+//        }
+//        if (tecla != 0xFF) {  
+//            debounce();  
+//            while (teclado() != 0xFF);
+//        }
+        
+         lcd_initialise();
 
-        if (tecla != 0xFF) {  
-            debounce();  
+    while (1) {
+        unsigned char tecla = teclado();
+        atualiza_lcd(tecla);
 
-            if (tecla == 9) {
-                contador++;  
-            } 
-            else if (tecla == 8) {
-                contador = 0;  
-            } 
-            /*else {
-                contador = 0;  
-                tecla_anterior = tecla;  
-            }*/
-
-            atualiza_lcd();
-
-            while (teclado() != 0xFF);
-        }
+        debounce();
+        while (teclado() != 20); // Aguarda soltar a tecla
+                }
     }
 }
