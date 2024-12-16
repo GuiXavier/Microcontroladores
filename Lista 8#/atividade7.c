@@ -1,36 +1,67 @@
 #include <xc.h>
-#include <stdio.h> // Biblioteca necessária para sprintf
+#include <stdio.h>
 #define _XTAL_FREQ 20000000
 
 // CONFIG
-#pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator)
-#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
-#pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
-#pragma config BOREN = OFF       // Brown-out Reset Enable bit (BOR disabled)
-#pragma config LVP = OFF         // Low-Voltage Programming Enable bit
-#pragma config CPD = OFF        // Data EEPROM Memory Code Protection bit
-#pragma config WRT = OFF        // Flash Program Memory Write Enable bits
-#pragma config CP = OFF         // Flash Program Memory Code Protection bit
+#pragma config FOSC = HS
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
+#pragma config CP = OFF
 
+// Definições do LCD
 #define RS PORTEbits.RE0
 #define EN PORTEbits.RE1
-#define c0 PORTCbits.RC0
-#define c1 PORTCbits.RC1
-#define c2 PORTCbits.RC2
-#define c3 PORTCbits.RC3
-#define b0 PORTBbits.RB0
-#define b1 PORTBbits.RB1
-#define b2 PORTBbits.RB2
-#define b3 PORTBbits.RB3
 
-unsigned char cursor_pos = 0x80; // Posição inicial do cursor no LCD
+void lcd_command(unsigned char cmd);
+void lcd_data(unsigned char data);
+void lcd_initialise();
+void lcd_string(const char *str);
+void adc_initialise();
+unsigned int read_adc();
 
-void lcd_data(unsigned char data) {
-    PORTD = data;
-    RS = 1;
-    EN = 1;
-    __delay_ms(5);
-    EN = 0;
+char buffer[16];
+
+void main() {
+    // Configurações de PORTS
+    TRISE = 0x00;
+    TRISD = 0x00;
+    TRISA = 0xFF; // PORTA como entrada para ADC
+
+    lcd_initialise();
+    adc_initialise();
+
+    while (1) {
+        unsigned int adc_value = read_adc();         // Lê o ADC
+        float voltage = adc_value * 5.0f / 1023.0f;  // Converte para tensão
+
+        // Exibe valor bruto do ADC
+        lcd_command(0x80);
+        sprintf(buffer, "ADC: %04u", adc_value);
+        lcd_string(buffer);
+
+        // Exibe valor em tensão
+        lcd_command(0xC0);
+        sprintf(buffer, "V: %.2f V", voltage);
+        lcd_string(buffer);
+
+        __delay_ms(500);
+    }
+}
+
+void adc_initialise() {
+    ADCON1 = 0x06;  // Configura RA3 como analógico (AN3), os demais digitais
+    ADCON0 = 0x0D;  // Seleciona AN3 e habilita ADC
+}
+
+unsigned int read_adc() {
+    __delay_us(20);              // Tempo para estabilização
+    ADCON0bits.GO_DONE = 1;      // Inicia conversão
+    while (ADCON0bits.GO_DONE);  // Aguarda conclusão
+    return ((unsigned int)ADRESH << 8) | ADRESL;
 }
 
 void lcd_command(unsigned char cmd) {
@@ -41,95 +72,23 @@ void lcd_command(unsigned char cmd) {
     EN = 0;
 }
 
-void lcd_string(const char *str) {
-    while (*str) {
-        lcd_data(*str++);
-    }
+void lcd_data(unsigned char data) {
+    PORTD = data;
+    RS = 1;
+    EN = 1;
+    __delay_ms(5);
+    EN = 0;
 }
 
 void lcd_initialise() {
-    lcd_command(0x38);  // Function Set
-    lcd_command(0x06);  // Entry Mode Set
-    lcd_command(0x0C);  // Display ON/OFF
-    lcd_command(0x01);  // Display Clear
+    lcd_command(0x38);
+    lcd_command(0x06);
+    lcd_command(0x0C);
+    lcd_command(0x01);
 }
 
-void debounce() {
-    __delay_ms(50);  // Delay para debounce
-}
-
-unsigned char teclado() {
-    unsigned char tecla = 0xFF; // Valor inicial para nenhuma tecla
-
-    // Verifica a primeira coluna
-    c0 = 0; c1 = 1; c2 = 1; c3 = 1;
-    if (b0 == 0) tecla = 0;
-    if (b1 == 0) tecla = 1;
-    if (b2 == 0) tecla = 2;
-    if (b3 == 0) tecla = 3;
-
-    // Verifica a segunda coluna
-    c0 = 1; c1 = 0; c2 = 1; c3 = 1;
-    if (b0 == 0) tecla = 4;
-    if (b1 == 0) tecla = 5;
-    if (b2 == 0) tecla = 6;
-    if (b3 == 0) tecla = 7;
-
-    // Verifica a terceira coluna
-    c0 = 1; c1 = 1; c2 = 0; c3 = 1;
-    if (b0 == 0) tecla = 8;
-    if (b1 == 0) tecla = 9;
-    if (b2 == 0) tecla = 10;
-    if (b3 == 0) tecla = 11;
-
-    // Verifica a quarta coluna
-    c0 = 1; c1 = 1; c2 = 1; c3 = 0;
-    if (b0 == 0) tecla = 12;
-    if (b1 == 0) tecla = 13;
-    if (b2 == 0) tecla = 14;
-    if (b3 == 0) tecla = 15;
-
-    return tecla;
-}
-
-void atualiza_lcd(unsigned char tecla) {
-    if (cursor_pos == 0xD0) { // Se preencheu as 16 casas da segunda linha
-        lcd_command(0x01);   // Limpa o display
-        cursor_pos = 0x80;   // Reseta para o início da primeira linha
-        return;              // Sai da função para aguardar o próximo clique
-    }
-
-    lcd_command(cursor_pos); // Define a posição do cursor no LCD
-
-    if (tecla < 10) { // Teclas 0-9 (números)
-        lcd_data(tecla + '0'); // Converte o número em caractere ASCII
-    } else { // Teclas 10-15 (A-F)
-        lcd_data(tecla - 10 + 'A'); // Converte o número em letra (A-F)
-    }
-
-    cursor_pos++; // Move o cursor para a próxima posição
-
-    if (cursor_pos == 0x90) { // Caso atinja o final da primeira linha
-        cursor_pos = 0xC0;    // Muda para o início da segunda linha
-    }
-}
-
-void main(void) {
-    TRISE = 0x00;  // Configura PORT E como saída
-    TRISD = 0x00;  // Configura PORT D como saída
-    TRISC = 0x00;  // Configura PORT C como saída
-    TRISB = 0xFF;  // Configura PORT B como entrada
-
-    lcd_initialise();
-
-    while (1) {
-        unsigned char tecla = teclado();
-
-        if (tecla != 0xFF) { // Se alguma tecla foi pressionada
-            debounce();      // Evita múltiplos cliques devido ao bounce
-            atualiza_lcd(tecla); // Atualiza o LCD com a tecla pressionada
-
-            while (teclado() != 0xFF); // Aguarda a tecla ser solta
-        }
+void lcd_string(const char *str) {
+    while (*str) {
+        lcd_data(*str++);
     }
 }

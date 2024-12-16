@@ -1963,15 +1963,57 @@ char *tempnam(const char *, const char *);
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
-# 26 "atividade7.c"
-unsigned char cursor_pos = 0x80;
 
-void lcd_data(unsigned char data) {
-    PORTD = data;
-    PORTEbits.RE0 = 1;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((5)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+
+
+
+
+void lcd_command(unsigned char cmd);
+void lcd_data(unsigned char data);
+void lcd_initialise();
+void lcd_string(const char *str);
+void adc_initialise();
+unsigned int read_adc();
+
+char buffer[16];
+
+void main() {
+
+    TRISE = 0x00;
+    TRISD = 0x00;
+    TRISA = 0xFF;
+
+    lcd_initialise();
+    adc_initialise();
+
+    while (1) {
+        unsigned int adc_value = read_adc();
+        float voltage = adc_value * 5.0f / 1023.0f;
+
+
+        lcd_command(0x80);
+        sprintf(buffer, "ADC: %04u", adc_value);
+        lcd_string(buffer);
+
+
+        lcd_command(0xC0);
+        sprintf(buffer, "V: %.2f V", voltage);
+        lcd_string(buffer);
+
+        _delay((unsigned long)((500)*(20000000/4000.0)));
+    }
+}
+
+void adc_initialise() {
+    ADCON1 = 0x06;
+    ADCON0 = 0x0D;
+}
+
+unsigned int read_adc() {
+    _delay((unsigned long)((20)*(20000000/4000000.0)));
+    ADCON0bits.GO_DONE = 1;
+    while (ADCON0bits.GO_DONE);
+    return ((unsigned int)ADRESH << 8) | ADRESL;
 }
 
 void lcd_command(unsigned char cmd) {
@@ -1982,10 +2024,12 @@ void lcd_command(unsigned char cmd) {
     PORTEbits.RE1 = 0;
 }
 
-void lcd_string(const char *str) {
-    while (*str) {
-        lcd_data(*str++);
-    }
+void lcd_data(unsigned char data) {
+    PORTD = data;
+    PORTEbits.RE0 = 1;
+    PORTEbits.RE1 = 1;
+    _delay((unsigned long)((5)*(20000000/4000.0)));
+    PORTEbits.RE1 = 0;
 }
 
 void lcd_initialise() {
@@ -1995,82 +2039,8 @@ void lcd_initialise() {
     lcd_command(0x01);
 }
 
-void debounce() {
-    _delay((unsigned long)((50)*(20000000/4000.0)));
-}
-
-unsigned char teclado() {
-    unsigned char tecla = 0xFF;
-
-
-    PORTCbits.RC0 = 0; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
-    if (PORTBbits.RB0 == 0) tecla = 0;
-    if (PORTBbits.RB1 == 0) tecla = 1;
-    if (PORTBbits.RB2 == 0) tecla = 2;
-    if (PORTBbits.RB3 == 0) tecla = 3;
-
-
-    PORTCbits.RC0 = 1; PORTCbits.RC1 = 0; PORTCbits.RC2 = 1; PORTCbits.RC3 = 1;
-    if (PORTBbits.RB0 == 0) tecla = 4;
-    if (PORTBbits.RB1 == 0) tecla = 5;
-    if (PORTBbits.RB2 == 0) tecla = 6;
-    if (PORTBbits.RB3 == 0) tecla = 7;
-
-
-    PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 0; PORTCbits.RC3 = 1;
-    if (PORTBbits.RB0 == 0) tecla = 8;
-    if (PORTBbits.RB1 == 0) tecla = 9;
-    if (PORTBbits.RB2 == 0) tecla = 10;
-    if (PORTBbits.RB3 == 0) tecla = 11;
-
-
-    PORTCbits.RC0 = 1; PORTCbits.RC1 = 1; PORTCbits.RC2 = 1; PORTCbits.RC3 = 0;
-    if (PORTBbits.RB0 == 0) tecla = 12;
-    if (PORTBbits.RB1 == 0) tecla = 13;
-    if (PORTBbits.RB2 == 0) tecla = 14;
-    if (PORTBbits.RB3 == 0) tecla = 15;
-
-    return tecla;
-}
-
-void atualiza_lcd(unsigned char tecla) {
-    if (cursor_pos == 0xD0) {
-        lcd_command(0x01);
-        cursor_pos = 0x80;
-        return;
-    }
-
-    lcd_command(cursor_pos);
-
-    if (tecla < 10) {
-        lcd_data(tecla + '0');
-    } else {
-        lcd_data(tecla - 10 + 'A');
-    }
-
-    cursor_pos++;
-
-    if (cursor_pos == 0x90) {
-        cursor_pos = 0xC0;
-    }
-}
-
-void main(void) {
-    TRISE = 0x00;
-    TRISD = 0x00;
-    TRISC = 0x00;
-    TRISB = 0xFF;
-
-    lcd_initialise();
-
-    while (1) {
-        unsigned char tecla = teclado();
-
-        if (tecla != 0xFF) {
-            debounce();
-            atualiza_lcd(tecla);
-
-            while (teclado() != 0xFF);
-        }
+void lcd_string(const char *str) {
+    while (*str) {
+        lcd_data(*str++);
     }
 }
