@@ -19,6 +19,7 @@
                    projectFiles="true">
     </logicalFolder>
     <itemPath>atividade7.c</itemPath>
+    <itemPath>atividade7.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

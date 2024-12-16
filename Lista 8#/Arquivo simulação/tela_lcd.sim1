@@ -1,6 +1,6 @@
-<circuit version="1.1.0-SR0" rev="1973" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="MCU" CircId="p16f877-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-644,-400" rotation="0" hflip="1" vflip="1" label="p16f877-1" idLabPos="0,-20" labelrot="0" valLabPos="0,0" valLabRot="0" Frequency="20 MHz" Program="../dist/default/production/Lista_8_.production.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" MainMcu="false" eeprom="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
+<item itemtype="MCU" CircId="p16f877-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-644,-400" rotation="0" hflip="1" vflip="1" label="p16f877-1" idLabPos="0,-20" labelrot="0" valLabPos="0,0" valLabRot="0" Frequency="20 MHz" Program="../dist/default/production/Lista_8_.production.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" eeprom="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
 
 <item itemtype="Tunnel" CircId="Tunnel-10" mainComp="false" Show_id="false" Show_Val="false" Pos="-556,-132" rotation="-90" hflip="1" vflip="1" label="Tunnel-10" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="E1" IsBus="false" />
 
@@ -44,7 +44,7 @@
 
 <item itemtype="Tunnel" CircId="Tunnel-48" mainComp="false" Show_id="false" Show_Val="false" Pos="-524,-132" rotation="270" hflip="-1" vflip="1" label="Tunnel-48" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="D3" IsBus="false" />
 
-<item itemtype="Fixed Voltage" CircId="Fixed Voltage-54" mainComp="false" Show_id="false" Show_Val="false" Pos="-892,-356" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-54" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-54" mainComp="false" Show_id="false" Show_Val="false" Pos="-892,-356" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-54" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
 
 <item itemtype="Resistor" CircId="Resistor-58" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-756,-388" rotation="90" hflip="1" vflip="1" label="Resistor-58" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
 
@@ -52,7 +52,7 @@
 
 <item itemtype="Ground" CircId="Ground-60" mainComp="false" Show_id="false" Show_Val="false" Pos="-756,-288" rotation="0" hflip="1" vflip="1" label="Ground-60" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Voltimeter" CircId="Voltimeter-62" mainComp="false" Show_id="false" Show_Val="false" Pos="-796,-464" rotation="0" hflip="1" vflip="1" label="Voltimeter-62" idLabPos="-24,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+<item itemtype="Voltimeter" CircId="Voltimeter-62" mainComp="false" Show_id="false" Show_Val="false" Pos="-816,-504" rotation="0" hflip="1" vflip="1" label="Voltimeter-62" idLabPos="-24,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
 <item itemtype="Tunnel" CircId="Tunnel-9" mainComp="false" Show_id="false" Show_Val="false" Pos="-656,-320" rotation="0" hflip="1" vflip="1" label="Tunnel-9" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="E2" IsBus="false" />
 
@@ -114,9 +114,7 @@
 
 <item itemtype="Connector" uid="Connector-99" startpinid="Resistor-58-rPin" endpinid="Node-68-0" pointList="-756,-372,-756,-364" />
 
-<item itemtype="Connector" uid="Connector-105" startpinid="Fixed Voltage-54-outnod" endpinid="Resistor-58-lPin" pointList="-876,-356,-836,-356,-836,-416,-756,-416,-756,-404" />
-
-<item itemtype="Connector" uid="Connector-106" startpinid="Voltimeter-62-lPin" endpinid="Node-70-1" pointList="-804,-448,-804,-420,-684,-420,-684,-360" />
+<item itemtype="Connector" uid="Connector-106" startpinid="Voltimeter-62-lPin" endpinid="Node-70-1" pointList="-824,-488,-824,-420,-684,-420,-684,-360" />
 
 <item itemtype="Connector" uid="Connector-107" startpinid="p16f877-1-PORTA3" endpinid="Node-70-0" pointList="-652,-360,-684,-360" />
 
@@ -124,10 +122,12 @@
 
 <item itemtype="Connector" uid="Connector-113" startpinid="Node-68-2" endpinid="Resistor-59-lPin" pointList="-756,-364,-756,-352" />
 
-<item itemtype="Connector" uid="Connector-114" startpinid="Voltimeter-62-rPin" endpinid="Node-72-1" pointList="-788,-448,-788,-312,-756,-312" />
+<item itemtype="Connector" uid="Connector-114" startpinid="Voltimeter-62-rPin" endpinid="Node-72-1" pointList="-808,-488,-808,-312,-756,-312" />
 
 <item itemtype="Connector" uid="Connector-115" startpinid="Ground-60-Gnd" endpinid="Node-72-0" pointList="-756,-304,-756,-312" />
 
 <item itemtype="Connector" uid="Connector-116" startpinid="Node-72-2" endpinid="Resistor-59-rPin" pointList="-756,-312,-756,-320" />
+
+<item itemtype="Connector" uid="Connector-105" startpinid="Fixed Voltage-54-outnod" endpinid="Resistor-58-lPin" pointList="-876,-356,-836,-356,-836,-416,-756,-416,-756,-404" />
 
 </circuit>
