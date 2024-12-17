@@ -61,10 +61,18 @@ void adc_initialise() {
 }
 
 unsigned int read_adc() {
+    
     __delay_us(20);              // Tempo para estabilização
     ADCON0bits.GO_DONE = 1;      // Inicia conversão
     while (ADCON0bits.GO_DONE);  // Aguarda conclusão
     return ((unsigned int)ADRESH << 8) | ADRESL;
+    
+    
+    ADCON1bits.ADFM = 0;         // Justificativa a esquerda ADFM = 0
+    
+    CCPR1L = ADRESH;
+    CCP1CON = (CCP1CON & 0b11001111);   // zerando os bits 4 e 5 GARANTINDO QUE ESTÃO ZERADOS 
+    CCP1CON = (CCP1CON) | ((ADRESL >> 2) & 0b00110000);    // deslocando os bits nas posições 4 e 5 (os 1)
 }
 
 void lcd_command(unsigned char cmd) {

@@ -2013,10 +2013,18 @@ void adc_initialise() {
 }
 
 unsigned int read_adc() {
+
     _delay((unsigned long)((20)*(20000000/4000000.0)));
     ADCON0bits.GO_DONE = 1;
     while (ADCON0bits.GO_DONE);
     return ((unsigned int)ADRESH << 8) | ADRESL;
+
+
+    ADCON1bits.ADFM = 0;
+
+    CCPR1L = ADRESH;
+    CCP1CON = (CCP1CON & 0b11001111);
+    CCP1CON = (CCP1CON) | ((ADRESL >> 2) & 0b00110000);
 }
 
 void lcd_command(unsigned char cmd) {
