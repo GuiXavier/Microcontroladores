@@ -12,6 +12,9 @@
 #pragma config WRT = OFF
 #pragma config CP = OFF
 
+ 
+ 
+
 // Definições do LCD
 #define RS PORTEbits.RE0
 #define EN PORTEbits.RE1
