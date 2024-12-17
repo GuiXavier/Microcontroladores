@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Dec 17 15:39:20 2024
+                                                                                               Tue Dec 17 15:42:26 2024
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -1061,7 +1061,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
   1047 ;;
   1048 ;; *************** function _main *****************
   1049 ;; Defined at:
-  1050 ;;		line 31 in file "atividade7.c"
+  1050 ;;		line 30 in file "atividade7.c"
   1051 ;; Parameters:    Size  Location     Type
   1052 ;;		None
   1053 ;; Auto vars:     Size  Location     Type
@@ -1105,25 +1105,25 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
   1091                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
   1092                           
   1093                           
-  1094                           ;atividade7.c: 33: 
+  1094                           ;atividade7.c: 32:         lcd_string(buffer);
   1095     1384  1683               	bsf	3,5	;RP0=1, select bank1
   1096     1385  1303               	bcf	3,6	;RP1=0, select bank1
   1097     1386  0189               	clrf	9	;volatile
   1098                           
-  1099                           ;atividade7.c: 34: 
+  1099                           ;atividade7.c: 33: 
   1100     1387  0188               	clrf	8	;volatile
   1101     1388                     l3320:
   1102                           
-  1103                           ;atividade7.c: 35:         lcd_command(0xC0);
+  1103                           ;atividade7.c: 34: 
   1104     1388  30FF               	movlw	255
   1105     1389  0085               	movwf	5	;volatile
   1106     138A                     l3322:
   1107                           
-  1108                           ;atividade7.c: 37:         lcd_string(buffer);
+  1108                           ;atividade7.c: 36:         sprintf(buffer, "V:%.2fV", voltage);
   1109     138A  160A  158A  2645  160A  118A  	fcall	_lcd_initialise
   1110     138F                     l3324:
   1111                           
-  1112                           ;atividade7.c: 38: 
+  1112                           ;atividade7.c: 37:         lcd_string(buffer);
   1113     138F  160A  158A  25D9  160A  118A  	fcall	_adc_initialise
   1114     1394                     l3326:
   1115                           
@@ -11143,7 +11143,7 @@ DATA                 0      0     296      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Dec 17 15:39:20 2024
+Symbol Table                                                                                   Tue Dec 17 15:42:26 2024
 
               ___fldiv@aexp 0053                ___fldiv@bexp 0052                           pc 0002  
               lcd_data@data 0072                ___fldiv@sign 004B                          l50 1DE9  

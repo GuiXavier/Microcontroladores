@@ -13,7 +13,6 @@
 #pragma config CP = OFF
 
  
- 
 
 // Definições do LCD
 #define RS PORTEbits.RE0
@@ -37,7 +36,8 @@ void main() {
     lcd_initialise();
     adc_initialise();
 
-    while (1) {
+    while (1){
+        
         unsigned int adc_value = read_adc();         // Lê o ADC
         float voltage = adc_value * 5.0f / 1023.0f;  // Converte para tensão
 

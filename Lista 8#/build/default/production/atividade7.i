@@ -1970,7 +1970,6 @@ char *tempnam(const char *, const char *);
 
 
 
-
 void lcd_command(unsigned char cmd);
 void lcd_data(unsigned char data);
 void lcd_initialise();
@@ -1989,7 +1988,8 @@ void main() {
     lcd_initialise();
     adc_initialise();
 
-    while (1) {
+    while (1){
+
         unsigned int adc_value = read_adc();
         float voltage = adc_value * 5.0f / 1023.0f;
 
