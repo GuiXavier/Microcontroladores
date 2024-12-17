@@ -1995,12 +1995,12 @@ void main() {
 
 
         lcd_command(0x80);
-        sprintf(buffer, "ADC: %04u", adc_value);
+        sprintf(buffer, "ADC:%04u", adc_value);
         lcd_string(buffer);
 
 
         lcd_command(0xC0);
-        sprintf(buffer, "V: %.2f V", voltage);
+        sprintf(buffer, "V:%.2fV", voltage);
         lcd_string(buffer);
 
         _delay((unsigned long)((500)*(20000000/4000.0)));

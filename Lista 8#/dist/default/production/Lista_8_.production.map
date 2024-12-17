@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
   -cn -h+dist/default/production\Lista_8_.production.sym \
   --cmf=dist/default/production\Lista_8_.production.cmf -z -Q16F877 \
-  -oC:\Users\Yan\AppData\Local\Temp\xcAsd88.\driver_tmp_3.o \
+  -oC:\Users\Yan\AppData\Local\Temp\xcAsc3o.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/Lista_8_.production.map \
-  --md=C:\Users\Yan\AppData\Local\Temp\xcAsd88.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\Yan\AppData\Local\Temp\xcAsc3o.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -22,7 +22,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\Yan\AppData\Local\Temp\xcAsd88.\driver_tmp_17.o \
+  C:\Users\Yan\AppData\Local\Temp\xcAsc3o.\driver_tmp_17.o \
   dist/default/production\Lista_8_.production.o 
 
 Object code version is 3.11
@@ -32,7 +32,7 @@ Machine type is 16F877
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Yan\AppData\Local\Temp\xcAsd88.\driver_tmp_17.o
+C:\Users\Yan\AppData\Local\Temp\xcAsc3o.\driver_tmp_17.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\Lista_8_.production.o
@@ -82,7 +82,7 @@ dist/default/production\Lista_8_.production.o
                 bssBANK2                            110      110       50      110       1
                 bssBANK3                            190      190       18      190       1
                 bssBANK1                             EB       EB        5       A0       1
-                strings                            1800     1800       22     3000       0
+                strings                            1800     1800       1F     3000       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
@@ -129,7 +129,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                            1800     1800       22         0
+                strings                            1800     1800       1F         0
 
         CLASS   CONST          
 
@@ -205,7 +205,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 text9                          00145C  00010B  001567      28B8       0  CODE        2
                 text17                         001567  00010F  001676      2ACE       0  CODE        2
                 text3                          001676  00018A  001800      2CEC       0  CODE        2
-                strings                        001800  000022  001822      3000       0  STRING      2
+                strings                        001800  00001F  00181F      3000       0  STRING      2
                 clrtext                        001DD1  000008  001DD9      3BA2       0  CODE        2
                 text33                         001DD9  000009  001DE2      3BB2       0  CODE        2
                 text28                         001DE2  000012  001DF4      3BC4       0  CODE        2
@@ -231,12 +231,12 @@ UNUSED ADDRESS RANGES
         BANK2            000160-00016F               10           1
         BANK3            0001BA-0001EF               36           1
         CODE             000003-000003                1           2
-                         001822-001DD0              5AF
+                         00181F-001DD0              5B2
         CONST            000003-000003                1           2
-                         001822-001DD0              100
+                         00181F-001DD0              100
         EEDATA           002100-0021FF              100           2
         ENTRY            000003-000003                1           2
-                         001822-001DD0              100
+                         00181F-001DD0              100
         IDLOC            002000-002003                4           2
         RAM              000160-00016F               10           1
                          0001BA-0001EF               36
@@ -245,9 +245,9 @@ UNUSED ADDRESS RANGES
         SFR2             000100-00010F               10           1
         SFR3             000180-00018F               10           1
         STRCODE          000003-000003                1           2
-                         001822-001DD0              5AF
+                         00181F-001DD0              5B2
         STRING           000003-000003                1           2
-                         001822-001DD0              100
+                         00181F-001DD0              100
 
                                   Symbol Table
 

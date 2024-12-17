@@ -43,12 +43,12 @@ void main() {
 
         // Exibe valor bruto do ADC
         lcd_command(0x80);
-        sprintf(buffer, "ADC: %04u", adc_value);
+        sprintf(buffer, "ADC:%04u", adc_value);
         lcd_string(buffer);
 
         // Exibe valor em tensão
         lcd_command(0xC0);
-        sprintf(buffer, "V: %.2f V", voltage);
+        sprintf(buffer, "V:%.2fV", voltage);
         lcd_string(buffer);
 
         __delay_ms(500);
