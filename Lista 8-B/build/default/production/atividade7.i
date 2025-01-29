@@ -1798,249 +1798,61 @@ extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
 # 1 "atividade7.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 143 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef short ssize_t;
-# 253 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 2 "atividade7.c" 2
-
-
 
 
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
 #pragma config CP = OFF
 
 
 
 
-
-void lcd_command(unsigned char cmd);
-void lcd_data(unsigned char data);
-void lcd_initialise();
-void lcd_string(const char *str);
-void adc_initialise();
-unsigned int read_adc();
-
-char buffer[16];
-
-void main() {
-
-    TRISE = 0x00;
-    TRISD = 0x00;
-    TRISA = 0xFF;
-
-    lcd_initialise();
-    adc_initialise();
-
-    while (1) {
-        unsigned int adc_value = read_adc();
-        float voltage = adc_value * 5.0f / 1023.0f;
-
-
-        lcd_command(0x80);
-        sprintf(buffer, "ADC: %04u", adc_value);
-        lcd_string(buffer);
-
-
-        lcd_command(0xC0);
-        sprintf(buffer, "V: %.2f V", voltage);
-        lcd_string(buffer);
-
-        _delay((unsigned long)((500)*(20000000/4000.0)));
-    }
+void inicializar_ADC() {
+    ADCON0 = 0b10011001;
+    ADCON1 = 0b10000010;
 }
 
-void adc_initialise() {
-    ADCON1 = 0x06;
-    ADCON0 = 0x0D;
-}
 
-unsigned int read_adc() {
-    _delay((unsigned long)((20)*(20000000/4000000.0)));
+unsigned int realizar_leitura_ADC(unsigned char canal) {
+    ADCON0 &= 0xC5;
+    ADCON0 |= (canal << 3);
+    _delay((unsigned long)((2)*(16000000/4000.0)));
     ADCON0bits.GO_DONE = 1;
     while (ADCON0bits.GO_DONE);
-    return ((unsigned int)ADRESH << 8) | ADRESL;
+    return ((unsigned int) ADRESH << 8) | ADRESL;
 }
 
-void lcd_command(unsigned char cmd) {
-    PORTD = cmd;
-    PORTEbits.RE0 = 0;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((5)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+
+void configurar_PWM() {
+    CCP1CON = 0b00001100;
+    PR2 = 0xFF;
+    T2CON = 0b00000100;
+    CCPR1L = 0x00;
 }
 
-void lcd_data(unsigned char data) {
-    PORTD = data;
-    PORTEbits.RE0 = 1;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((5)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+
+void ajustar_duty_PWM(unsigned int valor) {
+    valor &= 0x03FF;
+    CCPR1L = (unsigned char)(valor >> 2);
+    CCP1CONbits.CCP1X = (valor >> 1) & 1;
+    CCP1CONbits.CCP1Y = valor & 1;
 }
 
-void lcd_initialise() {
-    lcd_command(0x38);
-    lcd_command(0x06);
-    lcd_command(0x0C);
-    lcd_command(0x01);
-}
+void main() {
+    unsigned int leitura_ADC, duty_PWM;
 
-void lcd_string(const char *str) {
-    while (*str) {
-        lcd_data(*str++);
+
+    TRISA = 0xFF;
+    TRISCbits.TRISC2 = 0;
+
+    inicializar_ADC();
+    configurar_PWM();
+
+    while (1) {
+        leitura_ADC = realizar_leitura_ADC(3);
+        duty_PWM = leitura_ADC & 0x03FF;
+        ajustar_duty_PWM(duty_PWM);
+        _delay((unsigned long)((5)*(16000000/4000.0)));
     }
 }

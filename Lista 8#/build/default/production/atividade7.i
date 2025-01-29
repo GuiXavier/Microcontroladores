@@ -1968,14 +1968,13 @@ char *tempnam(const char *, const char *);
 
 
 
-
-
 void lcd_command(unsigned char cmd);
 void lcd_data(unsigned char data);
 void lcd_initialise();
 void lcd_string(const char *str);
 void adc_initialise();
-unsigned int read_adc();
+unsigned int read_adc(unsigned char canal);
+
 
 char buffer[16];
 
@@ -1985,70 +1984,71 @@ void main() {
     TRISD = 0x00;
     TRISA = 0xFF;
 
+
     lcd_initialise();
     adc_initialise();
 
-    while (1){
+    lcd_command(0x80);
+    lcd_string("Tensao:");
 
-        unsigned int adc_value = read_adc();
-        float voltage = adc_value * 5.0f / 1023.0f;
+    while (1) {
 
-
-        lcd_command(0x80);
-        sprintf(buffer, "ADC:%04u", adc_value);
-        lcd_string(buffer);
+        unsigned int adc_value = read_adc(3);
+        float voltage = (adc_value * 5.0f) / 1023.0f;
 
 
         lcd_command(0xC0);
-        sprintf(buffer, "V:%.2fV", voltage);
+        sprintf(buffer, "V: %.2f V", voltage);
         lcd_string(buffer);
 
         _delay((unsigned long)((500)*(20000000/4000.0)));
     }
 }
 
+
 void adc_initialise() {
-    ADCON1 = 0x06;
-    ADCON0 = 0x0D;
+    ADCON0 = 0b10011001;
+    ADCON1 = 0b10000010;
 }
 
-unsigned int read_adc() {
 
+unsigned int read_adc(unsigned char canal) {
+
+    ADCON0 &= 0xC5;
+    ADCON0 |= (canal << 3);
     _delay((unsigned long)((20)*(20000000/4000000.0)));
-    ADCON0bits.GO_DONE = 1;
-    while (ADCON0bits.GO_DONE);
-    return ((unsigned int)ADRESH << 8) | ADRESL;
-
-
-    ADCON1bits.ADFM = 0;
-
-    CCPR1L = ADRESH;
-    CCP1CON = (CCP1CON & 0b11001111);
-    CCP1CON = (CCP1CON) | ((ADRESL >> 2) & 0b00110000);
+    ADCON0bits.GO_nDONE = 1;
+    while (ADCON0bits.GO_nDONE);
+    return ((ADRESH << 8) + ADRESL);
 }
+
+
+void lcd_initialise() {
+    lcd_command(0x38);
+    lcd_command(0x0C);
+    lcd_command(0x06);
+    lcd_command(0x01);
+    _delay((unsigned long)((2)*(20000000/4000.0)));
+}
+
 
 void lcd_command(unsigned char cmd) {
     PORTD = cmd;
     PORTEbits.RE0 = 0;
     PORTEbits.RE1 = 1;
-    _delay((unsigned long)((5)*(20000000/4000.0)));
+    _delay((unsigned long)((2)*(20000000/4000.0)));
     PORTEbits.RE1 = 0;
 }
+
 
 void lcd_data(unsigned char data) {
     PORTD = data;
     PORTEbits.RE0 = 1;
     PORTEbits.RE1 = 1;
-    _delay((unsigned long)((5)*(20000000/4000.0)));
+    _delay((unsigned long)((2)*(20000000/4000.0)));
     PORTEbits.RE1 = 0;
 }
 
-void lcd_initialise() {
-    lcd_command(0x38);
-    lcd_command(0x06);
-    lcd_command(0x0C);
-    lcd_command(0x01);
-}
 
 void lcd_string(const char *str) {
     while (*str) {
