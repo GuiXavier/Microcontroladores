@@ -1,0 +1,170 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 0 ]
+"24 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 10\atividade10.c
+[v _interrupcao interrupcao `II(v  1 e 1 0 ]
+"54
+[v _main main `(v  1 e 1 0 ]
+"64
+[v _configurar_pinos configurar_pinos `(v  1 e 1 0 ]
+"73
+[v _configurar_timer2 configurar_timer2 `(v  1 e 1 0 ]
+"83
+[v _configurar_interrupcoes configurar_interrupcoes `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"12 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 10\atividade10.c
+[v _estado_led_rd0 estado_led_rd0 `VEuc  1 e 1 0 ]
+"13
+[v _estado_led_rd1 estado_led_rd1 `VEuc  1 e 1 0 ]
+"14
+[v _estado_led_rd2 estado_led_rd2 `VEuc  1 e 1 0 ]
+"15
+[v _estado_anterior_rb7 estado_anterior_rb7 `VEuc  1 e 1 0 ]
+"16
+[v _contador_timer2 contador_timer2 `VEui  1 e 2 0 ]
+[s S96 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[u S105 . 1 `S96 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES105  1 e 1 @6 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S43 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"357
+[u S52 . 1 `S43 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES52  1 e 1 @8 ]
+[s S64 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"477
+[s S73 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S78 . 1 `S64 1 . 1 0 `S73 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES78  1 e 1 @11 ]
+[s S22 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"549
+[u S31 . 1 `S22 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES31  1 e 1 @12 ]
+[s S153 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 TOUTPS 1 0 :4:3 
+]
+"753
+[s S157 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 TOUTPS0 1 0 :1:3 
+`uc 1 TOUTPS1 1 0 :1:4 
+`uc 1 TOUTPS2 1 0 :1:5 
+`uc 1 TOUTPS3 1 0 :1:6 
+]
+[u S165 . 1 `S153 1 . 1 0 `S157 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES165  1 e 1 @18 ]
+[s S202 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+"1270
+[s S209 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+]
+[u S213 . 1 `S202 1 . 1 0 `S209 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES213  1 e 1 @129 ]
+[s S130 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1387
+[u S139 . 1 `S130 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES139  1 e 1 @134 ]
+"1494
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+[s S181 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+`uc 1 PSPIE 1 0 :1:7 
+]
+"1630
+[u S190 . 1 `S181 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES190  1 e 1 @140 ]
+"1804
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"54 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 10\atividade10.c
+[v _main main `(v  1 e 1 0 ]
+{
+"61
+} 0
+"73
+[v _configurar_timer2 configurar_timer2 `(v  1 e 1 0 ]
+{
+"80
+} 0
+"64
+[v _configurar_pinos configurar_pinos `(v  1 e 1 0 ]
+{
+"70
+} 0
+"83
+[v _configurar_interrupcoes configurar_interrupcoes `(v  1 e 1 0 ]
+{
+"92
+} 0
+"24
+[v _interrupcao interrupcao `II(v  1 e 1 0 ]
+{
+"51
+} 0

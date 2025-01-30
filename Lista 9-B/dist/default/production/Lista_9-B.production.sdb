@@ -1,0 +1,137 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 0 ]
+"22 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 9-B\atividade9b.c
+[v _lcd_command lcd_command `(v  1 e 1 0 ]
+"30
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+"38
+[v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
+"46
+[v _lcd_string lcd_string `(v  1 e 1 0 ]
+"53
+[v _formata_contador formata_contador `(v  1 e 1 0 ]
+"62
+[v _exibir_contador_LCD exibir_contador_LCD `(v  1 e 1 0 ]
+"71
+[v _debounce debounce `(uc  1 e 1 0 ]
+"81
+[v _main main `(v  1 e 1 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"18 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 9-B\atividade9b.c
+[v _contador contador `ui  1 e 2 0 ]
+"19
+[v _buffer buffer `[5]uc  1 e 5 0 ]
+[s S43 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[u S52 . 1 `S43 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES52  1 e 1 @6 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S23 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+]
+"414
+[u S27 . 1 `S23 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES27  1 e 1 @9 ]
+"1370
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1494
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1556
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"81 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 9-B\atividade9b.c
+[v _main main `(v  1 e 1 0 ]
+{
+"105
+} 0
+"38
+[v _lcd_initialise lcd_initialise `(v  1 e 1 0 ]
+{
+"44
+} 0
+"62
+[v _exibir_contador_LCD exibir_contador_LCD `(v  1 e 1 0 ]
+{
+"68
+} 0
+"46
+[v _lcd_string lcd_string `(v  1 e 1 0 ]
+{
+[v lcd_string@str str `*.26DCuc  1 p 2 3 ]
+"50
+} 0
+"30
+[v _lcd_data lcd_data `(v  1 e 1 0 ]
+{
+[v lcd_data@data data `uc  1 p 1 wreg ]
+[v lcd_data@data data `uc  1 p 1 wreg ]
+[v lcd_data@data data `uc  1 p 1 2 ]
+"36
+} 0
+"22
+[v _lcd_command lcd_command `(v  1 e 1 0 ]
+{
+[v lcd_command@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_command@cmd cmd `uc  1 p 1 wreg ]
+[v lcd_command@cmd cmd `uc  1 p 1 2 ]
+"28
+} 0
+"53
+[v _formata_contador formata_contador `(v  1 e 1 0 ]
+{
+[v formata_contador@contador contador `ui  1 p 2 12 ]
+"59
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 11 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 7 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 9 ]
+"25
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 6 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"30
+} 0
+"71 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 9-B\atividade9b.c
+[v _debounce debounce `(uc  1 e 1 0 ]
+{
+[v debounce@botao botao `uc  1 p 1 wreg ]
+[v debounce@botao botao `uc  1 p 1 wreg ]
+[v debounce@botao botao `uc  1 p 1 3 ]
+"79
+} 0
