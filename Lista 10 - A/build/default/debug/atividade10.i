@@ -1853,7 +1853,6 @@ void main(void) {
     estado_anterior_rb7 = PORTBbits.RB7;
 
 
-    TMR2ON = 1;
     T2CON = 0b00000111;
     PR2 = 250;
 

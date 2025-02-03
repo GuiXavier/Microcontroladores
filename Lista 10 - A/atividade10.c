@@ -54,6 +54,7 @@ void main(void) {
     estado_anterior_rb7 = PORTBbits.RB7;
 
     // Configuração do Timer2
+    TMR2ON = 1;         // ligando o timer2
     T2CON = 0b00000111; // Prescaler 1:16, pós-escaler 1:16, liga Timer2
     PR2 = 250; // Período do Timer2
 

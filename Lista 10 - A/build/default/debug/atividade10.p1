@@ -48,9 +48,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1370
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 1370: extern volatile unsigned char TRISB __attribute__((address(0x086)));
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"2699
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 2699: extern volatile __bit TMR2ON __attribute__((address(0x92)));
-[v _TMR2ON `Vb ~T0 @X0 0 e@146 ]
 "732
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 732: extern volatile unsigned char T2CON __attribute__((address(0x012)));
 [v _T2CON `Vuc ~T0 @X0 0 e@18 ]
@@ -368,7 +365,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
 "49
-[; ;atividade10.c: 49:     T2CON = 0b00000111;
+[; ;atividade10.c: 49:     PR2 = 250;
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
@@ -377,33 +374,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;atividade10.c: 51: 
 [e = _TRISD -> -> 0 `i `uc ]
 "52
-[; ;atividade10.c: 52: 
+[; ;atividade10.c: 52:     INTCON = 0b11011000;
 [e = _TRISB -> -> 129 `i `uc ]
 "53
-[; ;atividade10.c: 53:     INTCON = 0b11011000;
+[; ;atividade10.c: 53:     PIE1 = 0b00000010;
 [e = _PORTD -> -> 0 `i `uc ]
 "54
-[; ;atividade10.c: 54:     PIE1 = 0b00000010;
+[; ;atividade10.c: 54:     PIR1bits.TMR2IF = 0;
 [e = _estado_anterior_rb7 . . _PORTBbits 0 7 ]
 "57
-[; ;atividade10.c: 57:     while (1);
-[e = _TMR2ON -> -> 1 `i `b ]
-"58
-[; ;atividade10.c: 58: }
+[; ;atividade10.c: 57: }
 [e = _T2CON -> -> 7 `i `uc ]
-"59
+"58
 [e = _PR2 -> -> 250 `i `uc ]
-"62
+"61
 [e = _INTCON -> -> 216 `i `uc ]
-"63
+"62
 [e = _PIE1 -> -> 2 `i `uc ]
-"64
+"63
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-"66
+"65
 [e :U 102 ]
 [e :U 101 ]
 [e $U 102  ]
 [e :U 103 ]
-"67
+"66
 [e :UE 100 ]
 }

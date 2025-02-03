@@ -55,7 +55,7 @@ strings STRING 0 1000 1000 2A 2 1
 clrtext CODE 0 102A 102A 8 2 1
 text6_split_1 CODE 0 C8 C8 723 2 1
 config CONFIG 4 2007 2007 1 2 1
-$C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+$C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 end_init CODE 0 0 0 3 2 1
 config CONFIG 4 2007 2007 1 2 1
 # %UNUSED Section
@@ -103,20 +103,20 @@ STRING 1800-1F88 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lista_8A_novo.production.o
-7EB cinit CODE >475:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7EB cinit CODE >478:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7EB cinit CODE >525:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7EC cinit CODE >526:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7ED cinit CODE >527:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7EE cinit CODE >528:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7EF cinit CODE >529:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7F4 cinit CODE >532:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7F5 cinit CODE >533:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7F6 cinit CODE >534:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7F7 cinit CODE >535:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7FC cinit CODE >541:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7FC cinit CODE >543:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-7FD cinit CODE >544:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
+7EB cinit CODE >475:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7EB cinit CODE >478:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7EB cinit CODE >525:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7EC cinit CODE >526:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7ED cinit CODE >527:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7EE cinit CODE >528:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7EF cinit CODE >529:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7F4 cinit CODE >532:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7F5 cinit CODE >533:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7F6 cinit CODE >534:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7F7 cinit CODE >535:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7FC cinit CODE >541:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7FC cinit CODE >543:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+7FD cinit CODE >544:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
 C8 text6_split_1 CODE >657:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
 D2 text6_split_1 CODE >658:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
 D4 text6_split_1 CODE >659:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
@@ -280,49 +280,49 @@ FE text6_split_1 CODE >660:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\
 14C8 text31 CODE >42:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\xxtofl.c
 14C9 text31 CODE >43:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\xxtofl.c
 14D1 text31 CODE >44:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\xxtofl.c
-802 text30 CODE >57:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-802 text30 CODE >58:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-806 text30 CODE >59:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-80A text30 CODE >60:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F89 text29 CODE >83:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F8A text29 CODE >84:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F8E text29 CODE >85:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F8F text29 CODE >86:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F90 text29 CODE >87:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F99 text29 CODE >88:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F9C text29 CODE >89:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1032 text28 CODE >74:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1032 text28 CODE >75:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1038 text28 CODE >76:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-103E text28 CODE >77:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1044 text28 CODE >78:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-104A text28 CODE >79:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1053 text28 CODE >80:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F9D text27 CODE >92:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1F9E text27 CODE >93:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1FA2 text27 CODE >94:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1FA3 text27 CODE >95:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1FA4 text27 CODE >96:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1FAD text27 CODE >97:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1FB0 text27 CODE >98:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-10BF text26 CODE >101:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-10BF text26 CODE >102:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-10C0 text26 CODE >103:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-10D0 text26 CODE >103:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-10D4 text26 CODE >102:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-10E0 text26 CODE >102:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-10E4 text26 CODE >105:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1054 text25 CODE >63:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1055 text25 CODE >65:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1059 text25 CODE >66:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-105C text25 CODE >66:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-105F text25 CODE >66:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1061 text25 CODE >66:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1064 text25 CODE >67:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1068 text25 CODE >68:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-106B text25 CODE >69:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-106F text25 CODE >70:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1075 text25 CODE >71:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+802 text30 CODE >57:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+802 text30 CODE >58:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+806 text30 CODE >59:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+80A text30 CODE >60:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F89 text29 CODE >83:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F8A text29 CODE >84:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F8E text29 CODE >85:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F8F text29 CODE >86:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F90 text29 CODE >87:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F99 text29 CODE >88:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F9C text29 CODE >89:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1032 text28 CODE >74:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1032 text28 CODE >75:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1038 text28 CODE >76:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+103E text28 CODE >77:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1044 text28 CODE >78:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+104A text28 CODE >79:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1053 text28 CODE >80:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F9D text27 CODE >92:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1F9E text27 CODE >93:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1FA2 text27 CODE >94:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1FA3 text27 CODE >95:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1FA4 text27 CODE >96:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1FAD text27 CODE >97:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1FB0 text27 CODE >98:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+10BF text26 CODE >101:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+10BF text26 CODE >102:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+10C0 text26 CODE >103:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+10D0 text26 CODE >103:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+10D4 text26 CODE >102:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+10E0 text26 CODE >102:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+10E4 text26 CODE >105:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1054 text25 CODE >63:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1055 text25 CODE >65:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1059 text25 CODE >66:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+105C text25 CODE >66:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+105F text25 CODE >66:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1061 text25 CODE >66:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1064 text25 CODE >67:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1068 text25 CODE >68:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+106B text25 CODE >69:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+106F text25 CODE >70:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1075 text25 CODE >71:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
 898 text24 CODE >8:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcdiv.c
 898 text24 CODE >26:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcdiv.c
 89E text24 CODE >27:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcdiv.c
@@ -1131,30 +1131,30 @@ CBD text18 CODE >237:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common
 1170 text1 CODE >19:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
 117F text1 CODE >20:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
 118A text1 CODE >23:C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
-12 maintext CODE >29:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-12 maintext CODE >31:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-15 maintext CODE >32:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-16 maintext CODE >33:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-18 maintext CODE >36:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-1D maintext CODE >37:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-22 maintext CODE >39:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-28 maintext CODE >40:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-31 maintext CODE >44:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-3D maintext CODE >45:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-93 maintext CODE >48:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-99 maintext CODE >49:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-AC maintext CODE >50:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-B5 maintext CODE >52:C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
-102A clrtext CODE >512:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-102A clrtext CODE >513:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-102B clrtext CODE >514:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-102B clrtext CODE >515:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-102C clrtext CODE >516:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-102D clrtext CODE >517:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-102E clrtext CODE >518:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-102F clrtext CODE >519:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-1030 clrtext CODE >520:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
-1031 clrtext CODE >521:C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_1.s
+12 maintext CODE >29:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+12 maintext CODE >31:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+15 maintext CODE >32:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+16 maintext CODE >33:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+18 maintext CODE >36:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+1D maintext CODE >37:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+22 maintext CODE >39:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+28 maintext CODE >40:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+31 maintext CODE >44:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+3D maintext CODE >45:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+93 maintext CODE >48:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+99 maintext CODE >49:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+AC maintext CODE >50:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+B5 maintext CODE >52:C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 8A novo\atividade7.c
+102A clrtext CODE >512:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+102A clrtext CODE >513:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+102B clrtext CODE >514:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+102B clrtext CODE >515:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+102C clrtext CODE >516:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+102D clrtext CODE >517:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+102E clrtext CODE >518:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+102F clrtext CODE >519:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+1030 clrtext CODE >520:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
+1031 clrtext CODE >521:C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -1182,19 +1182,19 @@ labs@a 70 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.producti
 __L__absolute__ 0 0 ABS 0 __absolute__ -
 __Hstrings 0 0 ABS 0 strings -
 ?_vfprintf DC 0 BANK1 1 cstackBANK1 dist/default/production\Lista_8A_novo.production.o
-___sp 0 0 STACK 2 stack C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+___sp 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 _dbuf 110 0 BANK2 1 bssBANK2 dist/default/production\Lista_8A_novo.production.o
 _labs 3F62 0 CODE 0 text13 dist/default/production\Lista_8A_novo.production.o
 _main 24 0 CODE 0 maintext dist/default/production\Lista_8A_novo.production.o
 _prec 19A 0 BANK3 1 bssBANK3 dist/default/production\Lista_8A_novo.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lista_8A_novo.production.o
-___stack_hi 0 0 STACK 2 stack C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-___stack_lo 0 0 STACK 2 stack C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+___stack_hi 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+___stack_lo 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 read_prec_or_width@c 78 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
 read_prec_or_width@n 79 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
 pad@i 2D 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
 pad@p 2B 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
-start 0 0 CODE 0 init C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+start 0 0 CODE 0 init C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 ___flmul@aexp 32 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
 ___flmul@bexp 33 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
 ___flmul@prod 34 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
@@ -1210,12 +1210,12 @@ efgtoa@ou B7 0 BANK1 1 cstackBANK1 dist/default/production\Lista_8A_novo.product
 efgtoa@pp AC 0 BANK1 1 cstackBANK1 dist/default/production\Lista_8A_novo.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 __end_of_vfpfcnvrt 2BBC 0 CODE 0 text3 dist/default/production\Lista_8A_novo.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 floorf@e 62 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
 floorf@m 5E 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
 floorf@u 64 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
@@ -1250,8 +1250,8 @@ __end_of___flsub 2134 0 CODE 0 text17 dist/default/production\Lista_8A_novo.prod
 __end_of___fltol 25C0 0 CODE 0 text16 dist/default/production\Lista_8A_novo.production.o
 ?___fpclassifyf 70 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
 __Umul8_16@multiplicand 70 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
-___stackhi 0 0 ABS 0 - C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-___stacklo 0 0 ABS 0 - C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+___stackhi 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+___stacklo 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 __end_of_efgtoa FD6 0 CODE 0 text6_split_1 dist/default/production\Lista_8A_novo.production.o
 lcd_command@cmd 72 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
 __end_of_floorf 2DDA 0 CODE 0 text14 dist/default/production\Lista_8A_novo.production.o
@@ -1290,7 +1290,7 @@ __pcstackBANK3 1AD 0 BANK3 1 cstackBANK3 dist/default/production\Lista_8A_novo.p
 _efgtoa$717 AA 0 BANK1 1 cstackBANK1 dist/default/production\Lista_8A_novo.production.o
 fputc@fp 72 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
 fputs@fp 21 0 BANK0 1 cstackBANK0 dist/default/production\Lista_8A_novo.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+___int_sp 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -1365,7 +1365,7 @@ _lcd_data 3F3A 0 CODE 0 text27 dist/default/production\Lista_8A_novo.production.
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 2000 0 STRING 0 strings dist/default/production\Lista_8A_novo.production.o
 strcpy@d 72 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 pnum$text6_split_1 2C 0 ABS 0 - dist/default/production\Lista_8A_novo.production.o
 __end_of___xxtofl 29A4 0 CODE 0 text31 dist/default/production\Lista_8A_novo.production.o
 __end_of_lcd_data 3F62 0 CODE 0 text27 dist/default/production\Lista_8A_novo.production.o
@@ -1490,8 +1490,8 @@ __Umul8_16@word_mpld 76 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A
 ___fltol@sign1 78 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __end_of_vfprintf 226A 0 CODE 0 text2 dist/default/production\Lista_8A_novo.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-___heap_lo 0 0 ABS 0 - C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+___heap_hi 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+___heap_lo 0 0 ABS 0 - C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 ___fltol@f1 70 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
 main@adc_value EE 0 BANK1 1 cstackBANK1 dist/default/production\Lista_8A_novo.production.o
 strcpy@src 71 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
@@ -1531,8 +1531,8 @@ __pbssBANK3 190 0 BANK3 1 bssBANK3 dist/default/production\Lista_8A_novo.product
 __pstrings 2000 0 STRING 0 strings dist/default/production\Lista_8A_novo.production.o
 _lcd_initialise 2064 0 CODE 0 text28 dist/default/production\Lista_8A_novo.production.o
 ___wmul@product 74 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
-___int_stack_hi 0 0 STACK 2 stack C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
-___int_stack_lo 0 0 STACK 2 stack C:\Users\GUILHE~1\AppData\Local\Temp\xcAshog.\driver_tmp_17.o
+___int_stack_hi 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
+___int_stack_lo 0 0 STACK 2 stack C:\Users\Yan\AppData\Local\Temp\xcAsfeg.\driver_tmp_17.o
 read_prec_or_width@ap 77 0 COMMON 1 cstackCOMMON dist/default/production\Lista_8A_novo.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.

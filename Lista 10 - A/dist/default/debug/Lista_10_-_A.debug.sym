@@ -1,5 +1,5 @@
 _PR2 92 0 ABS 0
-__S0 78 0 ABS 0
+__S0 77 0 ABS 0
 __S1 78 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry C 0 CODE 0
@@ -31,7 +31,6 @@ __Heeprom_data 0 0 EEDATA 3
 __Leeprom_data 0 0 EEDATA 3
 _PIR1bits C 0 ABS 0
 ___int_sp 0 0 STACK 2
-_TMR2ON 92 0 ABS 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
 _INTCON B 0 ABS 0
@@ -52,7 +51,7 @@ __Lheap 0 0 HEAP 7
 saved_w 7E 0 ABS 0
 __Hinit C 0 CODE 0
 __Linit C 0 CODE 0
-__end_of_main 78 0 CODE 0
+__end_of_main 77 0 CODE 0
 _estado_led_rd1 74 0 COMMON 1
 __Hsivt C 0 CODE 0
 __Htext 0 0 ABS 0
@@ -84,7 +83,7 @@ __H__absolute__ 0 0 ABS 0
 __L__absolute__ 0 0 ABS 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
-__Hspace_0 78 0 ABS 0
+__Hspace_0 77 0 ABS 0
 __Lspace_0 0 0 ABS 0
 _contador_timer2 70 0 COMMON 1
 __Hspace_1 78 0 ABS 0
@@ -127,22 +126,22 @@ __initialization F 0 CODE 0
 _estado_led_rd0 75 0 COMMON 1
 %segments
 reset_vec 0 5 CODE 0 0
-intentry 8 EF CODE 8 0
+intentry 8 ED CODE 8 0
 bssCOMMON 70 77 COMMON 70 1
 %locals
-dist/default/production\Lista_10_-_A.production.o
-C:\Users\Yan\AppData\Local\Temp\xcAsd94.\driver_tmp_1.s
-366 F 0 CODE 0
-369 F 0 CODE 0
-392 F 0 CODE 0
-393 10 0 CODE 0
-394 11 0 CODE 0
-395 12 0 CODE 0
-396 13 0 CODE 0
-397 14 0 CODE 0
+dist/default/debug\Lista_10_-_A.debug.o
+C:\Users\Yan\AppData\Local\Temp\xcAse68.\driver_tmp_1.s
+364 F 0 CODE 0
+367 F 0 CODE 0
+390 F 0 CODE 0
+391 10 0 CODE 0
+392 11 0 CODE 0
+393 12 0 CODE 0
+394 13 0 CODE 0
+395 14 0 CODE 0
+401 15 0 CODE 0
 403 15 0 CODE 0
-405 15 0 CODE 0
-406 16 0 CODE 0
+404 16 0 CODE 0
 atividade10.c
 49 5A 0 CODE 0
 51 5A 0 CODE 0
@@ -150,12 +149,11 @@ atividade10.c
 53 5F 0 CODE 0
 54 62 0 CODE 0
 57 66 0 CODE 0
-58 67 0 CODE 0
-59 69 0 CODE 0
-62 6D 0 CODE 0
-63 6F 0 CODE 0
-64 71 0 CODE 0
-66 74 0 CODE 0
+58 68 0 CODE 0
+61 6C 0 CODE 0
+62 6E 0 CODE 0
+63 70 0 CODE 0
+65 73 0 CODE 0
 19 19 0 CODE 0
 21 19 0 CODE 0
 22 1F 0 CODE 0
