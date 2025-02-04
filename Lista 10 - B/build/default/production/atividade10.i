@@ -1808,59 +1808,83 @@ extern __bank0 __bit __timeout;
 
 
 
-volatile unsigned char estado_led_rd0 = 0;
-volatile unsigned char estado_led_rd1 = 0;
-volatile unsigned char estado_led_rd2 = 0;
-volatile unsigned char estado_anterior_rb7 = 0;
-volatile unsigned int contador_timer2 = 0;
+volatile unsigned int tempo_motor = 0;
+volatile unsigned char motor_ativo = 0;
+
+
+void configurar_pinos(void);
+void configurar_timer1(void);
+void configurar_interrupcoes(void);
 
 
 void __attribute__((picinterrupt(("")))) interrupcao(void) {
 
-    if (PIR1bits.TMR2IF) {
-        PIR1bits.TMR2IF = 0;
-        contador_timer2++;
-        if (contador_timer2 >= 156) {
-            contador_timer2 = 0;
-            estado_led_rd0 = ~estado_led_rd0;
-            PORTD ^= 0x01;
+    if (PIR1bits.TMR1IF) {
+        PIR1bits.TMR1IF = 0;
+        TMR1H = 0x0B;
+        TMR1L = 0xDC;
+
+        if (motor_ativo) {
+            tempo_motor--;
+            if (tempo_motor == 0) {
+                motor_ativo = 0;
+                PORTDbits.RD0 = 0;
+                T1CONbits.TMR1ON = 0;
+            }
         }
     }
 
 
     if (INTCONbits.INTF) {
         INTCONbits.INTF = 0;
-        estado_led_rd1 = ~estado_led_rd1;
-        PORTD ^= 0x02;
+        if (!motor_ativo) {
+            tempo_motor = 20;
+            motor_ativo = 1;
+            PORTDbits.RD0 = 1;
+            T1CONbits.TMR1ON = 1;
+        }
     }
 
 
     if (INTCONbits.RBIF) {
         INTCONbits.RBIF = 0;
-        if (PORTBbits.RB7 != estado_anterior_rb7) {
-            estado_led_rd2 = ~estado_led_rd2;
-            PORTD ^= 0x04;
-            estado_anterior_rb7 = PORTBbits.RB7;
+        if (PORTBbits.RB1 && !motor_ativo) {
+            tempo_motor = 40;
+            motor_ativo = 1;
+            PORTDbits.RD0 = 1;
+            T1CONbits.TMR1ON = 1;
         }
     }
 }
 
 void main(void) {
-
-    TRISD = 0x00;
-    TRISB = 0x81;
-    PORTD = 0x00;
-    estado_anterior_rb7 = PORTBbits.RB7;
-
-
-    TMR2ON = 1;
-    T2CON = 0b00000111;
-    PR2 = 250;
-
-
-    INTCON = 0b11011000;
-    PIE1 = 0b00000010;
-    PIR1bits.TMR2IF = 0;
-
+    configurar_pinos();
+    configurar_timer1();
+    configurar_interrupcoes();
     while (1);
+}
+
+void configurar_pinos(void) {
+    TRISD = 0x00;
+
+    TRISBbits.TRISB0 = 1;
+    TRISBbits.TRISB1 = 1;
+    PORTD = 0x00;
+}
+
+void configurar_timer1(void) {
+    T1CON = 0x31;
+    TMR1H = 0x0B;
+    TMR1L = 0xDC;
+    PIR1bits.TMR1IF = 0;
+    PIE1bits.TMR1IE = 1;
+}
+
+void configurar_interrupcoes(void) {
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.INTE = 1;
+    INTCONbits.INTF = 0;
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;
 }

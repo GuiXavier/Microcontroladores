@@ -1,67 +1,91 @@
 #include <xc.h>
 
-// Configurações do microcontrolador
+// Configuração do microcontrolador
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config CP = OFF
 
-#define _XTAL_FREQ 20000000 // Frequência do oscilador (20 MHz)
+#define _XTAL_FREQ 20000000 // Oscilador de 20 MHz
 
 // Variáveis globais
-volatile unsigned char estado_led_rd0 = 0;
-volatile unsigned char estado_led_rd1 = 0;
-volatile unsigned char estado_led_rd2 = 0;
-volatile unsigned char estado_anterior_rb7 = 0;
-volatile unsigned int contador_timer2 = 0;
+volatile unsigned int tempo_motor = 0;
+volatile unsigned char motor_ativo = 0;
+
+// Protótipos de funções
+void configurar_pinos(void);
+void configurar_timer1(void);
+void configurar_interrupcoes(void);
 
 // Rotina de interrupção
 void __interrupt() interrupcao(void) {
-    // Interrupção do Timer2 (pisca LED RD0)
-    if (PIR1bits.TMR2IF) {
-        PIR1bits.TMR2IF = 0; // Limpa a flag
-        contador_timer2++;
-        if (contador_timer2 >= 156) { // Aproximadamente 1s
-            contador_timer2 = 0;
-            estado_led_rd0 = ~estado_led_rd0;
-            PORTD ^= 0x01; // Alterna RD0
+    // Timer1 controla o tempo do motor
+    if (PIR1bits.TMR1IF) {
+        PIR1bits.TMR1IF = 0;
+        TMR1H = 0x0B; // Recarga para 50ms
+        TMR1L = 0xDC;
+
+        if (motor_ativo) {
+            tempo_motor--;
+            if (tempo_motor == 0) {
+                motor_ativo = 0;
+                PORTDbits.RD0 = 0; // Desliga o motor
+                T1CONbits.TMR1ON = 0; // Para o Timer1
+            }
+        }
+    }
+    
+    // Botão RB0 (aciona motor por 2s)
+    if (INTCONbits.INTF) {
+        INTCONbits.INTF = 0;
+        if (!motor_ativo) {
+            tempo_motor = 20; // 2s (40 * 50ms)
+            motor_ativo = 1;
+            PORTDbits.RD0 = 1; // Liga o motor
+            T1CONbits.TMR1ON = 1; // Inicia o Timer1
         }
     }
 
-    // Interrupção externa em RB0 (borda de subida)
-    if (INTCONbits.INTF) {
-        INTCONbits.INTF = 0; // Limpa a flag
-        estado_led_rd1 = ~estado_led_rd1;
-        PORTD ^= 0x02; // Alterna RD1
-    }
-
-    // Interrupção de mudança de estado em RB7
+    // Botão RB1 (aciona motor por 4s)
     if (INTCONbits.RBIF) {
-        INTCONbits.RBIF = 0; // Limpa a flag
-        if (PORTBbits.RB7 != estado_anterior_rb7) {
-            estado_led_rd2 = ~estado_led_rd2;
-            PORTD ^= 0x04; // Alterna RD2
-            estado_anterior_rb7 = PORTBbits.RB7;
+        INTCONbits.RBIF = 0;
+        if (PORTBbits.RB1 && !motor_ativo) {
+            tempo_motor = 40; // 4s (80 * 50ms)
+            motor_ativo = 1;
+            PORTDbits.RD0 = 1; // Liga o motor
+            T1CONbits.TMR1ON = 1; // Inicia o Timer1
         }
     }
 }
 
 void main(void) {
-    // Configuração dos pinos
-    TRISD = 0x00; // PORTD como saída
-    TRISB = 0x81; // RB0 e RB7 como entrada
-    PORTD = 0x00;
-    estado_anterior_rb7 = PORTBbits.RB7;
-
-    // Configuração do Timer2
-    TMR2ON = 1;         // ligando o timer2
-    T2CON = 0b00000111; // Prescaler 1:16, pós-escaler 1:16, liga Timer2
-    PR2 = 250; // Período do Timer2
-
-    // Configuração das interrupções
-    INTCON = 0b11011000; // Habilita interrupção global, periférica, RB0 e RB7
-    PIE1 = 0b00000010;   // Habilita interrupção do Timer2
-    PIR1bits.TMR2IF = 0; // Limpa a flag do Timer2
-
+    configurar_pinos();
+    configurar_timer1();
+    configurar_interrupcoes();
     while (1);
+}
+
+void configurar_pinos(void) {
+    TRISD = 0x00; // PORTD como saída
+    //PORTB = 0x01;
+    TRISBbits.TRISB0 = 1; // RB0 como entrada
+    TRISBbits.TRISB1 = 1; // RB1 como entrada
+    PORTD = 0x00; // Inicializa motor desligado
+}
+
+void configurar_timer1(void) {
+    T1CON = 0x31; // Prescaler 1:8
+    TMR1H = 0x0B; // Valor de recarga (50ms)
+    TMR1L = 0xDC;
+    PIR1bits.TMR1IF = 0;
+    PIE1bits.TMR1IE = 1;
+}
+
+void configurar_interrupcoes(void) {
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.INTE = 1;
+    INTCONbits.INTF = 0;
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;
 }

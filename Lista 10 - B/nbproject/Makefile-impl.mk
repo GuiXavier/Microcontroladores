@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Lista 10 - A
+PROJECTNAME=Lista 10 - B
 
 # Active Configuration
 DEFAULTCONF=default
