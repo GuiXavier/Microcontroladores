@@ -1,0 +1,94 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 0 ]
+"19 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 10 - A\atividade10.c
+[v _interrupcao interrupcao `II(v  1 e 1 0 ]
+"49
+[v _main main `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"12 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 10 - A\atividade10.c
+[v _estado_led_rd0 estado_led_rd0 `VEuc  1 e 1 0 ]
+"13
+[v _estado_led_rd1 estado_led_rd1 `VEuc  1 e 1 0 ]
+"14
+[v _estado_led_rd2 estado_led_rd2 `VEuc  1 e 1 0 ]
+"15
+[v _estado_anterior_rb7 estado_anterior_rb7 `VEuc  1 e 1 0 ]
+"16
+[v _contador_timer2 contador_timer2 `VEui  1 e 2 0 ]
+[s S76 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[u S85 . 1 `S76 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES85  1 e 1 @6 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"454
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+[s S44 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"477
+[s S53 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S58 . 1 `S44 1 . 1 0 `S53 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES58  1 e 1 @11 ]
+[s S22 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 CCP1IF 1 0 :1:2 
+`uc 1 SSPIF 1 0 :1:3 
+`uc 1 TXIF 1 0 :1:4 
+`uc 1 RCIF 1 0 :1:5 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 PSPIF 1 0 :1:7 
+]
+"549
+[u S31 . 1 `S22 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES31  1 e 1 @12 ]
+"732
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+"1370
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1494
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1613
+[v _PIE1 PIE1 `VEuc  1 e 1 @140 ]
+"1804
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"2699
+[v _TMR2ON TMR2ON `VEb  1 e 0 @146 ]
+"49 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 10 - A\atividade10.c
+[v _main main `(v  1 e 1 0 ]
+{
+"67
+} 0
+"19
+[v _interrupcao interrupcao `II(v  1 e 1 0 ]
+{
+"47
+} 0

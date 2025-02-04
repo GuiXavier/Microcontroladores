@@ -31,7 +31,7 @@ void main() {
     TRISE = 0x00;  // PORT E como saída (Controle do LCD)
     TRISD = 0x00;  // PORT D como saída (Dados do LCD)
     TRISA = 0xFF;  // PORT A como entrada (ADC)
-
+    
     // Inicializa LCD e ADC
     lcd_initialise();
     adc_initialise();
