@@ -1819,7 +1819,7 @@ void inicializar_Timer0() {
 
 void atraso_Timer0() {
     unsigned char contador = 0;
-    while (contador < 61) {
+    while (contador < 80) {
         while (!INTCONbits.TMR0IF);
         INTCONbits.TMR0IF = 0;
         TMR0 = 6;

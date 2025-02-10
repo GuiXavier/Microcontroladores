@@ -230,7 +230,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;atividade9a.c: 7:     OPTION_REG = 0b00000111;
 [p x CP  =  OFF         ]
 "14
-[; ;atividade9a.c: 14:     while (contador < 61) {
+[; ;atividade9a.c: 14:     while (contador < 80) {
 [v _inicializar_Timer0 `(v ~T0 @X0 1 ef ]
 {
 [e :U _inicializar_Timer0 ]
@@ -285,7 +285,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 96 ]
 "23
 [; ;atividade9a.c: 23:     TRISCbits.TRISC2 = 0;
-[e $ < -> _contador `i -> 61 `i 97  ]
+[e $ < -> _contador `i -> 80 `i 97  ]
 [e :U 98 ]
 "29
 [; ;atividade9a.c: 29:         PORTCbits.RC2 = !PORTCbits.RC2;
