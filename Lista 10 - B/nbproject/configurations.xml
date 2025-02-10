@@ -19,6 +19,8 @@
                    projectFiles="true">
     </logicalFolder>
     <itemPath>atividade10.c</itemPath>
+    <itemPath>atividade10.c</itemPath>
+    <itemPath>10b.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
