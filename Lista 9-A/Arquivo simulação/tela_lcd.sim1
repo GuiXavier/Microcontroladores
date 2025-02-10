@@ -56,6 +56,10 @@
 
 <item itemtype="Led" CircId="Led-75" mainComp="false" Show_id="false" Show_Val="false" Pos="-780,-264" rotation="360" hflip="1" vflip="1" label="Led-75" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
 
+<item itemtype="Oscope" CircId="Oscope-77" mainComp="false" Show_id="false" Show_Val="false" Pos="-764,-128" rotation="0" hflip="1" vflip="1" label="Oscope-77" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="451738649883" TimPos="3682287730,13682287708,13682287708,13682287708," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="0" Filter="0.1 V" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0.01,0,0,0," />
+
+<item itemtype="Node" CircId="Node-78" mainComp="false" Pos="-688,-264" />
+
 <item itemtype="Connector" uid="Connector-31" startpinid="Fixed Voltage-20-outnod" endpinid="p16f877-1-MCLR" pointList="-668,-452,-668,-392,-652,-392" />
 
 <item itemtype="Connector" uid="Connector-33" startpinid="Tunnel-11-pin" endpinid="Hd44780-21-PinRS" pointList="-572,-132,-572,-152" />
@@ -102,10 +106,14 @@
 
 <item itemtype="Connector" uid="Connector-40" startpinid="Tunnel-28-pin" endpinid="p16f877-1-PORTD4" pointList="-576,-284,-588,-284,-588,-288" />
 
-<item itemtype="Connector" uid="Connector-124" startpinid="Resistor-74-rPin" endpinid="p16f877-1-PORTC2" pointList="-704,-264,-652,-264" />
-
 <item itemtype="Connector" uid="Connector-134" startpinid="Led-75-rPin" endpinid="Resistor-74-lPin" pointList="-764,-264,-736,-264" />
 
 <item itemtype="Connector" uid="Connector-137" startpinid="Led-75-lPin" endpinid="Voltage Source-73-outPin" pointList="-796,-264,-844,-264" />
+
+<item itemtype="Connector" uid="Connector-138" startpinid="Oscope-77-Pin0" endpinid="Node-78-1" pointList="-852,-176,-852,-228,-688,-228,-688,-264" />
+
+<item itemtype="Connector" uid="Connector-139" startpinid="Resistor-74-rPin" endpinid="Node-78-0" pointList="-704,-264,-688,-264" />
+
+<item itemtype="Connector" uid="Connector-140" startpinid="Node-78-2" endpinid="p16f877-1-PORTC2" pointList="-688,-264,-652,-264" />
 
 </circuit>
