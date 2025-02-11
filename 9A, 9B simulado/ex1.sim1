@@ -1,0 +1,29 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Led" CircId="Led-28" mainComp="false" Show_id="false" Show_Val="false" Pos="-772,-256" rotation="900" hflip="1" vflip="1" label="Led-28" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-27" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-712,-256" rotation="0" hflip="1" vflip="1" label="Resistor-27" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="50 Ω" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-676,-444" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-4" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="MCU" CircId="p16f877-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-636,-392" rotation="0" hflip="1" vflip="1" label="p16f877-1" idLabPos="0,-20" labelrot="0" valLabPos="0,0" valLabRot="0" Frequency="20 MHz" Program="../../../MPLABXProjects/Lista 9.X/dist/default/production/Lista_9.X.production.hex" Auto_Load="false" saveEepr="true" Clk_Out="false" eeprom="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0," SerialMon="-1" />
+
+<item itemtype="Probe" CircId="Probe-67" mainComp="false" Show_id="false" Show_Val="true" Pos="-724,-296" rotation="-45" hflip="1" vflip="1" label="Probe-67" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Ground" CircId="Ground-70" mainComp="false" Show_id="false" Show_Val="false" Pos="-804,-240" rotation="0" hflip="1" vflip="1" label="Ground-70" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Node" CircId="Node-69" mainComp="false" Pos="-740,-256" />
+
+<item itemtype="Connector" uid="Connector-24" startpinid="Resistor-27-rPin" endpinid="p16f877-1-PORTC2" pointList="-696,-256,-644,-256" />
+
+<item itemtype="Connector" uid="Connector-68" startpinid="Fixed Voltage-4-outnod" endpinid="p16f877-1-MCLR" pointList="-660,-444,-660,-384,-644,-384" />
+
+<item itemtype="Connector" uid="Connector-75" startpinid="Led-28-lPin" endpinid="Node-69-1" pointList="-756,-256,-740,-256" />
+
+<item itemtype="Connector" uid="Connector-76" startpinid="Probe-67-inpin" endpinid="Node-69-0" pointList="-740,-280,-740,-256" />
+
+<item itemtype="Connector" uid="Connector-77" startpinid="Node-69-2" endpinid="Resistor-27-lPin" pointList="-740,-256,-728,-256" />
+
+<item itemtype="Connector" uid="Connector-78" startpinid="Ground-70-Gnd" endpinid="Led-28-rPin" pointList="-804,-256,-788,-256" />
+
+</circuit>

@@ -1812,6 +1812,14 @@ volatile unsigned int tempo_motor = 0;
 volatile unsigned char motor_ativo = 0;
 
 
+<<<<<<< HEAD
+=======
+void configurar_pinos(void);
+void configurar_timer1(void);
+void configurar_interrupcoes(void);
+
+
+>>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
 void __attribute__((picinterrupt(("")))) interrupcao(void) {
 
     if (PIR1bits.TMR1IF) {
@@ -1833,7 +1841,11 @@ void __attribute__((picinterrupt(("")))) interrupcao(void) {
     if (INTCONbits.INTF) {
         INTCONbits.INTF = 0;
         if (!motor_ativo) {
+<<<<<<< HEAD
             tempo_motor = 40;
+=======
+            tempo_motor = 20;
+>>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
             motor_ativo = 1;
             PORTDbits.RD0 = 1;
             T1CONbits.TMR1ON = 1;
@@ -1844,7 +1856,11 @@ void __attribute__((picinterrupt(("")))) interrupcao(void) {
     if (INTCONbits.RBIF) {
         INTCONbits.RBIF = 0;
         if (PORTBbits.RB1 && !motor_ativo) {
+<<<<<<< HEAD
             tempo_motor = 80;
+=======
+            tempo_motor = 40;
+>>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
             motor_ativo = 1;
             PORTDbits.RD0 = 1;
             T1CONbits.TMR1ON = 1;
@@ -1853,6 +1869,7 @@ void __attribute__((picinterrupt(("")))) interrupcao(void) {
 }
 
 void main(void) {
+<<<<<<< HEAD
 
     TRISD = 0x00;
     TRISB = 0x03;
@@ -1869,4 +1886,35 @@ void main(void) {
     PIR1bits.TMR1IF = 0;
 
     while (1);
+=======
+    configurar_pinos();
+    configurar_timer1();
+    configurar_interrupcoes();
+    while (1);
+}
+
+void configurar_pinos(void) {
+    TRISD = 0x00;
+
+    TRISBbits.TRISB0 = 1;
+    TRISBbits.TRISB1 = 1;
+    PORTD = 0x00;
+}
+
+void configurar_timer1(void) {
+    T1CON = 0x31;
+    TMR1H = 0x0B;
+    TMR1L = 0xDC;
+    PIR1bits.TMR1IF = 0;
+    PIE1bits.TMR1IE = 1;
+}
+
+void configurar_interrupcoes(void) {
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.INTE = 1;
+    INTCONbits.INTF = 0;
+    INTCONbits.RBIE = 1;
+    INTCONbits.RBIF = 0;
+>>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
 }

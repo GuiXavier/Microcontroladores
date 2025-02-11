@@ -20,7 +20,7 @@ void inicializar_Timer0() {
 // Função para gerar um atraso de 1 segundo utilizando Timer0
 void atraso_Timer0() {
     unsigned char contador = 0; // Conta os transbordamentos
-    while (contador < 61) {     // 61 transbordamentos para 1 segundo
+    while (contador < 79) {     // 61 transbordamentos para 1 segundo
         while (!INTCONbits.TMR0IF); // Espera Timer0 transbordar
         INTCONbits.TMR0IF = 0;      // Reseta a flag do Timer0
         TMR0 = 6;                  // Recarrega Timer0 para próxima contagem

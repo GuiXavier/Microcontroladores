@@ -80,10 +80,16 @@
 [v _PIE1 PIE1 `VEuc  1 e 1 @140 ]
 "1804
 [v _PR2 PR2 `VEuc  1 e 1 @146 ]
+"2699
+[v _TMR2ON TMR2ON `VEb  1 e 0 @146 ]
 "49 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 10 - A\atividade10.c
 [v _main main `(v  1 e 1 0 ]
 {
+<<<<<<< HEAD
 "69
+=======
+"67
+>>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
 } 0
 "19
 [v _interrupcao interrupcao `II(v  1 e 1 0 ]

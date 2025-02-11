@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F877 ]
 [d frameptr 0 ]
-"14 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 9-A\atividade9a.c
+"14 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 9-A\atividade9a.c
 [v _inicializar_Timer0 inicializar_Timer0 `(v  1 e 1 0 ]
 "21
 [v _atraso_Timer0 atraso_Timer0 `(v  1 e 1 0 ]
@@ -62,7 +62,7 @@
 "1449
 [u S65 . 1 `S56 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES65  1 e 1 @135 ]
-"31 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 9-A\atividade9a.c
+"31 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 9-A\atividade9a.c
 [v _main main `(v  1 e 1 0 ]
 {
 "41

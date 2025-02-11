@@ -1,24 +1,38 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
+<<<<<<< HEAD
  C:\Users\Yan\AppData\Local\Temp\xcAs1kmo.\driver_tmp_3.o
+=======
+ C:\Users\Yan\AppData\Local\Temp\xcAs2so.\driver_tmp_3.o
+>>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
  -Odist/default/production\Lista_10_-_A.production.hex
  -logfile=dist/default/production\Lista_10_-_A.production.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
+<<<<<<< HEAD
   0h - 5h		(C:\Users\Yan\AppData\Local\Temp\xcAs1kmo.\driver_tmp_3.o)
   8h - EDh		(C:\Users\Yan\AppData\Local\Temp\xcAs1kmo.\driver_tmp_3.o)
   400Eh - 400Fh		(C:\Users\Yan\AppData\Local\Temp\xcAs1kmo.\driver_tmp_3.o)
+=======
+  0h - 5h		(C:\Users\Yan\AppData\Local\Temp\xcAs2so.\driver_tmp_3.o)
+  8h - EFh		(C:\Users\Yan\AppData\Local\Temp\xcAs2so.\driver_tmp_3.o)
+  400Eh - 400Fh		(C:\Users\Yan\AppData\Local\Temp\xcAs2so.\driver_tmp_3.o)
+>>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
  Unused ranges:
   6h - 7h
-  EEh - 400Dh
+  F0h - 400Dh
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
+<<<<<<< HEAD
   H1 = Input file             (C:\Users\Yan\AppData\Local\Temp\xcAs1kmo.\driver_tmp_3.o)
+=======
+  H1 = Input file             (C:\Users\Yan\AppData\Local\Temp\xcAs2so.\driver_tmp_3.o)
+>>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
@@ -36,6 +50,6 @@
 000000B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000000C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000000D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000000E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+000000E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
 00004000 | -- -- -- -- -- -- -- -- -- -- -- -- -- -- H1 H1
