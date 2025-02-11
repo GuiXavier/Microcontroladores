@@ -1848,7 +1848,7 @@ void __attribute__((picinterrupt(("")))) interrupcao(void) {
 void main(void) {
 
     TRISD = 0x00;
-    TRISB = 0x81;
+    TRISB = 0x01;
     PORTD = 0x00;
     estado_anterior_rb7 = PORTBbits.RB7;
 
@@ -1859,6 +1859,9 @@ void main(void) {
 
     INTCON = 0b11011000;
     PIE1 = 0b00000010;
+
+
+
     PIR1bits.TMR2IF = 0;
 
     while (1);

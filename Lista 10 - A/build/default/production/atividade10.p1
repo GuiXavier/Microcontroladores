@@ -346,7 +346,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;atividade10.c: 42:     TRISD = 0x00;
 [e = _estado_led_rd2 -> ~ -> _estado_led_rd2 `i `uc ]
 "43
-[; ;atividade10.c: 43:     TRISB = 0x81;
+[; ;atividade10.c: 43:     TRISB = 0x01;
 [e =^ _PORTD -> -> 4 `i `Vuc ]
 "44
 [; ;atividade10.c: 44:     PORTD = 0x00;
@@ -375,29 +375,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TRISD -> -> 0 `i `uc ]
 "52
 [; ;atividade10.c: 52:     INTCON = 0b11011000;
-[e = _TRISB -> -> 129 `i `uc ]
+[e = _TRISB -> -> 1 `i `uc ]
 "53
 [; ;atividade10.c: 53:     PIE1 = 0b00000010;
 [e = _PORTD -> -> 0 `i `uc ]
 "54
-[; ;atividade10.c: 54:     PIR1bits.TMR2IF = 0;
+[; ;atividade10.c: 54: 
 [e = _estado_anterior_rb7 . . _PORTBbits 0 7 ]
 "57
-[; ;atividade10.c: 57: }
+[; ;atividade10.c: 57:     PIR1bits.TMR2IF = 0;
 [e = _T2CON -> -> 7 `i `uc ]
 "58
+[; ;atividade10.c: 58: 
 [e = _PR2 -> -> 250 `i `uc ]
 "61
 [e = _INTCON -> -> 216 `i `uc ]
 "62
 [e = _PIE1 -> -> 2 `i `uc ]
-"63
+"66
 [e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-"65
+"68
 [e :U 102 ]
 [e :U 101 ]
 [e $U 102  ]
 [e :U 103 ]
-"66
+"69
 [e :UE 100 ]
 }

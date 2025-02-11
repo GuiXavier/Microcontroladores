@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Fri Jan 31 17:15:16 2025
+                                                                                               Sun Feb 02 18:49:21 2025
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -290,7 +290,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    276     005D                     l626:
    277                           
    278                           ;atividade10.c: 52:     INTCON = 0b11011000;
-   279     005D  3081               	movlw	129
+   279     005D  3001               	movlw	1
    280     005E  0086               	movwf	6	;volatile
    281                           
    282                           ;atividade10.c: 53:     PIE1 = 0b00000010;
@@ -299,239 +299,241 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    285     0061  0188               	clrf	8	;volatile
    286     0062                     l628:
    287                           
-   288                           ;atividade10.c: 54:     PIR1bits.TMR2IF = 0;
+   288                           ;atividade10.c: 54: 
    289     0062  0D06               	rlf	6,w	;volatile
    290     0063  0D06               	rlf	6,w	;volatile
    291     0064  3901               	andlw	1
    292     0065  00F2               	movwf	_estado_anterior_rb7	;volatile
    293     0066                     l630:
    294                           
-   295                           ;atividade10.c: 57: }
+   295                           ;atividade10.c: 57:     PIR1bits.TMR2IF = 0;
    296     0066  3007               	movlw	7
    297     0067  0092               	movwf	18	;volatile
    298     0068                     l632:
-   299     0068  30FA               	movlw	250
-   300     0069  1683               	bsf	3,5	;RP0=1, select bank1
-   301     006A  1303               	bcf	3,6	;RP1=0, select bank1
-   302     006B  0092               	movwf	18	;volatile
-   303     006C                     l634:
-   304     006C  30D8               	movlw	216
-   305     006D  008B               	movwf	11	;volatile
-   306     006E                     l636:
-   307     006E  3002               	movlw	2
-   308     006F  008C               	movwf	12	;volatile
-   309     0070                     l638:
-   310     0070  1283               	bcf	3,5	;RP0=0, select bank0
-   311     0071  1303               	bcf	3,6	;RP1=0, select bank0
-   312     0072  108C               	bcf	12,1	;volatile
-   313     0073                     l45:
-   314     0073                     l46:
-   315     0073  2873               	goto	l45
-   316     0074  120A  118A  280C   	ljmp	start
-   317     0077                     __end_of_main:
-   318                           
-   319                           	psect	text1
-   320     0019                     __ptext1:	
-   321 ;; *************** function _interrupcao *****************
-   322 ;; Defined at:
-   323 ;;		line 19 in file "atividade10.c"
-   324 ;; Parameters:    Size  Location     Type
-   325 ;;		None
-   326 ;; Auto vars:     Size  Location     Type
+   299                           
+   300                           ;atividade10.c: 58: 
+   301     0068  30FA               	movlw	250
+   302     0069  1683               	bsf	3,5	;RP0=1, select bank1
+   303     006A  1303               	bcf	3,6	;RP1=0, select bank1
+   304     006B  0092               	movwf	18	;volatile
+   305     006C                     l634:
+   306     006C  30D8               	movlw	216
+   307     006D  008B               	movwf	11	;volatile
+   308     006E                     l636:
+   309     006E  3002               	movlw	2
+   310     006F  008C               	movwf	12	;volatile
+   311     0070                     l638:
+   312     0070  1283               	bcf	3,5	;RP0=0, select bank0
+   313     0071  1303               	bcf	3,6	;RP1=0, select bank0
+   314     0072  108C               	bcf	12,1	;volatile
+   315     0073                     l45:
+   316     0073                     l46:
+   317     0073  2873               	goto	l45
+   318     0074  120A  118A  280C   	ljmp	start
+   319     0077                     __end_of_main:
+   320                           
+   321                           	psect	text1
+   322     0019                     __ptext1:	
+   323 ;; *************** function _interrupcao *****************
+   324 ;; Defined at:
+   325 ;;		line 19 in file "atividade10.c"
+   326 ;; Parameters:    Size  Location     Type
    327 ;;		None
-   328 ;; Return value:  Size  Location     Type
-   329 ;;                  1    wreg      void 
-   330 ;; Registers used:
-   331 ;;		wreg, status,2, status,0
-   332 ;; Tracked objects:
-   333 ;;		On entry : 0/0
-   334 ;;		On exit  : 0/0
-   335 ;;		Unchanged: 0/0
-   336 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   337 ;;      Params:         0       0       0       0       0
-   338 ;;      Locals:         0       0       0       0       0
-   339 ;;      Temps:          2       0       0       0       0
-   340 ;;      Totals:         2       0       0       0       0
-   341 ;;Total ram usage:        2 bytes
-   342 ;; Hardware stack levels used: 1
-   343 ;; This function calls:
-   344 ;;		Nothing
-   345 ;; This function is called by:
-   346 ;;		Interrupt level 1
-   347 ;; This function uses a non-reentrant model
-   348 ;;
-   349                           
-   350     0019                     _interrupcao:	
-   351                           ;psect for function _interrupcao
-   352                           
-   353     0019                     i1l592:
+   328 ;; Auto vars:     Size  Location     Type
+   329 ;;		None
+   330 ;; Return value:  Size  Location     Type
+   331 ;;                  1    wreg      void 
+   332 ;; Registers used:
+   333 ;;		wreg, status,2, status,0
+   334 ;; Tracked objects:
+   335 ;;		On entry : 0/0
+   336 ;;		On exit  : 0/0
+   337 ;;		Unchanged: 0/0
+   338 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   339 ;;      Params:         0       0       0       0       0
+   340 ;;      Locals:         0       0       0       0       0
+   341 ;;      Temps:          2       0       0       0       0
+   342 ;;      Totals:         2       0       0       0       0
+   343 ;;Total ram usage:        2 bytes
+   344 ;; Hardware stack levels used: 1
+   345 ;; This function calls:
+   346 ;;		Nothing
+   347 ;; This function is called by:
+   348 ;;		Interrupt level 1
+   349 ;; This function uses a non-reentrant model
+   350 ;;
+   351                           
+   352     0019                     _interrupcao:	
+   353                           ;psect for function _interrupcao
    354                           
-   355                           ;atividade10.c: 21: 
-   356     0019  1283               	bcf	3,5	;RP0=0, select bank0
-   357     001A  1303               	bcf	3,6	;RP1=0, select bank0
-   358     001B  1C8C               	btfss	12,1	;volatile
-   359     001C  281E               	goto	u1_21
-   360     001D  281F               	goto	u1_20
-   361     001E                     u1_21:
-   362     001E  2835               	goto	i1l604
-   363     001F                     u1_20:
-   364     001F                     i1l594:
-   365                           
-   366                           ;atividade10.c: 22: 
-   367     001F  108C               	bcf	12,1	;volatile
-   368     0020                     i1l596:
-   369                           
-   370                           ;atividade10.c: 23:     if (INTCONbits.INTF) {
-   371     0020  3001               	movlw	1
-   372     0021  07F0               	addwf	_contador_timer2,f	;volatile
-   373     0022  1803               	skipnc
-   374     0023  0AF1               	incf	_contador_timer2+1,f	;volatile
-   375     0024  3000               	movlw	0
-   376     0025  07F1               	addwf	_contador_timer2+1,f	;volatile
-   377                           
-   378                           ;atividade10.c: 24:         INTCONbits.INTF = 0;
-   379     0026  3000               	movlw	0
-   380     0027  0271               	subwf	_contador_timer2+1,w	;volatile
-   381     0028  309C               	movlw	156
-   382     0029  1903               	skipnz
-   383     002A  0270               	subwf	_contador_timer2,w	;volatile
-   384     002B  1C03               	skipc
-   385     002C  282E               	goto	u2_21
-   386     002D  282F               	goto	u2_20
-   387     002E                     u2_21:
-   388     002E  2835               	goto	i1l604
-   389     002F                     u2_20:
-   390     002F                     i1l598:
-   391                           
-   392                           ;atividade10.c: 25:         estado_led_rd1 = ~estado_led_rd1;
-   393     002F  01F0               	clrf	_contador_timer2	;volatile
-   394     0030  01F1               	clrf	_contador_timer2+1	;volatile
-   395     0031                     i1l600:
-   396                           
-   397                           ;atividade10.c: 26:         PORTD ^= 0x02;
-   398     0031  0975               	comf	_estado_led_rd0,w	;volatile
-   399     0032  00F5               	movwf	_estado_led_rd0	;volatile
-   400     0033                     i1l602:
-   401                           
-   402                           ;atividade10.c: 27:     }
-   403     0033  3001               	movlw	1
-   404     0034  0688               	xorwf	8,f	;volatile
-   405     0035                     i1l604:
-   406                           
-   407                           ;atividade10.c: 32:         if (PORTBbits.RB7 != estado_anterior_rb7) {
-   408     0035  1C8B               	btfss	11,1	;volatile
-   409     0036  2838               	goto	u3_21
-   410     0037  2839               	goto	u3_20
-   411     0038                     u3_21:
-   412     0038  283E               	goto	i1l612
-   413     0039                     u3_20:
-   414     0039                     i1l606:
-   415                           
-   416                           ;atividade10.c: 33:             estado_led_rd2 = ~estado_led_rd2;
-   417     0039  108B               	bcf	11,1	;volatile
-   418     003A                     i1l608:
-   419                           
-   420                           ;atividade10.c: 34:             PORTD ^= 0x04;
-   421     003A  0974               	comf	_estado_led_rd1,w	;volatile
-   422     003B  00F4               	movwf	_estado_led_rd1	;volatile
-   423     003C                     i1l610:
-   424                           
-   425                           ;atividade10.c: 35:             estado_anterior_rb7 = PORTBbits.RB7;
-   426     003C  3002               	movlw	2
-   427     003D  0688               	xorwf	8,f	;volatile
-   428     003E                     i1l612:
-   429                           
-   430                           ;atividade10.c: 39: 
-   431     003E  1C0B               	btfss	11,0	;volatile
-   432     003F  2841               	goto	u4_21
-   433     0040  2842               	goto	u4_20
-   434     0041                     u4_21:
-   435     0041  2853               	goto	i1l40
-   436     0042                     u4_20:
-   437     0042                     i1l614:
-   438                           
-   439                           ;atividade10.c: 40: void main(void) {
-   440     0042  100B               	bcf	11,0	;volatile
-   441     0043                     i1l616:
-   442                           
-   443                           ;atividade10.c: 41: 
-   444     0043  0D06               	rlf	6,w	;volatile
-   445     0044  0D06               	rlf	6,w	;volatile
-   446     0045  3901               	andlw	1
-   447     0046  0672               	xorwf	_estado_anterior_rb7,w	;volatile
-   448     0047  1903               	skipnz
-   449     0048  284A               	goto	u5_21
-   450     0049  284B               	goto	u5_20
-   451     004A                     u5_21:
-   452     004A  2853               	goto	i1l40
-   453     004B                     u5_20:
-   454     004B                     i1l618:
-   455                           
-   456                           ;atividade10.c: 42:     TRISD = 0x00;
-   457     004B  0973               	comf	_estado_led_rd2,w	;volatile
-   458     004C  00F3               	movwf	_estado_led_rd2	;volatile
-   459     004D                     i1l620:
-   460                           
-   461                           ;atividade10.c: 43:     TRISB = 0x81;
-   462     004D  3004               	movlw	4
-   463     004E  0688               	xorwf	8,f	;volatile
-   464     004F                     i1l622:
-   465                           
-   466                           ;atividade10.c: 44:     PORTD = 0x00;
-   467     004F  0D06               	rlf	6,w	;volatile
-   468     0050  0D06               	rlf	6,w	;volatile
-   469     0051  3901               	andlw	1
-   470     0052  00F2               	movwf	_estado_anterior_rb7	;volatile
-   471     0053                     i1l40:
-   472     0053  0877               	movf	??_interrupcao+1,w
-   473     0054  008A               	movwf	10
-   474     0055  0E76               	swapf	??_interrupcao,w
-   475     0056  0083               	movwf	3
-   476     0057  0EFE               	swapf	btemp,f
-   477     0058  0E7E               	swapf	btemp,w
-   478     0059  0009               	retfie
-   479     005A                     __end_of_interrupcao:
-   480     0002                     ___latbits      equ	2
-   481     007E                     btemp           set	126	;btemp
-   482     007E                     wtemp0          set	126
-   483                           
-   484                           	psect	intentry
-   485     0004                     __pintentry:	
-   486                           ;incstack = 0
-   487                           ; Regs used in _interrupcao: [wreg+status,2+status,0]
-   488                           
-   489     0004                     interrupt_function:
-   490     007E                     saved_w         set	btemp
-   491     0004  00FE               	movwf	btemp
-   492     0005  0E03               	swapf	3,w
-   493     0006  00F6               	movwf	??_interrupcao
-   494     0007  080A               	movf	10,w
-   495     0008  00F7               	movwf	??_interrupcao+1
-   496     0009  120A  118A  2819   	ljmp	_interrupcao
-   497                           
-   498                           	psect	config
+   355     0019                     i1l592:
+   356                           
+   357                           ;atividade10.c: 21: 
+   358     0019  1283               	bcf	3,5	;RP0=0, select bank0
+   359     001A  1303               	bcf	3,6	;RP1=0, select bank0
+   360     001B  1C8C               	btfss	12,1	;volatile
+   361     001C  281E               	goto	u1_21
+   362     001D  281F               	goto	u1_20
+   363     001E                     u1_21:
+   364     001E  2835               	goto	i1l604
+   365     001F                     u1_20:
+   366     001F                     i1l594:
+   367                           
+   368                           ;atividade10.c: 22: 
+   369     001F  108C               	bcf	12,1	;volatile
+   370     0020                     i1l596:
+   371                           
+   372                           ;atividade10.c: 23:     if (INTCONbits.INTF) {
+   373     0020  3001               	movlw	1
+   374     0021  07F0               	addwf	_contador_timer2,f	;volatile
+   375     0022  1803               	skipnc
+   376     0023  0AF1               	incf	_contador_timer2+1,f	;volatile
+   377     0024  3000               	movlw	0
+   378     0025  07F1               	addwf	_contador_timer2+1,f	;volatile
+   379                           
+   380                           ;atividade10.c: 24:         INTCONbits.INTF = 0;
+   381     0026  3000               	movlw	0
+   382     0027  0271               	subwf	_contador_timer2+1,w	;volatile
+   383     0028  309C               	movlw	156
+   384     0029  1903               	skipnz
+   385     002A  0270               	subwf	_contador_timer2,w	;volatile
+   386     002B  1C03               	skipc
+   387     002C  282E               	goto	u2_21
+   388     002D  282F               	goto	u2_20
+   389     002E                     u2_21:
+   390     002E  2835               	goto	i1l604
+   391     002F                     u2_20:
+   392     002F                     i1l598:
+   393                           
+   394                           ;atividade10.c: 25:         estado_led_rd1 = ~estado_led_rd1;
+   395     002F  01F0               	clrf	_contador_timer2	;volatile
+   396     0030  01F1               	clrf	_contador_timer2+1	;volatile
+   397     0031                     i1l600:
+   398                           
+   399                           ;atividade10.c: 26:         PORTD ^= 0x02;
+   400     0031  0975               	comf	_estado_led_rd0,w	;volatile
+   401     0032  00F5               	movwf	_estado_led_rd0	;volatile
+   402     0033                     i1l602:
+   403                           
+   404                           ;atividade10.c: 27:     }
+   405     0033  3001               	movlw	1
+   406     0034  0688               	xorwf	8,f	;volatile
+   407     0035                     i1l604:
+   408                           
+   409                           ;atividade10.c: 32:         if (PORTBbits.RB7 != estado_anterior_rb7) {
+   410     0035  1C8B               	btfss	11,1	;volatile
+   411     0036  2838               	goto	u3_21
+   412     0037  2839               	goto	u3_20
+   413     0038                     u3_21:
+   414     0038  283E               	goto	i1l612
+   415     0039                     u3_20:
+   416     0039                     i1l606:
+   417                           
+   418                           ;atividade10.c: 33:             estado_led_rd2 = ~estado_led_rd2;
+   419     0039  108B               	bcf	11,1	;volatile
+   420     003A                     i1l608:
+   421                           
+   422                           ;atividade10.c: 34:             PORTD ^= 0x04;
+   423     003A  0974               	comf	_estado_led_rd1,w	;volatile
+   424     003B  00F4               	movwf	_estado_led_rd1	;volatile
+   425     003C                     i1l610:
+   426                           
+   427                           ;atividade10.c: 35:             estado_anterior_rb7 = PORTBbits.RB7;
+   428     003C  3002               	movlw	2
+   429     003D  0688               	xorwf	8,f	;volatile
+   430     003E                     i1l612:
+   431                           
+   432                           ;atividade10.c: 39: 
+   433     003E  1C0B               	btfss	11,0	;volatile
+   434     003F  2841               	goto	u4_21
+   435     0040  2842               	goto	u4_20
+   436     0041                     u4_21:
+   437     0041  2853               	goto	i1l40
+   438     0042                     u4_20:
+   439     0042                     i1l614:
+   440                           
+   441                           ;atividade10.c: 40: void main(void) {
+   442     0042  100B               	bcf	11,0	;volatile
+   443     0043                     i1l616:
+   444                           
+   445                           ;atividade10.c: 41: 
+   446     0043  0D06               	rlf	6,w	;volatile
+   447     0044  0D06               	rlf	6,w	;volatile
+   448     0045  3901               	andlw	1
+   449     0046  0672               	xorwf	_estado_anterior_rb7,w	;volatile
+   450     0047  1903               	skipnz
+   451     0048  284A               	goto	u5_21
+   452     0049  284B               	goto	u5_20
+   453     004A                     u5_21:
+   454     004A  2853               	goto	i1l40
+   455     004B                     u5_20:
+   456     004B                     i1l618:
+   457                           
+   458                           ;atividade10.c: 42:     TRISD = 0x00;
+   459     004B  0973               	comf	_estado_led_rd2,w	;volatile
+   460     004C  00F3               	movwf	_estado_led_rd2	;volatile
+   461     004D                     i1l620:
+   462                           
+   463                           ;atividade10.c: 43:     TRISB = 0x01;
+   464     004D  3004               	movlw	4
+   465     004E  0688               	xorwf	8,f	;volatile
+   466     004F                     i1l622:
+   467                           
+   468                           ;atividade10.c: 44:     PORTD = 0x00;
+   469     004F  0D06               	rlf	6,w	;volatile
+   470     0050  0D06               	rlf	6,w	;volatile
+   471     0051  3901               	andlw	1
+   472     0052  00F2               	movwf	_estado_anterior_rb7	;volatile
+   473     0053                     i1l40:
+   474     0053  0877               	movf	??_interrupcao+1,w
+   475     0054  008A               	movwf	10
+   476     0055  0E76               	swapf	??_interrupcao,w
+   477     0056  0083               	movwf	3
+   478     0057  0EFE               	swapf	btemp,f
+   479     0058  0E7E               	swapf	btemp,w
+   480     0059  0009               	retfie
+   481     005A                     __end_of_interrupcao:
+   482     0002                     ___latbits      equ	2
+   483     007E                     btemp           set	126	;btemp
+   484     007E                     wtemp0          set	126
+   485                           
+   486                           	psect	intentry
+   487     0004                     __pintentry:	
+   488                           ;incstack = 0
+   489                           ; Regs used in _interrupcao: [wreg+status,2+status,0]
+   490                           
+   491     0004                     interrupt_function:
+   492     007E                     saved_w         set	btemp
+   493     0004  00FE               	movwf	btemp
+   494     0005  0E03               	swapf	3,w
+   495     0006  00F6               	movwf	??_interrupcao
+   496     0007  080A               	movf	10,w
+   497     0008  00F7               	movwf	??_interrupcao+1
+   498     0009  120A  118A  2819   	ljmp	_interrupcao
    499                           
-   500                           ;Config register CONFIG @ 0x2007
-   501                           ;	Oscillator Selection bits
-   502                           ;	FOSC = HS, HS oscillator
-   503                           ;	Watchdog Timer Enable bit
-   504                           ;	WDTE = OFF, WDT disabled
-   505                           ;	Power-up Timer Enable bit
-   506                           ;	PWRTE = OFF, PWRT disabled
-   507                           ;	FLASH Program Memory Code Protection bits
-   508                           ;	CP = OFF, Code protection off
-   509                           ;	Brown-out Reset Enable bit
-   510                           ;	BOREN = 0x1, unprogrammed default
-   511                           ;	Low Voltage In-Circuit Serial Programming Enable bit
-   512                           ;	LVP = 0x1, unprogrammed default
-   513                           ;	Data EE Memory Code Protection
-   514                           ;	CPD = 0x1, unprogrammed default
-   515                           ;	FLASH Program Memory Write Enable
-   516                           ;	WRT = 0x1, unprogrammed default
-   517                           ;	In-Circuit Debugger Mode bit
-   518                           ;	DEBUG = 0x1, unprogrammed default
-   519     2007                     	org	8199
-   520     2007  3FFA               	dw	16378
+   500                           	psect	config
+   501                           
+   502                           ;Config register CONFIG @ 0x2007
+   503                           ;	Oscillator Selection bits
+   504                           ;	FOSC = HS, HS oscillator
+   505                           ;	Watchdog Timer Enable bit
+   506                           ;	WDTE = OFF, WDT disabled
+   507                           ;	Power-up Timer Enable bit
+   508                           ;	PWRTE = OFF, PWRT disabled
+   509                           ;	FLASH Program Memory Code Protection bits
+   510                           ;	CP = OFF, Code protection off
+   511                           ;	Brown-out Reset Enable bit
+   512                           ;	BOREN = 0x1, unprogrammed default
+   513                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+   514                           ;	LVP = 0x1, unprogrammed default
+   515                           ;	Data EE Memory Code Protection
+   516                           ;	CPD = 0x1, unprogrammed default
+   517                           ;	FLASH Program Memory Write Enable
+   518                           ;	WRT = 0x1, unprogrammed default
+   519                           ;	In-Circuit Debugger Mode bit
+   520                           ;	DEBUG = 0x1, unprogrammed default
+   521     2007                     	org	8199
+   522     2007  3FFA               	dw	16378
 
 Data Sizes:
     Strings     0
@@ -633,7 +635,7 @@ DATA                 0      0       8      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Fri Jan 31 17:15:16 2025
+Symbol Table                                                                                   Sun Feb 02 18:49:21 2025
 
                      l45 0073                       l46 0073                      l630 0066  
                     l632 0068                      l624 005A                      l634 006C  

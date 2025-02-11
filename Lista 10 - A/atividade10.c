@@ -49,7 +49,7 @@ void __interrupt() interrupcao(void) {
 void main(void) {
     // Configuração dos pinos
     TRISD = 0x00; // PORTD como saída
-    TRISB = 0x81; // RB0 e RB7 como entrada
+    TRISB = 0x01; // RB0 e RB7 como entrada
     PORTD = 0x00;
     estado_anterior_rb7 = PORTBbits.RB7;
 
@@ -60,6 +60,9 @@ void main(void) {
     // Configuração das interrupções
     INTCON = 0b11011000; // Habilita interrupção global, periférica, RB0 e RB7
     PIE1 = 0b00000010;   // Habilita interrupção do Timer2
+    
+ 
+
     PIR1bits.TMR2IF = 0; // Limpa a flag do Timer2
 
     while (1);
