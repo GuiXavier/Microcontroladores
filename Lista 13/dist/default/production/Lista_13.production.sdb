@@ -1,0 +1,160 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 0 ]
+"41 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 13\atividade10.c
+[v _main main `(v  1 e 1 0 ]
+"64
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+"74
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+"84
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+"89
+[v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
+"102
+[v _LCD_sendNibble LCD_sendNibble `(v  1 e 1 0 ]
+"133
+[v _LCD_sendByte LCD_sendByte `(v  1 e 1 0 ]
+"139
+[v _LCD_command LCD_command `(v  1 e 1 0 ]
+"145
+[v _LCD_data LCD_data `(v  1 e 1 0 ]
+"151
+[v _LCD_init LCD_init `(v  1 e 1 0 ]
+"177
+[v _LCD_setCursor LCD_setCursor `(v  1 e 1 0 ]
+"188
+[v _LCD_print LCD_print `(v  1 e 1 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"803 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
+"810
+[v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
+"1742
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
+"1811
+[v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
+"1818
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
+"2261
+[v _BF BF `VEb  1 e 0 @1184 ]
+"2429
+[v _PEN PEN `VEb  1 e 0 @1162 ]
+"2588
+[v _RSEN RSEN `VEb  1 e 0 @1161 ]
+"2603
+[v _SEN SEN `VEb  1 e 0 @1160 ]
+"41 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 13\atividade10.c
+[v _main main `(v  1 e 1 0 ]
+{
+"59
+} 0
+"177
+[v _LCD_setCursor LCD_setCursor `(v  1 e 1 0 ]
+{
+[v LCD_setCursor@linha linha `uc  1 p 1 wreg ]
+"178
+[v LCD_setCursor@pos pos `uc  1 a 1 13 ]
+"177
+[v LCD_setCursor@linha linha `uc  1 p 1 wreg ]
+[v LCD_setCursor@coluna coluna `uc  1 p 1 11 ]
+"180
+[v LCD_setCursor@linha linha `uc  1 p 1 12 ]
+"185
+} 0
+"188
+[v _LCD_print LCD_print `(v  1 e 1 0 ]
+{
+[v LCD_print@str str `*.24uc  1 p 1 11 ]
+"192
+} 0
+"145
+[v _LCD_data LCD_data `(v  1 e 1 0 ]
+{
+[v LCD_data@data data `uc  1 p 1 wreg ]
+[v LCD_data@data data `uc  1 p 1 wreg ]
+[v LCD_data@data data `uc  1 p 1 10 ]
+"148
+} 0
+"151
+[v _LCD_init LCD_init `(v  1 e 1 0 ]
+{
+"173
+} 0
+"139
+[v _LCD_command LCD_command `(v  1 e 1 0 ]
+{
+[v LCD_command@cmd cmd `uc  1 p 1 wreg ]
+[v LCD_command@cmd cmd `uc  1 p 1 wreg ]
+[v LCD_command@cmd cmd `uc  1 p 1 10 ]
+"142
+} 0
+"133
+[v _LCD_sendByte LCD_sendByte `(v  1 e 1 0 ]
+{
+[v LCD_sendByte@byte byte `uc  1 p 1 wreg ]
+[v LCD_sendByte@byte byte `uc  1 p 1 wreg ]
+[v LCD_sendByte@rs rs `uc  1 p 1 5 ]
+[v LCD_sendByte@byte byte `uc  1 p 1 7 ]
+"136
+} 0
+"102
+[v _LCD_sendNibble LCD_sendNibble `(v  1 e 1 0 ]
+{
+[v LCD_sendNibble@nibble nibble `uc  1 p 1 wreg ]
+"103
+[v LCD_sendNibble@data data `uc  1 a 1 4 ]
+"102
+[v LCD_sendNibble@nibble nibble `uc  1 p 1 wreg ]
+[v LCD_sendNibble@rs rs `uc  1 p 1 1 ]
+"105
+[v LCD_sendNibble@nibble nibble `uc  1 p 1 3 ]
+"130
+} 0
+"89
+[v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
+{
+[v I2C_Master_Write@data data `uc  1 p 1 wreg ]
+[v I2C_Master_Write@data data `uc  1 p 1 wreg ]
+[v I2C_Master_Write@data data `uc  1 p 1 0 ]
+"94
+} 0
+"84
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+{
+"87
+} 0
+"74
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+{
+"77
+} 0
+"64
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+{
+[v I2C_Master_Init@c c `DCul  1 p 4 0 ]
+"72
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 9 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 13 ]
+"5
+[v ___lldiv@divisor divisor `ul  1 p 4 0 ]
+[v ___lldiv@dividend dividend `ul  1 p 4 4 ]
+"30
+} 0
