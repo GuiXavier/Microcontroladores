@@ -1,18 +1,18 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- C:\Users\Yan\AppData\Local\Temp\xcAsd9c.\driver_tmp_3.o
+ C:\Users\GUILHE~1\AppData\Local\Temp\xcAsbnc.\driver_tmp_3.o
  -Odist/default/production\Lista_8A_novo.production.hex
  -logfile=dist/default/production\Lista_8A_novo.production.hxl
  -addressing=2
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 5h		(C:\Users\Yan\AppData\Local\Temp\xcAsd9c.\driver_tmp_3.o)
-  Ch - FFFh		(C:\Users\Yan\AppData\Local\Temp\xcAsd9c.\driver_tmp_3.o)
-  1004h - 2FFFh		(C:\Users\Yan\AppData\Local\Temp\xcAsd9c.\driver_tmp_3.o)
-  3F12h - 3FFFh		(C:\Users\Yan\AppData\Local\Temp\xcAsd9c.\driver_tmp_3.o)
-  400Eh - 400Fh		(C:\Users\Yan\AppData\Local\Temp\xcAsd9c.\driver_tmp_3.o)
+  0h - 5h		(C:\Users\GUILHE~1\AppData\Local\Temp\xcAsbnc.\driver_tmp_3.o)
+  Ch - FFFh		(C:\Users\GUILHE~1\AppData\Local\Temp\xcAsbnc.\driver_tmp_3.o)
+  1004h - 2FFFh		(C:\Users\GUILHE~1\AppData\Local\Temp\xcAsbnc.\driver_tmp_3.o)
+  3F12h - 3FFFh		(C:\Users\GUILHE~1\AppData\Local\Temp\xcAsbnc.\driver_tmp_3.o)
+  400Eh - 400Fh		(C:\Users\GUILHE~1\AppData\Local\Temp\xcAsbnc.\driver_tmp_3.o)
  Unused ranges:
   6h - Bh
   1000h - 1003h
@@ -22,7 +22,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (C:\Users\Yan\AppData\Local\Temp\xcAsd9c.\driver_tmp_3.o)
+  H1 = Input file             (C:\Users\GUILHE~1\AppData\Local\Temp\xcAsbnc.\driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------

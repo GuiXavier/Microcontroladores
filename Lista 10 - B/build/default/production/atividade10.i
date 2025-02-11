@@ -1799,122 +1799,108 @@ extern __bank0 __bit __timeout;
 # 1 "atividade10.c" 2
 
 
-
-#pragma config FOSC = HS
+#pragma config FOSC = XT
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config CP = OFF
+#pragma config BOREN = OFF
+#pragma config LVP = OFF
+#pragma config WRT = OFF
 
 
 
 
-volatile unsigned int tempo_motor = 0;
+
+
+
 volatile unsigned char motor_ativo = 0;
+volatile unsigned char tempo_alvo_overflows = 0;
+volatile unsigned char contagem_overflows = 0;
 
-
-<<<<<<< HEAD
-=======
 void configurar_pinos(void);
 void configurar_timer1(void);
 void configurar_interrupcoes(void);
 
-
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
-void __attribute__((picinterrupt(("")))) interrupcao(void) {
-
-    if (PIR1bits.TMR1IF) {
+void __attribute__((picinterrupt(("")))) isr(void)
+{
+    if (PIR1bits.TMR1IF)
+    {
         PIR1bits.TMR1IF = 0;
-        TMR1H = 0x0B;
-        TMR1L = 0xDC;
-
-        if (motor_ativo) {
-            tempo_motor--;
-            if (tempo_motor == 0) {
-                motor_ativo = 0;
+        if (motor_ativo)
+        {
+            contagem_overflows++;
+            if (contagem_overflows >= tempo_alvo_overflows)
+            {
                 PORTDbits.RD0 = 0;
-                T1CONbits.TMR1ON = 0;
+                motor_ativo = 0;
             }
         }
     }
 
-
-    if (INTCONbits.INTF) {
+    if (INTCONbits.INTF)
+    {
         INTCONbits.INTF = 0;
-        if (!motor_ativo) {
-<<<<<<< HEAD
-            tempo_motor = 40;
-=======
-            tempo_motor = 20;
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
+        if (!motor_ativo)
+        {
             motor_ativo = 1;
+            contagem_overflows = 0;
+            tempo_alvo_overflows = 19;
             PORTDbits.RD0 = 1;
-            T1CONbits.TMR1ON = 1;
-        }
-    }
-
-
-    if (INTCONbits.RBIF) {
-        INTCONbits.RBIF = 0;
-        if (PORTBbits.RB1 && !motor_ativo) {
-<<<<<<< HEAD
-            tempo_motor = 80;
-=======
-            tempo_motor = 40;
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
-            motor_ativo = 1;
-            PORTDbits.RD0 = 1;
-            T1CONbits.TMR1ON = 1;
         }
     }
 }
 
-void main(void) {
-<<<<<<< HEAD
-
-    TRISD = 0x00;
-    TRISB = 0x03;
-    PORTD = 0x00;
-
-
-    T1CON = 0x31;
-    TMR1H = 0x0B;
-    TMR1L = 0xDC;
-
-
-    INTCON = 0b11011000;
-    PIE1 = 0b00000001;
-    PIR1bits.TMR1IF = 0;
-
-    while (1);
-=======
+void main(void)
+{
     configurar_pinos();
     configurar_timer1();
     configurar_interrupcoes();
-    while (1);
+
+    static unsigned char rb1_anterior = 1;
+
+    while(1)
+    {
+        unsigned char rb1_atual = PORTBbits.RB1;
+        if (rb1_anterior == 1 && rb1_atual == 0)
+        {
+            if (!motor_ativo)
+            {
+                motor_ativo = 1;
+                contagem_overflows = 0;
+                tempo_alvo_overflows = 38;
+                PORTDbits.RD0 = 1;
+            }
+        }
+        rb1_anterior = rb1_atual;
+    }
 }
 
-void configurar_pinos(void) {
+void configurar_pinos(void)
+{
     TRISD = 0x00;
-
+    PORTD = 0x00;
     TRISBbits.TRISB0 = 1;
     TRISBbits.TRISB1 = 1;
-    PORTD = 0x00;
+    PORTDbits.RD0 = 0;
 }
 
-void configurar_timer1(void) {
-    T1CON = 0x31;
-    TMR1H = 0x0B;
-    TMR1L = 0xDC;
+void configurar_timer1(void)
+{
+    T1CONbits.TMR1CS = 0;
+    T1CONbits.T1CKPS = 0b11;
+    T1CONbits.TMR1ON = 1;
+    TMR1H = 0;
+    TMR1L = 0;
     PIR1bits.TMR1IF = 0;
     PIE1bits.TMR1IE = 1;
 }
 
-void configurar_interrupcoes(void) {
+void configurar_interrupcoes(void)
+{
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
+    OPTION_REGbits.INTEDG = 0;
     INTCONbits.INTE = 1;
     INTCONbits.INTF = 0;
-    INTCONbits.RBIE = 1;
-    INTCONbits.RBIF = 0;
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
+    OPTION_REGbits.nRBPU = 0;
 }
