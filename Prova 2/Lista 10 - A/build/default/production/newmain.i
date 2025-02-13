@@ -1964,145 +1964,219 @@ char *tempnam(const char *, const char *);
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
-# 28 "newmain.c"
-volatile unsigned char atualizar_LCD = 0;
+# 29 "newmain.c"
+volatile unsigned char fAtualizaLCD = 0;
+volatile unsigned int contadorT2 = 0;
+volatile unsigned char contando3s = 0;
+
+char textoLCD[16];
 
 
-void lcd_command(unsigned char cmd);
-void lcd_data(unsigned char data);
-void lcd_initialise();
-void lcd_string(const char *str);
-void lcd_set_cursor(unsigned char row, unsigned char col);
-void adc_initialise();
-unsigned int read_adc();
-void configurar_interrupcoes();
 
-char buffer[16];
+void configInterrupcoes();
+void configTimer2();
+void configUART();
+void enviarChar(char c);
+void enviarString(const char *s);
+
+void lcd_inicializar();
+void lcd_comando(unsigned char c);
+void lcd_dado(unsigned char d);
+void lcd_pos(unsigned char l, unsigned char c);
+void lcd_texto(const char *s);
+
+void adc_inicializar();
+unsigned int adc_leitura();
 
 
-void __attribute__((picinterrupt(("")))) isr(void) {
-    if (INTCONbits.INTF) {
+
+
+void __attribute__((picinterrupt(("")))) isrGeral(void)
+{
+
+    if (INTCONbits.INTF)
+    {
         INTCONbits.INTF = 0;
-        atualizar_LCD = 1;
+        fAtualizaLCD = 1;
     }
-}
 
-void main() {
-
-    TRISE = 0x00;
-    TRISD = 0x00;
-    TRISA = 0xFF;
-    TRISBbits.TRISB0 = 1;
-
-
-    lcd_initialise();
-    adc_initialise();
-    configurar_interrupcoes();
-
-    lcd_set_cursor(0, 0);
-    lcd_string("Tensao:");
-
-    while (1) {
-        if (atualizar_LCD) {
-            atualizar_LCD = 0;
-
-            unsigned int adc_value = read_adc();
-            float voltage = (adc_value * 5.0f) / 1023.0f;
-
-
-            lcd_set_cursor(1, 0);
-            sprintf(buffer, "V: %.2f V", voltage);
-            lcd_string(buffer);
+    if (PIR1bits.TMR2IF)
+    {
+        PIR1bits.TMR2IF = 0;
+        if (contando3s)
+        {
+            contadorT2++;
+            if (contadorT2 >= 312)
+            {
+                contadorT2 = 0;
+                contando3s = 0;
+                T2CONbits.TMR2ON = 0;
+                RB1 = 0;
+                enviarString("OK\r\n");
+            }
         }
     }
 }
 
 
-void adc_initialise() {
+
+
+
+void main()
+{
+
+    TRISA = 0xFF;
+    TRISBbits.TRISB0 = 1;
+    TRISBbits.TRISB1 = 0;
+    TRISD = 0x00;
+    TRISE = 0x00;
+
+    lcd_inicializar();
+    adc_inicializar();
+    configUART();
+    configTimer2();
+    configInterrupcoes();
+
+    lcd_pos(0, 0);
+    lcd_texto("Tensao:");
+
+    while(1)
+    {
+        if (fAtualizaLCD)
+        {
+            fAtualizaLCD = 0;
+
+            unsigned int adc_val = adc_leitura();
+            float tensao = (adc_val * 5.0f) / 1023.0f;
+
+            lcd_pos(1, 0);
+            sprintf(textoLCD, "V: %.2f V", tensao);
+            lcd_texto(textoLCD);
+
+            contadorT2 = 0;
+            contando3s = 1;
+            T2CONbits.TMR2ON = 1;
+            RB1 = 1;
+        }
+    }
+}
+
+
+
+
+
+void adc_inicializar()
+{
     ADCON0 = 0b10011001;
     ADCON1 = 0b10000010;
 }
 
-
-unsigned int read_adc() {
+unsigned int adc_leitura()
+{
     _delay((unsigned long)((20)*(20000000/4000000.0)));
     ADCON0bits.GO_nDONE = 1;
-    while (ADCON0bits.GO_nDONE);
+    while(ADCON0bits.GO_nDONE);
     return ((ADRESH << 8) + ADRESL);
 }
 
-
-void configurar_interrupcoes() {
+void configInterrupcoes()
+{
     INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
     INTCONbits.INTE = 1;
     OPTION_REGbits.INTEDG = 1;
     INTCONbits.INTF = 0;
 }
 
+void configTimer2()
+{
+    T2CONbits.T2CKPS = 0b11;
+    T2CONbits.TOUTPS = 0b1011;
+    PR2 = 249;
+    TMR2 = 0;
+    PIR1bits.TMR2IF = 0;
+    PIE1bits.TMR2IE = 1;
+}
 
-void lcd_initialise() {
-    lcd_command(0x33);
-    lcd_command(0x32);
-    lcd_command(0x28);
-    lcd_command(0x0C);
-    lcd_command(0x06);
-    lcd_command(0x01);
-    _delay((unsigned long)((2)*(20000000/4000.0)));
+void configUART()
+{
+    TRISCbits.TRISC6 = 1;
+    TRISCbits.TRISC7 = 1;
+    SPBRG = 129;
+    TXSTAbits.BRGH = 1;
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
+    RCSTAbits.CREN = 0;
+    TXSTAbits.TXEN = 1;
+}
+
+void enviarChar(char c)
+{
+    while(!TXSTAbits.TRMT);
+    TXREG = c;
+}
+
+void enviarString(const char *s)
+{
+    while(*s) enviarChar(*s++);
 }
 
 
-void lcd_command(unsigned char cmd) {
-    PORTDbits.RD4 = (cmd >> 4) & 0x01;
-    PORTDbits.RD5 = (cmd >> 5) & 0x01;
-    PORTDbits.RD6 = (cmd >> 6) & 0x01;
-    PORTDbits.RD7 = (cmd >> 7) & 0x01;
+
+
+
+void lcd_inicializar()
+{
+    lcd_comando(0x33);
+    lcd_comando(0x32);
+    lcd_comando(0x28);
+    lcd_comando(0x0C);
+    lcd_comando(0x06);
+    lcd_comando(0x01);
+    _delay((unsigned long)((2)*(20000000/4000.0)));
+}
+
+void lcd_comando(unsigned char c)
+{
+    PORTDbits.RD4 = (c >> 4) & 0x01;
+    PORTDbits.RD5 = (c >> 5) & 0x01;
+    PORTDbits.RD6 = (c >> 6) & 0x01;
+    PORTDbits.RD7 = (c >> 7) & 0x01;
     PORTEbits.RE0 = 0;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((2)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+    PORTEbits.RE1 = 1; _delay((unsigned long)((2)*(20000000/4000.0))); PORTEbits.RE1 = 0;
 
-    PORTDbits.RD4 = cmd & 0x01;
-    PORTDbits.RD5 = (cmd >> 1) & 0x01;
-    PORTDbits.RD6 = (cmd >> 2) & 0x01;
-    PORTDbits.RD7 = (cmd >> 3) & 0x01;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((2)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+    PORTDbits.RD4 = c & 0x01;
+    PORTDbits.RD5 = (c >> 1) & 0x01;
+    PORTDbits.RD6 = (c >> 2) & 0x01;
+    PORTDbits.RD7 = (c >> 3) & 0x01;
+    PORTEbits.RE1 = 1; _delay((unsigned long)((2)*(20000000/4000.0))); PORTEbits.RE1 = 0;
 }
 
-
-void lcd_data(unsigned char data) {
-    PORTDbits.RD4 = (data >> 4) & 0x01;
-    PORTDbits.RD5 = (data >> 5) & 0x01;
-    PORTDbits.RD6 = (data >> 6) & 0x01;
-    PORTDbits.RD7 = (data >> 7) & 0x01;
+void lcd_dado(unsigned char d)
+{
+    PORTDbits.RD4 = (d >> 4) & 0x01;
+    PORTDbits.RD5 = (d >> 5) & 0x01;
+    PORTDbits.RD6 = (d >> 6) & 0x01;
+    PORTDbits.RD7 = (d >> 7) & 0x01;
     PORTEbits.RE0 = 1;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((2)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+    PORTEbits.RE1 = 1; _delay((unsigned long)((2)*(20000000/4000.0))); PORTEbits.RE1 = 0;
 
-    PORTDbits.RD4 = data & 0x01;
-    PORTDbits.RD5 = (data >> 1) & 0x01;
-    PORTDbits.RD6 = (data >> 2) & 0x01;
-    PORTDbits.RD7 = (data >> 3) & 0x01;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((2)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+    PORTDbits.RD4 = d & 0x01;
+    PORTDbits.RD5 = (d >> 1) & 0x01;
+    PORTDbits.RD6 = (d >> 2) & 0x01;
+    PORTDbits.RD7 = (d >> 3) & 0x01;
+    PORTEbits.RE1 = 1; _delay((unsigned long)((2)*(20000000/4000.0))); PORTEbits.RE1 = 0;
 }
 
-
-void lcd_string(const char *str) {
-    while (*str) {
-        lcd_data(*str++);
-    }
+void lcd_texto(const char *s)
+{
+    while(*s) lcd_dado(*s++);
 }
 
-
-void lcd_set_cursor(unsigned char row, unsigned char col) {
+void lcd_pos(unsigned char l, unsigned char c)
+{
     unsigned char pos;
-    if (row == 0)
-        pos = 0x80 + col;
-    else
-        pos = 0xC0 + col;
-    lcd_command(pos);
+    pos = (l == 0) ? (0x80 + c) : (0xC0 + c);
+    lcd_comando(pos);
 }
