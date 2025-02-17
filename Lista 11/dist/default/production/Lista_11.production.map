@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
   -cn -h+dist/default/production\Lista_11.production.sym \
   --cmf=dist/default/production\Lista_11.production.cmf -z -Q16F877 \
-  -oC:\Users\Yan\AppData\Local\Temp\xcAs20tk.\driver_tmp_3.o \
+  -oC:\Users\Yan\AppData\Local\Temp\xcAsfas.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/Lista_11.production.map \
-  --md=C:\Users\Yan\AppData\Local\Temp\xcAs20tk.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\Yan\AppData\Local\Temp\xcAsfas.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -22,7 +22,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\Yan\AppData\Local\Temp\xcAs20tk.\driver_tmp_12.o \
+  C:\Users\Yan\AppData\Local\Temp\xcAsfas.\driver_tmp_12.o \
   dist/default/production\Lista_11.production.o 
 
 Object code version is 3.11
@@ -32,7 +32,7 @@ Machine type is 16F877
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Yan\AppData\Local\Temp\xcAs20tk.\driver_tmp_12.o
+C:\Users\Yan\AppData\Local\Temp\xcAsfas.\driver_tmp_12.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\Lista_11.production.o
