@@ -7,6 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "atividade10.c" 2
+# 10 "atividade10.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1796,122 +1797,200 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
-# 1 "atividade10.c" 2
+# 10 "atividade10.c" 2
+
 
 
 
 #pragma config FOSC = HS
 #pragma config WDTE = OFF
-#pragma config PWRTE = OFF
+#pragma config PWRTE = ON
+#pragma config BOREN = ON
+#pragma config LVP = OFF
+#pragma config CPD = OFF
+#pragma config WRT = OFF
 #pragma config CP = OFF
+# 66 "atividade10.c"
+void LCD_Init(void);
+void LCD_Cmd(unsigned char cmd);
+void LCD_Char(char data);
+void LCD_String(const char *str);
+void LCD_Clear(void);
+void LCD_SetCursor(uint8_t row, uint8_t col);
+
+void Keypad_Init(void);
+char Keypad_GetChar(void);
+
+void EEPROM_Write(uint8_t address, uint8_t data);
+uint8_t EEPROM_Read(uint8_t address);
 
 
+void main(void)
+{
+    char key_pressed;
+    char previous_key = 0;
+    char eeprom_value;
 
+    LCD_Init();
+    Keypad_Init();
 
-<<<<<<< HEAD
-volatile unsigned int tempo_motor = 0;
-volatile unsigned char motor_ativo = 0;
-=======
-volatile unsigned char estado_led_rd0 = 0;
-volatile unsigned char estado_led_rd1 = 0;
-volatile unsigned char estado_led_rd2 = 0;
-volatile unsigned char estado_anterior_rb7 = 0;
-volatile unsigned int contador_timer2 = 0;
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
+    while(1)
+    {
+        LCD_SetCursor(1, 1);
+        LCD_String("Dig. Tecla");
 
+        key_pressed = Keypad_GetChar();
+        LCD_SetCursor(2, 1);
+        LCD_Char(key_pressed);
 
-void __attribute__((picinterrupt(("")))) interrupcao(void) {
-
-<<<<<<< HEAD
-    if (PIR1bits.TMR1IF) {
-        PIR1bits.TMR1IF = 0;
-        TMR1H = 0x0B;
-        TMR1L = 0xDC;
-
-        if (motor_ativo) {
-            tempo_motor--;
-            if (tempo_motor == 0) {
-                motor_ativo = 0;
-                PORTDbits.RD0 = 0;
-                T1CONbits.TMR1ON = 0;
+        if (key_pressed == 'F')
+        {
+            if (previous_key != 0)
+            {
+                EEPROM_Write(0x00, (uint8_t)previous_key);
+                _delay((unsigned long)((10)*(20000000UL/4000.0)));
             }
-=======
-    if (PIR1bits.TMR2IF) {
-        PIR1bits.TMR2IF = 0;
-        contador_timer2++;
-        if (contador_timer2 >= 156) {
-            contador_timer2 = 0;
-            estado_led_rd0 = ~estado_led_rd0;
-            PORTD ^= 0x01;
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
+            LCD_Clear();
+            continue;
         }
-    }
 
-
-    if (INTCONbits.INTF) {
-        INTCONbits.INTF = 0;
-<<<<<<< HEAD
-        if (!motor_ativo) {
-            tempo_motor = 40;
-            motor_ativo = 1;
-            PORTDbits.RD0 = 1;
-            T1CONbits.TMR1ON = 1;
+        if (key_pressed == 'E')
+        {
+            eeprom_value = EEPROM_Read(0x00);
+            LCD_Clear();
+            LCD_SetCursor(1, 1);
+            LCD_String("Tecla Dig.");
+            LCD_SetCursor(2, 1);
+            LCD_Char(eeprom_value);
+            (void)Keypad_GetChar();
+            LCD_Clear();
+            continue;
         }
-=======
-        estado_led_rd1 = ~estado_led_rd1;
-        PORTD ^= 0x02;
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
+
+        previous_key = key_pressed;
     }
+}
 
 
-    if (INTCONbits.RBIF) {
-        INTCONbits.RBIF = 0;
-<<<<<<< HEAD
-        if (PORTBbits.RB1 && !motor_ativo) {
-            tempo_motor = 80;
-            motor_ativo = 1;
-            PORTDbits.RD0 = 1;
-            T1CONbits.TMR1ON = 1;
-=======
-        if (PORTBbits.RB7 != estado_anterior_rb7) {
-            estado_led_rd2 = ~estado_led_rd2;
-            PORTD ^= 0x04;
-            estado_anterior_rb7 = PORTBbits.RB7;
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
+void LCD_Init(void)
+{
+    TRISE0 = TRISE1 = TRISD4 = TRISD5 = TRISD6 = TRISD7 = 0;
+
+    _delay((unsigned long)((20)*(20000000UL/4000.0)));
+
+    LCD_Cmd(0x03);
+    _delay((unsigned long)((5)*(20000000UL/4000.0)));
+    LCD_Cmd(0x03);
+    _delay((unsigned long)((200)*(20000000UL/4000000.0)));
+    LCD_Cmd(0x03);
+    _delay((unsigned long)((200)*(20000000UL/4000000.0)));
+
+    LCD_Cmd(0x02);
+    LCD_Cmd(0x28);
+    LCD_Cmd(0x0C);
+    LCD_Cmd(0x06);
+    LCD_Cmd(0x01);
+    _delay((unsigned long)((2)*(20000000UL/4000.0)));
+}
+
+void LCD_Cmd(unsigned char cmd)
+{
+    RE0 = 0;
+    PORTD = (PORTD & 0x0F) | (cmd & 0xF0);
+    RE1 = 1; _delay((unsigned long)((10)*(20000000UL/4000000.0))); RE1 = 0;
+
+    PORTD = (PORTD & 0x0F) | ((cmd << 4) & 0xF0);
+    RE1 = 1; _delay((unsigned long)((10)*(20000000UL/4000000.0))); RE1 = 0;
+
+    _delay((unsigned long)((2)*(20000000UL/4000.0)));
+}
+
+void LCD_Char(char data)
+{
+    RE0 = 1;
+    PORTD = (PORTD & 0x0F) | (data & 0xF0);
+    RE1 = 1; _delay((unsigned long)((10)*(20000000UL/4000000.0))); RE1 = 0;
+
+    PORTD = (PORTD & 0x0F) | ((data << 4) & 0xF0);
+    RE1 = 1; _delay((unsigned long)((10)*(20000000UL/4000000.0))); RE1 = 0;
+
+    _delay((unsigned long)((2)*(20000000UL/4000.0)));
+}
+
+void LCD_String(const char *str)
+{
+    while(*str) LCD_Char(*str++);
+}
+
+void LCD_Clear(void)
+{
+    LCD_Cmd(0x01);
+    _delay((unsigned long)((2)*(20000000UL/4000.0)));
+}
+
+void LCD_SetCursor(uint8_t row, uint8_t col)
+{
+    uint8_t address = (row == 1) ? 0x80 + (col - 1) : 0xC0 + (col - 1);
+    LCD_Cmd(address);
+}
+
+
+static const char keypad_map[4][4] =
+{
+    {'0','1','2','3'},
+    {'4','5','6','7'},
+    {'8','9','A','B'},
+    {'C','D','E','F'}
+};
+
+void Keypad_Init(void)
+{
+    TRISC = 0xF0;
+    OPTION_REGbits.nRBPU = 0;
+}
+
+char Keypad_GetChar(void)
+{
+    while(1)
+    {
+        for(uint8_t row = 0; row < 4; row++)
+        {
+            PORTC = ~(1 << row);
+            _delay((unsigned long)((50)*(20000000UL/4000000.0)));
+
+            if(PORTBbits.RB0 == 0) { while(PORTBbits.RB0==0); return keypad_map[row][0]; }
+            if(PORTBbits.RB1 == 0) { while(PORTBbits.RB1==0); return keypad_map[row][1]; }
+            if(PORTBbits.RB2 == 0) { while(PORTBbits.RB2==0); return keypad_map[row][2]; }
+            if(PORTBbits.RB3 == 0) { while(PORTBbits.RB3==0); return keypad_map[row][3]; }
         }
     }
 }
 
-void main(void) {
 
-    TRISD = 0x00;
-<<<<<<< HEAD
-    TRISB = 0x03;
-    PORTD = 0x00;
+void EEPROM_Write(uint8_t address, uint8_t data)
+{
 
+    EEADR = address;
+    EEDATA = data;
 
-    T1CON = 0x31;
-    TMR1H = 0x0B;
-    TMR1L = 0xDC;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.WREN = 1;
 
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    __nop();
 
-    INTCON = 0b11011000;
-    PIE1 = 0b00000001;
-    PIR1bits.TMR1IF = 0;
-=======
-    TRISB = 0x81;
-    PORTD = 0x00;
-    estado_anterior_rb7 = PORTBbits.RB7;
+    EECON1bits.WREN = 0;
+    INTCONbits.GIE = 1;
+}
 
-
-    T2CON = 0b00000111;
-    PR2 = 250;
-
-
-    INTCON = 0b11011000;
-    PIE1 = 0b00000010;
-    PIR1bits.TMR2IF = 0;
->>>>>>> c74b8b5822ca87f7f4eabed6b94d6740b7edc330
-
-    while (1);
+uint8_t EEPROM_Read(uint8_t address)
+{
+    EEADR = address;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.RD = 1;
+    __nop();
+    return EEDATA;
 }
