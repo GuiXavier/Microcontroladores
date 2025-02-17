@@ -7,7 +7,12 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "atividade10.c" 2
-# 10 "atividade10.c"
+
+
+
+
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1797,7 +1802,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
-# 10 "atividade10.c" 2
+# 7 "atividade10.c" 2
 
 
 
@@ -1810,7 +1815,7 @@ extern __bank0 __bit __timeout;
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
-# 66 "atividade10.c"
+# 51 "atividade10.c"
 void LCD_Init(void);
 void LCD_Cmd(unsigned char cmd);
 void LCD_Char(char data);
@@ -1828,8 +1833,6 @@ void configurar_uart();
 void uart_enviar_caractere(char c);
 void uart_enviar_string(const char *str);
 void uart_enviar_valor(unsigned int valor);
-
-
 
 
 void main(void)
@@ -1870,15 +1873,8 @@ void main(void)
             LCD_SetCursor(2, 1);
             LCD_Char(eeprom_value);
             (void)Keypad_GetChar();
-
-
-
-            if(key_pressed != 'E')
-            {
-                    LCD_Clear();
-                    continue;
-            }
-
+            LCD_Clear();
+            continue;
         }
 
         previous_key = key_pressed;
@@ -1972,10 +1968,10 @@ char Keypad_GetChar(void)
             PORTC = ~(1 << row);
             _delay((unsigned long)((50)*(20000000UL/4000000.0)));
 
-            if(PORTBbits.RB0 == 0) { while(PORTBbits.RB0==0); return keypad_map[row][0]; }
-            if(PORTBbits.RB1 == 0) { while(PORTBbits.RB1==0); return keypad_map[row][1]; }
-            if(PORTBbits.RB2 == 0) { while(PORTBbits.RB2==0); return keypad_map[row][2]; }
-            if(PORTBbits.RB3 == 0) { while(PORTBbits.RB3==0); return keypad_map[row][3]; }
+            if(RB0 == 0) { while(RB0==0); return keypad_map[row][0]; }
+            if(RB1 == 0) { while(RB1==0); return keypad_map[row][1]; }
+            if(RB2 == 0) { while(RB2==0); return keypad_map[row][2]; }
+            if(RB3 == 0) { while(RB3==0); return keypad_map[row][3]; }
         }
     }
 }
@@ -2008,7 +2004,6 @@ uint8_t EEPROM_Read(uint8_t address)
     __nop();
     return EEDATA;
 }
-
 
 
 
