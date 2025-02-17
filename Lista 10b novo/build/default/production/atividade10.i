@@ -1799,108 +1799,91 @@ extern __bank0 __bit __timeout;
 # 1 "atividade10.c" 2
 
 
-#pragma config FOSC = XT
+
+#pragma config FOSC = HS
 #pragma config WDTE = OFF
 #pragma config PWRTE = OFF
 #pragma config CP = OFF
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config WRT = OFF
 
 
 
 
-
-
-
+volatile unsigned int tempo_motor = 0;
 volatile unsigned char motor_ativo = 0;
-volatile unsigned char tempo_alvo_overflows = 0;
-volatile unsigned char contagem_overflows = 0;
+
 
 void configurar_pinos(void);
 void configurar_timer1(void);
 void configurar_interrupcoes(void);
 
-void __attribute__((picinterrupt(("")))) isr(void)
-{
-    if (PIR1bits.TMR1IF)
-    {
+
+void __attribute__((picinterrupt(("")))) interrupcao(void) {
+
+    if (PIR1bits.TMR1IF) {
         PIR1bits.TMR1IF = 0;
-        if (motor_ativo)
-        {
-            contagem_overflows++;
-            if (contagem_overflows >= tempo_alvo_overflows)
-            {
-                PORTDbits.RD0 = 0;
+        TMR1H = 0x85;
+        TMR1L = 0xEE;
+
+        if (motor_ativo) {
+            tempo_motor--;
+            if (tempo_motor == 0) {
                 motor_ativo = 0;
+                PORTDbits.RD0 = 0;
+                T1CONbits.TMR1ON = 0;
             }
         }
     }
 
-    if (INTCONbits.INTF)
-    {
+
+    if (INTCONbits.INTF) {
         INTCONbits.INTF = 0;
-        if (!motor_ativo)
-        {
+        if (!motor_ativo) {
+            tempo_motor = 40;
             motor_ativo = 1;
-            contagem_overflows = 0;
-            tempo_alvo_overflows = 20;
             PORTDbits.RD0 = 1;
+            T1CONbits.TMR1ON = 1;
         }
     }
 }
 
-void main(void)
-{
+void main(void) {
     configurar_pinos();
     configurar_timer1();
     configurar_interrupcoes();
 
-    static unsigned char rb1_anterior = 1;
+    while (1) {
 
-    while(1)
-    {
-        unsigned char rb1_atual = PORTBbits.RB1;
-        if (rb1_anterior == 1 && rb1_atual == 0)
-        {
-            if (!motor_ativo)
-            {
+        if (PORTBbits.RB1 == 1 && !motor_ativo) {
+            _delay((unsigned long)((50)*(20000000/4000.0)));
+            if (PORTBbits.RB1 == 1) {
+                tempo_motor = 80;
                 motor_ativo = 1;
-                contagem_overflows = 0;
-                tempo_alvo_overflows = 39;
                 PORTDbits.RD0 = 1;
+                T1CONbits.TMR1ON = 1;
+                while (PORTBbits.RB1 == 1);
             }
         }
-        rb1_anterior = rb1_atual;
     }
 }
 
-void configurar_pinos(void)
-{
+void configurar_pinos(void) {
     TRISD = 0x00;
-    PORTD = 0x00;
     TRISBbits.TRISB0 = 1;
     TRISBbits.TRISB1 = 1;
-    PORTDbits.RD0 = 0;
+    PORTD = 0x00;
 }
 
-void configurar_timer1(void)
-{
-    T1CONbits.TMR1CS = 0;
-    T1CONbits.T1CKPS = 0b11;
-    T1CONbits.TMR1ON = 1;
-    TMR1H = 0;
-    TMR1L = 0;
+void configurar_timer1(void) {
+    T1CON = 0x31;
+    TMR1H = 0x85;
+    TMR1L = 0xEE;
     PIR1bits.TMR1IF = 0;
     PIE1bits.TMR1IE = 1;
 }
 
-void configurar_interrupcoes(void)
-{
+void configurar_interrupcoes(void) {
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
-    OPTION_REGbits.INTEDG = 0;
     INTCONbits.INTE = 1;
     INTCONbits.INTF = 0;
-    OPTION_REGbits.nRBPU = 0;
 }
