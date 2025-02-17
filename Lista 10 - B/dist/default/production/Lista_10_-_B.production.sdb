@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F877 ]
 [d frameptr 0 ]
-"25 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 10 - B\atividade10.c
+"25 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 10 - B\atividade10.c
 [v _isr isr `II(v  1 e 1 0 ]
 "54
 [v _main main `(v  1 e 1 0 ]
@@ -21,7 +21,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"17 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 10 - B\atividade10.c
+"17 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 10 - B\atividade10.c
 [v _motor_ativo motor_ativo `VEuc  1 e 1 0 ]
 "18
 [v _tempo_alvo_overflows tempo_alvo_overflows `VEuc  1 e 1 0 ]
@@ -145,7 +145,7 @@
 "1630
 [u S201 . 1 `S192 1 . 1 0 ]
 [v _PIE1bits PIE1bits `VES201  1 e 1 @140 ]
-"54 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 10 - B\atividade10.c
+"54 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 10 - B\atividade10.c
 [v _main main `(v  1 e 1 0 ]
 {
 "64
