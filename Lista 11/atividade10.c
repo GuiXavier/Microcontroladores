@@ -119,7 +119,7 @@ void main(void)
 //            continue;
             
             if(key_pressed != 'E')
-            {
+            {       
                     LCD_Clear();
                     continue;
             }    
