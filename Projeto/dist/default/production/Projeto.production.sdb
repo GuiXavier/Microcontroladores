@@ -1,0 +1,300 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 0 ]
+"47 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Projeto\atividade7.c
+[v _main main `(v  1 e 1 0 ]
+"73
+[v _config_PWM config_PWM `(v  1 e 1 0 ]
+"80
+[v _set_PWM set_PWM `(v  1 e 1 0 ]
+"86
+[v _config_UART config_UART `(v  1 e 1 0 ]
+"98
+[v _enviarChar enviarChar `(v  1 e 1 0 ]
+"103
+[v _enviarString enviarString `(v  1 e 1 0 ]
+"111
+[v _enviarSequenciaUART enviarSequenciaUART `(v  1 e 1 0 ]
+"117
+[v _enviarVelocidadeAtualUART enviarVelocidadeAtualUART `(v  1 e 1 0 ]
+"127
+[v _ler_teclado ler_teclado `(uc  1 e 1 0 ]
+"1177 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+"1817
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\memset.c
+[v _memset memset `(*.4v  1 e 1 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+"13 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_snprintf.c
+[v _snprintf snprintf `(i  1 e 2 0 ]
+"7 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"29 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Projeto\atividade7.c
+[v _sequencia sequencia `[10]uc  1 e 10 0 ]
+"30
+[v _posicao posicao `uc  1 e 1 0 ]
+[s S198 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[u S207 . 1 `S198 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES207  1 e 1 @6 ]
+[s S177 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"357
+[u S186 . 1 `S177 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES186  1 e 1 @8 ]
+"732
+[v _T2CON T2CON `VEuc  1 e 1 @18 ]
+"887
+[v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
+"901
+[v _CCP1CON CCP1CON `VEuc  1 e 1 @23 ]
+[s S119 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"989
+[s S128 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S132 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S135 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S138 . 1 `S119 1 . 1 0 `S128 1 . 1 0 `S132 1 . 1 0 `S135 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES138  1 e 1 @24 ]
+"1054
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1370
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+[s S24 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1449
+[u S33 . 1 `S24 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES33  1 e 1 @135 ]
+"1494
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1804
+[v _PR2 PR2 `VEuc  1 e 1 @146 ]
+[s S82 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2013
+[s S91 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S95 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S98 . 1 `S82 1 . 1 0 `S91 1 . 1 0 `S95 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES98  1 e 1 @152 ]
+"2068
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"153 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
+[v _prec prec `i  1 s 2 prec ]
+[v _width width `i  1 s 2 width ]
+"154
+[v _flags flags `uc  1 s 1 flags ]
+"189
+[v _nout nout `i  1 s 2 nout ]
+"3 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\errno.c
+[v _errno errno `i  1 e 2 0 ]
+"47 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Projeto\atividade7.c
+[v _main main `(v  1 e 1 0 ]
+{
+"58
+[v main@tecla tecla `uc  1 a 1 71 ]
+"71
+} 0
+"80
+[v _set_PWM set_PWM `(v  1 e 1 0 ]
+{
+[v set_PWM@velocidade velocidade `uc  1 p 1 wreg ]
+"81
+[v set_PWM@duty_cycle duty_cycle `ui  1 a 2 9 ]
+"80
+[v set_PWM@velocidade velocidade `uc  1 p 1 wreg ]
+[v set_PWM@velocidade velocidade `uc  1 p 1 8 ]
+"84
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"3 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\memset.c
+[v _memset memset `(*.4v  1 e 1 0 ]
+{
+"5
+[v memset@p p `*.4uc  1 a 1 5 ]
+"3
+[v memset@dest dest `*.4v  1 p 1 0 ]
+[v memset@c c `i  1 p 2 1 ]
+[v memset@n n `ui  1 p 2 3 ]
+"10
+} 0
+"127 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Projeto\atividade7.c
+[v _ler_teclado ler_teclado `(uc  1 e 1 0 ]
+{
+"128
+[v ler_teclado@tecla tecla `uc  1 a 1 0 ]
+"147
+} 0
+"117
+[v _enviarVelocidadeAtualUART enviarVelocidadeAtualUART `(v  1 e 1 0 ]
+{
+"118
+[v enviarVelocidadeAtualUART@buffer buffer `[20]uc  1 a 20 43 ]
+"125
+} 0
+"111
+[v _enviarSequenciaUART enviarSequenciaUART `(v  1 e 1 0 ]
+{
+"112
+[v enviarSequenciaUART@buffer buffer `[30]uc  1 a 30 41 ]
+"115
+} 0
+"13 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_snprintf.c
+[v _snprintf snprintf `(i  1 e 2 0 ]
+{
+[u S734 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
+"17
+[s S737 _IO_FILE 11 `S734 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v snprintf@f f `S737  1 a 11 30 ]
+"15
+[v snprintf@cnt cnt `i  1 a 2 28 ]
+"16
+[v snprintf@ap ap `[1]*.4v  1 a 1 27 ]
+"13
+[v snprintf@s s `*.4uc  1 p 1 16 ]
+[v snprintf@n n `ui  1 p 2 17 ]
+[v snprintf@fmt fmt `*.24DCuc  1 p 1 19 ]
+"39
+} 0
+"1817 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+"1820
+[v vfprintf@cfmt cfmt `*.24uc  1 a 1 13 ]
+[s S772 _IO_FILE 0 ]
+"1817
+[v vfprintf@fp fp `*.39S772  1 p 2 12 ]
+[v vfprintf@fmt fmt `*.24DCuc  1 p 1 14 ]
+[v vfprintf@ap ap `*.4*.4v  1 p 1 15 ]
+"1840
+} 0
+"1177
+[v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
+{
+"1669
+[v vfpfcnvrt@cp_813 cp `*.4uc  1 a 1 11 ]
+"1191
+[v vfpfcnvrt@cnt cnt `i  1 a 2 7 ]
+"1180
+[v vfpfcnvrt@done done `a  1 a 1 10 ]
+"1179
+[v vfpfcnvrt@c c `uc  1 a 1 9 ]
+[s S772 _IO_FILE 0 ]
+"1177
+[v vfpfcnvrt@fp fp `*.39S772  1 p 2 0 ]
+[v vfpfcnvrt@fmt fmt `*.30*.24uc  1 p 1 2 ]
+[v vfpfcnvrt@ap ap `*.39*.4v  1 p 2 3 ]
+"1814
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 0 ]
+[u S734 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
+[s S737 _IO_FILE 11 `S734 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S737  1 p 2 2 ]
+"24
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+"9
+} 0
+"103 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Projeto\atividade7.c
+[v _enviarString enviarString `(v  1 e 1 0 ]
+{
+[v enviarString@s s `*.4DCuc  1 p 1 1 ]
+"109
+} 0
+"98
+[v _enviarChar enviarChar `(v  1 e 1 0 ]
+{
+[v enviarChar@c c `uc  1 p 1 wreg ]
+[v enviarChar@c c `uc  1 p 1 wreg ]
+[v enviarChar@c c `uc  1 p 1 0 ]
+"101
+} 0
+"86
+[v _config_UART config_UART `(v  1 e 1 0 ]
+{
+"96
+} 0
+"73
+[v _config_PWM config_PWM `(v  1 e 1 0 ]
+{
+"78
+} 0
