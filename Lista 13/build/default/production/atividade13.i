@@ -1,4 +1,4 @@
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\sources\\c99\\pic\\__eeprom.c"
+# 1 "atividade13.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\sources\\c99\\pic\\__eeprom.c" 2
+# 1 "atividade13.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -1796,176 +1796,367 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\xc.h" 2 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\sources\\c99\\pic\\__eeprom.c" 2
+# 1 "atividade13.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef void * va_list[1];
 
 
 
 
-void
-__eecpymem(volatile unsigned char *to, __eeprom unsigned char * from, unsigned char size)
-{
- volatile unsigned char *cp = to;
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef short ssize_t;
+# 253 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
 
- while (EECON1bits.WR) continue;
- EEADR = (unsigned char)from;
- while(size--) {
-  while (EECON1bits.WR) continue;
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
 
-  EECON1 &= 0x7F;
 
-  EECON1bits.RD = 1;
-  *cp++ = EEDATA;
-  ++EEADR;
- }
-# 36 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\sources\\c99\\pic\\__eeprom.c"
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 2 "atividade13.c" 2
+# 16 "atividade13.c"
+void I2C_Master_Init(unsigned long c);
+void I2C_Master_Start(void);
+void I2C_Master_Stop(void);
+void I2C_Master_Write(unsigned char data);
+void I2C_scan(void);
+
+
+
+
+void LCD_sendNibble(unsigned char nibble, unsigned char rs);
+void LCD_sendByte(unsigned char byte, unsigned char rs);
+void LCD_command(unsigned char cmd);
+void LCD_data(unsigned char data);
+void LCD_init(void);
+void LCD_setCursor(unsigned char linha, unsigned char coluna);
+void LCD_print(const char *str);
+void LCD_backlight(unsigned char state);
+
+
+
+
+void UART_Init(void);
+void UART_PrintChar(char c);
+void UART_Print(const char *str);
+void UART_PrintInt(unsigned int valor);
+
+
+
+
+void main(void) {
+    UART_Init();
+    I2C_Master_Init(100000);
+    I2C_scan();
+
+    LCD_init();
+    LCD_backlight(1);
+
+    LCD_setCursor(1, 1);
+    LCD_print("Joao Pedro");
+
+    LCD_setCursor(2, 1);
+    LCD_print("2095882");
+
+    while(1);
 }
 
-void
-__memcpyee(__eeprom unsigned char * to, const unsigned char *from, unsigned char size)
-{
- const unsigned char *ptr =from;
 
- while (EECON1bits.WR) continue;
- EEADR = (unsigned char)to - 1U;
 
- EECON1 &= 0x7F;
 
- while(size--) {
-  while (EECON1bits.WR) {
-   continue;
-  }
-  EEDATA = *ptr++;
-  ++EEADR;
-  STATUSbits.CARRY = 0;
-  if (INTCONbits.GIE) {
-   STATUSbits.CARRY = 1;
-  }
-  INTCONbits.GIE = 0;
-  EECON1bits.WREN = 1;
-  EECON2 = 0x55;
-  EECON2 = 0xAA;
-  EECON1bits.WR = 1;
-  EECON1bits.WREN = 0;
-  if (STATUSbits.CARRY) {
-   INTCONbits.GIE = 1;
-  }
- }
-# 101 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\sources\\c99\\pic\\__eeprom.c"
+void I2C_Master_Init(unsigned long c) {
+    SSPCON = 0x28;
+    SSPCON2 = 0x00;
+    SSPADD = (unsigned char)((4000000 / (4 * c)) - 1);
+    SSPSTAT = 0x00;
 }
 
-unsigned char
-__eetoc(__eeprom void *addr)
-{
- unsigned char data;
- __eecpymem((unsigned char *) &data,addr,1);
- return data;
+void I2C_Master_Start(void) {
+    SEN = 1;
+    while(SEN);
 }
 
-unsigned int
-__eetoi(__eeprom void *addr)
-{
- unsigned int data;
- __eecpymem((unsigned char *) &data,addr,2);
- return data;
+void I2C_Master_Stop(void) {
+    PEN = 1;
+    while(PEN);
 }
 
-#pragma warning push
-#pragma warning disable 2040
-__uint24
-__eetom(__eeprom void *addr)
-{
- __uint24 data;
- __eecpymem((unsigned char *) &data,addr,3);
- return data;
-}
-#pragma warning pop
-
-unsigned long
-__eetol(__eeprom void *addr)
-{
- unsigned long data;
- __eecpymem((unsigned char *) &data,addr,4);
- return data;
+void I2C_Master_Write(unsigned char data) {
+    SSPBUF = data;
+    while (BF);
+    if (SSPCON2bits.ACKSTAT) {
+        I2C_Master_Stop();
+    }
 }
 
-#pragma warning push
-#pragma warning disable 1516
-unsigned long long
-__eetoo(__eeprom void *addr)
-{
- unsigned long long data;
- __eecpymem((unsigned char *) &data,addr,8);
- return data;
-}
-#pragma warning pop
 
-unsigned char
-__ctoee(__eeprom void *addr, unsigned char data)
-{
- __memcpyee(addr,(unsigned char *) &data,1);
- return data;
-}
 
-unsigned int
-__itoee(__eeprom void *addr, unsigned int data)
-{
- __memcpyee(addr,(unsigned char *) &data,2);
- return data;
-}
 
-#pragma warning push
-#pragma warning disable 2040
-__uint24
-__mtoee(__eeprom void *addr, __uint24 data)
-{
- __memcpyee(addr,(unsigned char *) &data,3);
- return data;
-}
-#pragma warning pop
+void I2C_scan(void) {
+    unsigned char address;
+    UART_Print("\r\nIniciando escaneamento I2C...\r\n");
 
-unsigned long
-__ltoee(__eeprom void *addr, unsigned long data)
-{
- __memcpyee(addr,(unsigned char *) &data,4);
- return data;
+    for (address = 0x20; address < 0x40; address++) {
+        I2C_Master_Start();
+        I2C_Master_Write((unsigned char)(address << 1));
+
+        if (!SSPCON2bits.ACKSTAT) {
+            I2C_Master_Stop();
+            UART_Print("? Dispositivo encontrado no endereco: 0x");
+            UART_PrintInt(address);
+            UART_Print("\r\n");
+            return;
+        }
+        I2C_Master_Stop();
+    }
+
+    UART_Print("? Nenhum dispositivo I2C encontrado!\r\n");
 }
 
-#pragma warning push
-#pragma warning disable 1516
-unsigned long long
-__otoee(__eeprom void *addr, unsigned long long data)
-{
- __memcpyee(addr,(unsigned char *) &data,8);
- return data;
-}
-#pragma warning pop
 
-float
-__eetoft(__eeprom void *addr)
-{
- float data;
- __eecpymem((unsigned char *) &data,addr,3);
- return data;
+
+
+void LCD_sendNibble(unsigned char nibble, unsigned char rs) {
+    unsigned char data = 0;
+
+
+    if (nibble & 0x01) data |= (1 << 4);
+    if (nibble & 0x02) data |= (1 << 5);
+    if (nibble & 0x04) data |= (1 << 6);
+    if (nibble & 0x08) data |= (1 << 7);
+
+
+    if (rs) data |= 0x01;
+    data &= ~0x02;
+
+    data |= 0x04;
+    data |= 0x08;
+    I2C_Master_Start();
+    I2C_Master_Write(0x27 << 1);
+    I2C_Master_Write(data);
+    I2C_Master_Stop();
+    _delay((unsigned long)((50)*(4000000/4000000.0)));
+
+    data &= ~0x04;
+    I2C_Master_Start();
+    I2C_Master_Write(0x27 << 1);
+    I2C_Master_Write(data);
+    I2C_Master_Stop();
+    _delay((unsigned long)((50)*(4000000/4000000.0)));
 }
 
-double
-__eetofl(__eeprom void *addr)
-{
- double data;
- __eecpymem((unsigned char *) &data,addr,4);
- return data;
+void LCD_sendByte(unsigned char byte, unsigned char rs) {
+    LCD_sendNibble(byte >> 4, rs);
+    LCD_sendNibble(byte & 0x0F, rs);
 }
 
-float
-__fttoee(__eeprom void *addr, float data)
-{
- __memcpyee(addr,(unsigned char *) &data,3);
- return data;
+void LCD_command(unsigned char cmd) {
+    LCD_sendByte(cmd, 0);
+    _delay((unsigned long)((2)*(4000000/4000.0)));
 }
 
-double
-__fltoee(__eeprom void *addr, double data)
-{
- __memcpyee(addr,(unsigned char *) &data,4);
- return data;
+void LCD_data(unsigned char data) {
+    LCD_sendByte(data, 1);
+    _delay((unsigned long)((2)*(4000000/4000.0)));
+}
+
+void LCD_init(void) {
+    _delay((unsigned long)((30)*(4000000/4000.0)));
+    LCD_sendNibble(0x03, 0);
+    _delay((unsigned long)((10)*(4000000/4000.0)));
+    LCD_sendNibble(0x03, 0);
+    _delay((unsigned long)((200)*(4000000/4000000.0)));
+    LCD_sendNibble(0x03, 0);
+    _delay((unsigned long)((200)*(4000000/4000000.0)));
+
+    LCD_sendNibble(0x02, 0);
+    _delay((unsigned long)((10)*(4000000/4000.0)));
+
+    LCD_command(0x28);
+    LCD_command(0x0C);
+    LCD_command(0x01);
+    _delay((unsigned long)((10)*(4000000/4000.0)));
+    LCD_command(0x06);
+}
+
+void LCD_setCursor(unsigned char linha, unsigned char coluna) {
+    unsigned char pos = (linha == 1) ? (0x80 + coluna - 1) : (0xC0 + coluna - 1);
+    LCD_command(pos);
+}
+
+void LCD_print(const char *str) {
+    while (*str) {
+        LCD_data(*str++);
+    }
+}
+
+void LCD_backlight(unsigned char state) {
+    unsigned char data = state ? 0x08 : 0x00;
+    I2C_Master_Start();
+    I2C_Master_Write(0x27 << 1);
+    I2C_Master_Write(data);
+    I2C_Master_Stop();
+}
+
+
+
+
+void UART_Init(void) {
+    TXSTA = 0x24;
+    RCSTA = 0x90;
+    SPBRG = 25;
+}
+
+void UART_PrintChar(char c) {
+    while (!TXIF);
+    TXREG = c;
+}
+
+void UART_Print(const char *str) {
+    while (*str) {
+        UART_PrintChar(*str++);
+    }
+}
+
+void UART_PrintInt(unsigned int valor) {
+    char buffer[10];
+    sprintf(buffer, "%u", valor);
+    UART_Print(buffer);
 }
