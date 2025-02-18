@@ -1,25 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"37 atividade13.c
-[; ;atividade13.c: 37: void UART_Init(void);
-[v _UART_Init `(v ~T0 @X0 0 ef ]
-"16
-[; ;atividade13.c: 16: void I2C_Master_Init(unsigned long c);
+"15 atividade13.c
+[; ;atividade13.c: 15: void I2C_Master_Init(unsigned long c);
 [v _I2C_Master_Init `(v ~T0 @X0 0 ef1`ul ]
-"20
-[; ;atividade13.c: 20: void I2C_scan(void);
-[v _I2C_scan `(v ~T0 @X0 0 ef ]
-"29
-[; ;atividade13.c: 29: void LCD_init(void);
+"27
+[; ;atividade13.c: 27: void LCD_init(void);
 [v _LCD_init `(v ~T0 @X0 0 ef ]
-"32
-[; ;atividade13.c: 32: void LCD_backlight(unsigned char state);
-[v _LCD_backlight `(v ~T0 @X0 0 ef1`uc ]
 "30
-[; ;atividade13.c: 30: void LCD_setCursor(unsigned char linha, unsigned char coluna);
+[; ;atividade13.c: 30: void LCD_backlight(unsigned char state);
+[v _LCD_backlight `(v ~T0 @X0 0 ef1`uc ]
+"28
+[; ;atividade13.c: 28: void LCD_setCursor(unsigned char linha, unsigned char coluna);
 [v _LCD_setCursor `(v ~T0 @X0 0 ef2`uc`uc ]
-"31
-[; ;atividade13.c: 31: void LCD_print(const char *str);
+"29
+[; ;atividade13.c: 29: void LCD_print(const char *str);
 [v _LCD_print `(v ~T0 @X0 0 ef1`*Cuc ]
 "810 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 810: extern volatile unsigned char SSPCON __attribute__((address(0x014)));
@@ -56,34 +50,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1759
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 1759: extern volatile SSPCON2bits_t SSPCON2bits __attribute__((address(0x091)));
 [v _SSPCON2bits `VS75 ~T0 @X0 0 e@145 ]
-"39 atividade13.c
-[; ;atividade13.c: 39: void UART_Print(const char *str);
-[v _UART_Print `(v ~T0 @X0 0 ef1`*Cuc ]
-"40
-[; ;atividade13.c: 40: void UART_PrintInt(unsigned int valor);
-[v _UART_PrintInt `(v ~T0 @X0 0 ef1`ui ]
 [v F164 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v2.50\pic\include\builtins.h
 [v __delay `JF164 ~T0 @X0 0 e ]
 [p i __delay ]
-"1987 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 1987: extern volatile unsigned char TXSTA __attribute__((address(0x098)));
-[v _TXSTA `Vuc ~T0 @X0 0 e@152 ]
-"959
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 959: extern volatile unsigned char RCSTA __attribute__((address(0x018)));
-[v _RCSTA `Vuc ~T0 @X0 0 e@24 ]
-"2068
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 2068: extern volatile unsigned char SPBRG __attribute__((address(0x099)));
-[v _SPBRG `Vuc ~T0 @X0 0 e@153 ]
-"2834
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 2834: extern volatile __bit TXIF __attribute__((address(0x64)));
-[v _TXIF `Vb ~T0 @X0 0 e@100 ]
-"1054
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 1054: extern volatile unsigned char TXREG __attribute__((address(0x019)));
-[v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"121 C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.50\pic\include\c99\stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "54 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -259,562 +229,397 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h: 2210: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"45 atividade13.c
-[; ;atividade13.c: 45: void main(void) {
+"35 atividade13.c
+[; ;atividade13.c: 35: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"46
-[; ;atividade13.c: 46:     UART_Init();
-[e ( _UART_Init ..  ]
-"47
-[; ;atividade13.c: 47:     I2C_Master_Init(100000);
+"36
+[; ;atividade13.c: 36:     I2C_Master_Init(100000);
 [e ( _I2C_Master_Init (1 -> -> 100000 `l `ul ]
-"48
-[; ;atividade13.c: 48:     I2C_scan();
-[e ( _I2C_scan ..  ]
-"50
-[; ;atividade13.c: 50:     LCD_init();
+"38
+[; ;atividade13.c: 38:     LCD_init();
 [e ( _LCD_init ..  ]
-"51
-[; ;atividade13.c: 51:     LCD_backlight(1);
+"39
+[; ;atividade13.c: 39:     LCD_backlight(1);
 [e ( _LCD_backlight (1 -> -> 1 `i `uc ]
-"53
-[; ;atividade13.c: 53:     LCD_setCursor(1, 1);
+"41
+[; ;atividade13.c: 41:     LCD_setCursor(1, 1);
 [e ( _LCD_setCursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"54
-[; ;atividade13.c: 54:     LCD_print("Joao Pedro");
+"42
+[; ;atividade13.c: 42:     LCD_print("Joao Pedro");
 [e ( _LCD_print (1 :s 1C ]
-"56
-[; ;atividade13.c: 56:     LCD_setCursor(2, 1);
+"44
+[; ;atividade13.c: 44:     LCD_setCursor(2, 1);
 [e ( _LCD_setCursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"57
-[; ;atividade13.c: 57:     LCD_print("2095882");
+"45
+[; ;atividade13.c: 45:     LCD_print("2095882");
 [e ( _LCD_print (1 :s 2C ]
-"59
-[; ;atividade13.c: 59:     while(1);
-[e :U 98 ]
+"47
+[; ;atividade13.c: 47:     while(1);
+[e :U 96 ]
+[e :U 95 ]
+[e $U 96  ]
 [e :U 97 ]
-[e $U 98  ]
-[e :U 99 ]
-"60
-[; ;atividade13.c: 60: }
-[e :UE 96 ]
+"48
+[; ;atividade13.c: 48: }
+[e :UE 94 ]
 }
-"65
-[; ;atividade13.c: 65: void I2C_Master_Init(unsigned long c) {
+"53
+[; ;atividade13.c: 53: void I2C_Master_Init(unsigned long c) {
 [v _I2C_Master_Init `(v ~T0 @X0 1 ef1`ul ]
 {
 [e :U _I2C_Master_Init ]
 [v _c `ul ~T0 @X0 1 r1 ]
 [f ]
-"66
-[; ;atividade13.c: 66:     SSPCON = 0x28;
+"54
+[; ;atividade13.c: 54:     SSPCON = 0x28;
 [e = _SSPCON -> -> 40 `i `uc ]
-"67
-[; ;atividade13.c: 67:     SSPCON2 = 0x00;
+"55
+[; ;atividade13.c: 55:     SSPCON2 = 0x00;
 [e = _SSPCON2 -> -> 0 `i `uc ]
-"68
-[; ;atividade13.c: 68:     SSPADD = (unsigned char)((4000000 / (4 * c)) - 1);
+"56
+[; ;atividade13.c: 56:     SSPADD = (unsigned char)((4000000 / (4 * c)) - 1);
 [e = _SSPADD -> - / -> -> 4000000 `l `ul * -> -> -> 4 `i `l `ul _c -> -> -> 1 `i `l `ul `uc ]
-"69
-[; ;atividade13.c: 69:     SSPSTAT = 0x00;
+"57
+[; ;atividade13.c: 57:     SSPSTAT = 0x00;
 [e = _SSPSTAT -> -> 0 `i `uc ]
-"70
-[; ;atividade13.c: 70: }
-[e :UE 100 ]
+"58
+[; ;atividade13.c: 58: }
+[e :UE 98 ]
 }
-"72
-[; ;atividade13.c: 72: void I2C_Master_Start(void) {
+"60
+[; ;atividade13.c: 60: void I2C_Master_Start(void) {
 [v _I2C_Master_Start `(v ~T0 @X0 1 ef ]
 {
 [e :U _I2C_Master_Start ]
 [f ]
-"73
-[; ;atividade13.c: 73:     SEN = 1;
+"61
+[; ;atividade13.c: 61:     SEN = 1;
 [e = _SEN -> -> 1 `i `b ]
-"74
-[; ;atividade13.c: 74:     while(SEN);
-[e $U 102  ]
-[e :U 103 ]
+"62
+[; ;atividade13.c: 62:     while(SEN);
+[e $U 100  ]
+[e :U 101 ]
+[e :U 100 ]
+[e $ _SEN 101  ]
 [e :U 102 ]
-[e $ _SEN 103  ]
-[e :U 104 ]
-"75
-[; ;atividade13.c: 75: }
-[e :UE 101 ]
+"63
+[; ;atividade13.c: 63: }
+[e :UE 99 ]
 }
-"77
-[; ;atividade13.c: 77: void I2C_Master_Stop(void) {
+"65
+[; ;atividade13.c: 65: void I2C_Master_Stop(void) {
 [v _I2C_Master_Stop `(v ~T0 @X0 1 ef ]
 {
 [e :U _I2C_Master_Stop ]
 [f ]
-"78
-[; ;atividade13.c: 78:     PEN = 1;
+"66
+[; ;atividade13.c: 66:     PEN = 1;
 [e = _PEN -> -> 1 `i `b ]
-"79
-[; ;atividade13.c: 79:     while(PEN);
-[e $U 106  ]
-[e :U 107 ]
+"67
+[; ;atividade13.c: 67:     while(PEN);
+[e $U 104  ]
+[e :U 105 ]
+[e :U 104 ]
+[e $ _PEN 105  ]
 [e :U 106 ]
-[e $ _PEN 107  ]
-[e :U 108 ]
-"80
-[; ;atividade13.c: 80: }
-[e :UE 105 ]
+"68
+[; ;atividade13.c: 68: }
+[e :UE 103 ]
 }
-"82
-[; ;atividade13.c: 82: void I2C_Master_Write(unsigned char data) {
+"70
+[; ;atividade13.c: 70: void I2C_Master_Write(unsigned char data) {
 [v _I2C_Master_Write `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _I2C_Master_Write ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"83
-[; ;atividade13.c: 83:     SSPBUF = data;
+"71
+[; ;atividade13.c: 71:     SSPBUF = data;
 [e = _SSPBUF _data ]
-"84
-[; ;atividade13.c: 84:     while (BF);
-[e $U 110  ]
-[e :U 111 ]
+"72
+[; ;atividade13.c: 72:     while (BF);
+[e $U 108  ]
+[e :U 109 ]
+[e :U 108 ]
+[e $ _BF 109  ]
 [e :U 110 ]
-[e $ _BF 111  ]
-[e :U 112 ]
-"85
-[; ;atividade13.c: 85:     if (SSPCON2bits.ACKSTAT) {
-[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 113  ]
+"73
+[; ;atividade13.c: 73:     if (SSPCON2bits.ACKSTAT) {
+[e $ ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 111  ]
 {
-"86
-[; ;atividade13.c: 86:         I2C_Master_Stop();
+"74
+[; ;atividade13.c: 74:         I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"87
-[; ;atividade13.c: 87:     }
+"75
+[; ;atividade13.c: 75:     }
 }
-[e :U 113 ]
-"88
-[; ;atividade13.c: 88: }
-[e :UE 109 ]
+[e :U 111 ]
+"76
+[; ;atividade13.c: 76: }
+[e :UE 107 ]
 }
-"93
-[; ;atividade13.c: 93: void I2C_scan(void) {
-[v _I2C_scan `(v ~T0 @X0 1 ef ]
-{
-[e :U _I2C_scan ]
-[f ]
-"94
-[; ;atividade13.c: 94:     unsigned char address;
-[v _address `uc ~T0 @X0 1 a ]
-"95
-[; ;atividade13.c: 95:     UART_Print("\r\nIniciando escaneamento I2C...\r\n");
-[e ( _UART_Print (1 :s 3C ]
-"97
-[; ;atividade13.c: 97:     for (address = 0x20; address < 0x40; address++) {
-{
-[e = _address -> -> 32 `i `uc ]
-[e $ < -> _address `i -> 64 `i 115  ]
-[e $U 116  ]
-[e :U 115 ]
-{
-"98
-[; ;atividade13.c: 98:         I2C_Master_Start();
-[e ( _I2C_Master_Start ..  ]
-"99
-[; ;atividade13.c: 99:         I2C_Master_Write((unsigned char)(address << 1));
-[e ( _I2C_Master_Write (1 -> << -> _address `i -> 1 `i `uc ]
-"101
-[; ;atividade13.c: 101:         if (!SSPCON2bits.ACKSTAT) {
-[e $ ! ! != -> . . _SSPCON2bits 0 6 `i -> 0 `i 118  ]
-{
-"102
-[; ;atividade13.c: 102:             I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"103
-[; ;atividade13.c: 103:             UART_Print("? Dispositivo encontrado no endereco: 0x");
-[e ( _UART_Print (1 :s 4C ]
-"104
-[; ;atividade13.c: 104:             UART_PrintInt(address);
-[e ( _UART_PrintInt (1 -> _address `ui ]
-"105
-[; ;atividade13.c: 105:             UART_Print("\r\n");
-[e ( _UART_Print (1 :s 5C ]
-"106
-[; ;atividade13.c: 106:             return;
-[e $UE 114  ]
-"107
-[; ;atividade13.c: 107:         }
-}
-[e :U 118 ]
-"108
-[; ;atividade13.c: 108:         I2C_Master_Stop();
-[e ( _I2C_Master_Stop ..  ]
-"109
-[; ;atividade13.c: 109:     }
-}
-[e ++ _address -> -> 1 `i `uc ]
-[e $ < -> _address `i -> 64 `i 115  ]
-[e :U 116 ]
-}
-"111
-[; ;atividade13.c: 111:     UART_Print("? Nenhum dispositivo I2C encontrado!\r\n");
-[e ( _UART_Print (1 :s 6C ]
-"112
-[; ;atividade13.c: 112: }
-[e :UE 114 ]
-}
-"117
-[; ;atividade13.c: 117: void LCD_sendNibble(unsigned char nibble, unsigned char rs) {
+"81
+[; ;atividade13.c: 81: void LCD_sendNibble(unsigned char nibble, unsigned char rs) {
 [v _LCD_sendNibble `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _LCD_sendNibble ]
 [v _nibble `uc ~T0 @X0 1 r1 ]
 [v _rs `uc ~T0 @X0 1 r2 ]
 [f ]
-"118
-[; ;atividade13.c: 118:     unsigned char data = 0;
+"82
+[; ;atividade13.c: 82:     unsigned char data = 0;
 [v _data `uc ~T0 @X0 1 a ]
 [e = _data -> -> 0 `i `uc ]
-"121
-[; ;atividade13.c: 121:     if (nibble & 0x01) data |= (1 << 4);
-[e $ ! != & -> _nibble `i -> 1 `i -> 0 `i 120  ]
+"84
+[; ;atividade13.c: 84:     if (nibble & 0x01) data |= (1 << 4);
+[e $ ! != & -> _nibble `i -> 1 `i -> 0 `i 113  ]
 [e =| _data -> << -> 1 `i -> 4 `i `uc ]
-[e :U 120 ]
-"122
-[; ;atividade13.c: 122:     if (nibble & 0x02) data |= (1 << 5);
-[e $ ! != & -> _nibble `i -> 2 `i -> 0 `i 121  ]
+[e :U 113 ]
+"85
+[; ;atividade13.c: 85:     if (nibble & 0x02) data |= (1 << 5);
+[e $ ! != & -> _nibble `i -> 2 `i -> 0 `i 114  ]
 [e =| _data -> << -> 1 `i -> 5 `i `uc ]
-[e :U 121 ]
-"123
-[; ;atividade13.c: 123:     if (nibble & 0x04) data |= (1 << 6);
-[e $ ! != & -> _nibble `i -> 4 `i -> 0 `i 122  ]
+[e :U 114 ]
+"86
+[; ;atividade13.c: 86:     if (nibble & 0x04) data |= (1 << 6);
+[e $ ! != & -> _nibble `i -> 4 `i -> 0 `i 115  ]
 [e =| _data -> << -> 1 `i -> 6 `i `uc ]
-[e :U 122 ]
-"124
-[; ;atividade13.c: 124:     if (nibble & 0x08) data |= (1 << 7);
-[e $ ! != & -> _nibble `i -> 8 `i -> 0 `i 123  ]
+[e :U 115 ]
+"87
+[; ;atividade13.c: 87:     if (nibble & 0x08) data |= (1 << 7);
+[e $ ! != & -> _nibble `i -> 8 `i -> 0 `i 116  ]
 [e =| _data -> << -> 1 `i -> 7 `i `uc ]
-[e :U 123 ]
-"127
-[; ;atividade13.c: 127:     if (rs) data |= 0x01;
-[e $ ! != -> _rs `i -> 0 `i 124  ]
+[e :U 116 ]
+"89
+[; ;atividade13.c: 89:     if (rs) data |= 0x01;
+[e $ ! != -> _rs `i -> 0 `i 117  ]
 [e =| _data -> -> 1 `i `uc ]
-[e :U 124 ]
-"128
-[; ;atividade13.c: 128:     data &= ~0x02;
+[e :U 117 ]
+"90
+[; ;atividade13.c: 90:     data &= ~0x02;
 [e =& _data -> ~ -> 2 `i `uc ]
-"130
-[; ;atividade13.c: 130:     data |= 0x04;
+"92
+[; ;atividade13.c: 92:     data |= 0x04;
 [e =| _data -> -> 4 `i `uc ]
-"131
-[; ;atividade13.c: 131:     data |= 0x08;
+"93
+[; ;atividade13.c: 93:     data |= 0x08;
 [e =| _data -> -> 8 `i `uc ]
-"132
-[; ;atividade13.c: 132:     I2C_Master_Start();
+"94
+[; ;atividade13.c: 94:     I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"133
-[; ;atividade13.c: 133:     I2C_Master_Write(0x27 << 1);
+"95
+[; ;atividade13.c: 95:     I2C_Master_Write(0x27 << 1);
 [e ( _I2C_Master_Write (1 -> << -> 39 `i -> 1 `i `uc ]
-"134
-[; ;atividade13.c: 134:     I2C_Master_Write(data);
+"96
+[; ;atividade13.c: 96:     I2C_Master_Write(data);
 [e ( _I2C_Master_Write (1 _data ]
-"135
-[; ;atividade13.c: 135:     I2C_Master_Stop();
+"97
+[; ;atividade13.c: 97:     I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"136
-[; ;atividade13.c: 136:     _delay((unsigned long)((50)*(4000000/4000000.0)));
+"98
+[; ;atividade13.c: 98:     _delay((unsigned long)((50)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"138
-[; ;atividade13.c: 138:     data &= ~0x04;
+"100
+[; ;atividade13.c: 100:     data &= ~0x04;
 [e =& _data -> ~ -> 4 `i `uc ]
-"139
-[; ;atividade13.c: 139:     I2C_Master_Start();
+"101
+[; ;atividade13.c: 101:     I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"140
-[; ;atividade13.c: 140:     I2C_Master_Write(0x27 << 1);
+"102
+[; ;atividade13.c: 102:     I2C_Master_Write(0x27 << 1);
 [e ( _I2C_Master_Write (1 -> << -> 39 `i -> 1 `i `uc ]
-"141
-[; ;atividade13.c: 141:     I2C_Master_Write(data);
+"103
+[; ;atividade13.c: 103:     I2C_Master_Write(data);
 [e ( _I2C_Master_Write (1 _data ]
-"142
-[; ;atividade13.c: 142:     I2C_Master_Stop();
+"104
+[; ;atividade13.c: 104:     I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"143
-[; ;atividade13.c: 143:     _delay((unsigned long)((50)*(4000000/4000000.0)));
+"105
+[; ;atividade13.c: 105:     _delay((unsigned long)((50)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"144
-[; ;atividade13.c: 144: }
-[e :UE 119 ]
+"106
+[; ;atividade13.c: 106: }
+[e :UE 112 ]
 }
-"146
-[; ;atividade13.c: 146: void LCD_sendByte(unsigned char byte, unsigned char rs) {
+"108
+[; ;atividade13.c: 108: void LCD_sendByte(unsigned char byte, unsigned char rs) {
 [v _LCD_sendByte `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _LCD_sendByte ]
 [v _byte `uc ~T0 @X0 1 r1 ]
 [v _rs `uc ~T0 @X0 1 r2 ]
 [f ]
-"147
-[; ;atividade13.c: 147:     LCD_sendNibble(byte >> 4, rs);
+"109
+[; ;atividade13.c: 109:     LCD_sendNibble(byte >> 4, rs);
 [e ( _LCD_sendNibble (2 , -> >> -> _byte `i -> 4 `i `uc _rs ]
-"148
-[; ;atividade13.c: 148:     LCD_sendNibble(byte & 0x0F, rs);
+"110
+[; ;atividade13.c: 110:     LCD_sendNibble(byte & 0x0F, rs);
 [e ( _LCD_sendNibble (2 , -> & -> _byte `i -> 15 `i `uc _rs ]
-"149
-[; ;atividade13.c: 149: }
-[e :UE 125 ]
+"111
+[; ;atividade13.c: 111: }
+[e :UE 118 ]
 }
-"151
-[; ;atividade13.c: 151: void LCD_command(unsigned char cmd) {
+"113
+[; ;atividade13.c: 113: void LCD_command(unsigned char cmd) {
 [v _LCD_command `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD_command ]
 [v _cmd `uc ~T0 @X0 1 r1 ]
 [f ]
-"152
-[; ;atividade13.c: 152:     LCD_sendByte(cmd, 0);
+"114
+[; ;atividade13.c: 114:     LCD_sendByte(cmd, 0);
 [e ( _LCD_sendByte (2 , _cmd -> -> 0 `i `uc ]
-"153
-[; ;atividade13.c: 153:     _delay((unsigned long)((2)*(4000000/4000.0)));
+"115
+[; ;atividade13.c: 115:     _delay((unsigned long)((2)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"154
-[; ;atividade13.c: 154: }
-[e :UE 126 ]
+"116
+[; ;atividade13.c: 116: }
+[e :UE 119 ]
 }
-"156
-[; ;atividade13.c: 156: void LCD_data(unsigned char data) {
+"118
+[; ;atividade13.c: 118: void LCD_data(unsigned char data) {
 [v _LCD_data `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD_data ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-"157
-[; ;atividade13.c: 157:     LCD_sendByte(data, 1);
+"119
+[; ;atividade13.c: 119:     LCD_sendByte(data, 1);
 [e ( _LCD_sendByte (2 , _data -> -> 1 `i `uc ]
-"158
-[; ;atividade13.c: 158:     _delay((unsigned long)((2)*(4000000/4000.0)));
+"120
+[; ;atividade13.c: 120:     _delay((unsigned long)((2)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"159
-[; ;atividade13.c: 159: }
-[e :UE 127 ]
+"121
+[; ;atividade13.c: 121: }
+[e :UE 120 ]
 }
-"161
-[; ;atividade13.c: 161: void LCD_init(void) {
+"123
+[; ;atividade13.c: 123: void LCD_init(void) {
 [v _LCD_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _LCD_init ]
 [f ]
-"162
-[; ;atividade13.c: 162:     _delay((unsigned long)((30)*(4000000/4000.0)));
+"124
+[; ;atividade13.c: 124:     _delay((unsigned long)((30)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 30 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"163
-[; ;atividade13.c: 163:     LCD_sendNibble(0x03, 0);
+"125
+[; ;atividade13.c: 125:     LCD_sendNibble(0x03, 0);
 [e ( _LCD_sendNibble (2 , -> -> 3 `i `uc -> -> 0 `i `uc ]
-"164
-[; ;atividade13.c: 164:     _delay((unsigned long)((10)*(4000000/4000.0)));
+"126
+[; ;atividade13.c: 126:     _delay((unsigned long)((10)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"165
-[; ;atividade13.c: 165:     LCD_sendNibble(0x03, 0);
+"127
+[; ;atividade13.c: 127:     LCD_sendNibble(0x03, 0);
 [e ( _LCD_sendNibble (2 , -> -> 3 `i `uc -> -> 0 `i `uc ]
-"166
-[; ;atividade13.c: 166:     _delay((unsigned long)((200)*(4000000/4000000.0)));
+"128
+[; ;atividade13.c: 128:     _delay((unsigned long)((200)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"167
-[; ;atividade13.c: 167:     LCD_sendNibble(0x03, 0);
+"129
+[; ;atividade13.c: 129:     LCD_sendNibble(0x03, 0);
 [e ( _LCD_sendNibble (2 , -> -> 3 `i `uc -> -> 0 `i `uc ]
-"168
-[; ;atividade13.c: 168:     _delay((unsigned long)((200)*(4000000/4000000.0)));
+"130
+[; ;atividade13.c: 130:     _delay((unsigned long)((200)*(4000000/4000000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-"170
-[; ;atividade13.c: 170:     LCD_sendNibble(0x02, 0);
+"132
+[; ;atividade13.c: 132:     LCD_sendNibble(0x02, 0);
 [e ( _LCD_sendNibble (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
-"171
-[; ;atividade13.c: 171:     _delay((unsigned long)((10)*(4000000/4000.0)));
+"133
+[; ;atividade13.c: 133:     _delay((unsigned long)((10)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"173
-[; ;atividade13.c: 173:     LCD_command(0x28);
+"135
+[; ;atividade13.c: 135:     LCD_command(0x28);
 [e ( _LCD_command (1 -> -> 40 `i `uc ]
-"174
-[; ;atividade13.c: 174:     LCD_command(0x0C);
+"136
+[; ;atividade13.c: 136:     LCD_command(0x0C);
 [e ( _LCD_command (1 -> -> 12 `i `uc ]
-"175
-[; ;atividade13.c: 175:     LCD_command(0x01);
+"137
+[; ;atividade13.c: 137:     LCD_command(0x01);
 [e ( _LCD_command (1 -> -> 1 `i `uc ]
-"176
-[; ;atividade13.c: 176:     _delay((unsigned long)((10)*(4000000/4000.0)));
+"138
+[; ;atividade13.c: 138:     _delay((unsigned long)((10)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"177
-[; ;atividade13.c: 177:     LCD_command(0x06);
+"139
+[; ;atividade13.c: 139:     LCD_command(0x06);
 [e ( _LCD_command (1 -> -> 6 `i `uc ]
-"178
-[; ;atividade13.c: 178: }
-[e :UE 128 ]
+"140
+[; ;atividade13.c: 140: }
+[e :UE 121 ]
 }
-"180
-[; ;atividade13.c: 180: void LCD_setCursor(unsigned char linha, unsigned char coluna) {
+"142
+[; ;atividade13.c: 142: void LCD_setCursor(unsigned char linha, unsigned char coluna) {
 [v _LCD_setCursor `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _LCD_setCursor ]
 [v _linha `uc ~T0 @X0 1 r1 ]
 [v _coluna `uc ~T0 @X0 1 r2 ]
 [f ]
-"181
-[; ;atividade13.c: 181:     unsigned char pos = (linha == 1) ? (0x80 + coluna - 1) : (0xC0 + coluna - 1);
+"143
+[; ;atividade13.c: 143:     unsigned char pos = (linha == 1) ? (0x80 + coluna - 1) : (0xC0 + coluna - 1);
 [v _pos `uc ~T0 @X0 1 a ]
 [e = _pos -> ? == -> _linha `i -> 1 `i : - + -> 128 `i -> _coluna `i -> 1 `i - + -> 192 `i -> _coluna `i -> 1 `i `uc ]
-"182
-[; ;atividade13.c: 182:     LCD_command(pos);
+"144
+[; ;atividade13.c: 144:     LCD_command(pos);
 [e ( _LCD_command (1 _pos ]
-"183
-[; ;atividade13.c: 183: }
-[e :UE 129 ]
+"145
+[; ;atividade13.c: 145: }
+[e :UE 122 ]
 }
-"185
-[; ;atividade13.c: 185: void LCD_print(const char *str) {
+"147
+[; ;atividade13.c: 147: void LCD_print(const char *str) {
 [v _LCD_print `(v ~T0 @X0 1 ef1`*Cuc ]
 {
 [e :U _LCD_print ]
 [v _str `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"186
-[; ;atividade13.c: 186:     while (*str) {
-[e $U 131  ]
-[e :U 132 ]
+"148
+[; ;atividade13.c: 148:     while (*str) {
+[e $U 124  ]
+[e :U 125 ]
 {
-"187
-[; ;atividade13.c: 187:         LCD_data(*str++);
+"149
+[; ;atividade13.c: 149:         LCD_data(*str++);
 [e ( _LCD_data (1 -> *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x `uc ]
-"188
-[; ;atividade13.c: 188:     }
+"150
+[; ;atividade13.c: 150:     }
 }
-[e :U 131 ]
-"186
-[; ;atividade13.c: 186:     while (*str) {
-[e $ != -> *U _str `i -> 0 `i 132  ]
-[e :U 133 ]
-"189
-[; ;atividade13.c: 189: }
-[e :UE 130 ]
+[e :U 124 ]
+"148
+[; ;atividade13.c: 148:     while (*str) {
+[e $ != -> *U _str `i -> 0 `i 125  ]
+[e :U 126 ]
+"151
+[; ;atividade13.c: 151: }
+[e :UE 123 ]
 }
-"191
-[; ;atividade13.c: 191: void LCD_backlight(unsigned char state) {
+"153
+[; ;atividade13.c: 153: void LCD_backlight(unsigned char state) {
 [v _LCD_backlight `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _LCD_backlight ]
 [v _state `uc ~T0 @X0 1 r1 ]
 [f ]
-"192
-[; ;atividade13.c: 192:     unsigned char data = state ? 0x08 : 0x00;
+"154
+[; ;atividade13.c: 154:     unsigned char data = state ? 0x08 : 0x00;
 [v _data `uc ~T0 @X0 1 a ]
 [e = _data -> ? != -> _state `i -> 0 `i : -> 8 `i -> 0 `i `uc ]
-"193
-[; ;atividade13.c: 193:     I2C_Master_Start();
+"155
+[; ;atividade13.c: 155:     I2C_Master_Start();
 [e ( _I2C_Master_Start ..  ]
-"194
-[; ;atividade13.c: 194:     I2C_Master_Write(0x27 << 1);
+"156
+[; ;atividade13.c: 156:     I2C_Master_Write(0x27 << 1);
 [e ( _I2C_Master_Write (1 -> << -> 39 `i -> 1 `i `uc ]
-"195
-[; ;atividade13.c: 195:     I2C_Master_Write(data);
+"157
+[; ;atividade13.c: 157:     I2C_Master_Write(data);
 [e ( _I2C_Master_Write (1 _data ]
-"196
-[; ;atividade13.c: 196:     I2C_Master_Stop();
+"158
+[; ;atividade13.c: 158:     I2C_Master_Stop();
 [e ( _I2C_Master_Stop ..  ]
-"197
-[; ;atividade13.c: 197: }
-[e :UE 134 ]
+"159
+[; ;atividade13.c: 159: }
+[e :UE 127 ]
 }
-"202
-[; ;atividade13.c: 202: void UART_Init(void) {
-[v _UART_Init `(v ~T0 @X0 1 ef ]
-{
-[e :U _UART_Init ]
-[f ]
-"203
-[; ;atividade13.c: 203:     TXSTA = 0x24;
-[e = _TXSTA -> -> 36 `i `uc ]
-"204
-[; ;atividade13.c: 204:     RCSTA = 0x90;
-[e = _RCSTA -> -> 144 `i `uc ]
-"205
-[; ;atividade13.c: 205:     SPBRG = 25;
-[e = _SPBRG -> -> 25 `i `uc ]
-"206
-[; ;atividade13.c: 206: }
-[e :UE 135 ]
-}
-"208
-[; ;atividade13.c: 208: void UART_PrintChar(char c) {
-[v _UART_PrintChar `(v ~T0 @X0 1 ef1`uc ]
-{
-[e :U _UART_PrintChar ]
-[v _c `uc ~T0 @X0 1 r1 ]
-[f ]
-"209
-[; ;atividade13.c: 209:     while (!TXIF);
-[e $U 137  ]
-[e :U 138 ]
-[e :U 137 ]
-[e $ ! _TXIF 138  ]
-[e :U 139 ]
-"210
-[; ;atividade13.c: 210:     TXREG = c;
-[e = _TXREG -> _c `uc ]
-"211
-[; ;atividade13.c: 211: }
-[e :UE 136 ]
-}
-"213
-[; ;atividade13.c: 213: void UART_Print(const char *str) {
-[v _UART_Print `(v ~T0 @X0 1 ef1`*Cuc ]
-{
-[e :U _UART_Print ]
-[v _str `*Cuc ~T0 @X0 1 r1 ]
-[f ]
-"214
-[; ;atividade13.c: 214:     while (*str) {
-[e $U 141  ]
-[e :U 142 ]
-{
-"215
-[; ;atividade13.c: 215:         UART_PrintChar(*str++);
-[e ( _UART_PrintChar (1 *U ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
-"216
-[; ;atividade13.c: 216:     }
-}
-[e :U 141 ]
-"214
-[; ;atividade13.c: 214:     while (*str) {
-[e $ != -> *U _str `i -> 0 `i 142  ]
-[e :U 143 ]
-"217
-[; ;atividade13.c: 217: }
-[e :UE 140 ]
-}
-"219
-[; ;atividade13.c: 219: void UART_PrintInt(unsigned int valor) {
-[v _UART_PrintInt `(v ~T0 @X0 1 ef1`ui ]
-{
-[e :U _UART_PrintInt ]
-[v _valor `ui ~T0 @X0 1 r1 ]
-[f ]
-"220
-[; ;atividade13.c: 220:     char buffer[10];
-[v _buffer `uc ~T0 @X0 -> 10 `i a ]
-"221
-[; ;atividade13.c: 221:     sprintf(buffer, "%u", valor);
-[e ( _sprintf (1 , (. , &U _buffer :s 7C _valor ]
-"222
-[; ;atividade13.c: 222:     UART_Print(buffer);
-[e ( _UART_Print (1 -> &U _buffer `*Cuc ]
-"223
-[; ;atividade13.c: 223: }
-[e :UE 144 ]
-}
-[p f _sprintf 8389632 ]
-[a 4C 63 32 68 105 115 112 111 115 105 116 105 118 111 32 101 110 99 111 110 116 114 97 100 111 32 110 111 32 101 110 100 101 114 101 99 111 58 32 48 120 0 ]
-[a 7C 37 117 0 ]
 [a 1C 74 111 97 111 32 80 101 100 114 111 0 ]
 [a 2C 50 48 57 53 56 56 50 0 ]
-[a 3C 13 10 73 110 105 99 105 97 110 100 111 32 101 115 99 97 110 101 97 109 101 110 116 111 32 73 50 67 46 46 46 13 10 0 ]
-[a 6C 63 32 78 101 110 104 117 109 32 100 105 115 112 111 115 105 116 105 118 111 32 73 50 67 32 101 110 99 111 110 116 114 97 100 111 33 13 10 0 ]
-[a 5C 13 10 0 ]

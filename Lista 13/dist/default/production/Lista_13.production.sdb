@@ -3,60 +3,34 @@
 [d edition pro ]
 [d chip 16F877 ]
 [d frameptr 0 ]
-"45 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 13\atividade13.c
+"35 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 13\atividade13.c
 [v _main main `(v  1 e 1 0 ]
-"65
+"53
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
-"72
+"60
 [v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
-"77
+"65
 [v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
-"82
+"70
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
-"93
-[v _I2C_scan I2C_scan `(v  1 e 1 0 ]
-"117
+"81
 [v _LCD_sendNibble LCD_sendNibble `(v  1 e 1 0 ]
-"146
+"108
 [v _LCD_sendByte LCD_sendByte `(v  1 e 1 0 ]
-"151
+"113
 [v _LCD_command LCD_command `(v  1 e 1 0 ]
-"156
+"118
 [v _LCD_data LCD_data `(v  1 e 1 0 ]
-"161
+"123
 [v _LCD_init LCD_init `(v  1 e 1 0 ]
-"180
+"142
 [v _LCD_setCursor LCD_setCursor `(v  1 e 1 0 ]
-"185
+"147
 [v _LCD_print LCD_print `(v  1 e 1 0 ]
-"191
+"153
 [v _LCD_backlight LCD_backlight `(v  1 e 1 0 ]
-"202
-[v _UART_Init UART_Init `(v  1 e 1 0 ]
-"208
-[v _UART_PrintChar UART_PrintChar `(v  1 e 1 0 ]
-"213
-[v _UART_Print UART_Print `(v  1 e 1 0 ]
-"219
-[v _UART_PrintInt UART_PrintInt `(v  1 e 1 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"1177 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
-[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
-"1817
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-"9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-"7 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
@@ -69,13 +43,9 @@
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @19 ]
 "810
 [v _SSPCON SSPCON `VEuc  1 e 1 @20 ]
-"959
-[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
-"1054
-[v _TXREG TXREG `VEuc  1 e 1 @25 ]
 "1742
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @145 ]
-[s S63 . 1 `uc 1 SEN 1 0 :1:0 
+[s S55 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -85,243 +55,117 @@
 `uc 1 GCEN 1 0 :1:7 
 ]
 "1759
-[u S72 . 1 `S63 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES72  1 e 1 @145 ]
+[u S64 . 1 `S55 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES64  1 e 1 @145 ]
 "1811
 [v _SSPADD SSPADD `VEuc  1 e 1 @147 ]
 "1818
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-"1987
-[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
-"2068
-[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2261
 [v _BF BF `VEb  1 e 0 @1184 ]
 "2429
 [v _PEN PEN `VEb  1 e 0 @1162 ]
 "2603
 [v _SEN SEN `VEb  1 e 0 @1160 ]
-"2834
-[v _TXIF TXIF `VEb  1 e 0 @100 ]
-"153 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
-[v _prec prec `i  1 s 2 prec ]
-[v _width width `i  1 s 2 width ]
-"154
-[v _flags flags `uc  1 s 1 flags ]
-"185
-[v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"45 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 13\atividade13.c
+"35 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 13\atividade13.c
 [v _main main `(v  1 e 1 0 ]
 {
-"60
+"48
 } 0
-"202
-[v _UART_Init UART_Init `(v  1 e 1 0 ]
-{
-"206
-} 0
-"180
+"142
 [v _LCD_setCursor LCD_setCursor `(v  1 e 1 0 ]
 {
 [v LCD_setCursor@linha linha `uc  1 p 1 wreg ]
-"181
+"143
 [v LCD_setCursor@pos pos `uc  1 a 1 3 ]
-"180
+"142
 [v LCD_setCursor@linha linha `uc  1 p 1 wreg ]
 [v LCD_setCursor@coluna coluna `uc  1 p 1 11 ]
 [v LCD_setCursor@linha linha `uc  1 p 1 0 ]
-"183
+"145
 } 0
-"185
+"147
 [v _LCD_print LCD_print `(v  1 e 1 0 ]
 {
 [v LCD_print@str str `*.24DCuc  1 p 1 11 ]
-"189
+"151
 } 0
-"156
+"118
 [v _LCD_data LCD_data `(v  1 e 1 0 ]
 {
 [v LCD_data@data data `uc  1 p 1 wreg ]
 [v LCD_data@data data `uc  1 p 1 wreg ]
 [v LCD_data@data data `uc  1 p 1 10 ]
-"159
+"121
 } 0
-"161
+"123
 [v _LCD_init LCD_init `(v  1 e 1 0 ]
 {
-"178
+"140
 } 0
-"151
+"113
 [v _LCD_command LCD_command `(v  1 e 1 0 ]
 {
 [v LCD_command@cmd cmd `uc  1 p 1 wreg ]
 [v LCD_command@cmd cmd `uc  1 p 1 wreg ]
 [v LCD_command@cmd cmd `uc  1 p 1 10 ]
-"154
+"116
 } 0
-"146
+"108
 [v _LCD_sendByte LCD_sendByte `(v  1 e 1 0 ]
 {
 [v LCD_sendByte@byte byte `uc  1 p 1 wreg ]
 [v LCD_sendByte@byte byte `uc  1 p 1 wreg ]
 [v LCD_sendByte@rs rs `uc  1 p 1 5 ]
 [v LCD_sendByte@byte byte `uc  1 p 1 7 ]
-"149
+"111
 } 0
-"117
+"81
 [v _LCD_sendNibble LCD_sendNibble `(v  1 e 1 0 ]
 {
 [v LCD_sendNibble@nibble nibble `uc  1 p 1 wreg ]
-"118
+"82
 [v LCD_sendNibble@data data `uc  1 a 1 4 ]
-"117
+"81
 [v LCD_sendNibble@nibble nibble `uc  1 p 1 wreg ]
 [v LCD_sendNibble@rs rs `uc  1 p 1 1 ]
 [v LCD_sendNibble@nibble nibble `uc  1 p 1 3 ]
-"144
+"106
 } 0
-"191
+"153
 [v _LCD_backlight LCD_backlight `(v  1 e 1 0 ]
 {
 [v LCD_backlight@state state `uc  1 p 1 wreg ]
-"192
+"154
 [v LCD_backlight@data data `uc  1 a 1 4 ]
-"191
+"153
 [v LCD_backlight@state state `uc  1 p 1 wreg ]
 [v LCD_backlight@state state `uc  1 p 1 1 ]
-"197
+"159
 } 0
-"93
-[v _I2C_scan I2C_scan `(v  1 e 1 0 ]
-{
-"94
-[v I2C_scan@address address `uc  1 a 1 47 ]
-"112
-} 0
-"219
-[v _UART_PrintInt UART_PrintInt `(v  1 e 1 0 ]
-{
-"220
-[v UART_PrintInt@buffer buffer `[10]uc  1 a 10 35 ]
-"219
-[v UART_PrintInt@valor valor `ui  1 p 2 33 ]
-"223
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-{
-[u S619 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
-"13
-[s S622 _IO_FILE 11 `S619 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S622  1 a 11 22 ]
-"12
-[v sprintf@ap ap `[1]*.4v  1 a 1 21 ]
-"9
-[v sprintf@s s `*.4uc  1 p 1 16 ]
-[v sprintf@fmt fmt `*.24DCuc  1 p 1 17 ]
-"23
-} 0
-"1817 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-{
-"1820
-[v vfprintf@cfmt cfmt `*.24uc  1 a 1 13 ]
-[s S654 _IO_FILE 0 ]
-"1817
-[v vfprintf@fp fp `*.39S654  1 p 2 12 ]
-[v vfprintf@fmt fmt `*.24DCuc  1 p 1 14 ]
-[v vfprintf@ap ap `*.4*.4v  1 p 1 15 ]
-"1840
-} 0
-"1177
-[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
-{
-[u S667 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
-"1188
-[v vfpfcnvrt@convarg convarg `S667  1 a 4 6 ]
-"1179
-[v vfpfcnvrt@c c `uc  1 a 1 11 ]
-[v vfpfcnvrt@cp cp `*.24uc  1 a 1 10 ]
-[s S654 _IO_FILE 0 ]
-"1177
-[v vfpfcnvrt@fp fp `*.39S654  1 p 2 0 ]
-[v vfpfcnvrt@fmt fmt `*.30*.24uc  1 p 1 2 ]
-[v vfpfcnvrt@ap ap `*.4*.4v  1 p 1 3 ]
-"1814
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 0 ]
-[u S619 . 2 `*.39uc 1 buffer 2 0 `*.1DCuc 1 source 1 0 ]
-[s S622 _IO_FILE 11 `S619 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S622  1 p 2 2 ]
-"24
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-"9
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwmod@counter counter `uc  1 a 1 4 ]
-"5
-[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
-[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
-"25
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwdiv@quotient quotient `ui  1 a 2 4 ]
-"11
-[v ___lwdiv@counter counter `uc  1 a 1 6 ]
-"5
-[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
-[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
-"30
-} 0
-"213 C:\Users\Guilherme Xavier\Documents\GitHub\Microcontroladores\Lista 13\atividade13.c
-[v _UART_Print UART_Print `(v  1 e 1 0 ]
-{
-[v UART_Print@str str `*.26DCuc  1 p 2 1 ]
-"217
-} 0
-"208
-[v _UART_PrintChar UART_PrintChar `(v  1 e 1 0 ]
-{
-[v UART_PrintChar@c c `uc  1 p 1 wreg ]
-[v UART_PrintChar@c c `uc  1 p 1 wreg ]
-[v UART_PrintChar@c c `uc  1 p 1 0 ]
-"211
-} 0
-"82
+"70
 [v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
 {
 [v I2C_Master_Write@data data `uc  1 p 1 wreg ]
 [v I2C_Master_Write@data data `uc  1 p 1 wreg ]
 [v I2C_Master_Write@data data `uc  1 p 1 0 ]
-"88
-} 0
-"77
-[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
-{
-"80
-} 0
-"72
-[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
-{
-"75
+"76
 } 0
 "65
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+{
+"68
+} 0
+"60
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+{
+"63
+} 0
+"53
 [v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
 {
 [v I2C_Master_Init@c c `ul  1 p 4 0 ]
-"70
+"58
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
