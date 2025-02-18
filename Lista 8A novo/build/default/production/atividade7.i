@@ -1952,6 +1952,66 @@ char *ctermid(char *);
 char *tempnam(const char *, const char *);
 # 2 "atividade7.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.50\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 3 "atividade7.c" 2
+
+
 
 
 
@@ -1963,95 +2023,145 @@ char *tempnam(const char *, const char *);
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
+# 32 "atividade7.c"
+char sequencia[10] = "";
+unsigned char posicao = 0;
+unsigned char velocidade_atual = 0;
 
 
+void eeprom_write(unsigned char endereco, unsigned char dado);
+unsigned char eeprom_read(unsigned char endereco);
 
 
-
-void lcd_command(unsigned char cmd);
-void lcd_data(unsigned char data);
-void lcd_initialise();
-void lcd_string(const char *str);
-void adc_initialise();
-unsigned int read_adc(unsigned char canal);
+void config_PWM();
+void set_PWM(unsigned char velocidade);
 
 
-char buffer[16];
-
-void main() {
-
-    TRISE = 0x00;
-    TRISD = 0x00;
-    TRISA = 0xFF;
+void config_UART();
+void enviarChar(char c);
+void enviarString(const char *s);
+void enviarSequenciaUART();
+void enviarVelocidadeAtualUART();
 
 
-    lcd_initialise();
-    adc_initialise();
+unsigned char ler_teclado();
 
-    lcd_command(0x80);
-    lcd_string("Tensao:");
+void main(void) {
+    TRISD = 0xF0;
+    TRISB = 0xFF;
+    TRISCbits.TRISC2 = 0;
+
+    config_PWM();
+    config_UART();
+
+    velocidade_atual = eeprom_read(0x00);
+    if (velocidade_atual > 10) velocidade_atual = 0;
+
+    set_PWM(velocidade_atual);
+    enviarVelocidadeAtualUART();
 
     while (1) {
+        unsigned char tecla = ler_teclado();
 
-        unsigned int adc_value = read_adc(3);
-        float voltage = (adc_value * 5.0f) / 1023.0f;
+        if (tecla != 0xFF) {
+            if (posicao == 0) {
+                eeprom_write(0x00, tecla);
+            }
+            sequencia[posicao++] = tecla + '0';
+            sequencia[posicao] = '\0';
 
+            enviarSequenciaUART();
 
-        lcd_command(0xC0);
-        sprintf(buffer, "V: %.2f V", voltage);
-        lcd_string(buffer);
-
-        _delay((unsigned long)((500)*(20000000/4000.0)));
+            set_PWM(tecla);
+            enviarVelocidadeAtualUART();
+        }
     }
 }
 
-
-void adc_initialise() {
-    ADCON0 = 0b10011001;
-    ADCON1 = 0b10000010;
+void eeprom_write(unsigned char endereco, unsigned char dado) {
+    EEADR = endereco;
+    EEDATA = dado;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.WREN = 1;
+    INTCONbits.GIE = 0;
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    INTCONbits.GIE = 1;
+    EECON1bits.WREN = 0;
 }
 
-
-unsigned int read_adc(unsigned char canal) {
-
-    ADCON0 &= 0xC5;
-    ADCON0 |= (canal << 3);
-    _delay((unsigned long)((20)*(20000000/4000000.0)));
-    ADCON0bits.GO_nDONE = 1;
-    while (ADCON0bits.GO_nDONE);
-    return ((ADRESH << 8) + ADRESL);
+unsigned char eeprom_read(unsigned char endereco) {
+    EEADR = endereco;
+    EECON1bits.EEPGD = 0;
+    EECON1bits.RD = 1;
+    return EEDATA;
 }
 
-
-void lcd_initialise() {
-    lcd_command(0x38);
-    lcd_command(0x0C);
-    lcd_command(0x06);
-    lcd_command(0x01);
-    _delay((unsigned long)((2)*(20000000/4000.0)));
+void config_PWM() {
+    PR2 = 255;
+    CCPR1L = 0;
+    CCP1CON = 0b00001100;
+    T2CON = 0b00000100;
 }
 
-
-void lcd_command(unsigned char cmd) {
-    PORTD = cmd;
-    PORTEbits.RE0 = 0;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((2)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+void set_PWM(unsigned char velocidade) {
+    unsigned int duty_cycle = velocidade * 25;
+    CCPR1L = (unsigned char)(duty_cycle >> 2);
+    CCP1CON = (CCP1CON & 0xCF) | ((duty_cycle & 0x03) << 4);
 }
 
-
-void lcd_data(unsigned char data) {
-    PORTD = data;
-    PORTEbits.RE0 = 1;
-    PORTEbits.RE1 = 1;
-    _delay((unsigned long)((2)*(20000000/4000.0)));
-    PORTEbits.RE1 = 0;
+void config_UART() {
+    TRISCbits.TRISC6 = 1;
+    TRISCbits.TRISC7 = 1;
+    SPBRG = 129;
+    TXSTAbits.BRGH = 1;
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
+    RCSTAbits.CREN = 0;
+    TXSTAbits.TXEN = 1;
 }
 
+void enviarChar(char c) {
+    while (!TXSTAbits.TRMT);
+    TXREG = c;
+}
 
-void lcd_string(const char *str) {
-    while (*str) {
-        lcd_data(*str++);
-    }
+void enviarString(const char *s) {
+    while (*s) enviarChar(*s++);
+}
+
+void enviarSequenciaUART() {
+    enviarString("Velocidades digitadas: ");
+    enviarString(sequencia);
+    enviarString("\r\n");
+}
+
+void enviarVelocidadeAtualUART() {
+    char buffer[20];
+    sprintf(buffer, "Velocidade atual: %d\r\n", velocidade_atual);
+    enviarString(buffer);
+}
+
+unsigned char ler_teclado() {
+    unsigned char tecla = 0xFF;
+
+    PORTDbits.RD0 = 0; PORTDbits.RD1 = 1; PORTDbits.RD2 = 1; PORTDbits.RD3 = 1;
+    if (!PORTBbits.RB0) tecla = 0;
+    if (!PORTBbits.RB1) tecla = 1;
+    if (!PORTBbits.RB2) tecla = 2;
+    if (!PORTBbits.RB3) tecla = 3;
+
+    PORTDbits.RD0 = 1; PORTDbits.RD1 = 0; PORTDbits.RD2 = 1; PORTDbits.RD3 = 1;
+    if (!PORTBbits.RB0) tecla = 4;
+    if (!PORTBbits.RB1) tecla = 5;
+    if (!PORTBbits.RB2) tecla = 6;
+    if (!PORTBbits.RB3) tecla = 7;
+
+    PORTDbits.RD0 = 1; PORTDbits.RD1 = 1; PORTDbits.RD2 = 0; PORTDbits.RD3 = 1;
+    if (!PORTBbits.RB0) tecla = 8;
+    if (!PORTBbits.RB1) tecla = 9;
+
+    return tecla;
 }

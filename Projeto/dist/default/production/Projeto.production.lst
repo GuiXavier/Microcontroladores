@@ -1,0 +1,3061 @@
+
+
+Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
+                                                                                               Fri Feb 14 11:34:27 2025
+
+Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
+     1                           	processor	16F877
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	strings,global,class=STRING,space=0,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,space=0,merge=1,delta=2
+     6                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     7                           	psect	bssBANK1,global,class=BANK1,space=1,delta=1,noexec
+     8                           	psect	clrtext,global,class=CODE,space=0,delta=2
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+    10                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+    11                           	psect	maintext,global,class=CODE,space=0,split=1,delta=2
+    12                           	psect	text1,local,class=CODE,space=0,merge=1,delta=2
+    13                           	psect	text2,local,class=CODE,space=0,merge=1,delta=2,group=2
+    14                           	psect	text3,local,class=CODE,space=0,merge=1,delta=2,group=3
+    15                           	psect	text4,local,class=CODE,space=0,merge=1,delta=2
+    16                           	psect	text5,local,class=CODE,space=0,merge=1,delta=2
+    17                           	psect	text6,local,class=CODE,space=0,merge=1,delta=2
+    18                           	psect	text7,local,class=CODE,space=0,merge=1,delta=2,group=3
+    19                           	psect	text8,local,class=CODE,space=0,merge=1,delta=2,group=1
+    20                           	psect	text9,local,class=CODE,space=0,merge=1,delta=2,group=1
+    21                           	psect	text10,local,class=CODE,space=0,merge=1,delta=2,group=3
+    22                           	psect	text11,local,class=CODE,space=0,merge=1,delta=2,group=3
+    23                           	psect	text12,local,class=CODE,space=0,merge=1,delta=2
+    24                           	psect	text13,local,class=CODE,space=0,merge=1,delta=2
+    25                           	psect	text14,local,class=CODE,space=0,merge=1,delta=2
+    26                           	psect	text15,local,class=CODE,space=0,merge=1,delta=2
+    27                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    28                           	dabs	1,0x7E,2
+    29     0000                     
+    30                           ; Generated 12/10/2023 GMT
+    31                           ; 
+    32                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    33                           ; All rights reserved.
+    34                           ; 
+    35                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    36                           ; 
+    37                           ; Redistribution and use in source and binary forms, with or without modification, are
+    38                           ; permitted provided that the following conditions are met:
+    39                           ; 
+    40                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    41                           ;        conditions and the following disclaimer.
+    42                           ; 
+    43                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    44                           ;        of conditions and the following disclaimer in the documentation and/or other
+    45                           ;        materials provided with the distribution. Publication is not required when
+    46                           ;        this file is used in an embedded application.
+    47                           ; 
+    48                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    49                           ;        software without specific prior written permission.
+    50                           ; 
+    51                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    52                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    53                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    54                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    55                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    56                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    57                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    58                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    59                           ; 
+    60                           ; 
+    61                           ; Code-generator required, PIC16F877 Definitions
+    62                           ; 
+    63                           ; SFR Addresses
+    64     0004                     fsr             equ	4
+    65     0004                     fsr0            equ	4
+    66     0000                     indf            equ	0
+    67     0000                     indf0           equ	0
+    68     0002                     pc              equ	2
+    69     0002                     pcl             equ	2
+    70     000A                     pclath          equ	10
+    71     0003                     status          equ	3
+    72     0000                     INDF            equ	0	;# 
+    73     0001                     TMR0            equ	1	;# 
+    74     0002                     PCL             equ	2	;# 
+    75     0003                     STATUS          equ	3	;# 
+    76     0004                     FSR             equ	4	;# 
+    77     0005                     PORTA           equ	5	;# 
+    78     0006                     PORTB           equ	6	;# 
+    79     0007                     PORTC           equ	7	;# 
+    80     0008                     PORTD           equ	8	;# 
+    81     0009                     PORTE           equ	9	;# 
+    82     000A                     PCLATH          equ	10	;# 
+    83     000B                     INTCON          equ	11	;# 
+    84     000C                     PIR1            equ	12	;# 
+    85     000D                     PIR2            equ	13	;# 
+    86     000E                     TMR1            equ	14	;# 
+    87     000E                     TMR1L           equ	14	;# 
+    88     000F                     TMR1H           equ	15	;# 
+    89     0010                     T1CON           equ	16	;# 
+    90     0011                     TMR2            equ	17	;# 
+    91     0012                     T2CON           equ	18	;# 
+    92     0013                     SSPBUF          equ	19	;# 
+    93     0014                     SSPCON          equ	20	;# 
+    94     0015                     CCPR1           equ	21	;# 
+    95     0015                     CCPR1L          equ	21	;# 
+    96     0016                     CCPR1H          equ	22	;# 
+    97     0017                     CCP1CON         equ	23	;# 
+    98     0018                     RCSTA           equ	24	;# 
+    99     0019                     TXREG           equ	25	;# 
+   100     001A                     RCREG           equ	26	;# 
+   101     001B                     CCPR2           equ	27	;# 
+   102     001B                     CCPR2L          equ	27	;# 
+   103     001C                     CCPR2H          equ	28	;# 
+   104     001D                     CCP2CON         equ	29	;# 
+   105     001E                     ADRESH          equ	30	;# 
+   106     001F                     ADCON0          equ	31	;# 
+   107     0081                     OPTION_REG      equ	129	;# 
+   108     0085                     TRISA           equ	133	;# 
+   109     0086                     TRISB           equ	134	;# 
+   110     0087                     TRISC           equ	135	;# 
+   111     0088                     TRISD           equ	136	;# 
+   112     0089                     TRISE           equ	137	;# 
+   113     008C                     PIE1            equ	140	;# 
+   114     008D                     PIE2            equ	141	;# 
+   115     008E                     PCON            equ	142	;# 
+   116     0091                     SSPCON2         equ	145	;# 
+   117     0092                     PR2             equ	146	;# 
+   118     0093                     SSPADD          equ	147	;# 
+   119     0094                     SSPSTAT         equ	148	;# 
+   120     0098                     TXSTA           equ	152	;# 
+   121     0099                     SPBRG           equ	153	;# 
+   122     009E                     ADRESL          equ	158	;# 
+   123     009F                     ADCON1          equ	159	;# 
+   124     010C                     EEDATA          equ	268	;# 
+   125     010D                     EEADR           equ	269	;# 
+   126     010E                     EEDATH          equ	270	;# 
+   127     010F                     EEADRH          equ	271	;# 
+   128     018C                     EECON1          equ	396	;# 
+   129     018D                     EECON2          equ	397	;# 
+   130     0000                     INDF            equ	0	;# 
+   131     0001                     TMR0            equ	1	;# 
+   132     0002                     PCL             equ	2	;# 
+   133     0003                     STATUS          equ	3	;# 
+   134     0004                     FSR             equ	4	;# 
+   135     0005                     PORTA           equ	5	;# 
+   136     0006                     PORTB           equ	6	;# 
+   137     0007                     PORTC           equ	7	;# 
+   138     0008                     PORTD           equ	8	;# 
+   139     0009                     PORTE           equ	9	;# 
+   140     000A                     PCLATH          equ	10	;# 
+   141     000B                     INTCON          equ	11	;# 
+   142     000C                     PIR1            equ	12	;# 
+   143     000D                     PIR2            equ	13	;# 
+   144     000E                     TMR1            equ	14	;# 
+   145     000E                     TMR1L           equ	14	;# 
+   146     000F                     TMR1H           equ	15	;# 
+   147     0010                     T1CON           equ	16	;# 
+   148     0011                     TMR2            equ	17	;# 
+   149     0012                     T2CON           equ	18	;# 
+   150     0013                     SSPBUF          equ	19	;# 
+   151     0014                     SSPCON          equ	20	;# 
+   152     0015                     CCPR1           equ	21	;# 
+   153     0015                     CCPR1L          equ	21	;# 
+   154     0016                     CCPR1H          equ	22	;# 
+   155     0017                     CCP1CON         equ	23	;# 
+   156     0018                     RCSTA           equ	24	;# 
+   157     0019                     TXREG           equ	25	;# 
+   158     001A                     RCREG           equ	26	;# 
+   159     001B                     CCPR2           equ	27	;# 
+   160     001B                     CCPR2L          equ	27	;# 
+   161     001C                     CCPR2H          equ	28	;# 
+   162     001D                     CCP2CON         equ	29	;# 
+   163     001E                     ADRESH          equ	30	;# 
+   164     001F                     ADCON0          equ	31	;# 
+   165     0081                     OPTION_REG      equ	129	;# 
+   166     0085                     TRISA           equ	133	;# 
+   167     0086                     TRISB           equ	134	;# 
+   168     0087                     TRISC           equ	135	;# 
+   169     0088                     TRISD           equ	136	;# 
+   170     0089                     TRISE           equ	137	;# 
+   171     008C                     PIE1            equ	140	;# 
+   172     008D                     PIE2            equ	141	;# 
+   173     008E                     PCON            equ	142	;# 
+   174     0091                     SSPCON2         equ	145	;# 
+   175     0092                     PR2             equ	146	;# 
+   176     0093                     SSPADD          equ	147	;# 
+   177     0094                     SSPSTAT         equ	148	;# 
+   178     0098                     TXSTA           equ	152	;# 
+   179     0099                     SPBRG           equ	153	;# 
+   180     009E                     ADRESL          equ	158	;# 
+   181     009F                     ADCON1          equ	159	;# 
+   182     010C                     EEDATA          equ	268	;# 
+   183     010D                     EEADR           equ	269	;# 
+   184     010E                     EEDATH          equ	270	;# 
+   185     010F                     EEADRH          equ	271	;# 
+   186     018C                     EECON1          equ	396	;# 
+   187     018D                     EECON2          equ	397	;# 
+   188     0006                     _PORTBbits      set	6
+   189     0008                     _PORTDbits      set	8
+   190     0019                     _TXREG          set	25
+   191     0018                     _RCSTAbits      set	24
+   192     0012                     _T2CON          set	18
+   193     0017                     _CCP1CON        set	23
+   194     0015                     _CCPR1L         set	21
+   195     0098                     _TXSTAbits      set	152
+   196     0099                     _SPBRG          set	153
+   197     0092                     _PR2            set	146
+   198     0087                     _TRISCbits      set	135
+   199     0086                     _TRISB          set	134
+   200     0088                     _TRISD          set	136
+   201                           
+   202                           	psect	strings
+   203     0003                     __pstrings:
+   204     0003                     stringtab:
+   205     0003                     __stringtab:
+   206     0003                     stringcode:	
+   207                           ;	String table - string pointers are 1 byte each
+   208                           
+   209     0003                     stringdir:
+   210     0003  3000               	movlw	high stringdir
+   211     0004  008A               	movwf	10
+   212     0005  0804               	movf	4,w
+   213     0006  0A84               	incf	4,f
+   214     0007  0782               	addwf	2,f
+   215     0008                     __stringbase:
+   216     0008  3400               	retlw	0
+   217     0009                     __end_of__stringtab:
+   218     0009                     STR_2:
+   219     0009  3456               	retlw	86	;'V'
+   220     000A  3465               	retlw	101	;'e'
+   221     000B  346C               	retlw	108	;'l'
+   222     000C  346F               	retlw	111	;'o'
+   223     000D  3463               	retlw	99	;'c'
+   224     000E  3469               	retlw	105	;'i'
+   225     000F  3464               	retlw	100	;'d'
+   226     0010  3461               	retlw	97	;'a'
+   227     0011  3464               	retlw	100	;'d'
+   228     0012  3465               	retlw	101	;'e'
+   229     0013  3420               	retlw	32	;' '
+   230     0014  3461               	retlw	97	;'a'
+   231     0015  3474               	retlw	116	;'t'
+   232     0016  3475               	retlw	117	;'u'
+   233     0017  3461               	retlw	97	;'a'
+   234     0018  346C               	retlw	108	;'l'
+   235     0019  343A               	retlw	58	;':'
+   236     001A  3420               	retlw	32	;' '
+   237     001B  3425               	retlw	37	;'%'
+   238     001C  3463               	retlw	99	;'c'
+   239     001D  340D               	retlw	13
+   240     001E  340A               	retlw	10
+   241     001F  3400               	retlw	0
+   242     0020                     STR_3:
+   243     0020  3456               	retlw	86	;'V'
+   244     0021  3465               	retlw	101	;'e'
+   245     0022  346C               	retlw	108	;'l'
+   246     0023  346F               	retlw	111	;'o'
+   247     0024  3463               	retlw	99	;'c'
+   248     0025  3469               	retlw	105	;'i'
+   249     0026  3464               	retlw	100	;'d'
+   250     0027  3461               	retlw	97	;'a'
+   251     0028  3464               	retlw	100	;'d'
+   252     0029  3465               	retlw	101	;'e'
+   253     002A  3420               	retlw	32	;' '
+   254     002B  3461               	retlw	97	;'a'
+   255     002C  3474               	retlw	116	;'t'
+   256     002D  3475               	retlw	117	;'u'
+   257     002E  3461               	retlw	97	;'a'
+   258     002F  346C               	retlw	108	;'l'
+   259     0030  343A               	retlw	58	;':'
+   260     0031  3420               	retlw	32	;' '
+   261     0032  3430               	retlw	48	;'0'
+   262     0033  340D               	retlw	13
+   263     0034  340A               	retlw	10
+   264     0035  3400               	retlw	0
+   265     0036                     STR_1:
+   266     0036  3453               	retlw	83	;'S'
+   267     0037  3465               	retlw	101	;'e'
+   268     0038  3471               	retlw	113	;'q'
+   269     0039  343A               	retlw	58	;':'
+   270     003A  3420               	retlw	32	;' '
+   271     003B  3425               	retlw	37	;'%'
+   272     003C  3473               	retlw	115	;'s'
+   273     003D  340D               	retlw	13
+   274     003E  340A               	retlw	10
+   275     003F  3400               	retlw	0
+   276                           
+   277                           	psect	cinit
+   278     07EA                     start_initialization:	
+   279                           ; #config settings
+   280                           
+   281     07EA                     __initialization:
+   282                           
+   283                           ; Clear objects allocated to BANK0
+   284     07EA  1283               	bcf	3,5	;RP0=0, select bank0
+   285     07EB  1303               	bcf	3,6	;RP1=0, select bank0
+   286     07EC  01E8               	clrf	__pbssBANK0& (0+127)
+   287     07ED  01E9               	clrf	(__pbssBANK0+1)& (0+127)
+   288     07EE  01EA               	clrf	(__pbssBANK0+2)& (0+127)
+   289     07EF  01EB               	clrf	(__pbssBANK0+3)& (0+127)
+   290     07F0  01EC               	clrf	(__pbssBANK0+4)& (0+127)
+   291     07F1  01ED               	clrf	(__pbssBANK0+5)& (0+127)
+   292     07F2  01EE               	clrf	(__pbssBANK0+6)& (0+127)
+   293                           
+   294                           ; Clear objects allocated to BANK1
+   295     07F3  1383               	bcf	3,7	;select IRP bank0
+   296     07F4  30A0               	movlw	low __pbssBANK1
+   297     07F5  0084               	movwf	4
+   298     07F6  30CE               	movlw	low (__pbssBANK1+46)
+   299     07F7  120A  118A  23E8  120A  118A  	fcall	clear_ram0
+   300     07FC                     end_of_initialization:	
+   301                           ;End of C runtime variable initialization code
+   302                           
+   303     07FC                     __end_of__initialization:
+   304     07FC  0183               	clrf	3
+   305     07FD  120A  118A  2D70   	ljmp	_main	;jump to C main() function
+   306                           
+   307                           	psect	bssBANK0
+   308     0068                     __pbssBANK0:
+   309     0068                     _nout:
+   310     0068                     	ds	2
+   311     006A                     _errno:
+   312     006A                     	ds	2
+   313     006C                     _flags:
+   314     006C                     	ds	1
+   315     006D                     _velocidade_atual:
+   316     006D                     	ds	1
+   317     006E                     _posicao:
+   318     006E                     	ds	1
+   319                           
+   320                           	psect	bssBANK1
+   321     00A0                     __pbssBANK1:
+   322     00A0                     _dbuf:
+   323     00A0                     	ds	32
+   324     00C0                     _width:
+   325     00C0                     	ds	2
+   326     00C2                     _prec:
+   327     00C2                     	ds	2
+   328     00C4                     _sequencia:
+   329     00C4                     	ds	10
+   330                           
+   331                           	psect	clrtext
+   332     03E8                     clear_ram0:	
+   333                           ;	Called with FSR containing the base address, and
+   334                           ;	W with the last address+1
+   335                           
+   336     03E8  0064               	clrwdt	;clear the watchdog before getting into this loop
+   337     03E9                     clrloop0:
+   338     03E9  0180               	clrf	0	;clear RAM location pointed to by FSR
+   339     03EA  0A84               	incf	4,f	;increment pointer
+   340     03EB  0604               	xorwf	4,w	;XOR with final address
+   341     03EC  1903               	btfsc	3,2	;have we reached the end yet?
+   342     03ED  3400               	retlw	0	;all done for this memory range, return
+   343     03EE  0604               	xorwf	4,w	;XOR again to restore value
+   344     03EF  2BE9               	goto	clrloop0	;do the next byte
+   345                           
+   346                           	psect	cstackCOMMON
+   347     0070                     __pcstackCOMMON:
+   348     0070                     ?_config_PWM:
+   349     0070                     ?_config_UART:	
+   350                           ; 1 bytes @ 0x0
+   351                           
+   352     0070                     ?_memset:	
+   353                           ; 1 bytes @ 0x0
+   354                           
+   355     0070                     ?_ler_teclado:	
+   356                           ; 1 bytes @ 0x0
+   357                           
+   358     0070                     ?_enviarSequenciaUART:	
+   359                           ; 1 bytes @ 0x0
+   360                           
+   361     0070                     ?_set_PWM:	
+   362                           ; 1 bytes @ 0x0
+   363                           
+   364     0070                     ?_enviarVelocidadeAtualUART:	
+   365                           ; 1 bytes @ 0x0
+   366                           
+   367     0070                     ?_putch:	
+   368                           ; 1 bytes @ 0x0
+   369                           
+   370     0070                     ?_main:	
+   371                           ; 1 bytes @ 0x0
+   372                           
+   373     0070                     ?_enviarChar:	
+   374                           ; 1 bytes @ 0x0
+   375                           
+   376     0070                     ?_fputc:	
+   377                           ; 1 bytes @ 0x0
+   378                           
+   379     0070                     ?___wmul:	
+   380                           ; 2 bytes @ 0x0
+   381                           
+   382     0070                     enviarChar@c:	
+   383                           ; 2 bytes @ 0x0
+   384                           
+   385     0070                     ler_teclado@tecla:	
+   386                           ; 1 bytes @ 0x0
+   387                           
+   388     0070                     memset@dest:	
+   389                           ; 1 bytes @ 0x0
+   390                           
+   391     0070                     putch@c:	
+   392                           ; 1 bytes @ 0x0
+   393                           
+   394     0070                     ___wmul@multiplier:	
+   395                           ; 1 bytes @ 0x0
+   396                           
+   397     0070                     fputc@c:	
+   398                           ; 2 bytes @ 0x0
+   399                           
+   400     0070                     ??_config_PWM:	
+   401                           ; 2 bytes @ 0x0
+   402                           
+   403     0070                     ??_config_UART:	
+   404                           ; 1 bytes @ 0x0
+   405                           
+   406     0070                     ??_ler_teclado:	
+   407                           ; 1 bytes @ 0x0
+   408                           
+   409     0070                     ??_putch:	
+   410                           ; 1 bytes @ 0x0
+   411                           
+   412     0070                     ??_enviarChar:	
+   413                           ; 1 bytes @ 0x0
+   414                           
+   415                           
+   416                           ; 1 bytes @ 0x0
+   417     0070                     	ds	1
+   418     0071                     ?_enviarString:
+   419     0071                     enviarString@s:	
+   420                           ; 1 bytes @ 0x1
+   421                           
+   422     0071                     memset@c:	
+   423                           ; 1 bytes @ 0x1
+   424                           
+   425                           
+   426                           ; 2 bytes @ 0x1
+   427     0071                     	ds	1
+   428     0072                     ___wmul@multiplicand:
+   429     0072                     fputc@fp:	
+   430                           ; 2 bytes @ 0x2
+   431                           
+   432     0072                     ??_enviarString:	
+   433                           ; 2 bytes @ 0x2
+   434                           
+   435                           
+   436                           ; 1 bytes @ 0x2
+   437     0072                     	ds	1
+   438     0073                     memset@n:
+   439                           
+   440                           ; 2 bytes @ 0x3
+   441     0073                     	ds	1
+   442     0074                     ___wmul@product:
+   443     0074                     ??_fputc:	
+   444                           ; 2 bytes @ 0x4
+   445                           
+   446     0074                     ??___wmul:	
+   447                           ; 1 bytes @ 0x4
+   448                           
+   449                           
+   450                           ; 1 bytes @ 0x4
+   451     0074                     	ds	1
+   452     0075                     memset@p:
+   453     0075                     ??_memset:	
+   454                           ; 1 bytes @ 0x5
+   455                           
+   456                           
+   457                           ; 1 bytes @ 0x5
+   458     0075                     	ds	1
+   459     0076                     ??_set_PWM:
+   460                           
+   461                           ; 1 bytes @ 0x6
+   462     0076                     	ds	2
+   463     0078                     set_PWM@velocidade:
+   464                           
+   465                           ; 1 bytes @ 0x8
+   466     0078                     	ds	1
+   467     0079                     set_PWM@duty_cycle:
+   468                           
+   469                           ; 2 bytes @ 0x9
+   470     0079                     	ds	4
+   471     007D                     vfprintf@cfmt:
+   472     007D                     ??_vfprintf:	
+   473                           ; 1 bytes @ 0xD
+   474                           
+   475                           
+   476                           ; 1 bytes @ 0xD
+   477     007D                     	ds	1
+   478     007E                     ??_enviarSequenciaUART:
+   479     007E                     ??_main:	
+   480                           ; 1 bytes @ 0xE
+   481                           
+   482                           
+   483                           	psect	cstackBANK0
+   484     0020                     __pcstackBANK0:	
+   485                           ; 1 bytes @ 0xE
+   486                           
+   487     0020                     ?_vfpfcnvrt:
+   488     0020                     vfpfcnvrt@fp:	
+   489                           ; 2 bytes @ 0x0
+   490                           
+   491                           
+   492                           ; 2 bytes @ 0x0
+   493     0020                     	ds	2
+   494     0022                     vfpfcnvrt@fmt:
+   495                           
+   496                           ; 1 bytes @ 0x2
+   497     0022                     	ds	1
+   498     0023                     vfpfcnvrt@ap:
+   499                           
+   500                           ; 2 bytes @ 0x3
+   501     0023                     	ds	2
+   502     0025                     ??_vfpfcnvrt:
+   503                           
+   504                           ; 1 bytes @ 0x5
+   505     0025                     	ds	2
+   506     0027                     vfpfcnvrt@cnt:
+   507                           
+   508                           ; 2 bytes @ 0x7
+   509     0027                     	ds	2
+   510     0029                     vfpfcnvrt@c:
+   511                           
+   512                           ; 1 bytes @ 0x9
+   513     0029                     	ds	1
+   514     002A                     vfpfcnvrt@done:
+   515                           
+   516                           ; 1 bytes @ 0xA
+   517     002A                     	ds	1
+   518     002B                     vfpfcnvrt@cp_813:
+   519                           
+   520                           ; 1 bytes @ 0xB
+   521     002B                     	ds	1
+   522     002C                     ?_vfprintf:
+   523     002C                     vfprintf@fp:	
+   524                           ; 2 bytes @ 0xC
+   525                           
+   526                           
+   527                           ; 2 bytes @ 0xC
+   528     002C                     	ds	2
+   529     002E                     vfprintf@fmt:
+   530                           
+   531                           ; 1 bytes @ 0xE
+   532     002E                     	ds	1
+   533     002F                     vfprintf@ap:
+   534                           
+   535                           ; 1 bytes @ 0xF
+   536     002F                     	ds	1
+   537     0030                     ?_snprintf:
+   538     0030                     snprintf@s:	
+   539                           ; 2 bytes @ 0x10
+   540                           
+   541                           
+   542                           ; 1 bytes @ 0x10
+   543     0030                     	ds	1
+   544     0031                     snprintf@n:
+   545                           
+   546                           ; 2 bytes @ 0x11
+   547     0031                     	ds	2
+   548     0033                     snprintf@fmt:
+   549                           
+   550                           ; 1 bytes @ 0x13
+   551     0033                     	ds	3
+   552     0036                     ??_snprintf:
+   553                           
+   554                           ; 1 bytes @ 0x16
+   555     0036                     	ds	3
+   556     0039                     _snprintf$771:
+   557                           
+   558                           ; 2 bytes @ 0x19
+   559     0039                     	ds	2
+   560     003B                     snprintf@ap:
+   561                           
+   562                           ; 1 bytes @ 0x1B
+   563     003B                     	ds	1
+   564     003C                     snprintf@cnt:
+   565                           
+   566                           ; 2 bytes @ 0x1C
+   567     003C                     	ds	2
+   568     003E                     snprintf@f:
+   569                           
+   570                           ; 11 bytes @ 0x1E
+   571     003E                     	ds	11
+   572     0049                     enviarSequenciaUART@buffer:
+   573     0049                     ??_enviarVelocidadeAtualUART:	
+   574                           ; 30 bytes @ 0x29
+   575                           
+   576                           
+   577                           ; 1 bytes @ 0x29
+   578     0049                     	ds	2
+   579     004B                     enviarVelocidadeAtualUART@buffer:
+   580                           
+   581                           ; 20 bytes @ 0x2B
+   582     004B                     	ds	28
+   583     0067                     main@tecla:
+   584                           
+   585                           ; 1 bytes @ 0x47
+   586     0067                     	ds	1
+   587                           
+   588                           	psect	maintext
+   589     0570                     __pmaintext:	
+   590 ;;
+   591 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   592 ;;
+   593 ;; *************** function _main *****************
+   594 ;; Defined at:
+   595 ;;		line 47 in file "atividade7.c"
+   596 ;; Parameters:    Size  Location     Type
+   597 ;;		None
+   598 ;; Auto vars:     Size  Location     Type
+   599 ;;  tecla           1   71[BANK0 ] unsigned char 
+   600 ;; Return value:  Size  Location     Type
+   601 ;;                  1    wreg      void 
+   602 ;; Registers used:
+   603 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   604 ;; Tracked objects:
+   605 ;;		On entry : B00/0
+   606 ;;		On exit  : 0/0
+   607 ;;		Unchanged: 0/0
+   608 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   609 ;;      Params:         0       0       0       0       0
+   610 ;;      Locals:         0       1       0       0       0
+   611 ;;      Temps:          0       0       0       0       0
+   612 ;;      Totals:         0       1       0       0       0
+   613 ;;Total ram usage:        1 bytes
+   614 ;; Hardware stack levels required when called: 6
+   615 ;; This function calls:
+   616 ;;		_config_PWM
+   617 ;;		_config_UART
+   618 ;;		_enviarSequenciaUART
+   619 ;;		_enviarVelocidadeAtualUART
+   620 ;;		_ler_teclado
+   621 ;;		_memset
+   622 ;;		_set_PWM
+   623 ;; This function is called by:
+   624 ;;		Startup code after reset
+   625 ;; This function uses a non-reentrant model
+   626 ;;
+   627                           
+   628     0570                     _main:	
+   629                           ;psect for function _main
+   630                           
+   631     0570                     l1209:	
+   632                           ;incstack = 0
+   633                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   634                           
+   635                           
+   636                           ;atividade7.c: 48:     TRISD = 0xF0;
+   637     0570  30F0               	movlw	240
+   638     0571  1683               	bsf	3,5	;RP0=1, select bank1
+   639     0572  1303               	bcf	3,6	;RP1=0, select bank1
+   640     0573  0088               	movwf	8	;volatile
+   641                           
+   642                           ;atividade7.c: 49:     TRISB = 0xFF;
+   643     0574  30FF               	movlw	255
+   644     0575  0086               	movwf	6	;volatile
+   645                           
+   646                           ;atividade7.c: 50:     TRISCbits.TRISC2 = 0;
+   647     0576  1107               	bcf	7,2	;volatile
+   648     0577                     l1211:
+   649                           
+   650                           ;atividade7.c: 52:     config_PWM();
+   651     0577  120A  118A  23F0  120A  118A  	fcall	_config_PWM
+   652                           
+   653                           ;atividade7.c: 53:     config_UART();
+   654     057C  120A  118A  2408  120A  118A  	fcall	_config_UART
+   655     0581                     l1213:
+   656                           
+   657                           ;atividade7.c: 55:     memset(sequencia, 0, sizeof(sequencia));
+   658     0581  30C4               	movlw	(low (_sequencia| 0))& (0+255)
+   659     0582  00F0               	movwf	memset@dest
+   660     0583  3000               	movlw	0
+   661     0584  00F1               	movwf	memset@c
+   662     0585  00F2               	movwf	memset@c+1
+   663     0586  300A               	movlw	10
+   664     0587  00F3               	movwf	memset@n
+   665     0588  3000               	movlw	0
+   666     0589  00F4               	movwf	memset@n+1
+   667     058A  120A  118A  2419  120A  118A  	fcall	_memset
+   668     058F                     l1215:
+   669                           
+   670                           ;atividade7.c: 58:         unsigned char tecla = ler_teclado();
+   671     058F  120A  118A  2523  120A  118A  	fcall	_ler_teclado
+   672     0594  1283               	bcf	3,5	;RP0=0, select bank0
+   673     0595  1303               	bcf	3,6	;RP1=0, select bank0
+   674     0596  00E7               	movwf	main@tecla
+   675     0597                     l1217:
+   676                           
+   677                           ;atividade7.c: 60:         if (tecla != 0xFF) {
+   678     0597  0A67               	incf	main@tecla,w
+   679     0598  1903               	btfsc	3,2
+   680     0599  2D9B               	goto	u791
+   681     059A  2D9C               	goto	u790
+   682     059B                     u791:
+   683     059B  2D8F               	goto	l1215
+   684     059C                     u790:
+   685     059C                     l1219:
+   686                           
+   687                           ;atividade7.c: 61:             if (posicao < sizeof(sequencia) - 1) {
+   688     059C  3009               	movlw	9
+   689     059D  026E               	subwf	_posicao,w
+   690     059E  1803               	skipnc
+   691     059F  2DA1               	goto	u801
+   692     05A0  2DA2               	goto	u800
+   693     05A1                     u801:
+   694     05A1  2DAF               	goto	l1227
+   695     05A2                     u800:
+   696     05A2                     l1221:
+   697                           
+   698                           ;atividade7.c: 62:                 sequencia[posicao++] = tecla + '0';
+   699     05A2  086E               	movf	_posicao,w
+   700     05A3  3EC4               	addlw	(low (_sequencia| 0))& (0+255)
+   701     05A4  0084               	movwf	4
+   702     05A5  0867               	movf	main@tecla,w
+   703     05A6  3E30               	addlw	48
+   704     05A7  1383               	bcf	3,7	;select IRP bank1
+   705     05A8  0080               	movwf	0
+   706     05A9                     l1223:
+   707     05A9  3001               	movlw	1
+   708     05AA  07EE               	addwf	_posicao,f
+   709     05AB                     l1225:
+   710                           
+   711                           ;atividade7.c: 63:                 sequencia[posicao] = '\0';
+   712     05AB  086E               	movf	_posicao,w
+   713     05AC  3EC4               	addlw	(low (_sequencia| 0))& (0+255)
+   714     05AD  0084               	movwf	4
+   715     05AE  0180               	clrf	0
+   716     05AF                     l1227:
+   717                           
+   718                           ;atividade7.c: 65:             enviarSequenciaUART();
+   719     05AF  120A  118A  2432  120A  118A  	fcall	_enviarSequenciaUART
+   720     05B4                     l1229:
+   721                           
+   722                           ;atividade7.c: 67:             set_PWM(tecla);
+   723     05B4  1283               	bcf	3,5	;RP0=0, select bank0
+   724     05B5  1303               	bcf	3,6	;RP1=0, select bank0
+   725     05B6  0867               	movf	main@tecla,w
+   726     05B7  120A  118A  24BD  120A  118A  	fcall	_set_PWM
+   727     05BC                     l1231:
+   728                           
+   729                           ;atividade7.c: 68:             enviarVelocidadeAtualUART();
+   730     05BC  120A  118A  24EE  120A  118A  	fcall	_enviarVelocidadeAtualUART
+   731     05C1  2D8F               	goto	l1215
+   732     05C2  120A  118A  2800   	ljmp	start
+   733     05C5                     __end_of_main:
+   734                           
+   735                           	psect	text1
+   736     04BD                     __ptext1:	
+   737 ;; *************** function _set_PWM *****************
+   738 ;; Defined at:
+   739 ;;		line 80 in file "atividade7.c"
+   740 ;; Parameters:    Size  Location     Type
+   741 ;;  velocidade      1    wreg     unsigned char 
+   742 ;; Auto vars:     Size  Location     Type
+   743 ;;  velocidade      1    8[COMMON] unsigned char 
+   744 ;;  duty_cycle      2    9[COMMON] unsigned int 
+   745 ;; Return value:  Size  Location     Type
+   746 ;;                  1    wreg      void 
+   747 ;; Registers used:
+   748 ;;		wreg, status,2, status,0, pclath, cstack
+   749 ;; Tracked objects:
+   750 ;;		On entry : 0/0
+   751 ;;		On exit  : 0/0
+   752 ;;		Unchanged: 0/0
+   753 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   754 ;;      Params:         0       0       0       0       0
+   755 ;;      Locals:         3       0       0       0       0
+   756 ;;      Temps:          2       0       0       0       0
+   757 ;;      Totals:         5       0       0       0       0
+   758 ;;Total ram usage:        5 bytes
+   759 ;; Hardware stack levels used: 1
+   760 ;; Hardware stack levels required when called: 1
+   761 ;; This function calls:
+   762 ;;		___wmul
+   763 ;; This function is called by:
+   764 ;;		_main
+   765 ;; This function uses a non-reentrant model
+   766 ;;
+   767                           
+   768     04BD                     _set_PWM:	
+   769                           ;psect for function _set_PWM
+   770                           
+   771                           
+   772                           ;incstack = 0
+   773                           ; Regs used in _set_PWM: [wreg+status,2+status,0+pclath+cstack]
+   774                           ;set_PWM@velocidade stored from wreg
+   775     04BD  00F8               	movwf	set_PWM@velocidade
+   776     04BE                     l1195:
+   777                           
+   778                           ;atividade7.c: 81:     unsigned int duty_cycle = velocidade * 25;
+   779     04BE  0878               	movf	set_PWM@velocidade,w
+   780     04BF  00F6               	movwf	??_set_PWM
+   781     04C0  01F7               	clrf	??_set_PWM+1
+   782     04C1  0876               	movf	??_set_PWM,w
+   783     04C2  00F0               	movwf	___wmul@multiplier
+   784     04C3  0877               	movf	??_set_PWM+1,w
+   785     04C4  00F1               	movwf	___wmul@multiplier+1
+   786     04C5  3019               	movlw	25
+   787     04C6  00F2               	movwf	___wmul@multiplicand
+   788     04C7  3000               	movlw	0
+   789     04C8  00F3               	movwf	___wmul@multiplicand+1
+   790     04C9  120A  118A  2469  120A  118A  	fcall	___wmul
+   791     04CE  0871               	movf	?___wmul+1,w
+   792     04CF  00FA               	movwf	set_PWM@duty_cycle+1
+   793     04D0  0870               	movf	?___wmul,w
+   794     04D1  00F9               	movwf	set_PWM@duty_cycle
+   795     04D2                     l1197:
+   796                           
+   797                           ;atividade7.c: 82:     CCPR1L = (unsigned char)(duty_cycle >> 2);
+   798     04D2  087A               	movf	set_PWM@duty_cycle+1,w
+   799     04D3  00F7               	movwf	??_set_PWM+1
+   800     04D4  0879               	movf	set_PWM@duty_cycle,w
+   801     04D5  00F6               	movwf	??_set_PWM
+   802     04D6  1003               	clrc
+   803     04D7  0CF7               	rrf	??_set_PWM+1,f
+   804     04D8  0CF6               	rrf	??_set_PWM,f
+   805     04D9  1003               	clrc
+   806     04DA  0CF7               	rrf	??_set_PWM+1,f
+   807     04DB  0CF6               	rrf	??_set_PWM,f
+   808     04DC  0876               	movf	??_set_PWM,w
+   809     04DD  1283               	bcf	3,5	;RP0=0, select bank0
+   810     04DE  1303               	bcf	3,6	;RP1=0, select bank0
+   811     04DF  0095               	movwf	21	;volatile
+   812     04E0                     l1199:
+   813                           
+   814                           ;atividade7.c: 83:     CCP1CON = (CCP1CON & 0xCF) | ((duty_cycle & 0x03) << 4);
+   815     04E0  0879               	movf	set_PWM@duty_cycle,w
+   816     04E1  3903               	andlw	3
+   817     04E2  00F6               	movwf	??_set_PWM
+   818     04E3  3004               	movlw	4
+   819     04E4                     u775:
+   820     04E4  1003               	clrc
+   821     04E5  0DF6               	rlf	??_set_PWM,f
+   822     04E6  3EFF               	addlw	-1
+   823     04E7  1D03               	skipz
+   824     04E8  2CE4               	goto	u775
+   825     04E9  0817               	movf	23,w	;volatile
+   826     04EA  39CF               	andlw	207
+   827     04EB  0476               	iorwf	??_set_PWM,w
+   828     04EC  0097               	movwf	23	;volatile
+   829     04ED                     l66:
+   830     04ED  0008               	return
+   831     04EE                     __end_of_set_PWM:
+   832                           
+   833                           	psect	text2
+   834     0469                     __ptext2:	
+   835 ;; *************** function ___wmul *****************
+   836 ;; Defined at:
+   837 ;;		line 15 in file "C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul16.c"
+   838 ;; Parameters:    Size  Location     Type
+   839 ;;  multiplier      2    0[COMMON] unsigned int 
+   840 ;;  multiplicand    2    2[COMMON] unsigned int 
+   841 ;; Auto vars:     Size  Location     Type
+   842 ;;  product         2    4[COMMON] unsigned int 
+   843 ;; Return value:  Size  Location     Type
+   844 ;;                  2    0[COMMON] unsigned int 
+   845 ;; Registers used:
+   846 ;;		wreg, status,2, status,0
+   847 ;; Tracked objects:
+   848 ;;		On entry : 0/0
+   849 ;;		On exit  : 0/0
+   850 ;;		Unchanged: 0/0
+   851 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   852 ;;      Params:         4       0       0       0       0
+   853 ;;      Locals:         2       0       0       0       0
+   854 ;;      Temps:          0       0       0       0       0
+   855 ;;      Totals:         6       0       0       0       0
+   856 ;;Total ram usage:        6 bytes
+   857 ;; Hardware stack levels used: 1
+   858 ;; This function calls:
+   859 ;;		Nothing
+   860 ;; This function is called by:
+   861 ;;		_set_PWM
+   862 ;; This function uses a non-reentrant model
+   863 ;;
+   864                           
+   865     0469                     ___wmul:	
+   866                           ;psect for function ___wmul
+   867                           
+   868     0469                     l1131:	
+   869                           ;incstack = 0
+   870                           ; Regs used in ___wmul: [wreg+status,2+status,0]
+   871                           
+   872     0469  01F4               	clrf	___wmul@product
+   873     046A  01F5               	clrf	___wmul@product+1
+   874     046B                     l1133:
+   875     046B  1C70               	btfss	___wmul@multiplier,0
+   876     046C  2C6E               	goto	u621
+   877     046D  2C6F               	goto	u620
+   878     046E                     u621:
+   879     046E  2C75               	goto	l188
+   880     046F                     u620:
+   881     046F                     l1135:
+   882     046F  0872               	movf	___wmul@multiplicand,w
+   883     0470  07F4               	addwf	___wmul@product,f
+   884     0471  1803               	skipnc
+   885     0472  0AF5               	incf	___wmul@product+1,f
+   886     0473  0873               	movf	___wmul@multiplicand+1,w
+   887     0474  07F5               	addwf	___wmul@product+1,f
+   888     0475                     l188:
+   889     0475  3001               	movlw	1
+   890     0476                     u635:
+   891     0476  1003               	clrc
+   892     0477  0DF2               	rlf	___wmul@multiplicand,f
+   893     0478  0DF3               	rlf	___wmul@multiplicand+1,f
+   894     0479  3EFF               	addlw	-1
+   895     047A  1D03               	skipz
+   896     047B  2C76               	goto	u635
+   897     047C                     l1137:
+   898     047C  3001               	movlw	1
+   899     047D                     u645:
+   900     047D  1003               	clrc
+   901     047E  0CF1               	rrf	___wmul@multiplier+1,f
+   902     047F  0CF0               	rrf	___wmul@multiplier,f
+   903     0480  3EFF               	addlw	-1
+   904     0481  1D03               	skipz
+   905     0482  2C7D               	goto	u645
+   906     0483                     l1139:
+   907     0483  0870               	movf	___wmul@multiplier,w
+   908     0484  0471               	iorwf	___wmul@multiplier+1,w
+   909     0485  1D03               	btfss	3,2
+   910     0486  2C88               	goto	u651
+   911     0487  2C89               	goto	u650
+   912     0488                     u651:
+   913     0488  2C6B               	goto	l1133
+   914     0489                     u650:
+   915     0489                     l1141:
+   916     0489  0875               	movf	___wmul@product+1,w
+   917     048A  00F1               	movwf	?___wmul+1
+   918     048B  0874               	movf	___wmul@product,w
+   919     048C  00F0               	movwf	?___wmul
+   920     048D                     l190:
+   921     048D  0008               	return
+   922     048E                     __end_of___wmul:
+   923                           
+   924                           	psect	text3
+   925     0419                     __ptext3:	
+   926 ;; *************** function _memset *****************
+   927 ;; Defined at:
+   928 ;;		line 3 in file "C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\memset.c"
+   929 ;; Parameters:    Size  Location     Type
+   930 ;;  dest            1    0[COMMON] PTR void 
+   931 ;;		 -> sequencia(10), 
+   932 ;;  c               2    1[COMMON] int 
+   933 ;;  n               2    3[COMMON] unsigned int 
+   934 ;; Auto vars:     Size  Location     Type
+   935 ;;  p               1    5[COMMON] PTR unsigned char 
+   936 ;;		 -> sequencia(10), 
+   937 ;; Return value:  Size  Location     Type
+   938 ;;                  1    0[COMMON] PTR void 
+   939 ;; Registers used:
+   940 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+   941 ;; Tracked objects:
+   942 ;;		On entry : 0/0
+   943 ;;		On exit  : 0/0
+   944 ;;		Unchanged: 0/0
+   945 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   946 ;;      Params:         5       0       0       0       0
+   947 ;;      Locals:         1       0       0       0       0
+   948 ;;      Temps:          0       0       0       0       0
+   949 ;;      Totals:         6       0       0       0       0
+   950 ;;Total ram usage:        6 bytes
+   951 ;; Hardware stack levels used: 1
+   952 ;; This function calls:
+   953 ;;		Nothing
+   954 ;; This function is called by:
+   955 ;;		_main
+   956 ;; This function uses a non-reentrant model
+   957 ;;
+   958                           
+   959     0419                     _memset:	
+   960                           ;psect for function _memset
+   961                           
+   962     0419                     l1155:	
+   963                           ;incstack = 0
+   964                           ; Regs used in _memset: [wreg-fsr0h+status,2+status,0]
+   965                           
+   966     0419  0870               	movf	memset@dest,w
+   967     041A  00F5               	movwf	memset@p
+   968     041B  2C23               	goto	l1161
+   969     041C                     l1157:
+   970     041C  0875               	movf	memset@p,w
+   971     041D  0084               	movwf	4
+   972     041E  0871               	movf	memset@c,w
+   973     041F  1383               	bcf	3,7	;select IRP bank0
+   974     0420  0080               	movwf	0
+   975     0421                     l1159:
+   976     0421  3001               	movlw	1
+   977     0422  07F5               	addwf	memset@p,f
+   978     0423                     l1161:
+   979     0423  3001               	movlw	1
+   980     0424  02F3               	subwf	memset@n,f
+   981     0425  3000               	movlw	0
+   982     0426  1C03               	skipc
+   983     0427  03F4               	decf	memset@n+1,f
+   984     0428  02F4               	subwf	memset@n+1,f
+   985     0429  0A73               	incf	memset@n,w
+   986     042A  1D03               	skipz
+   987     042B  2C30               	goto	u661
+   988     042C  0A74               	incf	memset@n+1,w
+   989     042D  1D03               	btfss	3,2
+   990     042E  2C30               	goto	u661
+   991     042F  2C31               	goto	u660
+   992     0430                     u661:
+   993     0430  2C1C               	goto	l1157
+   994     0431                     u660:
+   995     0431                     l650:
+   996     0431  0008               	return
+   997     0432                     __end_of_memset:
+   998                           
+   999                           	psect	text4
+  1000     0523                     __ptext4:	
+  1001 ;; *************** function _ler_teclado *****************
+  1002 ;; Defined at:
+  1003 ;;		line 127 in file "atividade7.c"
+  1004 ;; Parameters:    Size  Location     Type
+  1005 ;;		None
+  1006 ;; Auto vars:     Size  Location     Type
+  1007 ;;  tecla           1    0[COMMON] unsigned char 
+  1008 ;; Return value:  Size  Location     Type
+  1009 ;;                  1    wreg      unsigned char 
+  1010 ;; Registers used:
+  1011 ;;		wreg, status,2
+  1012 ;; Tracked objects:
+  1013 ;;		On entry : 0/0
+  1014 ;;		On exit  : 0/0
+  1015 ;;		Unchanged: 0/0
+  1016 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1017 ;;      Params:         0       0       0       0       0
+  1018 ;;      Locals:         1       0       0       0       0
+  1019 ;;      Temps:          0       0       0       0       0
+  1020 ;;      Totals:         1       0       0       0       0
+  1021 ;;Total ram usage:        1 bytes
+  1022 ;; Hardware stack levels used: 1
+  1023 ;; This function calls:
+  1024 ;;		Nothing
+  1025 ;; This function is called by:
+  1026 ;;		_main
+  1027 ;; This function uses a non-reentrant model
+  1028 ;;
+  1029                           
+  1030     0523                     _ler_teclado:	
+  1031                           ;psect for function _ler_teclado
+  1032                           
+  1033     0523                     l1163:	
+  1034                           ;incstack = 0
+  1035                           ; Regs used in _ler_teclado: [wreg+status,2]
+  1036                           
+  1037                           
+  1038                           ;atividade7.c: 128:     unsigned char tecla = 0xFF;
+  1039     0523  30FF               	movlw	255
+  1040     0524  00F0               	movwf	ler_teclado@tecla
+  1041                           
+  1042                           ;atividade7.c: 130:     PORTDbits.RD0 = 0; PORTDbits.RD1 = 1; PORTDbits.RD2 = 1; PORTDbi
+      +                          ts.RD3 = 1;
+  1043     0525  1283               	bcf	3,5	;RP0=0, select bank0
+  1044     0526  1303               	bcf	3,6	;RP1=0, select bank0
+  1045     0527  1008               	bcf	8,0	;volatile
+  1046     0528  1488               	bsf	8,1	;volatile
+  1047     0529  1508               	bsf	8,2	;volatile
+  1048     052A  1588               	bsf	8,3	;volatile
+  1049                           
+  1050                           ;atividade7.c: 131:     if (!PORTBbits.RB0) tecla = 0;
+  1051     052B  1806               	btfsc	6,0	;volatile
+  1052     052C  2D2E               	goto	u671
+  1053     052D  2D2F               	goto	u670
+  1054     052E                     u671:
+  1055     052E  2D30               	goto	l1167
+  1056     052F                     u670:
+  1057     052F                     l1165:
+  1058     052F  01F0               	clrf	ler_teclado@tecla
+  1059     0530                     l1167:
+  1060                           
+  1061                           ;atividade7.c: 132:     if (!PORTBbits.RB1) tecla = 1;
+  1062     0530  1886               	btfsc	6,1	;volatile
+  1063     0531  2D33               	goto	u681
+  1064     0532  2D34               	goto	u680
+  1065     0533                     u681:
+  1066     0533  2D36               	goto	l93
+  1067     0534                     u680:
+  1068     0534                     l1169:
+  1069     0534  3001               	movlw	1
+  1070     0535  00F0               	movwf	ler_teclado@tecla
+  1071     0536                     l93:
+  1072                           
+  1073                           ;atividade7.c: 133:     if (!PORTBbits.RB2) tecla = 2;
+  1074     0536  1906               	btfsc	6,2	;volatile
+  1075     0537  2D39               	goto	u691
+  1076     0538  2D3A               	goto	u690
+  1077     0539                     u691:
+  1078     0539  2D3C               	goto	l94
+  1079     053A                     u690:
+  1080     053A                     l1171:
+  1081     053A  3002               	movlw	2
+  1082     053B  00F0               	movwf	ler_teclado@tecla
+  1083     053C                     l94:
+  1084                           
+  1085                           ;atividade7.c: 134:     if (!PORTBbits.RB3) tecla = 3;
+  1086     053C  1986               	btfsc	6,3	;volatile
+  1087     053D  2D3F               	goto	u701
+  1088     053E  2D40               	goto	u700
+  1089     053F                     u701:
+  1090     053F  2D42               	goto	l95
+  1091     0540                     u700:
+  1092     0540                     l1173:
+  1093     0540  3003               	movlw	3
+  1094     0541  00F0               	movwf	ler_teclado@tecla
+  1095     0542                     l95:
+  1096                           
+  1097                           ;atividade7.c: 136:     PORTDbits.RD0 = 1; PORTDbits.RD1 = 0; PORTDbits.RD2 = 1; PORTDbi
+      +                          ts.RD3 = 1;
+  1098     0542  1408               	bsf	8,0	;volatile
+  1099     0543  1088               	bcf	8,1	;volatile
+  1100     0544  1508               	bsf	8,2	;volatile
+  1101     0545  1588               	bsf	8,3	;volatile
+  1102                           
+  1103                           ;atividade7.c: 137:     if (!PORTBbits.RB0) tecla = 4;
+  1104     0546  1806               	btfsc	6,0	;volatile
+  1105     0547  2D49               	goto	u711
+  1106     0548  2D4A               	goto	u710
+  1107     0549                     u711:
+  1108     0549  2D4C               	goto	l96
+  1109     054A                     u710:
+  1110     054A                     l1175:
+  1111     054A  3004               	movlw	4
+  1112     054B  00F0               	movwf	ler_teclado@tecla
+  1113     054C                     l96:
+  1114                           
+  1115                           ;atividade7.c: 138:     if (!PORTBbits.RB1) tecla = 5;
+  1116     054C  1886               	btfsc	6,1	;volatile
+  1117     054D  2D4F               	goto	u721
+  1118     054E  2D50               	goto	u720
+  1119     054F                     u721:
+  1120     054F  2D52               	goto	l97
+  1121     0550                     u720:
+  1122     0550                     l1177:
+  1123     0550  3005               	movlw	5
+  1124     0551  00F0               	movwf	ler_teclado@tecla
+  1125     0552                     l97:
+  1126                           
+  1127                           ;atividade7.c: 139:     if (!PORTBbits.RB2) tecla = 6;
+  1128     0552  1906               	btfsc	6,2	;volatile
+  1129     0553  2D55               	goto	u731
+  1130     0554  2D56               	goto	u730
+  1131     0555                     u731:
+  1132     0555  2D58               	goto	l98
+  1133     0556                     u730:
+  1134     0556                     l1179:
+  1135     0556  3006               	movlw	6
+  1136     0557  00F0               	movwf	ler_teclado@tecla
+  1137     0558                     l98:
+  1138                           
+  1139                           ;atividade7.c: 140:     if (!PORTBbits.RB3) tecla = 7;
+  1140     0558  1986               	btfsc	6,3	;volatile
+  1141     0559  2D5B               	goto	u741
+  1142     055A  2D5C               	goto	u740
+  1143     055B                     u741:
+  1144     055B  2D5E               	goto	l99
+  1145     055C                     u740:
+  1146     055C                     l1181:
+  1147     055C  3007               	movlw	7
+  1148     055D  00F0               	movwf	ler_teclado@tecla
+  1149     055E                     l99:
+  1150                           
+  1151                           ;atividade7.c: 142:     PORTDbits.RD0 = 1; PORTDbits.RD1 = 1; PORTDbits.RD2 = 0; PORTDbi
+      +                          ts.RD3 = 1;
+  1152     055E  1408               	bsf	8,0	;volatile
+  1153     055F  1488               	bsf	8,1	;volatile
+  1154     0560  1108               	bcf	8,2	;volatile
+  1155     0561  1588               	bsf	8,3	;volatile
+  1156                           
+  1157                           ;atividade7.c: 143:     if (!PORTBbits.RB0) tecla = 8;
+  1158     0562  1806               	btfsc	6,0	;volatile
+  1159     0563  2D65               	goto	u751
+  1160     0564  2D66               	goto	u750
+  1161     0565                     u751:
+  1162     0565  2D68               	goto	l100
+  1163     0566                     u750:
+  1164     0566                     l1183:
+  1165     0566  3008               	movlw	8
+  1166     0567  00F0               	movwf	ler_teclado@tecla
+  1167     0568                     l100:
+  1168                           
+  1169                           ;atividade7.c: 144:     if (!PORTBbits.RB1) tecla = 9;
+  1170     0568  1886               	btfsc	6,1	;volatile
+  1171     0569  2D6B               	goto	u761
+  1172     056A  2D6C               	goto	u760
+  1173     056B                     u761:
+  1174     056B  2D6E               	goto	l1187
+  1175     056C                     u760:
+  1176     056C                     l1185:
+  1177     056C  3009               	movlw	9
+  1178     056D  00F0               	movwf	ler_teclado@tecla
+  1179     056E                     l1187:
+  1180                           
+  1181                           ;atividade7.c: 146:     return tecla;
+  1182     056E  0870               	movf	ler_teclado@tecla,w
+  1183     056F                     l102:
+  1184     056F  0008               	return
+  1185     0570                     __end_of_ler_teclado:
+  1186                           
+  1187                           	psect	text5
+  1188     04EE                     __ptext5:	
+  1189 ;; *************** function _enviarVelocidadeAtualUART *****************
+  1190 ;; Defined at:
+  1191 ;;		line 117 in file "atividade7.c"
+  1192 ;; Parameters:    Size  Location     Type
+  1193 ;;		None
+  1194 ;; Auto vars:     Size  Location     Type
+  1195 ;;  buffer         20   43[BANK0 ] unsigned char [20]
+  1196 ;; Return value:  Size  Location     Type
+  1197 ;;                  1    wreg      void 
+  1198 ;; Registers used:
+  1199 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1200 ;; Tracked objects:
+  1201 ;;		On entry : 0/0
+  1202 ;;		On exit  : 0/0
+  1203 ;;		Unchanged: 0/0
+  1204 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1205 ;;      Params:         0       0       0       0       0
+  1206 ;;      Locals:         0      20       0       0       0
+  1207 ;;      Temps:          0       2       0       0       0
+  1208 ;;      Totals:         0      22       0       0       0
+  1209 ;;Total ram usage:       22 bytes
+  1210 ;; Hardware stack levels used: 1
+  1211 ;; Hardware stack levels required when called: 5
+  1212 ;; This function calls:
+  1213 ;;		_enviarString
+  1214 ;;		_snprintf
+  1215 ;; This function is called by:
+  1216 ;;		_main
+  1217 ;; This function uses a non-reentrant model
+  1218 ;;
+  1219                           
+  1220     04EE                     _enviarVelocidadeAtualUART:	
+  1221                           ;psect for function _enviarVelocidadeAtualUART
+  1222                           
+  1223     04EE                     l1201:	
+  1224                           ;incstack = 0
+  1225                           ; Regs used in _enviarVelocidadeAtualUART: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+
+      +                          cstack]
+  1226                           
+  1227                           
+  1228                           ;atividade7.c: 118:     char buffer[20];;atividade7.c: 119:     if (posicao > 0) {
+  1229     04EE  1283               	bcf	3,5	;RP0=0, select bank0
+  1230     04EF  1303               	bcf	3,6	;RP1=0, select bank0
+  1231     04F0  086E               	movf	_posicao,w
+  1232     04F1  1903               	btfsc	3,2
+  1233     04F2  2CF4               	goto	u781
+  1234     04F3  2CF5               	goto	u780
+  1235     04F4                     u781:
+  1236     04F4  2D0E               	goto	l1205
+  1237     04F5                     u780:
+  1238     04F5                     l1203:
+  1239                           
+  1240                           ;atividade7.c: 120:         snprintf(buffer, sizeof(buffer), "Velocidade atual: %c\r\n",
+      +                           sequencia[posicao - 1]);
+  1241     04F5  304B               	movlw	(low (enviarVelocidadeAtualUART@buffer| 0))& (0+255)
+  1242     04F6  00B0               	movwf	snprintf@s
+  1243     04F7  3014               	movlw	20
+  1244     04F8  00B1               	movwf	snprintf@n
+  1245     04F9  3000               	movlw	0
+  1246     04FA  00B2               	movwf	snprintf@n+1
+  1247     04FB  3001               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
+  1248     04FC  00B3               	movwf	snprintf@fmt
+  1249     04FD  086E               	movf	_posicao,w
+  1250     04FE  3EC3               	addlw	(low ((_sequencia| 0+-1)))& (0+255)
+  1251     04FF  0084               	movwf	4
+  1252     0500  1383               	bcf	3,7	;select IRP bank1
+  1253     0501  0800               	movf	0,w
+  1254     0502  00C9               	movwf	??_enviarVelocidadeAtualUART
+  1255     0503  01CA               	clrf	??_enviarVelocidadeAtualUART+1
+  1256     0504  0849               	movf	??_enviarVelocidadeAtualUART,w
+  1257     0505  00B4               	movwf	?_snprintf+4
+  1258     0506  084A               	movf	??_enviarVelocidadeAtualUART+1,w
+  1259     0507  00B5               	movwf	?_snprintf+5
+  1260     0508  120A  118A  25C5  120A  118A  	fcall	_snprintf
+  1261                           
+  1262                           ;atividade7.c: 121:     } else {
+  1263     050D  2D1B               	goto	l1207
+  1264     050E                     l1205:
+  1265                           
+  1266                           ;atividade7.c: 122:         snprintf(buffer, sizeof(buffer), "Velocidade atual: 0\r\n");
+  1267     050E  304B               	movlw	(low (enviarVelocidadeAtualUART@buffer| 0))& (0+255)
+  1268     050F  00B0               	movwf	snprintf@s
+  1269     0510  3014               	movlw	20
+  1270     0511  00B1               	movwf	snprintf@n
+  1271     0512  3000               	movlw	0
+  1272     0513  00B2               	movwf	snprintf@n+1
+  1273     0514  3018               	movlw	(low ((STR_3-__stringbase)| (0+32768)))& (0+255)
+  1274     0515  00B3               	movwf	snprintf@fmt
+  1275     0516  120A  118A  25C5  120A  118A  	fcall	_snprintf
+  1276     051B                     l1207:
+  1277                           
+  1278                           ;atividade7.c: 124:     enviarString(buffer);
+  1279     051B  304B               	movlw	(low (enviarVelocidadeAtualUART@buffer| 0))& (0+255)
+  1280     051C  00F1               	movwf	enviarString@s
+  1281     051D  120A  118A  244D  120A  118A  	fcall	_enviarString
+  1282     0522                     l89:
+  1283     0522  0008               	return
+  1284     0523                     __end_of_enviarVelocidadeAtualUART:
+  1285                           
+  1286                           	psect	text6
+  1287     0432                     __ptext6:	
+  1288 ;; *************** function _enviarSequenciaUART *****************
+  1289 ;; Defined at:
+  1290 ;;		line 111 in file "atividade7.c"
+  1291 ;; Parameters:    Size  Location     Type
+  1292 ;;		None
+  1293 ;; Auto vars:     Size  Location     Type
+  1294 ;;  buffer         30   41[BANK0 ] unsigned char [30]
+  1295 ;; Return value:  Size  Location     Type
+  1296 ;;                  1    wreg      void 
+  1297 ;; Registers used:
+  1298 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1299 ;; Tracked objects:
+  1300 ;;		On entry : 0/0
+  1301 ;;		On exit  : 0/0
+  1302 ;;		Unchanged: 0/0
+  1303 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1304 ;;      Params:         0       0       0       0       0
+  1305 ;;      Locals:         0      30       0       0       0
+  1306 ;;      Temps:          0       0       0       0       0
+  1307 ;;      Totals:         0      30       0       0       0
+  1308 ;;Total ram usage:       30 bytes
+  1309 ;; Hardware stack levels used: 1
+  1310 ;; Hardware stack levels required when called: 5
+  1311 ;; This function calls:
+  1312 ;;		_enviarString
+  1313 ;;		_snprintf
+  1314 ;; This function is called by:
+  1315 ;;		_main
+  1316 ;; This function uses a non-reentrant model
+  1317 ;;
+  1318                           
+  1319     0432                     _enviarSequenciaUART:	
+  1320                           ;psect for function _enviarSequenciaUART
+  1321                           
+  1322     0432                     l1191:	
+  1323                           ;incstack = 0
+  1324                           ; Regs used in _enviarSequenciaUART: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack
+      +                          ]
+  1325                           
+  1326                           
+  1327                           ;atividade7.c: 112:     char buffer[30];;atividade7.c: 113:     snprintf(buffer, sizeof(
+      +                          buffer), "Seq: %s\r\n", sequencia);
+  1328     0432  3049               	movlw	(low (enviarSequenciaUART@buffer| 0))& (0+255)
+  1329     0433  1283               	bcf	3,5	;RP0=0, select bank0
+  1330     0434  1303               	bcf	3,6	;RP1=0, select bank0
+  1331     0435  00B0               	movwf	snprintf@s
+  1332     0436  301E               	movlw	30
+  1333     0437  00B1               	movwf	snprintf@n
+  1334     0438  3000               	movlw	0
+  1335     0439  00B2               	movwf	snprintf@n+1
+  1336     043A  302E               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
+  1337     043B  00B3               	movwf	snprintf@fmt
+  1338     043C  30C4               	movlw	(low (_sequencia| 0))& (0+255)
+  1339     043D  00B4               	movwf	low ((?_snprintf| 0+4))
+  1340     043E  3000               	movlw	0
+  1341     043F  00B5               	movwf	(low ((?_snprintf| 0+4))+1)
+  1342     0440  120A  118A  25C5  120A  118A  	fcall	_snprintf
+  1343     0445                     l1193:
+  1344                           
+  1345                           ;atividade7.c: 114:     enviarString(buffer);
+  1346     0445  3049               	movlw	(low (enviarSequenciaUART@buffer| 0))& (0+255)
+  1347     0446  00F1               	movwf	enviarString@s
+  1348     0447  120A  118A  244D  120A  118A  	fcall	_enviarString
+  1349     044C                     l84:
+  1350     044C  0008               	return
+  1351     044D                     __end_of_enviarSequenciaUART:
+  1352                           
+  1353                           	psect	text7
+  1354     05C5                     __ptext7:	
+  1355 ;; *************** function _snprintf *****************
+  1356 ;; Defined at:
+  1357 ;;		line 13 in file "C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_snprintf.c"
+  1358 ;; Parameters:    Size  Location     Type
+  1359 ;;  s               1   16[BANK0 ] PTR unsigned char 
+  1360 ;;		 -> enviarVelocidadeAtualUART@buffer(20), enviarSequenciaUART@buffer(30), 
+  1361 ;;  n               2   17[BANK0 ] unsigned int 
+  1362 ;;  fmt             1   19[BANK0 ] PTR const unsigned char 
+  1363 ;;		 -> STR_3(22), STR_2(23), STR_1(10), 
+  1364 ;; Auto vars:     Size  Location     Type
+  1365 ;;  f              11   30[BANK0 ] struct _IO_FILE
+  1366 ;;  cnt             2   28[BANK0 ] int 
+  1367 ;;  ap              1   27[BANK0 ] PTR void [1]
+  1368 ;;		 -> ?_snprintf(2), 
+  1369 ;; Return value:  Size  Location     Type
+  1370 ;;                  2   16[BANK0 ] int 
+  1371 ;; Registers used:
+  1372 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1373 ;; Tracked objects:
+  1374 ;;		On entry : 0/0
+  1375 ;;		On exit  : 0/0
+  1376 ;;		Unchanged: 0/0
+  1377 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1378 ;;      Params:         0       6       0       0       0
+  1379 ;;      Locals:         0      16       0       0       0
+  1380 ;;      Temps:          0       3       0       0       0
+  1381 ;;      Totals:         0      25       0       0       0
+  1382 ;;Total ram usage:       25 bytes
+  1383 ;; Hardware stack levels used: 1
+  1384 ;; Hardware stack levels required when called: 4
+  1385 ;; This function calls:
+  1386 ;;		_vfprintf
+  1387 ;; This function is called by:
+  1388 ;;		_enviarSequenciaUART
+  1389 ;;		_enviarVelocidadeAtualUART
+  1390 ;; This function uses a non-reentrant model
+  1391 ;;
+  1392                           
+  1393     05C5                     _snprintf:	
+  1394                           ;psect for function _snprintf
+  1395                           
+  1396     05C5                     l1097:	
+  1397                           ;incstack = 0
+  1398                           ; Regs used in _snprintf: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1399                           
+  1400     05C5  3080               	movlw	128
+  1401     05C6  1283               	bcf	3,5	;RP0=0, select bank0
+  1402     05C7  1303               	bcf	3,6	;RP1=0, select bank0
+  1403     05C8  0232               	subwf	snprintf@n+1,w
+  1404     05C9  3000               	movlw	0
+  1405     05CA  1903               	skipnz
+  1406     05CB  0231               	subwf	snprintf@n,w
+  1407     05CC  1C03               	skipc
+  1408     05CD  2DCF               	goto	u571
+  1409     05CE  2DD0               	goto	u570
+  1410     05CF                     u571:
+  1411     05CF  2DD5               	goto	l1103
+  1412     05D0                     u570:
+  1413     05D0                     l1099:
+  1414     05D0  304B               	movlw	75
+  1415     05D1  00EA               	movwf	_errno
+  1416     05D2  3000               	movlw	0
+  1417     05D3  00EB               	movwf	_errno+1
+  1418     05D4  2E42               	goto	l660
+  1419     05D5                     l1103:
+  1420     05D5  3034               	movlw	(low ((?_snprintf| 0+4)))& (0+255)
+  1421     05D6  00BB               	movwf	snprintf@ap
+  1422     05D7                     l1105:
+  1423     05D7  0830               	movf	snprintf@s,w
+  1424     05D8  00BE               	movwf	snprintf@f
+  1425     05D9  3000               	movlw	0
+  1426     05DA  00BF               	movwf	snprintf@f+1
+  1427     05DB                     l1107:
+  1428     05DB  3000               	movlw	0
+  1429     05DC  0232               	subwf	snprintf@n+1,w
+  1430     05DD  3002               	movlw	2
+  1431     05DE  1903               	skipnz
+  1432     05DF  0231               	subwf	snprintf@n,w
+  1433     05E0  1C03               	skipc
+  1434     05E1  2DE3               	goto	u581
+  1435     05E2  2DE4               	goto	u580
+  1436     05E3                     u581:
+  1437     05E3  2DEF               	goto	l1113
+  1438     05E4                     u580:
+  1439     05E4                     l1109:
+  1440     05E4  0831               	movf	snprintf@n,w
+  1441     05E5  3EFF               	addlw	255
+  1442     05E6  00C7               	movwf	snprintf@f+9
+  1443     05E7  0832               	movf	snprintf@n+1,w
+  1444     05E8  1803               	skipnc
+  1445     05E9  3E01               	addlw	1
+  1446     05EA  3EFF               	addlw	255
+  1447     05EB  00C8               	movwf	snprintf@f+10
+  1448     05EC                     l1111:
+  1449     05EC  01C0               	clrf	snprintf@f+2
+  1450     05ED  01C1               	clrf	snprintf@f+3
+  1451     05EE  2DF7               	goto	l1115
+  1452     05EF                     l1113:
+  1453     05EF  3001               	movlw	1
+  1454     05F0  00C7               	movwf	snprintf@f+9
+  1455     05F1  3000               	movlw	0
+  1456     05F2  00C8               	movwf	snprintf@f+10
+  1457     05F3  3001               	movlw	1
+  1458     05F4  00C0               	movwf	snprintf@f+2
+  1459     05F5  3000               	movlw	0
+  1460     05F6  00C1               	movwf	snprintf@f+3
+  1461     05F7                     l1115:
+  1462     05F7  303E               	movlw	low snprintf@f
+  1463     05F8  00AC               	movwf	vfprintf@fp
+  1464     05F9  3000               	movlw	high snprintf@f
+  1465     05FA  00AD               	movwf	vfprintf@fp+1
+  1466     05FB  0833               	movf	snprintf@fmt,w
+  1467     05FC  00AE               	movwf	vfprintf@fmt
+  1468     05FD  303B               	movlw	(low (snprintf@ap| 0))& (0+255)
+  1469     05FE  00AF               	movwf	vfprintf@ap
+  1470     05FF  120A  118A  248E  120A  118A  	fcall	_vfprintf
+  1471     0604  1283               	bcf	3,5	;RP0=0, select bank0
+  1472     0605  1303               	bcf	3,6	;RP1=0, select bank0
+  1473     0606  082D               	movf	?_vfprintf+1,w
+  1474     0607  00BD               	movwf	snprintf@cnt+1
+  1475     0608  082C               	movf	?_vfprintf,w
+  1476     0609  00BC               	movwf	snprintf@cnt
+  1477     060A                     l1117:
+  1478     060A  0831               	movf	snprintf@n,w
+  1479     060B  0432               	iorwf	snprintf@n+1,w
+  1480     060C  1903               	btfsc	3,2
+  1481     060D  2E0F               	goto	u591
+  1482     060E  2E10               	goto	u590
+  1483     060F                     u591:
+  1484     060F  2E42               	goto	l660
+  1485     0610                     u590:
+  1486     0610                     l1119:
+  1487     0610  1BBD               	btfsc	snprintf@cnt+1,7
+  1488     0611  2E13               	goto	u601
+  1489     0612  2E14               	goto	u600
+  1490     0613                     u601:
+  1491     0613  2E42               	goto	l660
+  1492     0614                     u600:
+  1493     0614                     l1121:
+  1494     0614  0831               	movf	snprintf@n,w
+  1495     0615  3EFF               	addlw	255
+  1496     0616  00B6               	movwf	??_snprintf
+  1497     0617  0832               	movf	snprintf@n+1,w
+  1498     0618  1803               	skipnc
+  1499     0619  3E01               	addlw	1
+  1500     061A  3EFF               	addlw	255
+  1501     061B  00B7               	movwf	??_snprintf+1
+  1502     061C  083D               	movf	snprintf@cnt+1,w
+  1503     061D  3A80               	xorlw	128
+  1504     061E  00B8               	movwf	??_snprintf+2
+  1505     061F  0837               	movf	??_snprintf+1,w
+  1506     0620  3A80               	xorlw	128
+  1507     0621  0238               	subwf	??_snprintf+2,w
+  1508     0622  1D03               	skipz
+  1509     0623  2E26               	goto	u615
+  1510     0624  0836               	movf	??_snprintf,w
+  1511     0625  023C               	subwf	snprintf@cnt,w
+  1512     0626                     u615:
+  1513     0626  1C03               	skipc
+  1514     0627  2E29               	goto	u611
+  1515     0628  2E2A               	goto	u610
+  1516     0629                     u611:
+  1517     0629  2E35               	goto	l1125
+  1518     062A                     u610:
+  1519     062A                     l1123:
+  1520     062A  1283               	bcf	3,5	;RP0=0, select bank0
+  1521     062B  1303               	bcf	3,6	;RP1=0, select bank0
+  1522     062C  0831               	movf	snprintf@n,w
+  1523     062D  3EFF               	addlw	255
+  1524     062E  00B9               	movwf	_snprintf$771
+  1525     062F  0832               	movf	snprintf@n+1,w
+  1526     0630  1803               	skipnc
+  1527     0631  3E01               	addlw	1
+  1528     0632  3EFF               	addlw	255
+  1529     0633  00BA               	movwf	_snprintf$771+1
+  1530     0634  2E3B               	goto	l1127
+  1531     0635                     l1125:
+  1532     0635  1283               	bcf	3,5	;RP0=0, select bank0
+  1533     0636  1303               	bcf	3,6	;RP1=0, select bank0
+  1534     0637  083D               	movf	snprintf@cnt+1,w
+  1535     0638  00BA               	movwf	_snprintf$771+1
+  1536     0639  083C               	movf	snprintf@cnt,w
+  1537     063A  00B9               	movwf	_snprintf$771
+  1538     063B                     l1127:
+  1539     063B  0839               	movf	_snprintf$771,w
+  1540     063C  0730               	addwf	snprintf@s,w
+  1541     063D  00B6               	movwf	??_snprintf
+  1542     063E  0836               	movf	??_snprintf,w
+  1543     063F  0084               	movwf	4
+  1544     0640  1383               	bcf	3,7	;select IRP bank0
+  1545     0641  0180               	clrf	0
+  1546     0642                     l660:
+  1547     0642  0008               	return
+  1548     0643                     __end_of_snprintf:
+  1549                           
+  1550                           	psect	text8
+  1551     048E                     __ptext8:	
+  1552 ;; *************** function _vfprintf *****************
+  1553 ;; Defined at:
+  1554 ;;		line 1817 in file "C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c"
+  1555 ;; Parameters:    Size  Location     Type
+  1556 ;;  fp              2   12[BANK0 ] PTR struct _IO_FILE
+  1557 ;;		 -> snprintf@f(11), 
+  1558 ;;  fmt             1   14[BANK0 ] PTR const unsigned char 
+  1559 ;;		 -> STR_3(22), STR_2(23), STR_1(10), 
+  1560 ;;  ap              1   15[BANK0 ] PTR PTR void 
+  1561 ;;		 -> snprintf@ap(1), 
+  1562 ;; Auto vars:     Size  Location     Type
+  1563 ;;  cfmt            1   13[COMMON] PTR unsigned char 
+  1564 ;;		 -> STR_3(22), STR_2(23), STR_1(10), 
+  1565 ;; Return value:  Size  Location     Type
+  1566 ;;                  2   12[BANK0 ] int 
+  1567 ;; Registers used:
+  1568 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1569 ;; Tracked objects:
+  1570 ;;		On entry : 0/0
+  1571 ;;		On exit  : 0/0
+  1572 ;;		Unchanged: 0/0
+  1573 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1574 ;;      Params:         0       4       0       0       0
+  1575 ;;      Locals:         1       0       0       0       0
+  1576 ;;      Temps:          0       0       0       0       0
+  1577 ;;      Totals:         1       4       0       0       0
+  1578 ;;Total ram usage:        5 bytes
+  1579 ;; Hardware stack levels used: 1
+  1580 ;; Hardware stack levels required when called: 3
+  1581 ;; This function calls:
+  1582 ;;		_vfpfcnvrt
+  1583 ;; This function is called by:
+  1584 ;;		_snprintf
+  1585 ;; This function uses a non-reentrant model
+  1586 ;;
+  1587                           
+  1588     048E                     _vfprintf:	
+  1589                           ;psect for function _vfprintf
+  1590                           
+  1591     048E                     l1075:	
+  1592                           ;incstack = 0
+  1593                           ; Regs used in _vfprintf: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1594                           
+  1595                           
+  1596                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1817: int vfprint
+      +                          f(FILE *fp, const char *fmt, va_list ap);C:\Program Files\Microchip\xc8\v2.50\pic\source
+      +                          s\c99\common\doprnt.c: 1818: {;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\comm
+      +                          on\doprnt.c: 1820:     char *cfmt;;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\
+      +                          common\doprnt.c: 1822:     cfmt = (char *)fmt;
+  1597     048E  1283               	bcf	3,5	;RP0=0, select bank0
+  1598     048F  1303               	bcf	3,6	;RP1=0, select bank0
+  1599     0490  082E               	movf	vfprintf@fmt,w
+  1600     0491  00FD               	movwf	vfprintf@cfmt
+  1601     0492                     l1077:
+  1602                           
+  1603                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1824:     nout = 
+      +                          0;
+  1604     0492  01E8               	clrf	_nout
+  1605     0493  01E9               	clrf	_nout+1
+  1606                           
+  1607                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1826:     while (
+      +                          *cfmt) {
+  1608     0494  2CAC               	goto	l1081
+  1609     0495                     l1079:
+  1610                           
+  1611                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1828:         nou
+      +                          t +=
+  1612     0495  082C               	movf	vfprintf@fp,w
+  1613     0496  00A0               	movwf	vfpfcnvrt@fp
+  1614     0497  082D               	movf	vfprintf@fp+1,w
+  1615     0498  00A1               	movwf	vfpfcnvrt@fp+1
+  1616     0499  307D               	movlw	(low (vfprintf@cfmt| 0))& (0+255)
+  1617     049A  00A2               	movwf	vfpfcnvrt@fmt
+  1618     049B  082F               	movf	vfprintf@ap,w
+  1619     049C  00A3               	movwf	vfpfcnvrt@ap
+  1620     049D  3000               	movlw	0
+  1621     049E  00A4               	movwf	vfpfcnvrt@ap+1
+  1622     049F  120A  118A  26DD  120A  118A  	fcall	_vfpfcnvrt
+  1623     04A4  1283               	bcf	3,5	;RP0=0, select bank0
+  1624     04A5  1303               	bcf	3,6	;RP1=0, select bank0
+  1625     04A6  0820               	movf	?_vfpfcnvrt,w
+  1626     04A7  07E8               	addwf	_nout,f
+  1627     04A8  1803               	skipnc
+  1628     04A9  0AE9               	incf	_nout+1,f
+  1629     04AA  0821               	movf	?_vfpfcnvrt+1,w
+  1630     04AB  07E9               	addwf	_nout+1,f
+  1631     04AC                     l1081:
+  1632                           
+  1633                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1826:     while (
+      +                          *cfmt) {
+  1634     04AC  087D               	movf	vfprintf@cfmt,w
+  1635     04AD  0084               	movwf	4
+  1636     04AE  120A  118A  2003  120A  118A  	fcall	stringdir
+  1637     04B3  3A00               	xorlw	0
+  1638     04B4  1D03               	skipz
+  1639     04B5  2CB7               	goto	u551
+  1640     04B6  2CB8               	goto	u550
+  1641     04B7                     u551:
+  1642     04B7  2C95               	goto	l1079
+  1643     04B8                     u550:
+  1644     04B8                     l1083:
+  1645                           
+  1646                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1833:     return 
+      +                          nout;
+  1647     04B8  0869               	movf	_nout+1,w
+  1648     04B9  00AD               	movwf	?_vfprintf+1
+  1649     04BA  0868               	movf	_nout,w
+  1650     04BB  00AC               	movwf	?_vfprintf
+  1651     04BC                     l710:
+  1652     04BC  0008               	return
+  1653     04BD                     __end_of_vfprintf:
+  1654                           
+  1655                           	psect	text9
+  1656     06DD                     __ptext9:	
+  1657 ;; *************** function _vfpfcnvrt *****************
+  1658 ;; Defined at:
+  1659 ;;		line 1177 in file "C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c"
+  1660 ;; Parameters:    Size  Location     Type
+  1661 ;;  fp              2    0[BANK0 ] PTR struct _IO_FILE
+  1662 ;;		 -> snprintf@f(11), 
+  1663 ;;  fmt             1    2[BANK0 ] PTR PTR unsigned char 
+  1664 ;;		 -> vfprintf@cfmt(1), 
+  1665 ;;  ap              2    3[BANK0 ] PTR PTR void 
+  1666 ;;		 -> snprintf@ap(1), 
+  1667 ;; Auto vars:     Size  Location     Type
+  1668 ;;  cp              1   11[BANK0 ] PTR unsigned char 
+  1669 ;;		 -> ?_snprintf(2), sequencia(10), 
+  1670 ;;  cnt             2    7[BANK0 ] int 
+  1671 ;;  cp              2    0        PTR unsigned char 
+  1672 ;;  done            1   10[BANK0 ] _Bool 
+  1673 ;;  c               1    9[BANK0 ] unsigned char 
+  1674 ;; Return value:  Size  Location     Type
+  1675 ;;                  2    0[BANK0 ] int 
+  1676 ;; Registers used:
+  1677 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+  1678 ;; Tracked objects:
+  1679 ;;		On entry : 0/0
+  1680 ;;		On exit  : 0/0
+  1681 ;;		Unchanged: 0/0
+  1682 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1683 ;;      Params:         0       5       0       0       0
+  1684 ;;      Locals:         0       5       0       0       0
+  1685 ;;      Temps:          0       2       0       0       0
+  1686 ;;      Totals:         0      12       0       0       0
+  1687 ;;Total ram usage:       12 bytes
+  1688 ;; Hardware stack levels used: 1
+  1689 ;; Hardware stack levels required when called: 2
+  1690 ;; This function calls:
+  1691 ;;		_fputc
+  1692 ;; This function is called by:
+  1693 ;;		_vfprintf
+  1694 ;; This function uses a non-reentrant model
+  1695 ;;
+  1696                           
+  1697     06DD                     _vfpfcnvrt:	
+  1698                           ;psect for function _vfpfcnvrt
+  1699                           
+  1700     06DD                     l1001:	
+  1701                           ;incstack = 0
+  1702                           ; Regs used in _vfpfcnvrt: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+  1703                           
+  1704                           
+  1705                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1177: vfpfcnvrt(F
+      +                          ILE *fp, char *fmt[], va_list ap);C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\c
+      +                          ommon\doprnt.c: 1178: {;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\dopr
+      +                          nt.c: 1179:     char c, *cp;;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common
+      +                          \doprnt.c: 1180:     _Bool done;;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\co
+      +                          mmon\doprnt.c: 1191:  int cnt = 0;
+  1706     06DD  1283               	bcf	3,5	;RP0=0, select bank0
+  1707     06DE  1303               	bcf	3,6	;RP1=0, select bank0
+  1708     06DF  01A7               	clrf	vfpfcnvrt@cnt
+  1709     06E0  01A8               	clrf	vfpfcnvrt@cnt+1
+  1710     06E1                     l1003:
+  1711                           
+  1712                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1201:     if ((*f
+      +                          mt)[0] == '%') {
+  1713     06E1  0822               	movf	vfpfcnvrt@fmt,w
+  1714     06E2  0084               	movwf	4
+  1715     06E3  0800               	movf	0,w
+  1716     06E4  0084               	movwf	4
+  1717     06E5  120A  118A  2003  120A  118A  	fcall	stringdir
+  1718     06EA  3A25               	xorlw	37
+  1719     06EB  1D03               	skipz
+  1720     06EC  2EEE               	goto	u461
+  1721     06ED  2EEF               	goto	u460
+  1722     06EE                     u461:
+  1723     06EE  2FCA               	goto	l1063
+  1724     06EF                     u460:
+  1725     06EF                     l1005:
+  1726                           
+  1727                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1202:         ++*
+      +                          fmt;
+  1728     06EF  0822               	movf	vfpfcnvrt@fmt,w
+  1729     06F0  0084               	movwf	4
+  1730     06F1  3001               	movlw	1
+  1731     06F2  0780               	addwf	0,f
+  1732     06F3                     l1007:
+  1733                           
+  1734                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1204:         fla
+      +                          gs = width = 0;
+  1735     06F3  1683               	bsf	3,5	;RP0=1, select bank1
+  1736     06F4  1303               	bcf	3,6	;RP1=0, select bank1
+  1737     06F5  01C0               	clrf	_width^(0+128)
+  1738     06F6  01C1               	clrf	(_width+1)^(0+128)
+  1739     06F7  3000               	movlw	0
+  1740     06F8  1283               	bcf	3,5	;RP0=0, select bank0
+  1741     06F9  1303               	bcf	3,6	;RP1=0, select bank0
+  1742     06FA  00EC               	movwf	_flags
+  1743     06FB                     l1009:
+  1744                           
+  1745                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1205:         pre
+      +                          c = -1;
+  1746     06FB  30FF               	movlw	255
+  1747     06FC  1683               	bsf	3,5	;RP0=1, select bank1
+  1748     06FD  1303               	bcf	3,6	;RP1=0, select bank1
+  1749     06FE  00C2               	movwf	_prec^(0+128)
+  1750     06FF  30FF               	movlw	255
+  1751     0700  00C3               	movwf	(_prec^(0+128)+1)
+  1752     0701                     l1011:
+  1753                           
+  1754                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1273:         if 
+      +                          ((*fmt)[0] == 'c') {
+  1755     0701  1283               	bcf	3,5	;RP0=0, select bank0
+  1756     0702  1303               	bcf	3,6	;RP1=0, select bank0
+  1757     0703  0822               	movf	vfpfcnvrt@fmt,w
+  1758     0704  0084               	movwf	4
+  1759     0705  0800               	movf	0,w
+  1760     0706  0084               	movwf	4
+  1761     0707  120A  118A  2003  120A  118A  	fcall	stringdir
+  1762     070C  3A63               	xorlw	99
+  1763     070D  1D03               	skipz
+  1764     070E  2F10               	goto	u471
+  1765     070F  2F11               	goto	u470
+  1766     0710                     u471:
+  1767     0710  2F3A               	goto	l1023
+  1768     0711                     u470:
+  1769     0711                     l1013:
+  1770                           
+  1771                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1274:            
+      +                           ++*fmt;
+  1772     0711  0822               	movf	vfpfcnvrt@fmt,w
+  1773     0712  0084               	movwf	4
+  1774     0713  3001               	movlw	1
+  1775     0714  0780               	addwf	0,f
+  1776     0715                     l1015:
+  1777                           
+  1778                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1275:            
+      +                           c = (unsigned char)(*(int *)__va_arg(*(int **)ap, (int)0));
+  1779     0715  0823               	movf	vfpfcnvrt@ap,w
+  1780     0716  0084               	movwf	4
+  1781     0717  1783               	bsf	3,7
+  1782     0718  1C24               	btfss	vfpfcnvrt@ap+1,0
+  1783     0719  1383               	bcf	3,7
+  1784     071A  0800               	movf	0,w
+  1785     071B  00FF               	movwf	btemp+1
+  1786     071C  3002               	movlw	2
+  1787     071D  0780               	addwf	0,f
+  1788     071E  087F               	movf	btemp+1,w
+  1789     071F  0084               	movwf	4
+  1790     0720  1383               	bcf	3,7	;select IRP bank0
+  1791     0721  0800               	movf	0,w
+  1792     0722  00A9               	movwf	vfpfcnvrt@c
+  1793     0723                     l1017:
+  1794                           
+  1795                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1277:    fputc(c,
+      +                           fp);
+  1796     0723  0829               	movf	vfpfcnvrt@c,w
+  1797     0724  00A5               	movwf	??_vfpfcnvrt
+  1798     0725  01A6               	clrf	??_vfpfcnvrt+1
+  1799     0726  0825               	movf	??_vfpfcnvrt,w
+  1800     0727  00F0               	movwf	fputc@c
+  1801     0728  0826               	movf	??_vfpfcnvrt+1,w
+  1802     0729  00F1               	movwf	fputc@c+1
+  1803     072A  0820               	movf	vfpfcnvrt@fp,w
+  1804     072B  00F2               	movwf	fputc@fp
+  1805     072C  0821               	movf	vfpfcnvrt@fp+1,w
+  1806     072D  00F3               	movwf	fputc@fp+1
+  1807     072E  120A  118A  2643  120A  118A  	fcall	_fputc
+  1808     0733                     l1019:
+  1809                           
+  1810                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1279:    return 1
+      +                          ;
+  1811     0733  3001               	movlw	1
+  1812     0734  1283               	bcf	3,5	;RP0=0, select bank0
+  1813     0735  1303               	bcf	3,6	;RP1=0, select bank0
+  1814     0736  00A0               	movwf	?_vfpfcnvrt
+  1815     0737  3000               	movlw	0
+  1816     0738  00A1               	movwf	?_vfpfcnvrt+1
+  1817     0739  2FE9               	goto	l697
+  1818     073A                     l1023:
+  1819                           
+  1820                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1656:   done = 0;
+  1821     073A  01AA               	clrf	vfpfcnvrt@done
+  1822     073B                     l1025:
+  1823                           
+  1824                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1657:   if ((*fmt
+      +                          )[0] == 's') {
+  1825     073B  0822               	movf	vfpfcnvrt@fmt,w
+  1826     073C  0084               	movwf	4
+  1827     073D  0800               	movf	0,w
+  1828     073E  0084               	movwf	4
+  1829     073F  120A  118A  2003  120A  118A  	fcall	stringdir
+  1830     0744  3A73               	xorlw	115
+  1831     0745  1D03               	skipz
+  1832     0746  2F48               	goto	u481
+  1833     0747  2F49               	goto	u480
+  1834     0748                     u481:
+  1835     0748  2F50               	goto	l1031
+  1836     0749                     u480:
+  1837     0749                     l1027:
+  1838                           
+  1839                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1658:    ++*fmt;
+  1840     0749  0822               	movf	vfpfcnvrt@fmt,w
+  1841     074A  0084               	movwf	4
+  1842     074B  3001               	movlw	1
+  1843     074C  0780               	addwf	0,f
+  1844     074D                     l1029:
+  1845                           
+  1846                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1659:    done = 1
+      +                          ;
+  1847     074D  3001               	movlw	1
+  1848     074E  00AA               	movwf	vfpfcnvrt@done
+  1849                           
+  1850                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1660:   }
+  1851     074F  2F81               	goto	l1041
+  1852     0750                     l1031:
+  1853     0750  0822               	movf	vfpfcnvrt@fmt,w
+  1854     0751  0084               	movwf	4
+  1855     0752  0800               	movf	0,w
+  1856     0753  0084               	movwf	4
+  1857     0754  120A  118A  2003  120A  118A  	fcall	stringdir
+  1858     0759  3A6C               	xorlw	108
+  1859     075A  1D03               	skipz
+  1860     075B  2F5D               	goto	u491
+  1861     075C  2F5E               	goto	u490
+  1862     075D                     u491:
+  1863     075D  2F81               	goto	l1041
+  1864     075E                     u490:
+  1865     075E                     l1033:
+  1866     075E  0822               	movf	vfpfcnvrt@fmt,w
+  1867     075F  0084               	movwf	4
+  1868     0760  0800               	movf	0,w
+  1869     0761  3E01               	addlw	1
+  1870     0762  0084               	movwf	4
+  1871     0763  120A  118A  2003  120A  118A  	fcall	stringdir
+  1872     0768  3A6C               	xorlw	108
+  1873     0769  1D03               	skipz
+  1874     076A  2F6C               	goto	u501
+  1875     076B  2F6D               	goto	u500
+  1876     076C                     u501:
+  1877     076C  2F81               	goto	l1041
+  1878     076D                     u500:
+  1879     076D                     l1035:
+  1880     076D  0822               	movf	vfpfcnvrt@fmt,w
+  1881     076E  0084               	movwf	4
+  1882     076F  0800               	movf	0,w
+  1883     0770  3E02               	addlw	2
+  1884     0771  0084               	movwf	4
+  1885     0772  120A  118A  2003  120A  118A  	fcall	stringdir
+  1886     0777  3A73               	xorlw	115
+  1887     0778  1D03               	skipz
+  1888     0779  2F7B               	goto	u511
+  1889     077A  2F7C               	goto	u510
+  1890     077B                     u511:
+  1891     077B  2F81               	goto	l1041
+  1892     077C                     u510:
+  1893     077C                     l1037:
+  1894                           
+  1895                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1662:    *fmt += 
+      +                          3;
+  1896     077C  0822               	movf	vfpfcnvrt@fmt,w
+  1897     077D  0084               	movwf	4
+  1898     077E  3003               	movlw	3
+  1899     077F  0780               	addwf	0,f
+  1900     0780  2F4D               	goto	l1029
+  1901     0781                     l1041:
+  1902                           
+  1903                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1665:   if (done)
+      +                           {
+  1904     0781  082A               	movf	vfpfcnvrt@done,w
+  1905     0782  1903               	btfsc	3,2
+  1906     0783  2F85               	goto	u521
+  1907     0784  2F86               	goto	u520
+  1908     0785                     u521:
+  1909     0785  2FC3               	goto	l1057
+  1910     0786                     u520:
+  1911     0786                     l1043:
+  1912                           
+  1913                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1669:    for (cha
+      +                          r * cp = (*(char * *)__va_arg(*(char * **)ap, (char *)0)); *cp != '\0'; cp++) {
+  1914     0786  0823               	movf	vfpfcnvrt@ap,w
+  1915     0787  0084               	movwf	4
+  1916     0788  1783               	bsf	3,7
+  1917     0789  1C24               	btfss	vfpfcnvrt@ap+1,0
+  1918     078A  1383               	bcf	3,7
+  1919     078B  0800               	movf	0,w
+  1920     078C  00FF               	movwf	btemp+1
+  1921     078D  3002               	movlw	2
+  1922     078E  0780               	addwf	0,f
+  1923     078F  087F               	movf	btemp+1,w
+  1924     0790  0084               	movwf	4
+  1925     0791  1383               	bcf	3,7	;select IRP bank0
+  1926     0792  0800               	movf	0,w
+  1927     0793  00A5               	movwf	??_vfpfcnvrt
+  1928     0794  0A84               	incf	4,f
+  1929     0795  0800               	movf	0,w
+  1930     0796  00A6               	movwf	??_vfpfcnvrt+1
+  1931     0797  0825               	movf	??_vfpfcnvrt,w
+  1932     0798  00AB               	movwf	vfpfcnvrt@cp_813
+  1933     0799  2FB6               	goto	l1051
+  1934     079A                     l1045:
+  1935                           
+  1936                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1670:     fputc(*
+      +                          cp, fp);
+  1937     079A  082B               	movf	vfpfcnvrt@cp_813,w
+  1938     079B  0084               	movwf	4
+  1939     079C  0800               	movf	0,w
+  1940     079D  00A5               	movwf	??_vfpfcnvrt
+  1941     079E  01A6               	clrf	??_vfpfcnvrt+1
+  1942     079F  0825               	movf	??_vfpfcnvrt,w
+  1943     07A0  00F0               	movwf	fputc@c
+  1944     07A1  0826               	movf	??_vfpfcnvrt+1,w
+  1945     07A2  00F1               	movwf	fputc@c+1
+  1946     07A3  0820               	movf	vfpfcnvrt@fp,w
+  1947     07A4  00F2               	movwf	fputc@fp
+  1948     07A5  0821               	movf	vfpfcnvrt@fp+1,w
+  1949     07A6  00F3               	movwf	fputc@fp+1
+  1950     07A7  120A  118A  2643  120A  118A  	fcall	_fputc
+  1951     07AC                     l1047:
+  1952                           
+  1953                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1672:     cnt++;
+  1954     07AC  3001               	movlw	1
+  1955     07AD  1283               	bcf	3,5	;RP0=0, select bank0
+  1956     07AE  1303               	bcf	3,6	;RP1=0, select bank0
+  1957     07AF  07A7               	addwf	vfpfcnvrt@cnt,f
+  1958     07B0  1803               	skipnc
+  1959     07B1  0AA8               	incf	vfpfcnvrt@cnt+1,f
+  1960     07B2  3000               	movlw	0
+  1961     07B3  07A8               	addwf	vfpfcnvrt@cnt+1,f
+  1962     07B4                     l1049:
+  1963                           
+  1964                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1674:    }
+  1965     07B4  3001               	movlw	1
+  1966     07B5  07AB               	addwf	vfpfcnvrt@cp_813,f
+  1967     07B6                     l1051:
+  1968     07B6  082B               	movf	vfpfcnvrt@cp_813,w
+  1969     07B7  0084               	movwf	4
+  1970     07B8  1383               	bcf	3,7	;select IRP bank0
+  1971     07B9  0800               	movf	0,w
+  1972     07BA  1D03               	btfss	3,2
+  1973     07BB  2FBD               	goto	u531
+  1974     07BC  2FBE               	goto	u530
+  1975     07BD                     u531:
+  1976     07BD  2F9A               	goto	l1045
+  1977     07BE                     u530:
+  1978     07BE                     l1053:
+  1979                           
+  1980                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1676:    return c
+      +                          nt;
+  1981     07BE  0828               	movf	vfpfcnvrt@cnt+1,w
+  1982     07BF  00A1               	movwf	?_vfpfcnvrt+1
+  1983     07C0  0827               	movf	vfpfcnvrt@cnt,w
+  1984     07C1  00A0               	movwf	?_vfpfcnvrt
+  1985     07C2  2FE9               	goto	l697
+  1986     07C3                     l1057:
+  1987                           
+  1988                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1806:         ++*
+      +                          fmt;
+  1989     07C3  0822               	movf	vfpfcnvrt@fmt,w
+  1990     07C4  0084               	movwf	4
+  1991     07C5  3001               	movlw	1
+  1992     07C6  0780               	addwf	0,f
+  1993     07C7                     l1059:
+  1994                           
+  1995                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1807:         ret
+      +                          urn (int) 0;
+  1996     07C7  01A0               	clrf	?_vfpfcnvrt
+  1997     07C8  01A1               	clrf	?_vfpfcnvrt+1
+  1998     07C9  2FE9               	goto	l697
+  1999     07CA                     l1063:
+  2000                           
+  2001                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1811:     fputc((
+      +                          int)(*fmt)[0], fp);
+  2002     07CA  0822               	movf	vfpfcnvrt@fmt,w
+  2003     07CB  0084               	movwf	4
+  2004     07CC  0800               	movf	0,w
+  2005     07CD  0084               	movwf	4
+  2006     07CE  120A  118A  2003  120A  118A  	fcall	stringdir
+  2007     07D3  00A5               	movwf	??_vfpfcnvrt
+  2008     07D4  01A6               	clrf	??_vfpfcnvrt+1
+  2009     07D5  0825               	movf	??_vfpfcnvrt,w
+  2010     07D6  00F0               	movwf	fputc@c
+  2011     07D7  0826               	movf	??_vfpfcnvrt+1,w
+  2012     07D8  00F1               	movwf	fputc@c+1
+  2013     07D9  0820               	movf	vfpfcnvrt@fp,w
+  2014     07DA  00F2               	movwf	fputc@fp
+  2015     07DB  0821               	movf	vfpfcnvrt@fp+1,w
+  2016     07DC  00F3               	movwf	fputc@fp+1
+  2017     07DD  120A  118A  2643  120A  118A  	fcall	_fputc
+  2018     07E2                     l1065:
+  2019                           
+  2020                           ;C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\doprnt.c: 1812:     ++*fmt;
+  2021     07E2  1283               	bcf	3,5	;RP0=0, select bank0
+  2022     07E3  1303               	bcf	3,6	;RP1=0, select bank0
+  2023     07E4  0822               	movf	vfpfcnvrt@fmt,w
+  2024     07E5  0084               	movwf	4
+  2025     07E6  3001               	movlw	1
+  2026     07E7  0780               	addwf	0,f
+  2027     07E8  2F33               	goto	l1019
+  2028     07E9                     l697:
+  2029     07E9  0008               	return
+  2030     07EA                     __end_of_vfpfcnvrt:
+  2031                           
+  2032                           	psect	text10
+  2033     0643                     __ptext10:	
+  2034 ;; *************** function _fputc *****************
+  2035 ;; Defined at:
+  2036 ;;		line 8 in file "C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_fputc.c"
+  2037 ;; Parameters:    Size  Location     Type
+  2038 ;;  c               2    0[COMMON] int 
+  2039 ;;  fp              2    2[COMMON] PTR struct _IO_FILE
+  2040 ;;		 -> snprintf@f(11), 
+  2041 ;; Auto vars:     Size  Location     Type
+  2042 ;;		None
+  2043 ;; Return value:  Size  Location     Type
+  2044 ;;                  2    0[COMMON] int 
+  2045 ;; Registers used:
+  2046 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  2047 ;; Tracked objects:
+  2048 ;;		On entry : 0/0
+  2049 ;;		On exit  : 0/0
+  2050 ;;		Unchanged: 0/0
+  2051 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2052 ;;      Params:         4       0       0       0       0
+  2053 ;;      Locals:         0       0       0       0       0
+  2054 ;;      Temps:          9       0       0       0       0
+  2055 ;;      Totals:        13       0       0       0       0
+  2056 ;;Total ram usage:       13 bytes
+  2057 ;; Hardware stack levels used: 1
+  2058 ;; Hardware stack levels required when called: 1
+  2059 ;; This function calls:
+  2060 ;;		_putch
+  2061 ;; This function is called by:
+  2062 ;;		_vfpfcnvrt
+  2063 ;; This function uses a non-reentrant model
+  2064 ;;
+  2065                           
+  2066     0643                     _fputc:	
+  2067                           ;psect for function _fputc
+  2068                           
+  2069     0643                     l987:	
+  2070                           ;incstack = 0
+  2071                           ; Regs used in _fputc: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  2072                           
+  2073     0643  0872               	movf	fputc@fp,w
+  2074     0644  0473               	iorwf	fputc@fp+1,w
+  2075     0645  1903               	btfsc	3,2
+  2076     0646  2E48               	goto	u411
+  2077     0647  2E49               	goto	u410
+  2078     0648                     u411:
+  2079     0648  2E4F               	goto	l991
+  2080     0649                     u410:
+  2081     0649                     l989:
+  2082     0649  0872               	movf	fputc@fp,w
+  2083     064A  0473               	iorwf	fputc@fp+1,w
+  2084     064B  1D03               	btfss	3,2
+  2085     064C  2E4E               	goto	u421
+  2086     064D  2E4F               	goto	u420
+  2087     064E                     u421:
+  2088     064E  2E56               	goto	l993
+  2089     064F                     u420:
+  2090     064F                     l991:
+  2091     064F  0870               	movf	fputc@c,w
+  2092     0650  120A  118A  23E7  120A  118A  	fcall	_putch
+  2093     0655  2EDC               	goto	l724
+  2094     0656                     l993:
+  2095     0656  0872               	movf	fputc@fp,w
+  2096     0657  3E09               	addlw	9
+  2097     0658  00F4               	movwf	??_fputc
+  2098     0659  0873               	movf	fputc@fp+1,w
+  2099     065A  1803               	skipnc
+  2100     065B  3E01               	addlw	1
+  2101     065C  3E00               	addlw	0
+  2102     065D  00F5               	movwf	??_fputc+1
+  2103     065E  0874               	movf	??_fputc,w
+  2104     065F  0084               	movwf	4
+  2105     0660  1783               	bsf	3,7
+  2106     0661  1C75               	btfss	??_fputc+1,0
+  2107     0662  1383               	bcf	3,7
+  2108     0663  0800               	movf	0,w
+  2109     0664  00F6               	movwf	??_fputc+2
+  2110     0665  0A84               	incf	4,f
+  2111     0666  0800               	movf	0,w
+  2112     0667  00F7               	movwf	??_fputc+3
+  2113     0668  0876               	movf	??_fputc+2,w
+  2114     0669  0477               	iorwf	??_fputc+3,w
+  2115     066A  1903               	btfsc	3,2
+  2116     066B  2E6D               	goto	u431
+  2117     066C  2E6E               	goto	u430
+  2118     066D                     u431:
+  2119     066D  2EA0               	goto	l997
+  2120     066E                     u430:
+  2121     066E                     l995:
+  2122     066E  0872               	movf	fputc@fp,w
+  2123     066F  3E09               	addlw	9
+  2124     0670  00F4               	movwf	??_fputc
+  2125     0671  0873               	movf	fputc@fp+1,w
+  2126     0672  1803               	skipnc
+  2127     0673  3E01               	addlw	1
+  2128     0674  3E00               	addlw	0
+  2129     0675  00F5               	movwf	??_fputc+1
+  2130     0676  0874               	movf	??_fputc,w
+  2131     0677  0084               	movwf	4
+  2132     0678  1783               	bsf	3,7
+  2133     0679  1C75               	btfss	??_fputc+1,0
+  2134     067A  1383               	bcf	3,7
+  2135     067B  0800               	movf	0,w
+  2136     067C  00F6               	movwf	??_fputc+2
+  2137     067D  0A84               	incf	4,f
+  2138     067E  0800               	movf	0,w
+  2139     067F  00F7               	movwf	??_fputc+3
+  2140     0680  0872               	movf	fputc@fp,w
+  2141     0681  3E02               	addlw	2
+  2142     0682  00F8               	movwf	??_fputc+4
+  2143     0683  0873               	movf	fputc@fp+1,w
+  2144     0684  1803               	skipnc
+  2145     0685  3E01               	addlw	1
+  2146     0686  3E00               	addlw	0
+  2147     0687  00F9               	movwf	??_fputc+5
+  2148     0688  0878               	movf	??_fputc+4,w
+  2149     0689  0084               	movwf	4
+  2150     068A  1783               	bsf	3,7
+  2151     068B  1C79               	btfss	??_fputc+5,0
+  2152     068C  1383               	bcf	3,7
+  2153     068D  0800               	movf	0,w
+  2154     068E  00FA               	movwf	??_fputc+6
+  2155     068F  0A84               	incf	4,f
+  2156     0690  0800               	movf	0,w
+  2157     0691  00FB               	movwf	??_fputc+7
+  2158     0692  087B               	movf	??_fputc+7,w
+  2159     0693  3A80               	xorlw	128
+  2160     0694  00FC               	movwf	??_fputc+8
+  2161     0695  0877               	movf	??_fputc+3,w
+  2162     0696  3A80               	xorlw	128
+  2163     0697  027C               	subwf	??_fputc+8,w
+  2164     0698  1D03               	skipz
+  2165     0699  2E9C               	goto	u445
+  2166     069A  0876               	movf	??_fputc+2,w
+  2167     069B  027A               	subwf	??_fputc+6,w
+  2168     069C                     u445:
+  2169     069C  1803               	skipnc
+  2170     069D  2E9F               	goto	u441
+  2171     069E  2EA0               	goto	u440
+  2172     069F                     u441:
+  2173     069F  2EDC               	goto	l724
+  2174     06A0                     u440:
+  2175     06A0                     l997:
+  2176     06A0  0872               	movf	fputc@fp,w
+  2177     06A1  0084               	movwf	4
+  2178     06A2  1783               	bsf	3,7
+  2179     06A3  1C73               	btfss	fputc@fp+1,0
+  2180     06A4  1383               	bcf	3,7
+  2181     06A5  0800               	movf	0,w
+  2182     06A6  00F4               	movwf	??_fputc
+  2183     06A7  0A84               	incf	4,f
+  2184     06A8  0800               	movf	0,w
+  2185     06A9  00F5               	movwf	??_fputc+1
+  2186     06AA  0872               	movf	fputc@fp,w
+  2187     06AB  3E02               	addlw	2
+  2188     06AC  00F6               	movwf	??_fputc+2
+  2189     06AD  0873               	movf	fputc@fp+1,w
+  2190     06AE  1803               	skipnc
+  2191     06AF  3E01               	addlw	1
+  2192     06B0  3E00               	addlw	0
+  2193     06B1  00F7               	movwf	??_fputc+3
+  2194     06B2  0876               	movf	??_fputc+2,w
+  2195     06B3  0084               	movwf	4
+  2196     06B4  1783               	bsf	3,7
+  2197     06B5  1C77               	btfss	??_fputc+3,0
+  2198     06B6  1383               	bcf	3,7
+  2199     06B7  0800               	movf	0,w
+  2200     06B8  0774               	addwf	??_fputc,w
+  2201     06B9  00F9               	movwf	??_fputc+5
+  2202     06BA  0875               	movf	??_fputc+1,w
+  2203     06BB  00F8               	movwf	??_fputc+4
+  2204     06BC  1803               	skipnc
+  2205     06BD  0AF8               	incf	??_fputc+4,f
+  2206     06BE  1F80               	btfss	0,7
+  2207     06BF  2EC1               	goto	u450
+  2208     06C0  03F8               	decf	??_fputc+4,f
+  2209     06C1                     u450:
+  2210     06C1  0878               	movf	??_fputc+4,w
+  2211     06C2  00FA               	movwf	??_fputc+6
+  2212     06C3  0879               	movf	??_fputc+5,w
+  2213     06C4  0084               	movwf	4
+  2214     06C5  1783               	bsf	3,7
+  2215     06C6  1C7A               	btfss	??_fputc+6,0
+  2216     06C7  1383               	bcf	3,7
+  2217     06C8  0870               	movf	fputc@c,w
+  2218     06C9  0080               	movwf	0
+  2219     06CA  0872               	movf	fputc@fp,w
+  2220     06CB  3E02               	addlw	2
+  2221     06CC  00F4               	movwf	??_fputc
+  2222     06CD  0873               	movf	fputc@fp+1,w
+  2223     06CE  1803               	skipnc
+  2224     06CF  3E01               	addlw	1
+  2225     06D0  3E00               	addlw	0
+  2226     06D1  00F5               	movwf	??_fputc+1
+  2227     06D2  0874               	movf	??_fputc,w
+  2228     06D3  0084               	movwf	4
+  2229     06D4  1783               	bsf	3,7
+  2230     06D5  1C75               	btfss	??_fputc+1,0
+  2231     06D6  1383               	bcf	3,7
+  2232     06D7  3001               	movlw	1
+  2233     06D8  0780               	addwf	0,f
+  2234     06D9  0A84               	incf	4,f
+  2235     06DA  1803               	skipnc
+  2236     06DB  0A80               	incf	0,f
+  2237     06DC                     l724:
+  2238     06DC  0008               	return
+  2239     06DD                     __end_of_fputc:
+  2240                           
+  2241                           	psect	text11
+  2242     03E7                     __ptext11:	
+  2243 ;; *************** function _putch *****************
+  2244 ;; Defined at:
+  2245 ;;		line 7 in file "C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\putch.c"
+  2246 ;; Parameters:    Size  Location     Type
+  2247 ;;  c               1    wreg     unsigned char 
+  2248 ;; Auto vars:     Size  Location     Type
+  2249 ;;  c               1    0[COMMON] unsigned char 
+  2250 ;; Return value:  Size  Location     Type
+  2251 ;;                  1    wreg      void 
+  2252 ;; Registers used:
+  2253 ;;		wreg
+  2254 ;; Tracked objects:
+  2255 ;;		On entry : 0/0
+  2256 ;;		On exit  : 0/0
+  2257 ;;		Unchanged: 0/0
+  2258 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2259 ;;      Params:         0       0       0       0       0
+  2260 ;;      Locals:         0       0       0       0       0
+  2261 ;;      Temps:          0       0       0       0       0
+  2262 ;;      Totals:         0       0       0       0       0
+  2263 ;;Total ram usage:        0 bytes
+  2264 ;; Hardware stack levels used: 1
+  2265 ;; This function calls:
+  2266 ;;		Nothing
+  2267 ;; This function is called by:
+  2268 ;;		_fputc
+  2269 ;; This function uses a non-reentrant model
+  2270 ;;
+  2271                           
+  2272     03E7                     _putch:	
+  2273                           ;psect for function _putch
+  2274                           
+  2275     03E7                     l735:	
+  2276                           ;incstack = 0
+  2277                           ; Regs used in _putch: [wreg]
+  2278                           
+  2279     03E7  0008               	return
+  2280     03E8                     __end_of_putch:
+  2281                           
+  2282                           	psect	text12
+  2283     044D                     __ptext12:	
+  2284 ;; *************** function _enviarString *****************
+  2285 ;; Defined at:
+  2286 ;;		line 103 in file "atividade7.c"
+  2287 ;; Parameters:    Size  Location     Type
+  2288 ;;  s               1    1[COMMON] PTR const unsigned char 
+  2289 ;;		 -> enviarVelocidadeAtualUART@buffer(20), enviarSequenciaUART@buffer(30), 
+  2290 ;; Auto vars:     Size  Location     Type
+  2291 ;;		None
+  2292 ;; Return value:  Size  Location     Type
+  2293 ;;                  1    wreg      void 
+  2294 ;; Registers used:
+  2295 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+  2296 ;; Tracked objects:
+  2297 ;;		On entry : 0/0
+  2298 ;;		On exit  : 0/0
+  2299 ;;		Unchanged: 0/0
+  2300 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2301 ;;      Params:         1       0       0       0       0
+  2302 ;;      Locals:         0       0       0       0       0
+  2303 ;;      Temps:          2       0       0       0       0
+  2304 ;;      Totals:         3       0       0       0       0
+  2305 ;;Total ram usage:        3 bytes
+  2306 ;; Hardware stack levels used: 1
+  2307 ;; Hardware stack levels required when called: 1
+  2308 ;; This function calls:
+  2309 ;;		_enviarChar
+  2310 ;; This function is called by:
+  2311 ;;		_enviarSequenciaUART
+  2312 ;;		_enviarVelocidadeAtualUART
+  2313 ;; This function uses a non-reentrant model
+  2314 ;;
+  2315                           
+  2316     044D                     _enviarString:	
+  2317                           ;psect for function _enviarString
+  2318                           
+  2319     044D                     l1087:	
+  2320                           ;incstack = 0
+  2321                           ; Regs used in _enviarString: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+  2322                           
+  2323                           
+  2324                           ;atividade7.c: 104:     while (*s) {
+  2325     044D  2C60               	goto	l1095
+  2326     044E                     l1089:
+  2327                           
+  2328                           ;atividade7.c: 105:         enviarChar(*s);
+  2329     044E  0871               	movf	enviarString@s,w
+  2330     044F  0084               	movwf	4
+  2331     0450  0800               	movf	0,w
+  2332     0451  120A  118A  23FC  120A  118A  	fcall	_enviarChar
+  2333     0456                     l1091:
+  2334                           
+  2335                           ;atividade7.c: 106:         _delay((unsigned long)((1)*(20000000/4000.0)));
+  2336     0456  3007               	movlw	7
+  2337     0457  00F3               	movwf	??_enviarString+1
+  2338     0458  307D               	movlw	125
+  2339     0459  00F2               	movwf	??_enviarString
+  2340     045A                     u817:
+  2341     045A  0BF2               	decfsz	??_enviarString,f
+  2342     045B  2C5A               	goto	u817
+  2343     045C  0BF3               	decfsz	??_enviarString+1,f
+  2344     045D  2C5A               	goto	u817
+  2345     045E                     l1093:
+  2346                           
+  2347                           ;atividade7.c: 107:         s++;
+  2348     045E  3001               	movlw	1
+  2349     045F  07F1               	addwf	enviarString@s,f
+  2350     0460                     l1095:
+  2351                           
+  2352                           ;atividade7.c: 104:     while (*s) {
+  2353     0460  0871               	movf	enviarString@s,w
+  2354     0461  0084               	movwf	4
+  2355     0462  1383               	bcf	3,7	;select IRP bank0
+  2356     0463  0800               	movf	0,w
+  2357     0464  1D03               	btfss	3,2
+  2358     0465  2C67               	goto	u561
+  2359     0466  2C68               	goto	u560
+  2360     0467                     u561:
+  2361     0467  2C4E               	goto	l1089
+  2362     0468                     u560:
+  2363     0468                     l81:
+  2364     0468  0008               	return
+  2365     0469                     __end_of_enviarString:
+  2366                           
+  2367                           	psect	text13
+  2368     03FC                     __ptext13:	
+  2369 ;; *************** function _enviarChar *****************
+  2370 ;; Defined at:
+  2371 ;;		line 98 in file "atividade7.c"
+  2372 ;; Parameters:    Size  Location     Type
+  2373 ;;  c               1    wreg     unsigned char 
+  2374 ;; Auto vars:     Size  Location     Type
+  2375 ;;  c               1    0[COMMON] unsigned char 
+  2376 ;; Return value:  Size  Location     Type
+  2377 ;;                  1    wreg      void 
+  2378 ;; Registers used:
+  2379 ;;		wreg
+  2380 ;; Tracked objects:
+  2381 ;;		On entry : 0/0
+  2382 ;;		On exit  : 0/0
+  2383 ;;		Unchanged: 0/0
+  2384 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2385 ;;      Params:         0       0       0       0       0
+  2386 ;;      Locals:         1       0       0       0       0
+  2387 ;;      Temps:          0       0       0       0       0
+  2388 ;;      Totals:         1       0       0       0       0
+  2389 ;;Total ram usage:        1 bytes
+  2390 ;; Hardware stack levels used: 1
+  2391 ;; This function calls:
+  2392 ;;		Nothing
+  2393 ;; This function is called by:
+  2394 ;;		_enviarString
+  2395 ;; This function uses a non-reentrant model
+  2396 ;;
+  2397                           
+  2398     03FC                     _enviarChar:	
+  2399                           ;psect for function _enviarChar
+  2400                           
+  2401                           
+  2402                           ;incstack = 0
+  2403                           ; Regs used in _enviarChar: [wreg]
+  2404                           ;enviarChar@c stored from wreg
+  2405     03FC  00F0               	movwf	enviarChar@c
+  2406     03FD                     l1071:
+  2407     03FD                     l72:	
+  2408                           ;atividade7.c: 99:     while (!TXSTAbits.TRMT);
+  2409                           
+  2410     03FD  1683               	bsf	3,5	;RP0=1, select bank1
+  2411     03FE  1303               	bcf	3,6	;RP1=0, select bank1
+  2412     03FF  1C98               	btfss	24,1	;volatile
+  2413     0400  2C02               	goto	u541
+  2414     0401  2C03               	goto	u540
+  2415     0402                     u541:
+  2416     0402  2BFD               	goto	l72
+  2417     0403                     u540:
+  2418     0403                     l1073:
+  2419                           
+  2420                           ;atividade7.c: 100:     TXREG = c;
+  2421     0403  0870               	movf	enviarChar@c,w
+  2422     0404  1283               	bcf	3,5	;RP0=0, select bank0
+  2423     0405  1303               	bcf	3,6	;RP1=0, select bank0
+  2424     0406  0099               	movwf	25	;volatile
+  2425     0407                     l75:
+  2426     0407  0008               	return
+  2427     0408                     __end_of_enviarChar:
+  2428                           
+  2429                           	psect	text14
+  2430     0408                     __ptext14:	
+  2431 ;; *************** function _config_UART *****************
+  2432 ;; Defined at:
+  2433 ;;		line 86 in file "atividade7.c"
+  2434 ;; Parameters:    Size  Location     Type
+  2435 ;;		None
+  2436 ;; Auto vars:     Size  Location     Type
+  2437 ;;		None
+  2438 ;; Return value:  Size  Location     Type
+  2439 ;;                  1    wreg      void 
+  2440 ;; Registers used:
+  2441 ;;		None
+  2442 ;; Tracked objects:
+  2443 ;;		On entry : 0/0
+  2444 ;;		On exit  : 0/0
+  2445 ;;		Unchanged: 0/0
+  2446 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2447 ;;      Params:         0       0       0       0       0
+  2448 ;;      Locals:         0       0       0       0       0
+  2449 ;;      Temps:          0       0       0       0       0
+  2450 ;;      Totals:         0       0       0       0       0
+  2451 ;;Total ram usage:        0 bytes
+  2452 ;; Hardware stack levels used: 1
+  2453 ;; This function calls:
+  2454 ;;		Nothing
+  2455 ;; This function is called by:
+  2456 ;;		_main
+  2457 ;; This function uses a non-reentrant model
+  2458 ;;
+  2459                           
+  2460     0408                     _config_UART:	
+  2461                           ;psect for function _config_UART
+  2462                           
+  2463     0408                     l1153:	
+  2464                           ;incstack = 0
+  2465                           ; Regs used in _config_UART: []
+  2466                           
+  2467                           
+  2468                           ;atividade7.c: 87:     TRISCbits.TRISC6 = 1;
+  2469     0408  1683               	bsf	3,5	;RP0=1, select bank1
+  2470     0409  1303               	bcf	3,6	;RP1=0, select bank1
+  2471     040A  1707               	bsf	7,6	;volatile
+  2472                           
+  2473                           ;atividade7.c: 88:     TRISCbits.TRISC7 = 1;
+  2474     040B  1787               	bsf	7,7	;volatile
+  2475                           
+  2476                           ;atividade7.c: 89:     SPBRG = 129;
+  2477     040C  3081               	movlw	129
+  2478     040D  0099               	movwf	25	;volatile
+  2479                           
+  2480                           ;atividade7.c: 90:     TXSTAbits.BRGH = 1;
+  2481     040E  1518               	bsf	24,2	;volatile
+  2482                           
+  2483                           ;atividade7.c: 91:     TXSTAbits.SYNC = 0;
+  2484     040F  1218               	bcf	24,4	;volatile
+  2485                           
+  2486                           ;atividade7.c: 92:     RCSTAbits.SPEN = 1;
+  2487     0410  1283               	bcf	3,5	;RP0=0, select bank0
+  2488     0411  1303               	bcf	3,6	;RP1=0, select bank0
+  2489     0412  1798               	bsf	24,7	;volatile
+  2490                           
+  2491                           ;atividade7.c: 93:     RCSTAbits.RX9 = 0;
+  2492     0413  1318               	bcf	24,6	;volatile
+  2493                           
+  2494                           ;atividade7.c: 94:     RCSTAbits.CREN = 0;
+  2495     0414  1218               	bcf	24,4	;volatile
+  2496                           
+  2497                           ;atividade7.c: 95:     TXSTAbits.TXEN = 1;
+  2498     0415  1683               	bsf	3,5	;RP0=1, select bank1
+  2499     0416  1303               	bcf	3,6	;RP1=0, select bank1
+  2500     0417  1698               	bsf	24,5	;volatile
+  2501     0418                     l69:
+  2502     0418  0008               	return
+  2503     0419                     __end_of_config_UART:
+  2504                           
+  2505                           	psect	text15
+  2506     03F0                     __ptext15:	
+  2507 ;; *************** function _config_PWM *****************
+  2508 ;; Defined at:
+  2509 ;;		line 73 in file "atividade7.c"
+  2510 ;; Parameters:    Size  Location     Type
+  2511 ;;		None
+  2512 ;; Auto vars:     Size  Location     Type
+  2513 ;;		None
+  2514 ;; Return value:  Size  Location     Type
+  2515 ;;                  1    wreg      void 
+  2516 ;; Registers used:
+  2517 ;;		status,2
+  2518 ;; Tracked objects:
+  2519 ;;		On entry : 0/0
+  2520 ;;		On exit  : 0/0
+  2521 ;;		Unchanged: 0/0
+  2522 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  2523 ;;      Params:         0       0       0       0       0
+  2524 ;;      Locals:         0       0       0       0       0
+  2525 ;;      Temps:          0       0       0       0       0
+  2526 ;;      Totals:         0       0       0       0       0
+  2527 ;;Total ram usage:        0 bytes
+  2528 ;; Hardware stack levels used: 1
+  2529 ;; This function calls:
+  2530 ;;		Nothing
+  2531 ;; This function is called by:
+  2532 ;;		_main
+  2533 ;; This function uses a non-reentrant model
+  2534 ;;
+  2535                           
+  2536     03F0                     _config_PWM:	
+  2537                           ;psect for function _config_PWM
+  2538                           
+  2539     03F0                     l1145:	
+  2540                           ;incstack = 0
+  2541                           ; Regs used in _config_PWM: [status,2]
+  2542                           
+  2543                           
+  2544                           ;atividade7.c: 74:     PR2 = 255;
+  2545     03F0  30FF               	movlw	255
+  2546     03F1  1683               	bsf	3,5	;RP0=1, select bank1
+  2547     03F2  1303               	bcf	3,6	;RP1=0, select bank1
+  2548     03F3  0092               	movwf	18	;volatile
+  2549     03F4                     l1147:
+  2550                           
+  2551                           ;atividade7.c: 75:     CCPR1L = 0;
+  2552     03F4  1283               	bcf	3,5	;RP0=0, select bank0
+  2553     03F5  1303               	bcf	3,6	;RP1=0, select bank0
+  2554     03F6  0195               	clrf	21	;volatile
+  2555     03F7                     l1149:
+  2556                           
+  2557                           ;atividade7.c: 76:     CCP1CON = 0b00001100;
+  2558     03F7  300C               	movlw	12
+  2559     03F8  0097               	movwf	23	;volatile
+  2560     03F9                     l1151:
+  2561                           
+  2562                           ;atividade7.c: 77:     T2CON = 0b00000100;
+  2563     03F9  3004               	movlw	4
+  2564     03FA  0092               	movwf	18	;volatile
+  2565     03FB                     l63:
+  2566     03FB  0008               	return
+  2567     03FC                     __end_of_config_PWM:
+  2568     0002                     ___latbits      equ	2
+  2569     007E                     btemp           set	126	;btemp
+  2570     007E                     wtemp0          set	126
+  2571                           
+  2572                           	psect	config
+  2573                           
+  2574                           ;Config register CONFIG @ 0x2007
+  2575                           ;	Oscillator Selection bits
+  2576                           ;	FOSC = HS, HS oscillator
+  2577                           ;	Watchdog Timer Enable bit
+  2578                           ;	WDTE = OFF, WDT disabled
+  2579                           ;	Power-up Timer Enable bit
+  2580                           ;	PWRTE = OFF, PWRT disabled
+  2581                           ;	FLASH Program Memory Code Protection bits
+  2582                           ;	CP = OFF, Code protection off
+  2583                           ;	Brown-out Reset Enable bit
+  2584                           ;	BOREN = OFF, BOR disabled
+  2585                           ;	Low Voltage In-Circuit Serial Programming Enable bit
+  2586                           ;	LVP = OFF, RB3 is digital I/O, HV on MCLR must be used for programming
+  2587                           ;	Data EE Memory Code Protection
+  2588                           ;	CPD = OFF, Code Protection off
+  2589                           ;	FLASH Program Memory Write Enable
+  2590                           ;	WRT = OFF, Unprotected program memory may not be written to by EECON control
+  2591                           ;	In-Circuit Debugger Mode bit
+  2592                           ;	DEBUG = 0x1, unprogrammed default
+  2593     2007                     	org	8199
+  2594     2007  3D3A               	dw	15674
+
+Data Sizes:
+    Strings     55
+    Constant    0
+    Data        0
+    BSS         53
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14     14      14
+    BANK0            80     72      79
+    BANK1            80      0      46
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    enviarString@s	PTR const unsigned char  size(1) Largest target is 30
+		 -> enviarSequenciaUART@buffer(BANK0[30]), enviarVelocidadeAtualUART@buffer(BANK0[20]), 
+
+    f$.$buffer	PTR unsigned char  size(2) Largest target is 30
+		 -> enviarSequenciaUART@buffer(BANK0[30]), enviarVelocidadeAtualUART@buffer(BANK0[20]), 
+
+    f$.$source	PTR const unsigned char  size(1) Largest target is 0
+
+    fputc@fp	PTR struct _IO_FILE size(2) Largest target is 11
+		 -> snprintf@f(BANK0[11]), 
+
+    fputc@fp$.$buffer	PTR unsigned char  size(2) Largest target is 30
+		 -> enviarSequenciaUART@buffer(BANK0[30]), enviarVelocidadeAtualUART@buffer(BANK0[20]), 
+
+    fputc@fp$.$source	PTR const unsigned char  size(1) Largest target is 0
+
+    memset@dest	PTR void  size(1) Largest target is 10
+		 -> sequencia(BANK1[10]), 
+
+    memset@p	PTR unsigned char  size(1) Largest target is 10
+		 -> sequencia(BANK1[10]), 
+
+    S734$buffer	PTR unsigned char  size(2) Largest target is 30
+		 -> enviarSequenciaUART@buffer(BANK0[30]), enviarVelocidadeAtualUART@buffer(BANK0[20]), 
+
+    S734$source	PTR const unsigned char  size(1) Largest target is 0
+
+    snprintf@ap	PTR void [1] size(1) Largest target is 2
+		 -> ?_snprintf(BANK0[2]), 
+
+    snprintf@fmt	PTR const unsigned char  size(1) Largest target is 23
+		 -> STR_1(CODE[10]), STR_2(CODE[23]), STR_3(CODE[22]), 
+
+    snprintf@s	PTR unsigned char  size(1) Largest target is 30
+		 -> enviarSequenciaUART@buffer(BANK0[30]), enviarVelocidadeAtualUART@buffer(BANK0[20]), 
+
+    sp__memset	PTR void  size(1) Largest target is 10
+		 -> sequencia(BANK1[10]), 
+
+    vfpfcnvrt@ap	PTR PTR void  size(2) Largest target is 1
+		 -> snprintf@ap(BANK0[1]), 
+
+    vfpfcnvrt@cp_813	PTR unsigned char  size(1) Largest target is 10
+		 -> sequencia(BANK1[10]), ?_snprintf(BANK0[2]), 
+
+    vfpfcnvrt@fmt	PTR PTR unsigned char  size(1) Largest target is 1
+		 -> vfprintf@cfmt(COMMON[1]), 
+
+    vfpfcnvrt@fp	PTR struct _IO_FILE size(2) Largest target is 11
+		 -> snprintf@f(BANK0[11]), 
+
+    vfprintf@ap	PTR PTR void  size(1) Largest target is 1
+		 -> snprintf@ap(BANK0[1]), 
+
+    vfprintf@cfmt	PTR unsigned char  size(1) Largest target is 23
+		 -> STR_1(CODE[10]), STR_2(CODE[23]), STR_3(CODE[22]), 
+
+    vfprintf@fmt	PTR const unsigned char  size(1) Largest target is 23
+		 -> STR_1(CODE[10]), STR_2(CODE[23]), STR_3(CODE[22]), 
+
+    vfprintf@fp	PTR struct _IO_FILE size(2) Largest target is 11
+		 -> snprintf@f(BANK0[11]), 
+
+
+Critical Paths under _main in COMMON
+
+    _set_PWM->___wmul
+    _snprintf->_vfprintf
+    _vfpfcnvrt->_fputc
+    _enviarString->_enviarChar
+
+Critical Paths under _main in BANK0
+
+    _main->_enviarSequenciaUART
+    _enviarVelocidadeAtualUART->_snprintf
+    _enviarSequenciaUART->_snprintf
+    _snprintf->_vfprintf
+    _vfprintf->_vfpfcnvrt
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0    3319
+                                             71 BANK0      1     1      0
+                         _config_PWM
+                        _config_UART
+                _enviarSequenciaUART
+          _enviarVelocidadeAtualUART
+                        _ler_teclado
+                             _memset
+                            _set_PWM
+ ---------------------------------------------------------------------------------
+ (1) _set_PWM                                              5     5      0     168
+                                              6 COMMON     5     5      0
+                             ___wmul
+ ---------------------------------------------------------------------------------
+ (2) ___wmul                                               6     2      4      94
+                                              0 COMMON     6     2      4
+ ---------------------------------------------------------------------------------
+ (1) _memset                                               6     1      5      99
+                                              0 COMMON     6     1      5
+ ---------------------------------------------------------------------------------
+ (1) _ler_teclado                                          1     1      0      33
+                                              0 COMMON     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _enviarVelocidadeAtualUART                           22    22      0    1487
+                                             41 BANK0     22    22      0
+                       _enviarString
+                           _snprintf
+ ---------------------------------------------------------------------------------
+ (1) _enviarSequenciaUART                                 30    30      0    1465
+                                             41 BANK0     30    30      0
+                       _enviarString
+                           _snprintf
+ ---------------------------------------------------------------------------------
+ (2) _snprintf                                            25    19      6    1339
+                                             16 BANK0     25    19      6
+                           _vfprintf
+ ---------------------------------------------------------------------------------
+ (3) _vfprintf                                             5     1      4     882
+                                             13 COMMON     1     1      0
+                                             12 BANK0      4     0      4
+                          _vfpfcnvrt
+ ---------------------------------------------------------------------------------
+ (4) _vfpfcnvrt                                           14     9      5     749
+                                              0 BANK0     12     7      5
+                              _fputc
+ ---------------------------------------------------------------------------------
+ (5) _fputc                                               13     9      4     232
+                                              0 COMMON    13     9      4
+                              _putch
+ ---------------------------------------------------------------------------------
+ (6) _putch                                                1     1      0       0
+ ---------------------------------------------------------------------------------
+ (2) _enviarString                                         3     2      1      76
+                                              1 COMMON     3     2      1
+                         _enviarChar
+ ---------------------------------------------------------------------------------
+ (3) _enviarChar                                           1     1      0      29
+                                              0 COMMON     1     1      0
+ ---------------------------------------------------------------------------------
+ (1) _config_UART                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _config_PWM                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 6
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _config_PWM
+   _config_UART
+   _enviarSequenciaUART
+     _enviarString
+       _enviarChar
+     _snprintf
+       _vfprintf
+         _vfpfcnvrt
+           _fputc
+             _putch
+   _enviarVelocidadeAtualUART
+     _enviarString
+     _snprintf
+   _ler_teclado
+   _memset
+   _set_PWM
+     ___wmul
+
+Address spaces:
+Name               Size   Autos  Total    Usage
+BITCOMMON           14      0       0      0.0%
+BITBANK0            80      0       0      0.0%
+BITBANK1            80      0       0      0.0%
+BITBANK3            96      0       0      0.0%
+BITBANK2            96      0       0      0.0%
+COMMON              14     14      14    100.0%
+BANK0               80     72      79     98.8%
+BANK1               80      0      46     57.5%
+BANK3               96      0       0      0.0%
+BANK2               96      0       0      0.0%
+STACK                0      0       0      0.0%
+DATA                 0      0     139      0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
+Symbol Table                                                                                   Fri Feb 14 11:34:27 2025
+
+                                pc 0002                                 l63 03FB  
+                               l72 03FD                                 l81 0468  
+                               l66 04ED                                 l75 0407  
+                               l84 044C                                 l69 0418  
+                               l93 0536                                 l94 053C  
+                               l95 0542                                 l96 054C  
+                               l89 0522                                 l97 0552  
+                               l98 0558                                 l99 055E  
+                               fsr 0004                ___wmul@multiplicand 0072  
+                              l100 0568                                l102 056F  
+                              l190 048D                                l188 0475  
+                              l710 04BC                                l650 0431  
+                              l724 06DC                                l660 0642  
+                              l735 03E7                                l697 07E9  
+                              l991 064F                                l993 0656  
+                              l995 066E                                l987 0643  
+                              l997 06A0                                l989 0649  
+                              u410 0649                                u411 0648  
+                              u420 064F                                u500 076D  
+                              u421 064E                                u501 076C  
+                              u430 066E                                u510 077C  
+                              _PR2 0092                                u431 066D  
+                              u511 077B                                u440 06A0  
+                              u520 0786                                u600 0614  
+                              u441 069F                                u521 0785  
+                              u601 0613                                u450 06C1  
+                              u530 07BE                                u610 062A  
+                              u531 07BD                                u611 0629  
+                              u540 0403                                u460 06EF  
+                              u700 0540                                u620 046F  
+                              u541 0402                                u445 069C  
+                              u461 06EE                                u701 053F  
+                              u621 046E                                u470 0711  
+                              u550 04B8                                u710 054A  
+                              u471 0710                                u551 04B7  
+                              u615 0626                                u711 0549  
+                              u560 0468                                u480 0749  
+                              u720 0550                                u800 05A2  
+                              u561 0467                                u481 0748  
+                              u721 054F                                u801 05A1  
+                              u490 075E                                u570 05D0  
+                              u730 0556                                u650 0489  
+                              u491 075D                                u571 05CF  
+                              u731 0555                                u651 0488  
+                              u635 0476                                u580 05E4  
+                              u740 055C                                u660 0431  
+                              u581 05E3                                u741 055B  
+                              u661 0430                                u645 047D  
+                              u590 0610                                u750 0566  
+                              u670 052F                                u591 060F  
+                              u751 0565                                u671 052E  
+                              u760 056C                                u680 0534  
+                              u817 045A                                u761 056B  
+                              u681 0533                                u690 053A  
+                              u691 0539                                u780 04F5  
+                              u781 04F4                                u790 059C  
+                              u775 04E4                                u791 059B  
+      __end_of_enviarSequenciaUART 044D                                fsr0 0004  
+                              indf 0000                               l1001 06DD  
+                             l1011 0701                               l1003 06E1  
+                             l1013 0711                               l1005 06EF  
+                             l1031 0750                               l1015 0715  
+                             l1023 073A                               l1007 06F3  
+                             l1111 05EC                               l1103 05D5  
+                             l1033 075E                               l1041 0781  
+                             l1025 073B                               l1017 0723  
+                             l1009 06FB                               l1121 0614  
+                             l1113 05EF                               l1105 05D7  
+                             l1201 04EE                               l1051 07B6  
+                             l1043 0786                               l1035 076D  
+                             l1027 0749                               l1019 0733  
+                             l1123 062A                               l1115 05F7  
+                             l1107 05DB                               l1203 04F5  
+                             l1131 0469                               l1211 0577  
+                             l1053 07BE                               l1045 079A  
+                             l1037 077C                               l1029 074D  
+                             l1125 0635                               l1117 060A  
+                             l1109 05E4                               l1205 050E  
+                             l1141 0489                               l1133 046B  
+                             l1221 05A2                               l1213 0581  
+                             l1151 03F9                               l1071 03FD  
+                             l1047 07AC                               l1063 07CA  
+                             l1127 063B                               l1119 0610  
+                             l1207 051B                               l1135 046F  
+                             l1231 05BC                               l1223 05A9  
+                             l1215 058F                               l1145 03F0  
+                             l1153 0408                               l1073 0403  
+                             l1065 07E2                               l1049 07B4  
+                             l1057 07C3                               l1081 04AC  
+                             l1161 0423                               l1137 047C  
+                             l1225 05AB                               l1217 0597  
+                             l1209 0570                               l1147 03F4  
+                             l1091 0456                               l1059 07C7  
+                             l1083 04B8                               l1075 048E  
+                             l1171 053A                               l1163 0523  
+                             l1155 0419                               l1139 0483  
+                             l1227 05AF                               l1219 059C  
+                             l1149 03F7                               l1093 045E  
+                             l1077 0492                               l1181 055C  
+                             l1173 0540                               l1165 052F  
+                             l1157 041C                               l1229 05B4  
+                             l1095 0460                               l1087 044D  
+                             l1079 0495                               l1191 0432  
+                             l1183 0566                               l1175 054A  
+                             l1167 0530                               l1159 0421  
+                             l1089 044E                               l1097 05C5  
+                             l1193 0445                               l1185 056C  
+                             l1177 0550                               l1169 0534  
+                             l1099 05D0                               l1187 056E  
+                             l1179 0556                               l1195 04BE  
+                             l1197 04D2                               l1199 04E0  
+                             STR_1 0036                               STR_2 0009  
+                             STR_3 0020                               _dbuf 00A0  
+                             _main 0570                               _prec 00C2  
+                             _nout 0068                               btemp 007E  
+                     _snprintf$771 0039                               start 0000  
+  enviarVelocidadeAtualUART@buffer 004B                       ?_ler_teclado 0070  
+                            ?_main 0070                              _T2CON 0012  
+                     vfpfcnvrt@cnt 0027                       vfpfcnvrt@fmt 0022  
+                            _SPBRG 0099                              _TRISB 0086  
+                            _TRISD 0088                              _TXREG 0019  
+                            _flags 006C                              _errno 006A  
+                            _fputc 0643                              _width 00C0  
+                            _putch 03E7                    __end_of_set_PWM 04EE  
+                            pclath 000A                      ?_enviarString 0071  
+                            status 0003                              wtemp0 007E  
+                  __initialization 07EA                       __end_of_main 05C5  
+                      enviarChar@c 0070  __end_of_enviarVelocidadeAtualUART 0523  
+                 _velocidade_atual 006D                   ler_teclado@tecla 0070  
+                           ??_main 007E                             ?_fputc 0070  
+                           _CCPR1L 0015                             ?_putch 0070  
+                   ??_enviarString 0072                      vfpfcnvrt@done 002A  
+                     vfprintf@cfmt 007D                             ___wmul 0469  
+                           _memset 0419                             fputc@c 0070  
+                        ??_set_PWM 0076                             putch@c 0070  
+                 __end_of_vfprintf 04BD                   __end_of_snprintf 0643  
+          __end_of__initialization 07FC                     __pcstackCOMMON 0070  
+                    __end_of_fputc 06DD                      __end_of_putch 03E8  
+                          ??_fputc 0074                            ??_putch 0070  
+                       __pbssBANK0 0068                         __pbssBANK1 00A0  
+                       __pmaintext 0570                            ?___wmul 0070  
+                          _CCP1CON 0017                            ?_memset 0070  
+             __end_of_enviarString 0469                         _config_PWM 03F0  
+                       __stringtab 0003                         _enviarChar 03FC  
+                set_PWM@duty_cycle 0079                          ?_vfprintf 002C  
+                        ?_snprintf 0030                            __ptext1 04BD  
+                          __ptext2 0469                            __ptext3 0419  
+                          __ptext4 0523                            __ptext5 04EE  
+                          __ptext6 0432                            __ptext7 05C5  
+                          __ptext8 048E                            __ptext9 06DD  
+                          _set_PWM 04BD                            _posicao 006E  
+                          clrloop0 03E9               end_of_initialization 07FC  
+                          fputc@fp 0072                            memset@c 0071  
+                set_PWM@velocidade 0078                            memset@n 0073  
+                          memset@p 0075                  __end_of_vfpfcnvrt 07EA  
+                        _RCSTAbits 0018                         ??_vfprintf 007D  
+                       ??_snprintf 0036         ?_enviarVelocidadeAtualUART 0070  
+                        _PORTBbits 0006                          _PORTDbits 0008  
+                      ?_config_PWM 0070                          _TRISCbits 0087  
+                    ??_config_UART 0070                          _TXSTAbits 0098  
+                      ?_enviarChar 0070                        vfpfcnvrt@ap 0023  
+                      vfpfcnvrt@fp 0020                     __end_of___wmul 048E  
+                   __end_of_memset 0432                start_initialization 07EA  
+                     _enviarString 044D                        vfprintf@fmt 002E  
+                         ??___wmul 0074                __end_of_config_UART 0419  
+                    ??_ler_teclado 0070                _enviarSequenciaUART 0432  
+                         ??_memset 0075                      enviarString@s 0071  
+                       memset@dest 0070                          ___latbits 0002  
+                    __pcstackBANK0 0020                        snprintf@cnt 003C  
+                      snprintf@fmt 0033               ?_enviarSequenciaUART 0070  
+                        __pstrings 0003                __end_of_ler_teclado 0570  
+                         ?_set_PWM 0070              ??_enviarSequenciaUART 007E  
+                   ___wmul@product 0074                          clear_ram0 03E8  
+                      _config_UART 0408                    vfpfcnvrt@cp_813 002B  
+                        _sequencia 00C4                          _vfpfcnvrt 06DD  
+      ??_enviarVelocidadeAtualUART 0049                        __stringbase 0008  
+                ___wmul@multiplier 0070                       ??_config_PWM 0070  
+                        main@tecla 0067                         vfpfcnvrt@c 0029  
+                     ??_enviarChar 0070                         vfprintf@ap 002F  
+                       vfprintf@fp 002C                 __end_of_config_PWM 03FC  
+                      _ler_teclado 0523                         ?_vfpfcnvrt 0020  
+                       snprintf@ap 003B                 __end_of__stringtab 0009  
+               __end_of_enviarChar 0408                           __ptext10 0643  
+                         __ptext11 03E7                           __ptext12 044D  
+                         __ptext13 03FC                           __ptext14 0408  
+                         __ptext15 03F0          _enviarVelocidadeAtualUART 04EE  
+                         _vfprintf 048E                           _snprintf 05C5  
+                        snprintf@f 003E                          snprintf@n 0031  
+                        snprintf@s 0030          enviarSequenciaUART@buffer 0049  
+                        stringcode 0003                        ??_vfpfcnvrt 0025  
+                         stringdir 0003                           stringtab 0003  
+                     ?_config_UART 0070  

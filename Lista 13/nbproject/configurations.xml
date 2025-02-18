@@ -18,7 +18,7 @@
                    displayName="Source Files"
                    projectFiles="true">
     </logicalFolder>
-    <itemPath>atividade10.c</itemPath>
+    <itemPath>atividade13.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
