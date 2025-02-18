@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.50\pic\dat\20240725155939_en.msgs \
   -cn -h+dist/default/production\Lista_12a.production.sym \
   --cmf=dist/default/production\Lista_12a.production.cmf -z -Q16F877 \
-  -oC:\Users\Yan\AppData\Local\Temp\xcAs21u8.\driver_tmp_3.o \
+  -oC:\Users\Yan\AppData\Local\Temp\xcAsbu0.\driver_tmp_3.o \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/Lista_12a.production.map \
-  --md=C:\Users\Yan\AppData\Local\Temp\xcAs21u8.\driver_tmp_0.dat -E1 \
+  --md=C:\Users\Yan\AppData\Local\Temp\xcAsbu0.\driver_tmp_0.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh \
   -ASTRING=00h-0FFhx32 -ACONST=00h-0FFhx32 -AENTRY=00h-0FFhx32 \
   -ACOMMON=070h-07Fh -ABANK0=020h-06Fh -ABANK1=0A0h-0EFh \
@@ -22,7 +22,7 @@ Linker command line:
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,sivt,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -k \
-  C:\Users\Yan\AppData\Local\Temp\xcAs21u8.\driver_tmp_12.o \
+  C:\Users\Yan\AppData\Local\Temp\xcAsbu0.\driver_tmp_12.o \
   dist/default/production\Lista_12a.production.o 
 
 Object code version is 3.11
@@ -32,7 +32,7 @@ Machine type is 16F877
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Yan\AppData\Local\Temp\xcAs21u8.\driver_tmp_12.o
+C:\Users\Yan\AppData\Local\Temp\xcAsbu0.\driver_tmp_12.o
                 end_init                              0        0        3        0       0
                 config                             2007     2007        1        0       4
 dist/default/production\Lista_12a.production.o
@@ -50,7 +50,7 @@ dist/default/production\Lista_12a.production.o
                 text1                               5E1      5E1       1C      BC2       0
                 maintext                            771      771       8B      EE2       0
                 cstackCOMMON                         70       70        D       70       1
-                strings                               3        3       2C        6       0
+                strings                               3        3       30        6       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
@@ -71,7 +71,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   STRCODE        
 
         CLASS   STRING         
-                strings                               3        3       2C         0
+                strings                               3        3       30         0
 
         CLASS   CONST          
 
@@ -117,7 +117,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                strings                        000003  00002C  00002F         6       0  STRING      2
+                strings                        000003  000030  000033         6       0  STRING      2
                 cstackCOMMON                   000070  00000D  00007D        70       1  COMMON      1
                 text7                          0005A6  000006  0005AC       B4C       0  CODE        2
                 text10                         0005AC  00000E  0005BA       B58       0  CODE        2
@@ -140,13 +140,13 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             002F-05A5            577           2
+        CODE             0033-05A5            573           2
                          0800-1FFF            800
         COMMON           007D-007D              1           1
-        CONST            002F-05A5            100           2
+        CONST            0033-05A5            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            002F-05A5            100           2
+        ENTRY            0033-05A5            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -157,9 +157,9 @@ UNUSED ADDRESS RANGES
         SFR1             0080-009F             20           1
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
-        STRCODE          002F-05A5            577           2
+        STRCODE          0033-05A5            573           2
                          0800-1FFF           1800
-        STRING           002F-05A5            100           2
+        STRING           0033-05A5            100           2
                          0800-1FFF            100
 
                                   Symbol Table
@@ -188,7 +188,7 @@ _LCD_Clear               text5        05BA
 _LCD_Cmd                 text6        061B
 _LCD_Init                text4        0687
 _LCD_SetCursor           text3        05FD
-_LCD_SetCursor$195       cstackCOMMON 0075
+_LCD_SetCursor$204       cstackCOMMON 0075
 _LCD_String              text1        05E1
 _OPTION_REGbits          (abs)        0081
 _PORTC                   (abs)        0007
@@ -197,8 +197,10 @@ _RB0                     (abs)        0030
 _RB1                     (abs)        0031
 _RB2                     (abs)        0032
 _RB3                     (abs)        0033
+_RCSTA                   (abs)        0018
 _RE0                     (abs)        0048
 _RE1                     (abs)        0049
+_SPBRG                   (abs)        0099
 _TRISC                   (abs)        0087
 _TRISD4                  (abs)        0444
 _TRISD5                  (abs)        0445
@@ -206,6 +208,9 @@ _TRISD6                  (abs)        0446
 _TRISD7                  (abs)        0447
 _TRISE0                  (abs)        0448
 _TRISE1                  (abs)        0449
+_TXIF                    (abs)        0064
+_TXREG                   (abs)        0019
+_TXSTA                   (abs)        0098
 __H__absolute__          __absolute__ 0000
 __Habs1                  abs1         0000
 __Hbank0                 bank0        0000

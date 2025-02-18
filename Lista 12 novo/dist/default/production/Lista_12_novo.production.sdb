@@ -1,0 +1,89 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 0 ]
+"26 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 12 novo\atividade10.c
+[v _main main `(v  1 e 1 0 ]
+"50
+[v _configurar_teclado configurar_teclado `(v  1 e 1 0 ]
+"56
+[v _ler_teclado ler_teclado `(uc  1 e 1 0 ]
+"80
+[v _configurar_uart configurar_uart `(v  1 e 1 0 ]
+"86
+[v _uart_enviar_caractere uart_enviar_caractere `(v  1 e 1 0 ]
+"91
+[v _uart_enviar_string uart_enviar_string `(v  1 e 1 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+[s S48 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"233 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
+[u S57 . 1 `S48 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES57  1 e 1 @6 ]
+"278
+[v _PORTC PORTC `VEuc  1 e 1 @7 ]
+"959
+[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
+"1054
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1370
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"1432
+[v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1987
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"2068
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+"2834
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
+"26 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 12 novo\atividade10.c
+[v _main main `(v  1 e 1 0 ]
+{
+"31
+[v main@tecla tecla `uc  1 a 1 5 ]
+"45
+} 0
+"86
+[v _uart_enviar_caractere uart_enviar_caractere `(v  1 e 1 0 ]
+{
+[v uart_enviar_caractere@c c `uc  1 p 1 wreg ]
+[v uart_enviar_caractere@c c `uc  1 p 1 wreg ]
+[v uart_enviar_caractere@c c `uc  1 p 1 0 ]
+"89
+} 0
+"56
+[v _ler_teclado ler_teclado `(uc  1 e 1 0 ]
+{
+"64
+[v ler_teclado@linha linha `uc  1 a 1 2 ]
+"57
+[v ler_teclado@matriz_teclas matriz_teclas `DC[4][4]uc  1 s 16 matriz_teclas ]
+"75
+} 0
+"80
+[v _configurar_uart configurar_uart `(v  1 e 1 0 ]
+{
+"84
+} 0
+"50
+[v _configurar_teclado configurar_teclado `(v  1 e 1 0 ]
+{
+"54
+} 0

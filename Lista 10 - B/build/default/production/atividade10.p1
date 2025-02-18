@@ -384,7 +384,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;atividade10.c: 36:             contagem_overflows = 0;
 [e = _motor_ativo -> -> 0 `i `uc ]
 "37
-[; ;atividade10.c: 37:             tempo_alvo_overflows = 19;
+[; ;atividade10.c: 37:             tempo_alvo_overflows = 20;
 }
 [e :U 97 ]
 "38
@@ -418,7 +418,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _contagem_overflows -> -> 0 `i `uc ]
 "48
 [; ;atividade10.c: 48: 
-[e = _tempo_alvo_overflows -> -> 19 `i `uc ]
+[e = _tempo_alvo_overflows -> -> 20 `i `uc ]
 "49
 [; ;atividade10.c: 49:     static unsigned char rb1_anterior = 1;
 [e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
@@ -453,7 +453,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;atividade10.c: 58:                 motor_ativo = 1;
 [e ( _configurar_interrupcoes ..  ]
 "60
-[; ;atividade10.c: 60:                 tempo_alvo_overflows = 38;
+[; ;atividade10.c: 60:                 tempo_alvo_overflows = 39;
 [v F959 `uc ~T0 @X0 1 s rb1_anterior ]
 [i F959
 -> -> 1 `i `uc
@@ -488,7 +488,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _contagem_overflows -> -> 0 `i `uc ]
 "71
 [; ;atividade10.c: 71:     PORTD = 0x00;
-[e = _tempo_alvo_overflows -> -> 38 `i `uc ]
+[e = _tempo_alvo_overflows -> -> 39 `i `uc ]
 "72
 [; ;atividade10.c: 72:     TRISBbits.TRISB0 = 1;
 [e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]

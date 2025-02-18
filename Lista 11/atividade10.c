@@ -38,15 +38,27 @@
 #define LCD_D7_DIR TRISD7
 
 // DEFINIÇÕES DO TECLADO 4x4
-#define KEYPAD_ROW0   RC0
-#define KEYPAD_ROW1   RC1
-#define KEYPAD_ROW2   RC2
-#define KEYPAD_ROW3   RC3
+//#define KEYPAD_ROW0   RC0
+//#define KEYPAD_ROW1   RC1
+//#define KEYPAD_ROW2   RC2
+//#define KEYPAD_ROW3   RC3
+//
+//#define KEYPAD_COL0   RB0
+//#define KEYPAD_COL1   RB1
+//#define KEYPAD_COL2   RB2
+//#define KEYPAD_COL3   RB3
 
-#define KEYPAD_COL0   RB0
-#define KEYPAD_COL1   RB1
-#define KEYPAD_COL2   RB2
-#define KEYPAD_COL3   RB3
+#define KEYPAD_ROW0   PORTCbits.RC0
+#define KEYPAD_ROW1   PORTCbits.RC1
+#define KEYPAD_ROW2   PORTCbits.RC2
+#define KEYPAD_ROW3   PORTCbits.RC3
+
+#define KEYPAD_COL0   PORTBbits.RB0
+#define KEYPAD_COL1   PORTBbits.RB1
+#define KEYPAD_COL2   PORTBbits.RB2
+#define KEYPAD_COL3   PORTBbits.RB3
+
+
 
 #define EEPROM_ADDR 0x00
 
@@ -103,8 +115,15 @@ void main(void)
             LCD_SetCursor(2, 1);
             LCD_Char(eeprom_value);
             (void)Keypad_GetChar();
-            LCD_Clear();
-            continue;
+//            LCD_Clear();
+//            continue;
+            
+            if(key_pressed != 'E')
+            {       
+                    LCD_Clear();
+                    continue;
+            }    
+            
         }
 
         previous_key = key_pressed;

@@ -1829,6 +1829,11 @@ char Keypad_GetChar(void);
 void EEPROM_Write(uint8_t address, uint8_t data);
 uint8_t EEPROM_Read(uint8_t address);
 
+void configurar_uart();
+void uart_enviar_caractere(char c);
+void uart_enviar_string(const char *str);
+void uart_enviar_valor(unsigned int valor);
+
 
 void main(void)
 {
@@ -1998,4 +2003,29 @@ uint8_t EEPROM_Read(uint8_t address)
     EECON1bits.RD = 1;
     __nop();
     return EEDATA;
+}
+
+
+
+void configurar_uart() {
+    TXSTA = 0x24;
+    RCSTA = 0x90;
+    SPBRG = 12;
+}
+
+void uart_enviar_caractere(char c) {
+    while (!TXIF);
+    TXREG = c;
+}
+
+void uart_enviar_string(const char *str) {
+    while (*str) {
+        uart_enviar_caractere(*str++);
+    }
+}
+
+void uart_enviar_valor(unsigned int valor) {
+    char buffer[10];
+    sprintf(buffer, "%u ", valor);
+    uart_enviar_string(buffer);
 }

@@ -3,28 +3,34 @@
 [d edition pro ]
 [d chip 16F877 ]
 [d frameptr 0 ]
-"65 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 12a\atividade10.c
+"70 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 12a\atividade10.c
 [v _main main `(v  1 e 1 0 ]
-"112
+"117
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
-"133
+"138
 [v _LCD_Cmd LCD_Cmd `(v  1 e 1 0 ]
-"145
+"150
 [v _LCD_Char LCD_Char `(v  1 e 1 0 ]
-"157
-[v _LCD_String LCD_String `(v  1 e 1 0 ]
 "162
+[v _LCD_String LCD_String `(v  1 e 1 0 ]
+"167
 [v _LCD_Clear LCD_Clear `(v  1 e 1 0 ]
-"168
+"173
 [v _LCD_SetCursor LCD_SetCursor `(v  1 e 1 0 ]
-"183
+"188
 [v _Keypad_Init Keypad_Init `(v  1 e 1 0 ]
-"189
+"194
 [v _Keypad_GetChar Keypad_GetChar `(uc  1 e 1 0 ]
-"207
+"212
 [v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
-"226
+"231
 [v _EEPROM_Read EEPROM_Read `(uc  1 e 1 0 ]
+"248
+[v _uart_enviar_caractere uart_enviar_caractere `(v  1 e 1 0 ]
+"253
+[v _uart_enviar_string uart_enviar_string `(v  1 e 1 0 ]
+"9 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.50\pic\sources\c99\common\Umul8_16.c
@@ -33,7 +39,7 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"175 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 12a\atividade10.c
+"180 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 12a\atividade10.c
 [v _keypad_map keypad_map `DC[4][4]uc  1 s 16 keypad_map ]
 "278 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC16Fxxx_DFP/1.6.156/xc8\pic\include\proc\pic16f877.h
 [v _PORTC PORTC `VEuc  1 e 1 @7 ]
@@ -56,6 +62,10 @@
 ]
 [u S150 . 1 `S136 1 . 1 0 `S145 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES150  1 e 1 @11 ]
+"959
+[v _RCSTA RCSTA `VEuc  1 e 1 @24 ]
+"1054
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
 [s S86 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
@@ -72,6 +82,10 @@
 [v _OPTION_REGbits OPTION_REGbits `VES97  1 e 1 @129 ]
 "1432
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
+"1987
+[v _TXSTA TXSTA `VEuc  1 e 1 @152 ]
+"2068
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2135
 [v _EEDATA EEDATA `VEuc  1 e 1 @268 ]
 "2142
@@ -112,92 +126,94 @@
 [v _TRISE0 TRISE0 `VEb  1 e 0 @1096 ]
 "2807
 [v _TRISE1 TRISE1 `VEb  1 e 0 @1097 ]
-"65 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 12a\atividade10.c
+"2834
+[v _TXIF TXIF `VEb  1 e 0 @100 ]
+"70 C:\Users\Yan\Documents\GitHub\Microcontroladores\Lista 12a\atividade10.c
 [v _main main `(v  1 e 1 0 ]
 {
-"67
+"72
 [v main@key_pressed key_pressed `uc  1 a 1 12 ]
-"68
+"73
 [v main@previous_key previous_key `uc  1 a 1 11 ]
-"69
+"74
 [v main@eeprom_value eeprom_value `uc  1 a 1 10 ]
-"109
+"114
 } 0
-"157
+"162
 [v _LCD_String LCD_String `(v  1 e 1 0 ]
 {
 [v LCD_String@str str `*.24DCuc  1 p 1 3 ]
-"160
+"165
 } 0
-"145
+"150
 [v _LCD_Char LCD_Char `(v  1 e 1 0 ]
 {
 [v LCD_Char@data data `uc  1 p 1 wreg ]
 [v LCD_Char@data data `uc  1 p 1 wreg ]
-"147
+"152
 [v LCD_Char@data data `uc  1 p 1 2 ]
-"155
+"160
 } 0
-"168
+"173
 [v _LCD_SetCursor LCD_SetCursor `(v  1 e 1 0 ]
 {
 [v LCD_SetCursor@row row `uc  1 p 1 wreg ]
-"170
+"175
 [v LCD_SetCursor@address address `uc  1 a 1 7 ]
-"168
+"173
 [v LCD_SetCursor@row row `uc  1 p 1 wreg ]
 [v LCD_SetCursor@col col `uc  1 p 1 3 ]
-"170
+"175
 [v LCD_SetCursor@row row `uc  1 p 1 4 ]
-"172
+"177
 } 0
-"112
+"117
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
 {
-"131
+"136
 } 0
-"162
+"167
 [v _LCD_Clear LCD_Clear `(v  1 e 1 0 ]
 {
-"166
+"171
 } 0
-"133
+"138
 [v _LCD_Cmd LCD_Cmd `(v  1 e 1 0 ]
 {
 [v LCD_Cmd@cmd cmd `uc  1 p 1 wreg ]
 [v LCD_Cmd@cmd cmd `uc  1 p 1 wreg ]
-"135
+"140
 [v LCD_Cmd@cmd cmd `uc  1 p 1 2 ]
-"143
+"148
 } 0
-"183
+"188
 [v _Keypad_Init Keypad_Init `(v  1 e 1 0 ]
 {
-"187
+"192
 } 0
-"189
+"194
 [v _Keypad_GetChar Keypad_GetChar `(uc  1 e 1 0 ]
 {
-"193
+"198
 [v Keypad_GetChar@row row `uc  1 a 1 1 ]
-"204
+"209
 } 0
-"207
+"212
 [v _EEPROM_Write EEPROM_Write `(v  1 e 1 0 ]
 {
 [v EEPROM_Write@address address `uc  1 p 1 wreg ]
 [v EEPROM_Write@address address `uc  1 p 1 wreg ]
 [v EEPROM_Write@data data `uc  1 p 1 0 ]
-"210
+"215
 [v EEPROM_Write@address address `uc  1 p 1 1 ]
-"224
+"229
 } 0
-"226
+"231
 [v _EEPROM_Read EEPROM_Read `(uc  1 e 1 0 ]
 {
 [v EEPROM_Read@address address `uc  1 p 1 wreg ]
 [v EEPROM_Read@address address `uc  1 p 1 wreg ]
-"228
-[v EEPROM_Read@address address `uc  1 p 1 0 ]
 "233
+[v EEPROM_Read@address address `uc  1 p 1 0 ]
+"238
 } 0

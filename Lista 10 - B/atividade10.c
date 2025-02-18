@@ -45,7 +45,7 @@ void __interrupt() isr(void)
         {
             motor_ativo = 1;
             contagem_overflows = 0;
-            tempo_alvo_overflows = 19;
+            tempo_alvo_overflows = 20;   // original era 19
             MOTOR_PIN = 1;
         }
     }
@@ -68,7 +68,7 @@ void main(void)
             {
                 motor_ativo = 1;
                 contagem_overflows = 0;
-                tempo_alvo_overflows = 38;
+                tempo_alvo_overflows = 39;  // original era 38
                 MOTOR_PIN = 1;
             }
         }

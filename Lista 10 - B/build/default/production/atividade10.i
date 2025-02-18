@@ -1844,7 +1844,7 @@ void __attribute__((picinterrupt(("")))) isr(void)
         {
             motor_ativo = 1;
             contagem_overflows = 0;
-            tempo_alvo_overflows = 19;
+            tempo_alvo_overflows = 20;
             PORTDbits.RD0 = 1;
         }
     }
@@ -1867,7 +1867,7 @@ void main(void)
             {
                 motor_ativo = 1;
                 contagem_overflows = 0;
-                tempo_alvo_overflows = 38;
+                tempo_alvo_overflows = 39;
                 PORTDbits.RD0 = 1;
             }
         }

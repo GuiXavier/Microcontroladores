@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.50 build 20240725155939 
-                                                                                               Tue Feb 11 14:31:56 2025
+                                                                                               Mon Feb 17 14:47:08 2025
 
 Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1 
      1                           	processor	16F877
@@ -381,7 +381,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    367     0042                     l681:
    368                           
    369                           ;atividade10.c: 71:     PORTD = 0x00;
-   370     0042  3026               	movlw	38
+   370     0042  3027               	movlw	39
    371     0043  00F1               	movwf	_tempo_alvo_overflows	;volatile
    372     0044                     l683:
    373                           
@@ -709,7 +709,7 @@ Microchip MPLAB XC8 C Compiler v2.50 (Free license) build 20240725155939 Og1
    695     006E                     i1l659:
    696                           
    697                           ;atividade10.c: 48: 
-   698     006E  3013               	movlw	19
+   698     006E  3014               	movlw	20
    699     006F  00F1               	movwf	_tempo_alvo_overflows	;volatile
    700     0070                     i1l661:
    701                           
@@ -879,7 +879,7 @@ STACK                0      0       0      0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.50 build 20240725155939 
-Symbol Table                                                                                   Tue Feb 11 14:31:56 2025
+Symbol Table                                                                                   Mon Feb 17 14:47:08 2025
 
                              l61 0085                               l64 0092                               l67 009B  
                              u60 0035                               u61 0034                               u70 003A  

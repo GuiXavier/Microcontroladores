@@ -1810,7 +1810,7 @@ extern __bank0 __bit __timeout;
 #pragma config CPD = OFF
 #pragma config WRT = OFF
 #pragma config CP = OFF
-# 54 "atividade10.c"
+# 66 "atividade10.c"
 void LCD_Init(void);
 void LCD_Cmd(unsigned char cmd);
 void LCD_Char(char data);
@@ -1863,8 +1863,15 @@ void main(void)
             LCD_SetCursor(2, 1);
             LCD_Char(eeprom_value);
             (void)Keypad_GetChar();
-            LCD_Clear();
-            continue;
+
+
+
+            if(key_pressed != 'E')
+            {
+                    LCD_Clear();
+                    continue;
+            }
+
         }
 
         previous_key = key_pressed;
@@ -1958,10 +1965,10 @@ char Keypad_GetChar(void)
             PORTC = ~(1 << row);
             _delay((unsigned long)((50)*(20000000UL/4000000.0)));
 
-            if(RB0 == 0) { while(RB0==0); return keypad_map[row][0]; }
-            if(RB1 == 0) { while(RB1==0); return keypad_map[row][1]; }
-            if(RB2 == 0) { while(RB2==0); return keypad_map[row][2]; }
-            if(RB3 == 0) { while(RB3==0); return keypad_map[row][3]; }
+            if(PORTBbits.RB0 == 0) { while(PORTBbits.RB0==0); return keypad_map[row][0]; }
+            if(PORTBbits.RB1 == 0) { while(PORTBbits.RB1==0); return keypad_map[row][1]; }
+            if(PORTBbits.RB2 == 0) { while(PORTBbits.RB2==0); return keypad_map[row][2]; }
+            if(PORTBbits.RB3 == 0) { while(PORTBbits.RB3==0); return keypad_map[row][3]; }
         }
     }
 }
